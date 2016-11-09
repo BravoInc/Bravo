@@ -17,6 +17,9 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## Swap files
+*.swp
+
 ## Other
 *.moved-aside
 *.xcuserstate
