@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */; };
+		64DBDF3B1DD7B7CD00D1D378 /* TeamSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3A1DD7B7CD00D1D378 /* TeamSelectionViewController.swift */; };
+		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
+		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
 		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.release.xcconfig"; sourceTree = "<group>"; };
+		64DBDF3A1DD7B7CD00D1D378 /* TeamSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewController.swift; sourceTree = "<group>"; };
+		64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
+		64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSearchViewController.swift; sourceTree = "<group>"; };
 		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
@@ -47,6 +53,17 @@
 				65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		641B235F1DD7B6B600D3BC14 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */,
+				64DBDF3A1DD7B7CD00D1D378 /* TeamSelectionViewController.swift */,
+				64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */,
+				64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7C17C0AE10C0E1A673D26383 /* Pods */ = {
@@ -86,10 +103,10 @@
 		EEF36DAC1DD1855C0032BCE6 /* Bravo */ = {
 			isa = PBXGroup;
 			children = (
+				641B235F1DD7B6B600D3BC14 /* View Controllers */,
 				EE2D5B451DD7AD4900622176 /* Models */,
 				EE2D5B441DD7AC9500622176 /* Bravo.entitlements */,
 				EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */,
-				EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */,
 				EEF36DB11DD1855C0032BCE6 /* Main.storyboard */,
 				EEF36DB41DD1855C0032BCE6 /* Assets.xcassets */,
 				EEF36DB61DD1855C0032BCE6 /* LaunchScreen.storyboard */,
@@ -227,8 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
+				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
+				64DBDF3B1DD7B7CD00D1D378 /* TeamSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
