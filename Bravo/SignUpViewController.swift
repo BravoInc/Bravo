@@ -56,15 +56,13 @@ class SignUpViewController: UIViewController {
                     print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
                 } else {
                     print("--- Parse signUpInBackground SUCCESS NEW USER \(self.usernameTextField.text)")
-                    self.onLogin()
-                    
+                    self.onLogin() // must login after account creation
                 }
-                
             } // signUpInBackground
             
+        }else{ // login only
+            onLogin()
         }
-        
-        onLogin()
         
     } // onSignUp
     
