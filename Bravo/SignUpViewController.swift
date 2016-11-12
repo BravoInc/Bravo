@@ -57,6 +57,7 @@ class SignUpViewController: UIViewController {
                 } else {
                     print("--- Parse signUpInBackground SUCCESS NEW USER \(self.usernameTextField.text)")
                     self.onLogin()
+                    
                 }
                 
             } // signUpInBackground
@@ -75,6 +76,13 @@ class SignUpViewController: UIViewController {
                                         print("---!!! LOGIN ERROR \(error?.localizedDescription)")
                                     }else{
                                         print("--- LOGIN success \(self.usernameTextField.text)")
+                                        let teamSB = UIStoryboard(name: "TeamCreation", bundle: nil)
+                                        
+                                        let teamConfigVC = teamSB.instantiateViewController(withIdentifier: "TeamConfigurationViewController")
+                                        
+                                        self.present(teamConfigVC, animated: true, completion: nil)
+
+                                        
                                     }
         }
     }
