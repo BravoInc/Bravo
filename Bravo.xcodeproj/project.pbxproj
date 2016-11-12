@@ -12,6 +12,7 @@
 		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
 		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
 		64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */; };
+		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
 		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamCreation.storyboard; sourceTree = "<group>"; };
 		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
+		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				64DBDF3A1DD7B7CD00D1D378 /* TeamSelectionViewController.swift */,
 				64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */,
 				64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */,
+				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
