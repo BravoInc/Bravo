@@ -41,29 +41,42 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        let user = PFUser()
-        user.username = usernameTextField.text!
-        user.password = passwordTextField.text!
-        user.email = emailTextField.text!
-        
-        // other fields can be set just like with PFObject
-        //user["phone"] = "415-392-0202"
-        
-        user.signUpInBackground { (succeeded: Bool, error: Error?) in
-            if let error = error {
-                //let errorString = error.userInfo["error"] as? NSString
-                print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
-            } else {
-                print("--- Parse signUpInBackground SUCCESS NEW USER \(self.usernameTextField.text)")
-                self.onLogin()
-            }
+        if(signUpOrLogin == false){ // signup
+            let user = PFUser()
+            user.username = usernameTextField.text!
+            user.password = passwordTextField.text!
+            user.email = emailTextField.text!
             
-        } // signUpInBackground
+            // other fields can be set just like with PFObject
+            //user["phone"] = "415-392-0202"
+            
+            user.signUpInBackground { (succeeded: Bool, error: Error?) in
+                if let error = error {
+                    //let errorString = error.userInfo["error"] as? NSString
+                    print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
+                } else {
+                    print("--- Parse signUpInBackground SUCCESS NEW USER \(self.usernameTextField.text)")
+                    self.onLogin()
+                }
+                
+            } // signUpInBackground
+            
+        }
+        
+        onLogin()
         
     } // onSignUp
     
     func onLogin(){
-        PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!)
+        PFUser.logInWithUsername(inBackground: usernameTextField.text!,
+                                 password: passwordTextField.text!) {
+                                    (user: PFUser?, error: Error?) in
+                                    if(error != nil){
+                                        print("---!!! LOGIN ERROR \(error?.localizedDescription)")
+                                    }else{
+                                        print("--- LOGIN success \(self.usernameTextField.text)")
+                                    }
+        }
     }
     
     func inputCheck() -> Bool{
