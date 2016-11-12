@@ -7,15 +7,41 @@
 //
 
 import UIKit
+import Parse
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let appID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
+    let clientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // Initialize Parse.
+        Parse.setApplicationId(appID, clientKey: clientKey)
+        
+        // Test Parse User signIn
+        // TODO : Remove this ASAP
+        let newUser = PFUser()
+        // set user properties
+        newUser.username = "testuser"
+        newUser.email = "test@gmail.com"
+        newUser.password = "pword"
+        
+        // call sign up function on the object
+        newUser.signUpInBackground { (result : Bool, error : Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            }else {
+                print("User Registered successfully")
+            }
+        }
+
         return true
     }
 

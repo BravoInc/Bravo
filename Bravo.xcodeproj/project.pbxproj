@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
 		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
@@ -15,6 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.release.xcconfig"; sourceTree = "<group>"; };
+		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
+		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +34,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35295E083523326B271DEAEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C17C0AE10C0E1A673D26383 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */,
+				5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE2D5B451DD7AD4900622176 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		EEF36DA11DD1855B0032BCE6 = {
 			isa = PBXGroup;
 			children = (
 				EEF36DAC1DD1855C0032BCE6 /* Bravo */,
 				EEF36DAB1DD1855C0032BCE6 /* Products */,
+				7C17C0AE10C0E1A673D26383 /* Pods */,
+				35295E083523326B271DEAEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +86,8 @@
 		EEF36DAC1DD1855C0032BCE6 /* Bravo */ = {
 			isa = PBXGroup;
 			children = (
+				EE2D5B451DD7AD4900622176 /* Models */,
+				EE2D5B441DD7AC9500622176 /* Bravo.entitlements */,
 				EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */,
 				EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */,
 				EEF36DB11DD1855C0032BCE6 /* Main.storyboard */,
@@ -71,9 +105,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEF36DBC1DD1855C0032BCE6 /* Build configuration list for PBXNativeTarget "Bravo" */;
 			buildPhases = (
+				7FF3E460F0238CF14C5E3546 /* [CP] Check Pods Manifest.lock */,
 				EEF36DA61DD1855C0032BCE6 /* Sources */,
 				EEF36DA71DD1855C0032BCE6 /* Frameworks */,
 				EEF36DA81DD1855C0032BCE6 /* Resources */,
+				BFC0D943BE9DDF697DC3F155 /* [CP] Embed Pods Frameworks */,
+				8230B94C3CECF5E9DABBB455 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,7 +133,13 @@
 				TargetAttributes = {
 					EEF36DA91DD1855C0032BCE6 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = SDLRJDJ3R5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -130,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FF3E460F0238CF14C5E3546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8230B94C3CECF5E9DABBB455 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bravo/Pods-Bravo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFC0D943BE9DDF697DC3F155 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bravo/Pods-Bravo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EEF36DA61DD1855C0032BCE6 /* Sources */ = {
@@ -256,10 +347,13 @@
 		};
 		EEF36DBD1DD1855C0032BCE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
+				DEVELOPMENT_TEAM = SDLRJDJ3R5;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bravoinc.Bravo;
@@ -270,9 +364,12 @@
 		};
 		EEF36DBE1DD1855C0032BCE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
+				DEVELOPMENT_TEAM = SDLRJDJ3R5;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bravoinc.Bravo;
