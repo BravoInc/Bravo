@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,6 +32,9 @@
                                 <rect key="frame" x="97" y="543" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="fjW-KZ-nT7" kind="show" identifier="LoginSegue" id="F2P-85-35Y"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bravo Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QZ-MI-Svc">
                                 <rect key="frame" x="55" y="90" width="264" height="42"/>
@@ -45,7 +48,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Signup"/>
                                 <connections>
-                                    <segue destination="fjW-KZ-nT7" kind="show" id="bd4-zD-KvG"/>
+                                    <segue destination="fjW-KZ-nT7" kind="show" identifier="SignUpSegue" id="bd4-zD-KvG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -132,6 +135,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CTAButton" destination="ZiV-IX-zId" id="twr-Gu-vfK"/>
+                        <outlet property="CTALabel" destination="Jy7-L2-Gk3" id="55A-oM-BnU"/>
                         <outlet property="emailTextField" destination="BeF-lQ-c59" id="NiG-V6-Mbn"/>
                         <outlet property="firstNameTextField" destination="i3r-KP-YLb" id="AG5-SS-tAM"/>
                         <outlet property="lastNameTextField" destination="Ptj-4N-7wl" id="v1g-kL-tGf"/>
@@ -144,4 +149,7 @@
             <point key="canvasLocation" x="1041" y="122"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="F2P-85-35Y"/>
+    </inferredMetricsTieBreakers>
 </document>
