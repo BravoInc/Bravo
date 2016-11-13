@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
-                                    <segue destination="D29-GB-LEk" kind="presentation" id="Kz8-W0-0xs"/>
+                                    <segue destination="D29-GB-LEk" kind="show" id="sfC-9e-IN8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjA-Ll-8qa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072.8" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="1073" y="1"/>
         </scene>
         <!--Team Search View Controller-->
         <scene sceneID="yuR-t5-0I0">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFV-AP-7J9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="1839" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mh4-1p-IYd">
