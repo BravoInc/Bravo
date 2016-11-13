@@ -21,6 +21,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var CTAButton: UIButton!
     
     var signUpOrLogin = false // false == signup, true == login
+    let user = BravoUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,50 +43,34 @@ class SignUpViewController: UIViewController {
         }
         
         if(signUpOrLogin == false){ // signup
-            let user = PFUser()
             user.username = usernameTextField.text!
             user.password = passwordTextField.text!
+            user.firstName = firstNameTextField.text!
+            user.lastName = lastNameTextField.text!
             user.email = emailTextField.text!
             
-            // other fields can be set just like with PFObject
-            //user["phone"] = "415-392-0202"
-            
-            user.signUpInBackground { (succeeded: Bool, error: Error?) in
-                if let error = error {
-                    //let errorString = error.userInfo["error"] as? NSString
-                    print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
-                } else {
-                    print("--- Parse signUpInBackground SUCCESS NEW USER \(self.usernameTextField.text)")
-                    self.onLogin() // must login after account creation
-                }
-            } // signUpInBackground
+            user.signUpUser(user: user, success: {
+                self.onLogin()
+            })
             
         }else{ // login only
+            user.username = usernameTextField.text!
+            user.password = passwordTextField.text!
             onLogin()
         }
         
     } // onSignUp
     
     func onLogin(){
-        PFUser.logInWithUsername(inBackground: usernameTextField.text!,
-                                 password: passwordTextField.text!) {
-                                    (user: PFUser?, error: Error?) in
-                                    if(error != nil){
-                                        print("---!!! LOGIN ERROR \(error?.localizedDescription)")
-                                    }else{
-                                        print("--- LOGIN success \(self.usernameTextField.text)")
-                                        let teamSB = UIStoryboard(name: "TeamCreation", bundle: nil)
-                                        
-                                        let teamNavController = teamSB.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
-                                        //let teamConfigVC = teamNavController.visibleViewController as! TeamConfigurationViewController
+        user.logInUser(user: user, success: {
+            print("--- LOGIN success \(self.usernameTextField.text)")
+            let teamSB = UIStoryboard(name: "TeamCreation", bundle: nil)
+            
+            let teamNavController = teamSB.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+            
+            self.present(teamNavController, animated: true, completion: nil)
 
-                                        //teamNavController.present(teamConfigVC, animated: true, completion: nil)
-                                        //let teamConfigVC = teamSB.instantiateViewController(withIdentifier: "TeamConfigurationViewController")
-                                        self.present(teamNavController, animated: true, completion: nil)
-                                    
-                                        
-                                    }
-        }
+        })
     }
     
     func inputCheck() -> Bool{
