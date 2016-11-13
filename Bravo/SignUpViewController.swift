@@ -76,10 +76,13 @@ class SignUpViewController: UIViewController {
                                         print("--- LOGIN success \(self.usernameTextField.text)")
                                         let teamSB = UIStoryboard(name: "TeamCreation", bundle: nil)
                                         
-                                        let teamConfigVC = teamSB.instantiateViewController(withIdentifier: "TeamConfigurationViewController")
-                                        
-                                        self.present(teamConfigVC, animated: true, completion: nil)
+                                        let teamNavController = teamSB.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+                                        //let teamConfigVC = teamNavController.visibleViewController as! TeamConfigurationViewController
 
+                                        //teamNavController.present(teamConfigVC, animated: true, completion: nil)
+                                        //let teamConfigVC = teamSB.instantiateViewController(withIdentifier: "TeamConfigurationViewController")
+                                        self.present(teamNavController, animated: true, completion: nil)
+                                    
                                         
                                     }
         }
