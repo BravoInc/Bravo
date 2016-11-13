@@ -14,6 +14,7 @@
 		64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
+		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
 		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
+		EE3121201DD7E6AA00665F4C /* BravoUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BravoUser.swift; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		EE2D5B451DD7AD4900622176 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EE3121201DD7E6AA00665F4C /* BravoUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
+				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
