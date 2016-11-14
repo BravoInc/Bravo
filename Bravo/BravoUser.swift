@@ -13,11 +13,11 @@ class BravoUser: PFUser {
     var firstName : String?
     var lastName : String?
     
-    func signUpUser(user : BravoUser, success: @escaping() -> ()){
+    func signUpUser( success: @escaping() -> ()){
         if (inputCheck(signUpOrLogin: false) == true){
-            user["firstName"] = firstName
-            user["lastName"] = lastName
-            user.signUpInBackground { (succeeded: Bool, error: Error?) in
+            self["firstName"] = firstName
+            self["lastName"] = lastName
+            self.signUpInBackground { (succeeded: Bool, error: Error?) in
                 if let error = error {
                     print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
                 } else {
@@ -30,7 +30,7 @@ class BravoUser: PFUser {
         }
     }
     
-    func logInUser(user : BravoUser, success: @escaping() -> ()){
+    func logInUser(success: @escaping() -> ()){
         if(inputCheck(signUpOrLogin: true) == true){
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (loggedInUser : PFUser?, error : Error?) in
                 if (error != nil){
