@@ -11,6 +11,8 @@
 		64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */; };
 		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
 		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
+		64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF67E1DD83FBE0071A731 /* TeamCell.swift */; };
+		64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EDF67F1DD83FBE0071A731 /* TeamCell.xib */; };
 		64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
@@ -27,6 +29,8 @@
 		64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamConfigurationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSearchViewController.swift; sourceTree = "<group>"; };
+		64EDF67E1DD83FBE0071A731 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		64EDF67F1DD83FBE0071A731 /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamCreation.storyboard; sourceTree = "<group>"; };
 		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		64EDF67D1DD83F900071A731 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64EDF67E1DD83FBE0071A731 /* TeamCell.swift */,
+				64EDF67F1DD83FBE0071A731 /* TeamCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		64FE56C51DD7BF840099562D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +136,7 @@
 		EEF36DAC1DD1855C0032BCE6 /* Bravo */ = {
 			isa = PBXGroup;
 			children = (
+				64EDF67D1DD83F900071A731 /* Views */,
 				64FE56C51DD7BF840099562D /* Storyboards */,
 				641B235F1DD7B6B600D3BC14 /* View Controllers */,
 				EE2D5B451DD7AD4900622176 /* Models */,
@@ -204,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
+				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
@@ -265,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
