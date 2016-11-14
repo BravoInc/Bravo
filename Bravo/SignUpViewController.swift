@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController {
             user.lastName = lastNameTextField.text!
             user.email = emailTextField.text!
             
-            user.signUpUser(user: user, success: {
+            user.signUpUser(success: {
                 self.onLogin()
             })
             
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
     } // onSignUp
     
     func onLogin(){
-        user.logInUser(user: user, success: {
+        user.logInUser(success: {
             print("--- LOGIN success \(self.usernameTextField.text)")
             let teamSB = UIStoryboard(name: "TeamCreation", bundle: nil)
             
