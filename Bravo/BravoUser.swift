@@ -15,6 +15,8 @@ class BravoUser: PFUser {
     
     func signUpUser(user : BravoUser, success: @escaping() -> ()){
         if (inputCheck(signUpOrLogin: false) == true){
+            user["firstName"] = firstName
+            user["lastName"] = lastName
             user.signUpInBackground { (succeeded: Bool, error: Error?) in
                 if let error = error {
                     print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
