@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */; };
+		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
+		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
+		649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */; };
+		649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */; };
 		64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */; };
 		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
 		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
 		64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF67E1DD83FBE0071A731 /* TeamCell.swift */; };
 		64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EDF67F1DD83FBE0071A731 /* TeamCell.xib */; };
+		64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF6821DD948F00071A731 /* RewardsViewController.swift */; };
+		64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */; };
 		64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
@@ -26,11 +32,17 @@
 
 /* Begin PBXFileReference section */
 		5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.release.xcconfig"; sourceTree = "<group>"; };
+		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
+		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
+		649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreRewardsCell.swift; sourceTree = "<group>"; };
+		649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRewardsCell.xib; sourceTree = "<group>"; };
 		64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamConfigurationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSearchViewController.swift; sourceTree = "<group>"; };
 		64EDF67E1DD83FBE0071A731 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		64EDF67F1DD83FBE0071A731 /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
+		64EDF6821DD948F00071A731 /* RewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
+		64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCreationViewController.swift; sourceTree = "<group>"; };
 		64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamCreation.storyboard; sourceTree = "<group>"; };
 		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +88,8 @@
 				64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */,
 				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
 				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
+				64EDF6821DD948F00071A731 /* RewardsViewController.swift */,
+				64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -85,6 +99,10 @@
 			children = (
 				64EDF67E1DD83FBE0071A731 /* TeamCell.swift */,
 				64EDF67F1DD83FBE0071A731 /* TeamCell.xib */,
+				649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */,
+				649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */,
+				649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */,
+				649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,11 +235,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
+				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +303,12 @@
 				64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
+				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
+				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
 				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
+				64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */,
+				64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
