@@ -7,11 +7,23 @@
 //
 
 import UIKit
+import OneSignal
 
 class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().getNotificationSettings(){ (setttings) in
+            switch setttings.soundSetting{
+            case .enabled:
+                print("--- push notification: enabled sound setting")
+            case .disabled:
+                print("--- push notification: setting has been disabled")
+            case .notSupported:
+                print("--- push notification: something vital went wrong here")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

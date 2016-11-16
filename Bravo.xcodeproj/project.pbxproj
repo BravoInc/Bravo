@@ -205,10 +205,16 @@
 				TargetAttributes = {
 					EEF36DA91DD1855C0032BCE6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = SDLRJDJ3R5;
+						DevelopmentTeam = 752EL73Z7Y;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -441,10 +447,10 @@
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = SDLRJDJ3R5;
+				DEVELOPMENT_TEAM = 752EL73Z7Y;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bravoinc.Bravo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -457,10 +463,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
-				DEVELOPMENT_TEAM = SDLRJDJ3R5;
+				DEVELOPMENT_TEAM = 752EL73Z7Y;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bravoinc.Bravo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
