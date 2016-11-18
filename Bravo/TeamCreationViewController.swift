@@ -10,6 +10,9 @@ import UIKit
 
 class TeamCreationViewController: UIViewController {
 
+    @IBOutlet weak var companyNameTextField: UITextField!
+    @IBOutlet weak var teamNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,12 @@ class TeamCreationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCreateTapped(_ sender: UIButton) {
+        
+        Team.createTeam(teamName: teamNameTextField.text!, success: {
+            print("--- team created : \(self.teamNameTextField.text)")
+        })
+    }
 
     /*
     // MARK: - Navigation

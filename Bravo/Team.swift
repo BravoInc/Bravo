@@ -14,7 +14,22 @@ class Team: PFObject {
     var name : String?
     var adminUser : BravoUser?
     var users : [BravoUser]?
+    var company : Company?
     
     
-    
+    class func createTeam(teamName : String, success: @escaping() -> () ){
+        let newTeam = PFObject(className: "Team")
+        let teamUsers = PFObject(className: "TeamUsers")
+        
+        newTeam["name"] = teamName
+        newTeam["adminUser"] = PFUser.current()
+        teamUsers["user"] = PFUser.current()
+        newTeam["users"] = teamUsers
+
+        newTeam.saveInBackground { (result : Bool, error : Error?) in
+            if (error == nil){
+                success()
+            }
+        }
+    }
 }

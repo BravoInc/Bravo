@@ -78,5 +78,9 @@ class BravoUser: PFUser {
         
         return true
     }
+    
+    class func getLoggedInUser() -> BravoUser{
+        return PFUser.current() as! BravoUser
+    }
 
 }
