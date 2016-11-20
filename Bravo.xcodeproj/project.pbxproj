@@ -12,6 +12,8 @@
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
 		649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */; };
 		649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */; };
+		64D5079D1DE1212000C708BD /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D5079C1DE1212000C708BD /* Admin.storyboard */; };
+		64D5079F1DE1231900C708BD /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D5079E1DE1231900C708BD /* Timeline.storyboard */; };
 		64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */; };
 		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
 		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
@@ -38,6 +40,8 @@
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreRewardsCell.swift; sourceTree = "<group>"; };
 		649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRewardsCell.xib; sourceTree = "<group>"; };
+		64D5079C1DE1212000C708BD /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		64D5079E1DE1231900C708BD /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamConfigurationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSearchViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			children = (
 				64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */,
 				EEF36DB11DD1855C0032BCE6 /* Main.storyboard */,
+				64D5079C1DE1212000C708BD /* Admin.storyboard */,
+				64D5079E1DE1231900C708BD /* Timeline.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -247,12 +253,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D5079D1DE1212000C708BD /* Admin.storyboard in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
+				64D5079F1DE1231900C708BD /* Timeline.storyboard in Resources */,
 				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
