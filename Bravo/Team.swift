@@ -16,8 +16,23 @@ class Team: PFObject {
     var users : [BravoUser]?
     var company : Company?
     
+    class func teamExists(teamName: String, success: @escaping() -> (), failure: @escaping() -> ()){
+        let query = PFQuery(className: "Team")
+        query.whereKey("name", equalTo: teamName)
+        query.limit = 1
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground {(teams: [PFObject]?, error: Error?) -> Void in
+            if error == nil && teams?.count ?? 0 == 0 {
+               success()
+            } else {
+                failure()
+            }
+
+        }
+    }
     
-    class func createTeam(teamName : String, success: @escaping() -> () ){
+    class func createTeam(teamName : String, companyName: String, success: @escaping() -> () ){
         let newTeam = PFObject(className: "Team")
         let teamUsers = PFObject(className: "TeamUsers")
         
