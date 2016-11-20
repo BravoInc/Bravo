@@ -26,8 +26,19 @@ class TeamCreationViewController: UIViewController {
     
     @IBAction func onCreateTapped(_ sender: UIButton) {
         
-        Team.createTeam(teamName: teamNameTextField.text!, success: {
-            print("--- team created : \(self.teamNameTextField.text)")
+        let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+        
+        Team.teamExists(teamName: teamNameTextField.text!, success: {
+            Team.createTeam(teamName: self.teamNameTextField.text!, companyName: self.companyNameTextField.text!, success: {
+                print("--- team created : \(self.teamNameTextField.text!)")
+                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController")
+                self.show(rewardsVC, sender: self)
+            })
+
+        }, failure: {
+            print ("Team \(self.teamNameTextField.text!) already exists")
+            
+
         })
     }
 
