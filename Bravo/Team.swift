@@ -34,6 +34,7 @@ class Team: PFObject {
     class func getAllTeams(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
         let query = PFQuery(className: "Team")
         query.order(byDescending: "createdAt")
+        query.includeKey("users")
         
         query.findObjectsInBackground { (teams : [PFObject]?, error : Error?) in
             if(error == nil){
@@ -44,14 +45,47 @@ class Team: PFObject {
         }
     }
     
+    class func joinTeam(team: PFObject,success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
+        let userRelation = team.relation(forKey: "userRelation")
+        userRelation.add(PFUser.current()!)
+        
+        team.saveInBackground { (result : Bool,error :  Error?) in
+            if (error == nil ){
+                print("--- Added to team")
+                let query = PFQuery(className: "Team")
+                query.whereKey("name", equalTo: team["name"])
+                query.limit = 1
+                query.findObjectsInBackground {(teams: [PFObject]?, error: Error?) -> Void in
+                    if error == nil && teams?.count == 1 {
+                        
+                        let currentUser = PFUser.current()
+                        let teamRelation = currentUser?.relation(forKey: "teamRelation")
+                        teamRelation?.add((teams?[0])!)
+                        
+                        currentUser?.saveInBackground(block: { (result : Bool, error : Error?) in
+                            if(error == nil ){
+                                print("--- Saved team in current user ")
+                            } else {
+                                print("---!!! cannot save team in current user : \(error?.localizedDescription)")
+                            }
+                        })
+                        success()
+                    }
+                }
+            }
+        }
+    }
+    
+    
     class func createTeam(teamName : String, success: @escaping() -> () ){
         let newTeam = PFObject(className: "Team")
-        let teamUsers = PFObject(className: "TeamUsers")
         
         newTeam["name"] = teamName
         newTeam["adminUser"] = PFUser.current()
-        teamUsers["user"] = PFUser.current()
-        newTeam["users"] = teamUsers
+        
+        let userRelation = newTeam.relation(forKey: "userRelation")
+        userRelation.add(PFUser.current()!)
+        
         
         newTeam.saveInBackground { (result : Bool, error : Error?) in
             if (error == nil){
@@ -61,11 +95,10 @@ class Team: PFObject {
                 query.findObjectsInBackground {(teams: [PFObject]?, error: Error?) -> Void in
                     if error == nil && teams?.count == 1 {
                         
-                        let userTeams = PFObject(className: "UserTeams")
-                        userTeams["team"] = teams?[0]
-                        
                         let currentUser = PFUser.current()
-                        currentUser?["teams"] = userTeams
+                        let teamRelation = currentUser?.relation(forKey: "teamRelation")
+                        teamRelation?.add((teams?[0])!)
+                        
                         currentUser?.saveInBackground(block: { (result : Bool, error : Error?) in
                             if(error == nil ){
                                 print("--- Saved team in current user ")

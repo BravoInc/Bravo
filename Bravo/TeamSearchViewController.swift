@@ -50,6 +50,7 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func getTeams(){
         Team.getAllTeams(success: { (teams : [PFObject]?) in
             print("--- got \(teams?.count) teams")
+            self.filteredTeams = teams!
             self.teams = teams!
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
@@ -78,22 +79,25 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let message = "Your request to join Team \(filteredTeams[indexPath.row]) has been sent to the administrator.\n\nYou will be notified when the admin approves."
-        let alert = UIAlertController(title: "Request Sent", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            action in switch(action.style) {
-            case .default:
-                let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-                let teamNavController = storyboard.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
-                self.present(teamNavController, animated: true, completion: nil)
-
-            default:
-                break
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-
+        Team.joinTeam(team: filteredTeams[indexPath.row], success: {
+            let message = "Your request to join Team \(self.filteredTeams[indexPath.row]["name"]!) has been sent to the administrator.\n\nYou will be notified when the admin approves."
+            let alert = UIAlertController(title: "Request Sent", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                action in switch(action.style) {
+                case .default:
+                    let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+                    let teamNavController = storyboard.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+                    self.present(teamNavController, animated: true, completion: nil)
+                    
+                default:
+                    break
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }, failure: { (error : Error?) in
+            print("---!!! Failed to join team : \(error?.localizedDescription) ")
+        })
 
     }
     
