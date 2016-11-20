@@ -31,6 +31,19 @@ class Team: PFObject {
         }
     }
     
+    class func getAllTeams(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "Team")
+        query.order(byDescending: "createdAt")
+        
+        query.findObjectsInBackground { (teams : [PFObject]?, error : Error?) in
+            if(error == nil){
+                success(teams)
+            } else {
+                failure(error)
+            }
+        }
+    }
+    
     class func createTeam(teamName : String, companyName: String, success: @escaping() -> () ){
         let newTeam = PFObject(className: "Team")
         let teamUsers = PFObject(className: "TeamUsers")

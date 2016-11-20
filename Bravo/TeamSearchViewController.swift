@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -15,12 +16,13 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var searchBar: UISearchBar!
     
-    var teams = [
-        "Alpha", "Bravo", "Charlie", "Delta", "Echo", "FoxTrot", "Golf", "Hotel", "India",
-        "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo",
-        "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"]
+//    var teams = [
+//        "Alpha", "Bravo", "Charlie", "Delta", "Echo", "FoxTrot", "Golf", "Hotel", "India",
+//        "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo",
+//        "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"]
 
-    var filteredTeams: [String]!
+    var filteredTeams =  [PFObject]()
+    var teams = [PFObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +44,17 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.register(UINib(nibName: "TeamCell", bundle: nil), forCellReuseIdentifier: "TeamCell")
         
-        tableView.reloadData()
-        
+        getTeams()
+    }
+    
+    func getTeams(){
+        Team.getAllTeams(success: { (teams : [PFObject]?) in
+            print("--- got \(teams?.count) teams")
+            self.teams = teams!
+            self.tableView.reloadData()
+        }, failure: { (error : Error?) in
+            print("---!!! cant get teams : \(error?.localizedDescription)")
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +69,8 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
-        teamCell.teamNameLabel.text = filteredTeams[indexPath.row]
+        let currentTeam = teams[indexPath.row]
+        teamCell.teamNameLabel.text = currentTeam["name"] as! String?
         
         return teamCell
     }
@@ -120,9 +132,9 @@ extension TeamSearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        filteredTeams = teams.filter({ (team) -> Bool in
-            return (team as NSString).range(of: searchBar.text!, options: NSString.CompareOptions.caseInsensitive).location != NSNotFound
-        })
+        filteredTeams = teams.filter { (team : PFObject) -> Bool in
+            return (team["name"] as! NSString ).range(of: searchBar.text!, options: NSString.CompareOptions.caseInsensitive).location != NSNotFound
+        }
 
         tableView.reloadData()
         searchBar.resignFirstResponder()
