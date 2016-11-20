@@ -35,12 +35,21 @@ class TeamCreationViewController: UIViewController {
             })
 
         }, failure: {
-            print ("Team \(self.teamNameTextField.text!) already exists")
+            self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
+            self.teamNameTextField.text = ""
             
 
         })
     }
 
+    func showTeamErrorDialog(teamName: String) {
+        let message = "Team \(teamName) already exists."
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+
+    }
     /*
     // MARK: - Navigation
 
