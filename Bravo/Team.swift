@@ -44,7 +44,7 @@ class Team: PFObject {
         }
     }
     
-    class func createTeam(teamName : String, companyName: String, success: @escaping() -> () ){
+    class func createTeam(teamName : String, success: @escaping() -> () ){
         let newTeam = PFObject(className: "Team")
         let teamUsers = PFObject(className: "TeamUsers")
         

@@ -10,7 +10,6 @@ import UIKit
 
 class TeamCreationViewController: UIViewController {
 
-    @IBOutlet weak var companyNameTextField: UITextField!
     @IBOutlet weak var teamNameTextField: UITextField!
     
     override func viewDidLoad() {
@@ -29,19 +28,28 @@ class TeamCreationViewController: UIViewController {
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         
         Team.teamExists(teamName: teamNameTextField.text!, success: {
-            Team.createTeam(teamName: self.teamNameTextField.text!, companyName: self.companyNameTextField.text!, success: {
+            Team.createTeam(teamName: self.teamNameTextField.text!, success: {
                 print("--- team created : \(self.teamNameTextField.text!)")
                 let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController")
                 self.show(rewardsVC, sender: self)
             })
 
         }, failure: {
-            print ("Team \(self.teamNameTextField.text!) already exists")
+            self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
+            self.teamNameTextField.text = ""
             
 
         })
     }
 
+    func showTeamErrorDialog(teamName: String) {
+        let message = "Team \(teamName) already exists."
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+
+    }
     /*
     // MARK: - Navigation
 
