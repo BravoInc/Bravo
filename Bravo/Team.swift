@@ -77,7 +77,7 @@ class Team: PFObject {
     }
     
     
-    class func createTeam(teamName : String, success: @escaping() -> () ){
+    class func createTeam(teamName : String, success: @escaping(PFObject) -> () ){
         let newTeam = PFObject(className: "Team")
         
         newTeam["name"] = teamName
@@ -106,7 +106,7 @@ class Team: PFObject {
                                 print("---!!! cannot save team in current user : \(error?.localizedDescription)")
                             }
                         })
-                        success()
+                        success((teams?[0])!)
                     }
                 }
             }

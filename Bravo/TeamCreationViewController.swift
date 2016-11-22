@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TeamCreationViewController: UIViewController {
 
@@ -28,9 +29,12 @@ class TeamCreationViewController: UIViewController {
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         
         Team.teamExists(teamName: teamNameTextField.text!, success: {
-            Team.createTeam(teamName: self.teamNameTextField.text!, success: {
+            Team.createTeam(teamName: self.teamNameTextField.text!, success: { (team : PFObject) in
                 print("--- team created : \(self.teamNameTextField.text!)")
-                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController")
+                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
+                
+                rewardsVC.currentTeam = team
+                
                 self.show(rewardsVC, sender: self)
             })
 
@@ -40,6 +44,7 @@ class TeamCreationViewController: UIViewController {
             
 
         })
+        
     }
 
     func showTeamErrorDialog(teamName: String) {

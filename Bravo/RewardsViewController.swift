@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Parse
 class RewardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var rewardPickLabel: UILabel!
@@ -15,6 +15,8 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var rewards: [String]!
+    var currentTeam : PFObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +57,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let rewardVC = storyboard.instantiateViewController(withIdentifier: "RewardCreationViewController") as! RewardCreationViewController
         
+        rewardVC.currentTeam = self.currentTeam
         
         self.show(rewardVC, sender: self)
         

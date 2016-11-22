@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class RewardCreationViewController: UIViewController {
+    var currentTeam : PFObject!
+    
+    @IBOutlet weak var rewardPointsTextField: UITextField!
 
+    @IBOutlet weak var rewardNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +26,13 @@ class RewardCreationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCreateTapped(_ sender: Any) {
+        Reward.createReward(team: currentTeam, rewardName: rewardNameTextField.text!, rewardPoints: Int(rewardPointsTextField.text!)! , success: {
+            print("--- Reward creation succes")
+        }, failure: { (error : Error?) in
+            print("---!!! reward creation error : \(error?.localizedDescription)")
+        })
+    }
 
     /*
     // MARK: - Navigation
