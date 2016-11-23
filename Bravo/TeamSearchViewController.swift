@@ -16,12 +16,7 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var searchBar: UISearchBar!
     
-//    var teams = [
-//        "Alpha", "Bravo", "Charlie", "Delta", "Echo", "FoxTrot", "Golf", "Hotel", "India",
-//        "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo",
-//        "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"]
-
-    var filteredTeams =  [PFObject]()
+    var filteredTeams = [PFObject]()
     var teams = [PFObject]()
     
     override func viewDidLoad() {
@@ -50,7 +45,7 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getTeams(){
-        Team.getAllTeams(success: { (teams : [PFObject]?) in
+        Team.getAllTeams(success: { (teams : [Team]?) in
             print("--- got \(teams?.count) teams")
             self.filteredTeams = teams!
             self.teams = teams!
@@ -81,10 +76,10 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if ((filteredTeams[indexPath.row]["adminUser"] as! PFUser).objectId == PFUser.current()?.objectId) {
+        if ((filteredTeams[indexPath.row]["adminUser"] as! BravoUser).objectId == BravoUser.getLoggedInUser().objectId) {
             showTeamErrorDialog(teamName: filteredTeams[indexPath.row]["name"] as! String)
             return
-        }
+        } 
         
         Team.joinTeam(team: filteredTeams[indexPath.row], success: {
             let message = "Your request to join Team \(self.filteredTeams[indexPath.row]["name"]!) has been sent to the administrator.\n\nYou will be notified when the admin approves."

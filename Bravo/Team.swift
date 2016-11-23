@@ -26,7 +26,7 @@ class Team: PFObject {
         }
     }
     
-    class func getAllTeams(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+    class func getAllTeams(success: @escaping([Team]?) -> (), failure: @escaping(Error?) -> ()){
         let query = PFQuery(className: "Team")
         query.order(byDescending: "createdAt")
         query.includeKey("adminUser")
@@ -34,14 +34,14 @@ class Team: PFObject {
         
         query.findObjectsInBackground { (teams : [PFObject]?, error : Error?) in
             if(error == nil){
-                success(teams)
+                success(teams as! [Team]?)
             } else {
                 failure(error)
             }
         }
     }
     
-    class func joinTeam(team: PFObject,success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
+    class func joinTeam(team: PFObject, success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
         let userRelation = team.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)
         
@@ -74,7 +74,7 @@ class Team: PFObject {
     
     
     class func createTeam(teamName : String, success: @escaping(PFObject) -> () ){
-        let newTeam = PFObject(className: "Team")
+        let newTeam = Team(className: "Team")
         
         newTeam["name"] = teamName
         newTeam["adminUser"] = PFUser.current()

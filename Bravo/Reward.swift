@@ -12,29 +12,25 @@ import Parse
 class Reward: PFObject {
     
     
-    class func createReward(team : PFObject,rewardName : String, rewardPoints : Int, success: @escaping() -> (), failure: @escaping(Error?) -> () ){
+    class func createReward(team : PFObject, rewardName : String, rewardPoints : Int, isActive: Bool) -> PFObject {
         let reward = PFObject(className: "Reward")
         reward["name"] = rewardName
         reward["points"] = rewardPoints
         reward["team"] = team
-        
-        reward.saveInBackground { (result : Bool, error :  Error?) in
+        reward["isActive"] = isActive
+
+        return reward
+    }
+    
+    class func createRewards(rewards: [PFObject], success: @escaping() -> (), failure: @escaping(Error?) -> () ){
+
+        PFObject.saveAll(inBackground: rewards, block: { (result : Bool, error :  Error?) in
             if (error == nil ){
-                print("--- Created Reward Id after save in background: \(reward.objectId)")
-                print("--- Created Reward : \(rewardName)")
-                
-                let rewardRelation = team.relation(forKey: "rewardRelation")
-                rewardRelation.add(reward)
-                team.saveInBackground(block: { (result : Bool, error : Error?) in
-                    if(error == nil){
-                        success()
-                    }else {
-                        failure(error)
-                    }
-                })
+                print("--- Created Reward after save in background:")                
             } else {
                 failure(error)
             }
-        }
+        })
     }
+
 }

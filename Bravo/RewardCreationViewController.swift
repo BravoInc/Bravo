@@ -9,12 +9,18 @@
 import UIKit
 import Parse
 
-class RewardCreationViewController: UIViewController {
-    var currentTeam : PFObject!
-    
-    @IBOutlet weak var rewardPointsTextField: UITextField!
 
+@objc protocol RewardCreationViewControllerDelegate {
+    @objc optional func rewardCreationViewController(rewardCreationViewController: RewardCreationViewController, reward: PFObject)
+}
+
+class RewardCreationViewController: UIViewController {
+    @IBOutlet weak var rewardPointsTextField: UITextField!
     @IBOutlet weak var rewardNameTextField: UITextField!
+    
+    var currentTeam : PFObject!
+    weak var delegate: RewardCreationViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,13 +32,17 @@ class RewardCreationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCreateTapped(_ sender: Any) {
-        Reward.createReward(team: currentTeam, rewardName: rewardNameTextField.text!, rewardPoints: Int(rewardPointsTextField.text!)! , success: {
-            print("--- Reward creation succes")
-        }, failure: { (error : Error?) in
-            print("---!!! reward creation error : \(error?.localizedDescription)")
-        })
+    @IBAction func onCreate(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        let newReward = Reward.createReward(team : currentTeam, rewardName : rewardNameTextField.text!, rewardPoints: Int(rewardPointsTextField.text ?? "0")! , isActive: true)
+        delegate?.rewardCreationViewController?(rewardCreationViewController: self, reward: newReward)
     }
+
+    @IBAction func onCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+
+    }
+    
 
     /*
     // MARK: - Navigation
