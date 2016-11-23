@@ -11,7 +11,6 @@ import Parse
 
 class RewardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RewardCreationViewControllerDelegate {
 
-    @IBOutlet weak var rewardPickLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var defaultRewards = [PFObject]()
@@ -28,10 +27,18 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
             defaultRewards.append(newReward)
         }
         // Set navigation bar title view
-        navigationItem.titleView = rewardPickLabel
+        let titleLabel = UILabel()
+        titleLabel.text =
+            "Pick Rewards"
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(onSubmit(_:)))
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+
         tableView.register(UINib(nibName: "RewardCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
         tableView.register(UINib(nibName: "MoreRewardsCell", bundle: nil), forCellReuseIdentifier: "MoreRewardsCell")
         
@@ -58,6 +65,9 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if (indexPath.row < defaultRewards.count) {
+            return
+        }
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         
         let rewardCreationNavController = storyboard.instantiateViewController(withIdentifier: "RewardsCreationNavigationController") as! UINavigationController
@@ -69,7 +79,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.present(rewardCreationNavController, animated: true, completion: nil)
     }
     
-    @IBAction func onSubmit(_ sender: UIBarButtonItem) {
+    func onSubmit(_ sender: UIBarButtonItem) {
         Reward.createRewards(rewards: defaultRewards, success: {
             print("--- Reward creation succes")
         }, failure: { (error : Error?) in

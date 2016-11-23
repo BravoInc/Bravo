@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efm-Ij-f7e">
-                        <rect key="frame" x="263" y="9" width="51" height="31"/>
+                        <rect key="frame" x="263" y="6.5" width="51" height="31"/>
                         <connections>
                             <action selector="onSwitchChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="CAJ-hd-R5h"/>
                         </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Reward Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="904-dh-XYi">
-                        <rect key="frame" x="16" y="14" width="107" height="21"/>
+                        <rect key="frame" x="16" y="16" width="107" height="11.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ncr-fj-bcQ">
-                        <rect key="frame" x="140" y="9.5" width="61" height="30"/>
+                        <rect key="frame" x="139" y="7" width="61" height="30"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -41,13 +41,13 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ncr-fj-bcQ" firstAttribute="centerY" secondItem="904-dh-XYi" secondAttribute="centerY" id="LLv-df-PHU"/>
-                    <constraint firstItem="Efm-Ij-f7e" firstAttribute="centerY" secondItem="Ncr-fj-bcQ" secondAttribute="centerY" id="Mo2-0g-Kb1"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="904-dh-XYi" secondAttribute="bottom" constant="8" id="Sbg-Nl-W4s"/>
-                    <constraint firstItem="904-dh-XYi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="abn-dt-xqP"/>
-                    <constraint firstItem="904-dh-XYi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="qeG-aG-mvd"/>
-                    <constraint firstItem="Ncr-fj-bcQ" firstAttribute="leading" secondItem="904-dh-XYi" secondAttribute="trailing" constant="17" id="s4c-2V-J1V"/>
-                    <constraint firstAttribute="trailing" secondItem="Efm-Ij-f7e" secondAttribute="trailing" constant="8" id="yRC-Un-4Zg"/>
+                    <constraint firstItem="904-dh-XYi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="3PQ-iC-jv7"/>
+                    <constraint firstItem="904-dh-XYi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Xa-cB-4dH"/>
+                    <constraint firstItem="Ncr-fj-bcQ" firstAttribute="centerY" secondItem="904-dh-XYi" secondAttribute="centerY" id="IGQ-j3-NNF"/>
+                    <constraint firstItem="Efm-Ij-f7e" firstAttribute="centerY" secondItem="904-dh-XYi" secondAttribute="centerY" id="b7G-q8-g8w"/>
+                    <constraint firstAttribute="trailing" secondItem="Efm-Ij-f7e" secondAttribute="trailing" constant="8" id="ung-pF-pZg"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="904-dh-XYi" secondAttribute="bottom" constant="16" id="vR6-sG-wTI"/>
+                    <constraint firstItem="Ncr-fj-bcQ" firstAttribute="leading" secondItem="904-dh-XYi" secondAttribute="trailing" constant="16" id="yCj-Ys-OR9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

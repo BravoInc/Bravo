@@ -132,49 +132,37 @@
             <point key="canvasLocation" x="1839" y="0.0"/>
         </scene>
         <!--Rewards View Controller-->
-        <scene sceneID="Hxe-Wh-opE">
+        <scene sceneID="bWu-DM-XR6">
             <objects>
-                <viewController storyboardIdentifier="RewardsViewController" id="0mW-6Z-q3Y" customClass="RewardsViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RewardsViewController" id="RIY-Hy-ds6" customClass="RewardsViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xGN-bo-Msd"/>
-                        <viewControllerLayoutGuide type="bottom" id="Uvd-dB-ha2"/>
+                        <viewControllerLayoutGuide type="top" id="qhr-fE-ake"/>
+                        <viewControllerLayoutGuide type="bottom" id="Egc-P7-lCU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZzV-gh-jN3">
+                    <view key="view" contentMode="scaleToFill" id="536-Xr-zZ1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Rewards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWU-I2-tqy">
-                                <rect key="frame" x="121" y="20" width="103" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CyE-0b-yuq">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OKR-Ue-kWP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OKR-Ue-kWP" secondAttribute="trailing" id="HgQ-8z-8LF"/>
+                            <constraint firstItem="Egc-P7-lCU" firstAttribute="top" secondItem="OKR-Ue-kWP" secondAttribute="bottom" id="VuX-ah-8O1"/>
+                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="leading" secondItem="536-Xr-zZ1" secondAttribute="leading" id="dks-zR-e5P"/>
+                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="top" secondItem="536-Xr-zZ1" secondAttribute="top" id="ldc-39-fCJ"/>
+                        </constraints>
                     </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ksf-kj-ahN">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="YuO-99-464">
-                            <connections>
-                                <action selector="onSubmit:" destination="0mW-6Z-q3Y" id="dKN-ij-Rhj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="rewardPickLabel" destination="HWU-I2-tqy" id="QGb-6D-qp5"/>
-                        <outlet property="tableView" destination="CyE-0b-yuq" id="0JV-um-bm5"/>
+                        <outlet property="tableView" destination="OKR-Ue-kWP" id="YwC-27-Vcp"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b6d-zD-YBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ko-WO-kUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3564" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="2661.5999999999999" y="-0.44977511244377816"/>
         </scene>
         <!--Reward Creation View Controller-->
         <scene sceneID="xWR-rH-1Yd">
@@ -231,7 +219,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="6258.3999999999996" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="4446" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mh4-1p-IYd">
@@ -267,7 +255,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40e-A1-Pdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5319.1999999999998" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="3554" y="0.0"/>
         </scene>
     </scenes>
 </document>
