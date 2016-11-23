@@ -10,13 +10,8 @@ import UIKit
 import Parse
 
 class Team: PFObject {
-    var teamID : String?
-    var name : String?
-    var adminUser : BravoUser?
-    var users : [BravoUser]?
-    var company : Company?
     
-    class func teamExists(teamName: String, success: @escaping() -> (), failure: @escaping() -> ()){
+    class func isNewTeam(teamName: String, success: @escaping() -> (), failure: @escaping() -> ()){
         let query = PFQuery(className: "Team")
         query.whereKey("name", equalTo: teamName)
         query.limit = 1
@@ -34,7 +29,8 @@ class Team: PFObject {
     class func getAllTeams(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
         let query = PFQuery(className: "Team")
         query.order(byDescending: "createdAt")
-        query.includeKey("users")
+        query.includeKey("adminUser")
+        
         
         query.findObjectsInBackground { (teams : [PFObject]?, error : Error?) in
             if(error == nil){

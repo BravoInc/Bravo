@@ -41,7 +41,9 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+
         tableView.register(UINib(nibName: "TeamCell", bundle: nil), forCellReuseIdentifier: "TeamCell")
         
         getTeams()
@@ -70,15 +72,20 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
-        let currentTeam = teams[indexPath.row]
-        teamCell.teamNameLabel.text = currentTeam["name"] as! String?
+        teamCell.team = filteredTeams[indexPath.row]
+        
         
         return teamCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        if ((filteredTeams[indexPath.row]["adminUser"] as! PFUser).objectId == PFUser.current()?.objectId) {
+            showTeamErrorDialog(teamName: filteredTeams[indexPath.row]["name"] as! String)
+            return
+        }
+        
         Team.joinTeam(team: filteredTeams[indexPath.row], success: {
             let message = "Your request to join Team \(self.filteredTeams[indexPath.row]["name"]!) has been sent to the administrator.\n\nYou will be notified when the admin approves."
             let alert = UIAlertController(title: "Request Sent", message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -101,6 +108,13 @@ class TeamSearchViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
+    func showTeamErrorDialog(teamName: String) {
+        let message = "You are admin of the team \(teamName)."
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     /*
     // MARK: - Navigation
 

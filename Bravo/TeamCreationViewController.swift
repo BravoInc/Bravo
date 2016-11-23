@@ -28,7 +28,7 @@ class TeamCreationViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         
-        Team.teamExists(teamName: teamNameTextField.text!, success: {
+        Team.isNewTeam(teamName: teamNameTextField.text!, success: {
             Team.createTeam(teamName: self.teamNameTextField.text!, success: { (team : PFObject) in
                 print("--- team created : \(self.teamNameTextField.text!)")
                 let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
@@ -52,8 +52,6 @@ class TeamCreationViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-
     }
     /*
     // MARK: - Navigation
