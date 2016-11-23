@@ -8,23 +8,24 @@
 
 import UIKit
 import Parse
-import OneSignal
+//import OneSignal
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let appID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
-    let clientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
+    let ParseAppID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
+    let ParseClientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Initialize Parse.
-        Parse.setApplicationId(appID, clientKey: clientKey)
+        Parse.setApplicationId(ParseAppID, clientKey: ParseClientKey)
         
         //Add this line. Replace '5eb5a37e-b458-11e3-ac11-000c2940e62c' with your OneSignal App ID.
-        OneSignal.initWithLaunchOptions(launchOptions, appId: "5eb5a37e-b458-11e3-ac11-000c2940e62c")
+        //OneSignal.initWithLaunchOptions(launchOptions, appId: "5eb5a37e-b458-11e3-ac11-000c2940e62c")
         
         // Sync hashed email if you have a login system or collect it.
         //   Will be used to reach the user at the most optimal time of day.
@@ -83,7 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("--- deviceTokenString: \(deviceTokenString)")
         
-        // 9BF809F483D187738AAA4799C7217F599107C7AB21B2314338F0ED86D8E1FFD1
         // 9BF809F483D187738AAA4799C7217F599107C7AB21B2314338F0ED86D8E1FFD1
     }
  /*
