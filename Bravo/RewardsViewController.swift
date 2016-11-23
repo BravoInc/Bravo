@@ -8,23 +8,27 @@
 
 import UIKit
 import Parse
-class RewardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class RewardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RewardCreationViewControllerDelegate {
 
     @IBOutlet weak var rewardPickLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
-    var rewards: [String]!
+    var defaultRewards = [PFObject]()
     var currentTeam : PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set dummy rewards
-        rewards = ["1 Day Off", "Free lunch", "Concert Ticket", "Movie Ticket"]
+        // Set default rewards
+        let rewards = [("1 Day Off", 2000), ("Free lunch", 200), ("Concert Ticket", 1000), ("Movie Ticket", 300)]
+        
+        for reward in rewards {
+            let newReward = Reward.createReward(team : currentTeam, rewardName : reward.0, rewardPoints: reward.1, isActive: true)
+            defaultRewards.append(newReward)
+        }
         // Set navigation bar title view
         navigationItem.titleView = rewardPickLabel
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -36,13 +40,14 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rewards.count + 1
+        return defaultRewards.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row < rewards.count) {
+        if (indexPath.row < defaultRewards.count) {
             let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell") as! RewardCell
-            rewardCell.rewardNameLabel.text = rewards[indexPath.row]
+            rewardCell.reward = defaultRewards[indexPath.row]
+            
             return rewardCell
         } else {
             let moreRewardsCell = tableView.dequeueReusableCell(withIdentifier: "MoreRewardsCell") as! MoreRewardsCell
@@ -54,14 +59,29 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-
+        
+        let rewardCreationNavController = storyboard.instantiateViewController(withIdentifier: "RewardsCreationNavigationController") as! UINavigationController
+        
         let rewardVC = storyboard.instantiateViewController(withIdentifier: "RewardCreationViewController") as! RewardCreationViewController
-        
         rewardVC.currentTeam = self.currentTeam
-        
-        self.show(rewardVC, sender: self)
-        
+        rewardVC.delegate = self
+        rewardCreationNavController.setViewControllers([rewardVC], animated: true)
+        self.present(rewardCreationNavController, animated: true, completion: nil)
     }
+    
+    @IBAction func onSubmit(_ sender: UIBarButtonItem) {
+        Reward.createRewards(rewards: defaultRewards, success: {
+            print("--- Reward creation succes")
+        }, failure: { (error : Error?) in
+            print("---!!! reward creation error : \(error?.localizedDescription)")
+        })
+    }
+
+    func rewardCreationViewController(rewardCreationViewController: RewardCreationViewController, reward: PFObject) {
+        defaultRewards.append(reward)
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

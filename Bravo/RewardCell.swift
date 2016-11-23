@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Parse
 
 class RewardCell: UITableViewCell {
 
     @IBOutlet weak var rewardNameLabel: UILabel!
-    @IBOutlet weak var rewardPointsLabel: UILabel!
+    @IBOutlet weak var rewardPointsField: UITextField!
     @IBOutlet weak var rewardSwitch: UISwitch!
     
+    var reward: PFObject! {
+        didSet {
+            rewardNameLabel.text = "\(reward["name"]!)"
+            rewardPointsField.text = "\(reward["points"]!)"
+            rewardSwitch.isOn = reward["isActive"]! as! Bool
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +32,17 @@ class RewardCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func onSwitchChanged(_ sender: Any) {
+        reward["isActive"] = rewardSwitch.isOn
+    }
+    
+    @IBAction func textChanged(_ sender: Any) {
+        reward["points"] = Int(rewardPointsField.text!)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
 }
