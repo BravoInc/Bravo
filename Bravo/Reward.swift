@@ -22,11 +22,22 @@ class Reward: PFObject {
         return reward
     }
     
-    class func createRewards(rewards: [PFObject], success: @escaping() -> (), failure: @escaping(Error?) -> () ){
+    class func createRewards(rewards: [PFObject], team : PFObject,success: @escaping() -> (), failure: @escaping(Error?) -> () ){
 
         PFObject.saveAll(inBackground: rewards, block: { (result : Bool, error :  Error?) in
             if (error == nil ){
-                print("--- Created Reward after save in background:")                
+                print("--- Created Reward after save in background:")
+                for reward in rewards{
+                    let rewardRelation = team.relation(forKey: "rewardRelation")
+                    rewardRelation.add(reward)
+                    team.saveInBackground(block: { (result : Bool, error : Error?) in
+                        if(error == nil){
+                            print("--- added relation for reward")
+                        }
+                    })
+                    
+                }
+                
             } else {
                 failure(error)
             }

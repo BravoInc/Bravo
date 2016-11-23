@@ -80,7 +80,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func onSubmit(_ sender: UIBarButtonItem) {
-        Reward.createRewards(rewards: defaultRewards, success: {
+        Reward.createRewards(rewards: defaultRewards,team : currentTeam, success: {
             print("--- Reward creation succes")
         }, failure: { (error : Error?) in
             print("---!!! reward creation error : \(error?.localizedDescription)")
