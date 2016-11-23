@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import Parse
 
 class TeamCell: UITableViewCell {
 
     @IBOutlet weak var teamNameLabel: UILabel!
+    @IBOutlet weak var adminLabel: UILabel!
+    var team: PFObject! {
+        didSet {
+            teamNameLabel.text = "\(team["name"]!)"
+            let adminUser = team["adminUser"] as! BravoUser
+            adminLabel.text = "\(adminUser["firstName"]!) \(adminUser["lastName"]!)"
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
