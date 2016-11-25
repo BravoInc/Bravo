@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */; };
+		6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6441267C1DE80D7D0060FBED /* Activity.storyboard */; };
+		6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441267E1DE80E930060FBED /* TimelineViewController.swift */; };
+		644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126801DE80F0F0060FBED /* TeamViewController.swift */; };
+		644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126821DE80F4F0060FBED /* LeaderboardViewController.swift */; };
+		644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126841DE80F7B0060FBED /* ProfileViewController.swift */; };
 		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
 		649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */; };
 		649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */; };
-		64D5079D1DE1212000C708BD /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D5079C1DE1212000C708BD /* Admin.storyboard */; };
-		64D5079F1DE1231900C708BD /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D5079E1DE1231900C708BD /* Timeline.storyboard */; };
 		64D507A31DE4238800C708BD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A21DE4238800C708BD /* Comment.swift */; };
 		64D507A51DE423A300C708BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A41DE423A300C708BD /* Post.swift */; };
 		64D507A71DE4240700C708BD /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A61DE4240700C708BD /* Skills.swift */; };
@@ -41,12 +44,15 @@
 
 /* Begin PBXFileReference section */
 		5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.release.xcconfig"; sourceTree = "<group>"; };
+		6441267C1DE80D7D0060FBED /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		6441267E1DE80E930060FBED /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		644126801DE80F0F0060FBED /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		644126821DE80F4F0060FBED /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		644126841DE80F7B0060FBED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreRewardsCell.swift; sourceTree = "<group>"; };
 		649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRewardsCell.xib; sourceTree = "<group>"; };
-		64D5079C1DE1212000C708BD /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
-		64D5079E1DE1231900C708BD /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		64D507A21DE4238800C708BD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		64D507A41DE423A300C708BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64D507A61DE4240700C708BD /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -108,6 +114,10 @@
 				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
 				64EDF6821DD948F00071A731 /* RewardsViewController.swift */,
 				64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */,
+				6441267E1DE80E930060FBED /* TimelineViewController.swift */,
+				644126801DE80F0F0060FBED /* TeamViewController.swift */,
+				644126821DE80F4F0060FBED /* LeaderboardViewController.swift */,
+				644126841DE80F7B0060FBED /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -130,8 +140,7 @@
 			children = (
 				64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */,
 				EEF36DB11DD1855C0032BCE6 /* Main.storyboard */,
-				64D5079C1DE1212000C708BD /* Admin.storyboard */,
-				64D5079E1DE1231900C708BD /* Timeline.storyboard */,
+				6441267C1DE80D7D0060FBED /* Activity.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -229,7 +238,7 @@
 				TargetAttributes = {
 					EEF36DA91DD1855C0032BCE6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 752EL73Z7Y;
+						DevelopmentTeam = 4F29K8HK32;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -268,15 +277,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64D5079D1DE1212000C708BD /* Admin.storyboard in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
-				64D5079F1DE1231900C708BD /* Timeline.storyboard in Resources */,
 				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
+				6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,11 +349,14 @@
 				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,
 				64D507AB1DE4245200C708BD /* SkillPoints.swift in Sources */,
 				64D507A51DE423A300C708BD /* Post.swift in Sources */,
+				644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
 				64D507A31DE4238800C708BD /* Comment.swift in Sources */,
 				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
+				644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */,
 				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
 				64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */,
+				6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */,
 				64D507A91DE4244000C708BD /* UserPoints.swift in Sources */,
 				64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
@@ -354,6 +365,7 @@
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
 				EE3121231DD939A900665F4C /* Team.swift in Sources */,
+				644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */,
 				64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,7 +491,7 @@
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = 752EL73Z7Y;
+				DEVELOPMENT_TEAM = 4F29K8HK32;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;
@@ -495,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
-				DEVELOPMENT_TEAM = 752EL73Z7Y;
+				DEVELOPMENT_TEAM = 4F29K8HK32;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;
