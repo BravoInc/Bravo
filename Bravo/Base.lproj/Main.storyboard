@@ -28,7 +28,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qsO-d4-Cav" userLabel="Outer Stack">
-                                <rect key="frame" x="28" y="45" width="319" height="369"/>
+                                <rect key="frame" x="28" y="45" width="319" height="369.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-2g-swe" userLabel="LogoBackground">
                                         <rect key="frame" x="89.5" y="0.0" width="140" height="140"/>
@@ -57,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-Jx-w5p">
-                                        <rect key="frame" x="17" y="254.5" width="285" height="114.5"/>
+                                        <rect key="frame" x="17" y="254.5" width="285" height="115"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi8-IK-llY">
                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="33"/>
@@ -84,8 +84,8 @@
                                                     <segue destination="fjW-KZ-nT7" kind="show" identifier="LoginSegue" id="mid-MG-8RZ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, I agree to Bravo's Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8v-nD-6sh" userLabel="Disclaimer">
-                                                <rect key="frame" x="0.0" y="98" width="285" height="16.5"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, I agree to Bravo's Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8v-nD-6sh" userLabel="Disclaimer" customClass="TTTAttributedLabel">
+                                                <rect key="frame" x="0.0" y="98" width="285" height="17"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -109,6 +109,9 @@
                             <constraint firstAttribute="trailing" secondItem="C55-T6-XBs" secondAttribute="trailing" id="x8h-T1-EkN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="disclaimer" destination="W8v-nD-6sh" id="BJB-q4-xy9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +144,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="28j-ib-XhQ">
-                                <rect key="frame" x="144.5" y="238.5" width="86" height="190"/>
+                                <rect key="frame" x="145" y="239" width="86" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-KP-YLb">
                                         <rect key="frame" x="0.0" y="0.0" width="86" height="30"/>
