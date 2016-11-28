@@ -17,6 +17,7 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     var filteredUsers = [PFUser]()
     var users = [PFUser]()
+    var selectedIndex: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,9 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         "Select Recipient"
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onDone(_:)))
+        navigationItem.rightBarButtonItem?.isEnabled = false
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -67,22 +71,30 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         userCell.user = filteredUsers[indexPath.row]
-        
+        userCell.isChecked = selectedIndex == indexPath.row
+        userCell.setImageViews()
         
         return userCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedIndex = indexPath.row
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        tableView.reloadData()
         
     }
     
+    func onDone(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

@@ -63,6 +63,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="profileImageView" destination="wjk-DI-7Vq" id="rSF-KT-Uff"/>
+                <outlet property="selectionImageView" destination="TKF-9d-pV2" id="z5h-e9-FgU"/>
                 <outlet property="userFullNameLabel" destination="9Jl-qb-ey7" id="P9T-98-WAP"/>
                 <outlet property="userNameLabel" destination="LJC-rI-nLR" id="Wgk-Ge-yls"/>
             </connections>

@@ -27,7 +27,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Add SearchBar to the NavigationBar
         searchBar.sizeToFit()
-        searchBar.placeholder = "Search for an existing team"
+        searchBar.placeholder = "Search for a team"
         navigationItem.titleView = searchBar
         
         // Set up team search table view

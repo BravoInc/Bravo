@@ -15,8 +15,6 @@ class PostComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //presentSelectionController()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,11 +22,16 @@ class PostComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func createPost(_ sender: Any) {
+        
     }
     
 
     @IBAction func cancelPost(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func editingBegin(_ sender: Any) {
+        presentSelectionController()
     }
     
     func presentSelectionController() {

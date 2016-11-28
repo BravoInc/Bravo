@@ -14,6 +14,9 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userFullNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var selectionImageView: UIImageView!
+    
     var user: PFUser! {
         didSet {
             // Image Views
@@ -22,7 +25,11 @@ class UserCell: UITableViewCell {
             userNameLabel.text = "\(user["username"]!)"
         }
     }
-
+    var isChecked: Bool = false
+    
+    func setImageViews() {
+        selectionImageView.image = UIImage(named: isChecked ? "selectedCircle" : "borderCircle")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +38,6 @@ class UserCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
