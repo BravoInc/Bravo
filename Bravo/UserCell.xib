@@ -45,7 +45,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="9Jl-qb-ey7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1Jd-11-NY5"/>
                     <constraint firstAttribute="trailing" secondItem="TKF-9d-pV2" secondAttribute="trailing" constant="8" id="1jF-Eg-6An"/>
@@ -60,6 +60,7 @@
                     <constraint firstItem="LJC-rI-nLR" firstAttribute="top" secondItem="9Jl-qb-ey7" secondAttribute="bottom" constant="8" id="xvK-bG-laM"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="profileImageView" destination="wjk-DI-7Vq" id="rSF-KT-Uff"/>
                 <outlet property="userFullNameLabel" destination="9Jl-qb-ey7" id="P9T-98-WAP"/>
