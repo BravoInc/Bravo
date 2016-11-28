@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
@@ -50,6 +50,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         return postCell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at:indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
@@ -58,7 +59,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         show(commentsViewController, sender: self)
     }
 
-
+    func postCompose(post: PFObject) {
+        self.posts.insert(post, at: 0)
+        tableView.reloadData()
+    }
 
     
     override func didReceiveMemoryWarning() {
@@ -69,7 +73,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
-        
+        postComposeVC.delegate = self
     }
     
     

@@ -16,7 +16,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var filteredTeams = [PFObject]()
     var teams = [PFObject]()
-
+       
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +30,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         searchBar.placeholder = "Search for a team"
         navigationItem.titleView = searchBar
         
+        navigationItem.rightBarButtonItem = nil
         // Set up team search table view
         filteredTeams = teams
         
@@ -76,8 +77,10 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
     func showTeamDetails(team: PFObject) {
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let teamDetailVC = storyboard.instantiateViewController(withIdentifier: "TeamDetailViewController") as! TeamDetailViewController
-        
+
         teamDetailVC.currentTeam = team
+        let presentingNavController = self.presentingViewController as! UINavigationController
+        (presentingNavController.viewControllers[0] as! PostComposeViewController).team = team
         
         self.show(teamDetailVC, sender: self)
     }

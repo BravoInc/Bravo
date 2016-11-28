@@ -37,8 +37,6 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         "Select Recipient"
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onDone(_:)))
-        navigationItem.rightBarButtonItem?.isEnabled = false
 
         
         tableView.delegate = self
@@ -80,12 +78,16 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedIndex = indexPath.row
-        navigationItem.rightBarButtonItem?.isEnabled = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onDone(_:)))
         tableView.reloadData()
         
     }
     
     func onDone(_ sender: UIBarButtonItem) {
+        let presentingNavController = self.presentingViewController as! UINavigationController
+        let postComposeVC = (presentingNavController.viewControllers[0] as! PostComposeViewController)
+        postComposeVC.user = filteredUsers[selectedIndex]
+        postComposeVC.recipientTextField.text = "\(postComposeVC.user!["firstName"]!) \(postComposeVC.user!["lastName"]!)"
         dismiss(animated: true, completion: nil)
     }
 
