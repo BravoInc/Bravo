@@ -38,8 +38,13 @@
 		64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF6821DD948F00071A731 /* RewardsViewController.swift */; };
 		64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */; };
 		64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */; };
+		E13696091DE9411D00D51FE0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E13696081DE9411D00D51FE0 /* background.png */; };
+		E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */; };
+		E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */; };
+		E136960F1DE9467800D51FE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E136960E1DE9467800D51FE0 /* logo.png */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
+		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EE3121231DD939A900665F4C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121221DD939A900665F4C /* Team.swift */; };
 		EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF12C91DE2745000BCCA07 /* Reward.swift */; };
@@ -84,8 +89,13 @@
 		64FE56C61DD7BFA60099562D /* TeamCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamCreation.storyboard; sourceTree = "<group>"; };
 		65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bravo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED0C7624F7A3D46DF148406 /* Pods-Bravo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.debug.xcconfig"; sourceTree = "<group>"; };
+		E13696081DE9411D00D51FE0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		E136960E1DE9467800D51FE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EE3121201DD7E6AA00665F4C /* BravoUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BravoUser.swift; sourceTree = "<group>"; };
 		EE3121221DD939A900665F4C /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 				6441268C1DEAC5EB0060FBED /* PostComposeViewController.swift */,
 				6441268E1DEB8B1E0060FBED /* SelectionViewController.swift */,
 				644126901DEBA7EA0060FBED /* TeamDetailViewController.swift */,
+				E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +189,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E13696071DE9109800D51FE0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */,
+				E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */,
+				E136960E1DE9467800D51FE0 /* logo.png */,
+				E13696081DE9411D00D51FE0 /* background.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		EE2D5B451DD7AD4900622176 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +236,7 @@
 		EEF36DAC1DD1855C0032BCE6 /* Bravo */ = {
 			isa = PBXGroup;
 			children = (
+				E13696071DE9109800D51FE0 /* Assets */,
 				64EDF67D1DD83F900071A731 /* Views */,
 				64FE56C51DD7BF840099562D /* Storyboards */,
 				641B235F1DD7B6B600D3BC14 /* View Controllers */,
@@ -301,6 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
+				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
@@ -309,7 +334,9 @@
 				644126891DE822FC0060FBED /* PostCell.xib in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
+				E136960F1DE9467800D51FE0 /* logo.png in Resources */,
 				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
+				E13696091DE9411D00D51FE0 /* background.png in Resources */,
 				6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */,
+				E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
 				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,

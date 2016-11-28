@@ -7,7 +7,7 @@ target 'Bravo' do
 
   # Pods for Bravo
   pod 'Parse'
-  pod 'OneSignal'
-  pod 'AFNetworking'
+  #pod 'OneSignal'
+  pod 'TTTAttributedLabel'
 
 end
