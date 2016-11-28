@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "rewardsPlus.png",
+      "filename" : "border_circle.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "border_circle@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "border_circle@3x.png",
       "scale" : "3x"
     }
   ],
