@@ -50,7 +50,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="mHo-Mc-lbl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="20w-ts-bZy"/>
                     <constraint firstItem="mHo-Mc-lbl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5dH-mD-kFF"/>
@@ -67,6 +67,7 @@
                     <constraint firstItem="26o-6c-HOn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ug0-Rb-SBv"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="adminLabel" destination="2ZD-qZ-8yP" id="hNQ-KC-U7P"/>
                 <outlet property="selectionImageView" destination="H2p-sc-9uM" id="AKI-2V-2BQ"/>

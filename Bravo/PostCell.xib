@@ -45,6 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zK9-89-6IW" secondAttribute="trailing" constant="8" id="35U-Dd-I43"/>
                     <constraint firstItem="zK9-89-6IW" firstAttribute="leading" secondItem="rQn-KW-PNM" secondAttribute="leading" id="5lU-Wh-IjV"/>
@@ -60,6 +61,7 @@
                     <constraint firstItem="85c-Eh-nKN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="xep-Ij-hJS"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="messageLabel" destination="zK9-89-6IW" id="Zt3-HH-gYE"/>
                 <outlet property="recipientImageView" destination="85c-Eh-nKN" id="0qt-yR-do1"/>
