@@ -85,9 +85,10 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     func onDone(_ sender: UIBarButtonItem) {
         let presentingNavController = self.presentingViewController as! UINavigationController
-        let postComposeVC = (presentingNavController.viewControllers[0] as! PostComposeViewController)
-        postComposeVC.user = filteredUsers[selectedIndex]
-        postComposeVC.recipientTextField.text = "\(postComposeVC.user!["firstName"]!) \(postComposeVC.user!["lastName"]!)"
+        if let postComposeVC = (presentingNavController.viewControllers[0] as?PostComposeViewController) {
+            postComposeVC.user = filteredUsers[selectedIndex]
+            postComposeVC.recipientTextField.text = "\(postComposeVC.user!["firstName"]!) \(postComposeVC.user!["lastName"]!)"
+        }
         dismiss(animated: true, completion: nil)
     }
 
