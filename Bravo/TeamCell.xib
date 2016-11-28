@@ -15,34 +15,42 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-em-t8i">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXk-em-t8i">
                         <rect key="frame" x="16" y="37" width="54" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHo-Mc-lbl">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHo-Mc-lbl">
                         <rect key="frame" x="16" y="8" width="47" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-0V-cdj">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-0V-cdj">
                         <rect key="frame" x="71" y="8" width="92" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZD-qZ-8yP">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZD-qZ-8yP">
                         <rect key="frame" x="71" y="37" width="98" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goRight" translatesAutoresizingMaskIntoConstraints="NO" id="26o-6c-HOn">
+                        <rect key="frame" x="282" y="25" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="UmP-3O-x7D"/>
+                            <constraint firstAttribute="width" constant="30" id="j5W-7k-4Km"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="mHo-Mc-lbl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="20w-ts-bZy"/>
                     <constraint firstItem="mHo-Mc-lbl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5dH-mD-kFF"/>
@@ -51,17 +59,23 @@
                     <constraint firstItem="2ZD-qZ-8yP" firstAttribute="top" secondItem="gXk-em-t8i" secondAttribute="top" id="T9Q-Rj-x8S"/>
                     <constraint firstItem="JZr-0V-cdj" firstAttribute="top" secondItem="mHo-Mc-lbl" secondAttribute="top" id="Tf0-oF-jXI"/>
                     <constraint firstItem="gXk-em-t8i" firstAttribute="top" secondItem="mHo-Mc-lbl" secondAttribute="bottom" constant="8" id="Yfm-0e-hyJ"/>
+                    <constraint firstAttribute="trailing" secondItem="26o-6c-HOn" secondAttribute="trailing" constant="8" id="ckU-UJ-nJS"/>
                     <constraint firstItem="2ZD-qZ-8yP" firstAttribute="leading" secondItem="JZr-0V-cdj" secondAttribute="leading" id="g9G-i1-s4q"/>
                     <constraint firstItem="JZr-0V-cdj" firstAttribute="leading" secondItem="mHo-Mc-lbl" secondAttribute="trailing" constant="8" id="kWD-MY-Gsu"/>
                     <constraint firstItem="gXk-em-t8i" firstAttribute="top" secondItem="mHo-Mc-lbl" secondAttribute="bottom" constant="8" id="lKA-g4-Tzd"/>
                     <constraint firstItem="2ZD-qZ-8yP" firstAttribute="top" secondItem="JZr-0V-cdj" secondAttribute="bottom" constant="8" id="u6q-sS-Kfr"/>
+                    <constraint firstItem="26o-6c-HOn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ug0-Rb-SBv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="adminLabel" destination="2ZD-qZ-8yP" id="hNQ-KC-U7P"/>
+                <outlet property="selectionImageView" destination="H2p-sc-9uM" id="AKI-2V-2BQ"/>
                 <outlet property="teamNameLabel" destination="JZr-0V-cdj" id="ATl-Wu-a2X"/>
             </connections>
             <point key="canvasLocation" x="80" y="146"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="goRight" width="19" height="33"/>
+    </resources>
 </document>

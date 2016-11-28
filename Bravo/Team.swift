@@ -41,6 +41,20 @@ class Team: PFObject {
         }
     }
     
+    class func getUserTeams(user: PFObject, success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let teamRelation = user.relation(forKey: "teamRelation")
+        let query = teamRelation.query()
+        query.order(byDescending: "createdAt")
+        query.includeKey("adminUser")
+        query.findObjectsInBackground { (teams: [PFObject]?, error: Error?) in
+            if error == nil {
+                success(teams)
+            } else {
+                failure(error)
+            }
+        }
+    }
+    
     class func joinTeam(team: PFObject, success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
         let userRelation = team.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)

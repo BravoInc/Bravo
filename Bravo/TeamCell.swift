@@ -13,6 +13,8 @@ class TeamCell: UITableViewCell {
 
     @IBOutlet weak var teamNameLabel: UILabel!
     @IBOutlet weak var adminLabel: UILabel!
+    @IBOutlet weak var selectionImageView: UIView!
+    
     var team: PFObject! {
         didSet {
             teamNameLabel.text = "\(team["name"]!)"
@@ -28,6 +30,9 @@ class TeamCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        self.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.layer.shadowRadius = 3
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

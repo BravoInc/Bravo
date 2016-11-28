@@ -83,4 +83,15 @@ class BravoUser: PFUser {
         return PFUser.current() as! BravoUser
     }
 
+    class func getTeamUsers(team: PFObject, success: @escaping([PFUser]?) -> (), failure: @escaping(Error?) -> ()){
+        
+        let userRelation = team.relation(forKey: "userRelation")
+        userRelation.query().findObjectsInBackground { (users: [PFObject]?, error: Error?) in
+            if error == nil {
+                success(users as! [PFUser]?)
+            } else {
+                failure(error)
+            }
+        }
+    }
 }

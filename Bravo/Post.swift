@@ -10,5 +10,39 @@ import UIKit
 import Parse
 
 class Post: PFObject {
+    class func createPost(recipient : PFObject, message: String, points: Int, team: PFObject){
+        let newPost = Post(className: "Post")
+        
+        newPost["sender"] = BravoUser.getLoggedInUser()
+        newPost["recipient"] = recipient
+        newPost["message"] = message
+        newPost["points"] = points
+        newPost["team"] = team
+        
+        newPost.saveInBackground { (result : Bool, error : Error?) in
+            if (error == nil){
+                print ("new Post created")
+            } else {
+                print ("post creation failed")
+            }
+        }
+    }
+    
+    class func getAllPosts(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("sender")
+        query.includeKey("recipient")
+        
+        
+        query.findObjectsInBackground { (posts : [PFObject]?, error : Error?) in
+            if(error == nil){
+                success(posts as! [Post]?)
+            } else {
+                failure(error)
+            }
+        }
+    }
 
 }
+
