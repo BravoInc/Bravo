@@ -40,7 +40,8 @@ class PostComposeViewController: UIViewController {
         if user == nil {
             return
         }
-        let newPost = Post.createPost(recipient: user!, message: messageTextView.text, points: Int(pointsTextField.text!)!, team: team!)
+        let postMessage = "\(messageTextView.text!) \(skillsTextField.text!)"
+        let newPost = Post.createPost(recipient: user!, message: postMessage, points: Int(pointsTextField.text!)!, team: team!)
         
         
         Post.savePost(post: newPost, success: { (post : PFObject?) in
