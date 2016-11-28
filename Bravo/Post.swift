@@ -10,7 +10,8 @@ import UIKit
 import Parse
 
 class Post: PFObject {
-    class func createPost(recipient : PFObject, message: String, points: Int, team: PFObject){
+    
+    class func createPost(recipient : PFUser, message: String, points: Int, team: PFObject) -> PFObject {
         let newPost = Post(className: "Post")
         
         newPost["sender"] = BravoUser.getLoggedInUser()
@@ -18,12 +19,19 @@ class Post: PFObject {
         newPost["message"] = message
         newPost["points"] = points
         newPost["team"] = team
+
+        return newPost
+    }
+    
+    class func savePost(post: PFObject, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()){
         
-        newPost.saveInBackground { (result : Bool, error : Error?) in
+        post.saveInBackground { (result : Bool, error : Error?) in
             if (error == nil){
                 print ("new Post created")
+                success(post)
             } else {
                 print ("post creation failed")
+                failure(error)
             }
         }
     }

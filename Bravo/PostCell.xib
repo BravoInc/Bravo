@@ -18,10 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="323" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-KW-PNM">
-                        <rect key="frame" x="76" y="8" width="127" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-KW-PNM">
+                        <rect key="frame" x="76" y="8" width="132" height="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="85c-Eh-nKN">
@@ -38,10 +38,10 @@
                             <constraint firstAttribute="height" constant="20" id="p3B-1W-Nss"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 for help with #iOS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK9-89-6IW">
+                    <label opaque="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 for help with #iOS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK9-89-6IW">
                         <rect key="frame" x="76" y="32" width="117" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

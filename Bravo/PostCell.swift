@@ -24,7 +24,7 @@ class PostCell: UITableViewCell {
             let recipient = post["recipient"] as! BravoUser
             
             recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
-            messageLabel.text = "\(post["message"])"
+            messageLabel.text = "+\(post["points"]!) for \(post["message"]!)"
         }
     }
 
