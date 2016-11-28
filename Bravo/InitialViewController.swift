@@ -10,12 +10,14 @@ import UIKit
 import UserNotifications
 import TTTAttributedLabel
 
-class InitialViewController: UIViewController {
+class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.disclaimer.delegate = self
         
         let TOS = "Terms Of Service"
         let disclaimerText = "By signing up, I agree to Bravo's \(TOS)"
@@ -25,7 +27,7 @@ class InitialViewController: UIViewController {
             NSForegroundColorAttributeName: UIColor.white,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
         
-        self.disclaimer.activeLinkAttributes = [NSForegroundColorAttributeName: UIColor.green,]
+        self.disclaimer.activeLinkAttributes = [NSForegroundColorAttributeName: UIColor(red:0.55, green:0.53, blue:1.00, alpha:1.0),]
         
         let tmpString = disclaimerText as NSString
         let range = tmpString.range(of: TOS)
@@ -45,6 +47,14 @@ class InitialViewController: UIViewController {
         }
     }
 
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        print("--- tapped on TOS link")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navController = storyboard.instantiateViewController(withIdentifier: "TOSNavigationViewController") as! UINavigationController
+        self.present(navController, animated: true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
