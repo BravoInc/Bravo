@@ -58,6 +58,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         show(commentsViewController, sender: self)
     }
 
+
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,9 +68,11 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
-        let selectionVC = navigationController.topViewController as! SelectionViewController
+        let postComposeVC = navigationController.topViewController as! PostComposeViewController
         
     }
+    
+    
 
     /*
     // MARK: - Navigation
