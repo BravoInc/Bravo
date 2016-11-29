@@ -17,6 +17,15 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set navigation bar title view
+        let titleLabel = UILabel()
+        titleLabel.text =
+        "Reward Activity"
+        titleLabel.sizeToFit()
+        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        navigationItem.titleView = titleLabel
+
         // Initialize table view
         tableView.delegate = self
         tableView.dataSource = self
