@@ -29,8 +29,10 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for a team"
         navigationItem.titleView = searchBar
-        
+
         navigationItem.rightBarButtonItem = nil
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Team", style: .plain, target: nil, action: nil)
+
         // Set up team search table view
         filteredTeams = teams
         
@@ -85,6 +87,9 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         self.show(teamDetailVC, sender: self)
     }
     
+    @IBAction func onCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
