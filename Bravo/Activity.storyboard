@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reward Activity-->
+        <!--Timeline View Controller-->
         <scene sceneID="0IG-8j-Qoy">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="zaM-SX-d9A" customClass="TimelineViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                             <constraint firstItem="dBL-u3-XP9" firstAttribute="leading" secondItem="Jnk-YS-ILV" secondAttribute="leading" id="go7-yP-yiG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reward Activity" id="ggs-zz-G5L">
+                    <navigationItem key="navigationItem" id="ggs-zz-G5L">
                         <barButtonItem key="rightBarButtonItem" title="Recognize" id="seA-0R-Aqy">
                             <connections>
                                 <segue destination="oeV-GH-8gM" kind="presentation" id="9gS-Yo-xhi"/>
@@ -219,7 +219,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Team" id="eR1-Zy-idC">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9cS-qF-nsL"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9cS-qF-nsL">
+                            <connections>
+                                <action selector="onCancel:" destination="VJq-bi-d7P" id="FiB-Aq-jij"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="JbU-pY-gKT"/>
                     </navigationItem>
                     <connections>
@@ -378,7 +382,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TimelineNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gwc-IN-DNC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dhz-Xy-nGF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dhz-Xy-nGF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -396,7 +400,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A0E-nW-L4G" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vXr-tW-5vt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vXr-tW-5vt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -414,7 +418,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LeaderboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A2P-1q-drZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwh-SR-0QN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uwh-SR-0QN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -432,7 +436,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nZs-7Y-aS2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsN-Q2-oyl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xsN-Q2-oyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -450,7 +454,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PostComposeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="oeV-GH-8gM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBZ-1r-Xsb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UBZ-1r-Xsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -468,7 +472,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SelectionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rET-Cq-Wvz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suV-hY-t4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="suV-hY-t4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

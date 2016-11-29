@@ -22,7 +22,7 @@ class UserCell: UITableViewCell {
             // Image Views
             
             userFullNameLabel.text = "\(user["firstName"]!) \(user["lastName"]!)"
-            userNameLabel.text = "\(user["username"]!)"
+            userNameLabel.text = "@\(user["username"]!)"
         }
     }
     var isChecked: Bool = false
