@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BF61A3DAC150439163342B9 /* Pods_Bravo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DCB59DBA5A01084E428B26 /* Pods_Bravo.framework */; };
+		64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64344D2B1DED3414006951D0 /* UserSkillPoints.swift */; };
 		6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6441267C1DE80D7D0060FBED /* Activity.storyboard */; };
 		6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441267E1DE80E930060FBED /* TimelineViewController.swift */; };
 		644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126801DE80F0F0060FBED /* TeamViewController.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		5C001BAC33DBDD6EC59B8BF0 /* Pods-Bravo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bravo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bravo/Pods-Bravo.release.xcconfig"; sourceTree = "<group>"; };
+		64344D2B1DED3414006951D0 /* UserSkillPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSkillPoints.swift; sourceTree = "<group>"; };
 		6441267C1DE80D7D0060FBED /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		6441267E1DE80E930060FBED /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		644126801DE80F0F0060FBED /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				64D507A61DE4240700C708BD /* Skills.swift */,
 				64D507A81DE4244000C708BD /* UserPoints.swift */,
 				64D507AA1DE4245200C708BD /* SkillPoints.swift */,
+				64344D2B1DED3414006951D0 /* UserSkillPoints.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
 				644126941DEBAA1F0060FBED /* UserCell.swift in Sources */,
 				64D507A31DE4238800C708BD /* Comment.swift in Sources */,
+				64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */,
 				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
 				644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */,
 				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
