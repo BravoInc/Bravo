@@ -42,6 +42,8 @@
 		E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */; };
 		E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */; };
 		E136960F1DE9467800D51FE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E136960E1DE9467800D51FE0 /* logo.png */; };
+		E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */ = {isa = PBXBuildFile; fileRef = E1574DAB1DED06AC007AC27A /* backArrow128.png */; };
+		E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1574DAD1DED3457007AC27A /* NameViewController.swift */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
@@ -93,6 +95,8 @@
 		E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		E136960E1DE9467800D51FE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		E1574DAB1DED06AC007AC27A /* backArrow128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128.png; sourceTree = "<group>"; };
+		E1574DAD1DED3457007AC27A /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
@@ -132,12 +136,11 @@
 		641B235F1DD7B6B600D3BC14 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1F463A21DECC63B00A4C605 /* SignupLogin */,
 				EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */,
 				64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */,
 				64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */,
 				64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */,
-				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
-				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
 				64EDF6821DD948F00071A731 /* RewardsViewController.swift */,
 				64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */,
 				6441267E1DE80E930060FBED /* TimelineViewController.swift */,
@@ -148,7 +151,6 @@
 				6441268C1DEAC5EB0060FBED /* PostComposeViewController.swift */,
 				6441268E1DEB8B1E0060FBED /* SelectionViewController.swift */,
 				644126901DEBA7EA0060FBED /* TeamDetailViewController.swift */,
-				E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -192,12 +194,24 @@
 		E13696071DE9109800D51FE0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E1574DAB1DED06AC007AC27A /* backArrow128.png */,
 				E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */,
 				E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */,
 				E136960E1DE9467800D51FE0 /* logo.png */,
 				E13696081DE9411D00D51FE0 /* background.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		E1F463A21DECC63B00A4C605 /* SignupLogin */ = {
+			isa = PBXGroup;
+			children = (
+				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
+				E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */,
+				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
+				E1574DAD1DED3457007AC27A /* NameViewController.swift */,
+			);
+			name = SignupLogin;
 			sourceTree = "<group>";
 		};
 		EE2D5B451DD7AD4900622176 /* Models */ = {
@@ -324,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
@@ -415,6 +430,7 @@
 				6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */,
 				6441268D1DEAC5EB0060FBED /* PostComposeViewController.swift in Sources */,
 				6441268B1DEAB1F60060FBED /* CommentsViewController.swift in Sources */,
+				E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */,
 				64D507A91DE4244000C708BD /* UserPoints.swift in Sources */,
 				64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */,
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,

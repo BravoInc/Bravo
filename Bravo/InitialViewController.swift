@@ -13,9 +13,12 @@ import TTTAttributedLabel
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
+    @IBOutlet weak var initialOuterStack: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         self.disclaimer.delegate = self
         
@@ -54,12 +57,12 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
         self.present(navController, animated: true, completion: nil)
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    @IBAction func onCreateAccount(_ sender: Any) {
+        
+    } // onCreateAccount button press
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
         let vc = segue.destination as! SignUpViewController
         
         if(segue.identifier == "SignUpSegue"){
@@ -68,5 +71,12 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
         }else if(segue.identifier == "LoginSegue"){
             vc.signUpOrLogin = true
         }
+ */
+    } // prepareForSegue
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+
 }
