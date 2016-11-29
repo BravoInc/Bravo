@@ -27,10 +27,10 @@ class Post: PFObject {
         
         post.saveInBackground { (result : Bool, error : Error?) in
             if (error == nil){
-                print ("new Post created")
+                print ("-- new post created")
                 success(post)
             } else {
-                print ("post creation failed")
+                print ("-- post creation failed")
                 failure(error)
             }
         }

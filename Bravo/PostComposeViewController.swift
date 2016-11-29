@@ -41,15 +41,29 @@ class PostComposeViewController: UIViewController {
             return
         }
         let postMessage = "\(messageTextView.text!) \(skillsTextField.text!)"
-        let newPost = Post.createPost(recipient: user!, message: postMessage, points: Int(pointsTextField.text!)!, team: team!)
+        let points = Int(pointsTextField.text!)!
+        let newPost = Post.createPost(recipient: user!, message: postMessage, points: points, team: team!)
         
         
         Post.savePost(post: newPost, success: { (post : PFObject?) in
             print("-- new post \(post)")
+            UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: self.skillsTextField.text!, points: points, success: {(userSkillPoint: PFObject?) in
+                Skills.saveSkill(skillName: self.skillsTextField.text!, user: self.user!, points: points, success: { (skill: PFObject?) in
+                    print ("--new skill \(skill)")
+                }, failure: { (error: Error?) in
+                    print ("Error saving skill: \(error?.localizedDescription)")
+                })
+            }, failure: {(error: Error?) in
+                print ("--Error adding points. Skip adding skills")
+                
+            })
+            
             
         }, failure: { (error : Error?) in
             print("---!!! cant create post : \(error?.localizedDescription)")
         })
+        
+        
         delegate?.postCompose?(post: newPost)
         dismiss(animated: true, completion: nil)
     }
