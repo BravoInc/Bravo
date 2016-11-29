@@ -26,6 +26,8 @@
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
 		649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */; };
 		649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */; };
+		64A3A9C71DEDFCA700E29D9D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9C51DEDFCA700E29D9D /* CommentCell.swift */; };
+		64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */; };
 		64D507A31DE4238800C708BD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A21DE4238800C708BD /* Comment.swift */; };
 		64D507A51DE423A300C708BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A41DE423A300C708BD /* Post.swift */; };
 		64D507A71DE4240700C708BD /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A61DE4240700C708BD /* Skills.swift */; };
@@ -78,6 +80,8 @@
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreRewardsCell.swift; sourceTree = "<group>"; };
 		649E11321DDAAB2400B5D2FD /* MoreRewardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreRewardsCell.xib; sourceTree = "<group>"; };
+		64A3A9C51DEDFCA700E29D9D /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		64D507A21DE4238800C708BD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		64D507A41DE423A300C708BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64D507A61DE4240700C708BD /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				644126871DE822FC0060FBED /* PostCell.xib */,
 				644126921DEBAA1F0060FBED /* UserCell.swift */,
 				644126931DEBAA1F0060FBED /* UserCell.xib */,
+				64A3A9C51DEDFCA700E29D9D /* CommentCell.swift */,
+				64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 				E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
+				64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */,
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
@@ -423,6 +430,7 @@
 				64D507A51DE423A300C708BD /* Post.swift in Sources */,
 				644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
+				64A3A9C71DEDFCA700E29D9D /* CommentCell.swift in Sources */,
 				644126941DEBAA1F0060FBED /* UserCell.swift in Sources */,
 				64D507A31DE4238800C708BD /* Comment.swift in Sources */,
 				64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */,

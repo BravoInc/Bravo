@@ -9,14 +9,21 @@
 import UIKit
 import Parse
 
-class CommentsViewController: UIViewController {
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var comments = [PFObject]()
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Initialize table view
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+        
+        tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +40,18 @@ class CommentsViewController: UIViewController {
         })
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
+        return commentCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // MARK: - Navigation
