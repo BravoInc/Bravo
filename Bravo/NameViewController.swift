@@ -12,15 +12,28 @@ class NameViewController: UIViewController {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         firstNameTextField.becomeFirstResponder()
-
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        let backImage = UIImage(named: "backArrow128.png")!
+        button.setImage(backImage, for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(NameViewController.backButtonPressed), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
     }
 
-    @IBAction func backBarButton(_ sender: Any) {
+    func backButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
     

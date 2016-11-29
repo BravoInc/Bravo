@@ -256,7 +256,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TOSNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="apY-ym-p8d" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uJ9-dS-FF1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uJ9-dS-FF1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -287,7 +287,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-1d-y6e" userLabel="NameStack">
-                                <rect key="frame" x="24" y="129" width="327" height="118"/>
+                                <rect key="frame" x="24" y="139" width="327" height="118"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Gjf-mR-0nc" userLabel="First Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="50.5"/>
@@ -377,31 +377,25 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xXR-1d-y6e" secondAttribute="trailing" constant="8" id="4sc-eu-rz2"/>
                             <constraint firstItem="w0c-pi-NOx" firstAttribute="leading" secondItem="eti-fw-OPX" secondAttribute="leadingMargin" constant="8" id="GJ7-x4-1Q9"/>
                             <constraint firstItem="w0c-pi-NOx" firstAttribute="top" secondItem="Pkk-wE-mXu" secondAttribute="bottom" constant="8" id="RE3-6u-DZa"/>
-                            <constraint firstItem="xXR-1d-y6e" firstAttribute="top" secondItem="w0c-pi-NOx" secondAttribute="bottom" constant="20" id="YOR-7R-9IQ"/>
+                            <constraint firstItem="xXR-1d-y6e" firstAttribute="top" secondItem="w0c-pi-NOx" secondAttribute="bottom" constant="30" id="YOR-7R-9IQ"/>
                             <constraint firstItem="xXR-1d-y6e" firstAttribute="leading" secondItem="eti-fw-OPX" secondAttribute="leadingMargin" constant="8" id="eDY-nr-e9v"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Iys-FY-DV2">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="iWt-cj-tBe">
-                            <connections>
-                                <action selector="backBarButton:" destination="ojg-Yj-XX2" id="fZU-sL-al5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Iys-FY-DV2"/>
                     <connections>
                         <outlet property="firstNameTextField" destination="hsf-x4-6I2" id="zXw-VY-v2l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoG-mc-vEK" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="-689"/>
+            <point key="canvasLocation" x="829.60000000000002" y="-689.5052473763119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kAk-Im-mfB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oCS-YV-RHj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6II-L6-pQd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6II-L6-pQd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
