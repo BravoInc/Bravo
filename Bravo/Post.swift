@@ -11,12 +11,13 @@ import Parse
 
 class Post: PFObject {
     
-    class func createPost(recipient : PFUser, message: String, points: Int, team: PFObject) -> PFObject {
+    class func createPost(recipient : PFUser, message: String, skill: String, points: Int, team: PFObject) -> PFObject {
         let newPost = Post(className: "Post")
         
         newPost["sender"] = BravoUser.getLoggedInUser()
         newPost["recipient"] = recipient
         newPost["message"] = message
+        newPost["skill"] = skill
         newPost["points"] = points
         newPost["team"] = team
 

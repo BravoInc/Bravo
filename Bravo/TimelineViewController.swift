@@ -17,7 +17,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set navigation bar title view
+        // Set navigation bar title view and back button
         let titleLabel = UILabel()
         titleLabel.text =
         "Reward Activity"
@@ -25,6 +25,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
+
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Activity", style: .plain, target: nil, action: nil)
 
         // Initialize table view
         tableView.delegate = self
@@ -64,7 +66,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at:indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let commentsViewController = storyboard.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsViewController
-        commentsViewController.getComments(post: posts[indexPath.row])
+        commentsViewController.post = posts[indexPath.row]
         show(commentsViewController, sender: self)
     }
 
@@ -82,6 +84,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
+        postComposeVC.isComment = false
         postComposeVC.delegate = self
     }
     
