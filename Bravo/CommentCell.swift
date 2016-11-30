@@ -7,9 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 class CommentCell: UITableViewCell {
 
+    @IBOutlet weak var senderNameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var senderImageView: UIImageView!
+    
+    var comment: PFObject! {
+        didSet {
+            // Add Image Views
+            let sender = comment["sender"] as! BravoUser
+            
+            senderNameLabel.text = "\(sender["firstName"]!) \(sender["lastName"]!)"
+            messageLabel.text = "+\(comment["points"]!) for \(comment["message"]!)"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

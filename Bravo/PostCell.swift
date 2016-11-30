@@ -20,11 +20,11 @@ class PostCell: UITableViewCell {
     var post: PFObject! {
         didSet {
             // Image Views
-            let sender = post["sender"] as! BravoUser
+            //let sender = post["sender"] as! BravoUser
             let recipient = post["recipient"] as! BravoUser
             
             recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
-            messageLabel.text = "+\(post["points"]!) for \(post["message"]!)"
+            messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
         }
     }
 

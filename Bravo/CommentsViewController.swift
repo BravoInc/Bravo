@@ -9,13 +9,28 @@
 import UIKit
 import Parse
 
-class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var recipientNameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var recipientImageView: UIImageView!
+    @IBOutlet weak var senderImageView: UIImageView!
 
     var comments = [PFObject]()
-    @IBOutlet weak var tableView: UITableView!
-
+    var post: PFObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Set navigation bar title view
+        let titleLabel = UILabel()
+        titleLabel.text =
+        "Comments"
+        titleLabel.sizeToFit()
+        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        navigationItem.titleView = titleLabel
 
         // Initialize table view
         tableView.delegate = self
@@ -24,6 +39,14 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.estimatedRowHeight = 60
         
         tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
+        
+        //let sender = post["sender"] as! BravoUser
+        let recipient = post["recipient"] as! BravoUser
+        
+        recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
+        messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
+
+        getComments(post: post)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +58,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         Comment.getComments(post: post, success: { (comments : [PFObject]?) in
             print("--- got \(comments?.count) comments")
             self.comments = comments!
+            self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get comments : \(error?.localizedDescription)")
         })
@@ -46,11 +70,27 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
+        commentCell.comment = comments[indexPath.row]
+
         return commentCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func postCompose(post: PFObject) {
+        self.comments.append(post)
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let postComposeVC = navigationController.topViewController as! PostComposeViewController
+        postComposeVC.isComment = true
+        postComposeVC.post = post
+        postComposeVC.user = post!["recipient"] as? PFUser
+        postComposeVC.delegate = self
     }
 
     /*

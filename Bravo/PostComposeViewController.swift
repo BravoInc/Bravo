@@ -17,6 +17,9 @@ import Parse
 class PostComposeViewController: UIViewController {
     var team: PFObject?
     var user: PFUser?
+    var post: PFObject?
+    var isComment: Bool!
+    
     @IBOutlet weak var recipientTextField: UITextField!
     @IBOutlet weak var pointsTextField: UITextField!
     @IBOutlet weak var skillsTextField: UITextField!
@@ -26,7 +29,16 @@ class PostComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if isComment == true {
+            let recipient = post!["recipient"] as! BravoUser
+            recipientTextField.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
+            recipientTextField.isEnabled = false
+            recipientTextField.backgroundColor = UIColor.lightGray
+            
+            skillsTextField.text = "\(post!["skill"]!)"
+            skillsTextField.isEnabled = false
+            skillsTextField.backgroundColor = UIColor.lightGray
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,14 +47,9 @@ class PostComposeViewController: UIViewController {
     }
     
 
-
-    @IBAction func createPost(_ sender: Any) {
-        if user == nil {
-            return
-        }
-        let postMessage = "\(messageTextView.text!) \(skillsTextField.text!)"
+    func saveNewPost() -> PFObject {
         let points = Int(pointsTextField.text!)!
-        let newPost = Post.createPost(recipient: user!, message: postMessage, points: points, team: team!)
+        let newPost = Post.createPost(recipient: user!, message: messageTextView.text!, skill: skillsTextField.text!, points: points, team: team!)
         
         
         Post.savePost(post: newPost, success: { (post : PFObject?) in
@@ -63,7 +70,35 @@ class PostComposeViewController: UIViewController {
             print("---!!! cant create post : \(error?.localizedDescription)")
         })
         
+        return newPost
+
+    }
+
+    func saveNewComment() -> PFObject {
+        let points = Int(pointsTextField.text!)!
+        let newComment = Comment.createComment(post: post!, message: messageTextView.text!, points: points)
         
+        Comment.saveComment(comment: newComment, post: post!, success: { (comment : PFObject?) in
+            print("-- new comment \(comment)")
+            UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: self.skillsTextField.text!, points: points, success: {(userSkillPoint: PFObject?) in
+                Skills.saveSkill(skillName: self.skillsTextField.text!, user: self.user!, points: points, success: { (skill: PFObject?) in
+                    print ("-- updated existing skill with user points\(skill)")
+                }, failure: { (error: Error?) in
+                    print ("Error updating skill with user points: \(error?.localizedDescription)")
+                })
+            }, failure: {(error: Error?) in
+                print ("--Error adding points. Skip adding skills")
+                
+            })
+        }, failure: { (error : Error?) in
+            print("---!!! cant create comment : \(error?.localizedDescription)")
+        })
+
+        return newComment
+    }
+    
+    @IBAction func createPost(_ sender: Any) {
+        let newPost = isComment == true ? saveNewComment() : saveNewPost()
         delegate?.postCompose?(post: newPost)
         dismiss(animated: true, completion: nil)
     }
