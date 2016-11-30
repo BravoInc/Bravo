@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import Parse
 
-class LeaderboardViewController: UIViewController {
+class LeaderboardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    var searchBar: UISearchBar!
+    
+    var filteredLeaders = [PFObject]()
+    var leaders = [PFObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Initialize the UISearchBar
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        
+        // Add SearchBar to the NavigationBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for a leader by skill"
+        navigationItem.titleView = searchBar
+        
+        // Set up leaderboard search table view
+        filteredLeaders = leaders
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+        
+        tableView.register(UINib(nibName: "LeaderCell", bundle: nil), forCellReuseIdentifier: "LeaderCell")
+        
+        getLeaders()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +58,53 @@ class LeaderboardViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getLeaders() {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredLeaders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let leaderCell = tableView.dequeueReusableCell(withIdentifier: "LeaderCell", for: indexPath) as! LeaderCell
+        return leaderCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
+}
+
+// SearchBar methods
+extension LeaderboardViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        filteredLeaders = leaders
+        tableView.reloadData()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        filteredLeaders = leaders.filter { (leader : PFObject) -> Bool in
+            return (leader["name"] as! NSString ).range(of: searchBar.text!, options: NSString.CompareOptions.caseInsensitive).location != NSNotFound
+        }
+        
+        tableView.reloadData()
+        searchBar.resignFirstResponder()
+    }
 }
