@@ -30,6 +30,8 @@
 		64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */; };
 		64A3A9CE1DEE77A100E29D9D /* CommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9CD1DEE77A100E29D9D /* CommentHeaderView.xib */; };
 		64A3A9D01DEE7BD700E29D9D /* CommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */; };
+		64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9D11DEED19100E29D9D /* LeaderCell.swift */; };
+		64A3A9D41DEED19100E29D9D /* LeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9D21DEED19100E29D9D /* LeaderCell.xib */; };
 		64D507A31DE4238800C708BD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A21DE4238800C708BD /* Comment.swift */; };
 		64D507A51DE423A300C708BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A41DE423A300C708BD /* Post.swift */; };
 		64D507A71DE4240700C708BD /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A61DE4240700C708BD /* Skills.swift */; };
@@ -86,6 +88,8 @@
 		64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		64A3A9CD1DEE77A100E29D9D /* CommentHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentHeaderView.xib; sourceTree = "<group>"; };
 		64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHeaderView.swift; sourceTree = "<group>"; };
+		64A3A9D11DEED19100E29D9D /* LeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderCell.swift; sourceTree = "<group>"; };
+		64A3A9D21DEED19100E29D9D /* LeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderCell.xib; sourceTree = "<group>"; };
 		64D507A21DE4238800C708BD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		64D507A41DE423A300C708BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64D507A61DE4240700C708BD /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				64A3A9C61DEDFCA700E29D9D /* CommentCell.xib */,
 				64A3A9CD1DEE77A100E29D9D /* CommentHeaderView.xib */,
 				64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */,
+				64A3A9D11DEED19100E29D9D /* LeaderCell.swift */,
+				64A3A9D21DEED19100E29D9D /* LeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				644126951DEBAA1F0060FBED /* UserCell.xib in Resources */,
 				644126891DE822FC0060FBED /* PostCell.xib in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
+				64A3A9D41DEED19100E29D9D /* LeaderCell.xib in Resources */,
 				EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */,
 				E136960F1DE9467800D51FE0 /* logo.png in Resources */,
 				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
@@ -456,6 +463,7 @@
 				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
 				64D507A71DE4240700C708BD /* Skills.swift in Sources */,
+				64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */,
 				644126881DE822FC0060FBED /* PostCell.swift in Sources */,
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,

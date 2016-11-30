@@ -423,17 +423,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leaderboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eE6-Pm-GKh">
-                                <rect key="frame" x="138" y="318" width="98" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-gn-FWA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.84999999999999998" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Kv-Hn-1wE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TUC-dX-RCp" firstAttribute="top" secondItem="3Kv-Hn-1wE" secondAttribute="bottom" id="4YC-1Z-Zo8"/>
+                            <constraint firstItem="TdZ-gn-FWA" firstAttribute="top" secondItem="68G-Ml-Cck" secondAttribute="top" id="F5Z-j0-nnR"/>
+                            <constraint firstAttribute="trailing" secondItem="TdZ-gn-FWA" secondAttribute="trailing" id="R18-n7-GjF"/>
+                            <constraint firstAttribute="trailing" secondItem="3Kv-Hn-1wE" secondAttribute="trailing" id="UPk-M5-YjZ"/>
+                            <constraint firstItem="TUC-dX-RCp" firstAttribute="top" secondItem="TdZ-gn-FWA" secondAttribute="bottom" id="Vpd-W3-3QG"/>
+                            <constraint firstItem="TdZ-gn-FWA" firstAttribute="leading" secondItem="68G-Ml-Cck" secondAttribute="leading" id="hAE-Hz-Z45"/>
+                            <constraint firstItem="3Kv-Hn-1wE" firstAttribute="top" secondItem="P4o-hT-lml" secondAttribute="bottom" id="m57-OP-lzW"/>
+                            <constraint firstItem="3Kv-Hn-1wE" firstAttribute="leading" secondItem="68G-Ml-Cck" secondAttribute="leading" id="ooW-2R-Yzg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5k0-d9-K4W"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Kv-Hn-1wE" id="uFQ-l2-445"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Fk-Jt-kpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
