@@ -15,10 +15,11 @@ import Parse
  */
 class UserSkillPoints: PFObject {
     
-    class func createUserSkillPoints(user: PFUser, points: Int, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()) {
+    class func createUserSkillPoints(user: PFUser, skill: String, points: Int, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()) {
         
-        let userSkillPoint = UserSkillPoints(className: "UserSkillPoints")
-        userSkillPoint["user"] = user
+        let newUserSkillPoint = UserSkillPoints(className: "UserSkillPoints")
+        newUserSkillPoint["user"] = user
+        newUserSkillPoint["totalPoints"] = 0
         
         let query = PFQuery(className: "UserSkillPoints")
         query.whereKey("user", equalTo: user)
@@ -26,7 +27,11 @@ class UserSkillPoints: PFObject {
         
         query.findObjectsInBackground {(userSkillPoints: [PFObject]?, error: Error?) -> Void in
             if error == nil  {
-                success((userSkillPoints?.count)! >= 1 ? userSkillPoints?[0] : userSkillPoint)
+                let userSkillPoint = (userSkillPoints?.count)! >= 1 ? userSkillPoints![0] : newUserSkillPoint
+                userSkillPoint["totalPoints"] = (userSkillPoint["totalPoints"]! as! Int) + points
+                userSkillPoint.addUniqueObject(skill, forKey: "skills")
+
+                success(userSkillPoint)
             } else {
                 print ("Error getting skill count: \(error?.localizedDescription)")
             }
@@ -37,7 +42,7 @@ class UserSkillPoints: PFObject {
     
     class func saveUserSkillPoints(user: PFUser, skillName: String, points: Int, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()) {
         
-        createUserSkillPoints(user: user, points: points, success: {
+        createUserSkillPoints(user: user, skill: skillName, points: points, success: {
             (userSkillPoint: PFObject?) -> () in
             
             let skillPointsRelation = userSkillPoint!.relation(forKey: "skillPointsRelation")
@@ -60,11 +65,20 @@ class UserSkillPoints: PFObject {
             (error: Error?) -> () in
             print("--failed to query and create userSkillPoint")
         })
-        
-        
-        
-        
-        
     }
     
+    class func getUserPoints(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "UserSkillPoints")
+        query.includeKey("user")
+        query.order(byDescending: "totalPoints")
+        
+        query.findObjectsInBackground { (userSkillPoints : [PFObject]?, error : Error?) in
+            if(error == nil){
+                print ("--user skill points data: \(userSkillPoints)")
+                success(userSkillPoints as! [UserSkillPoints]?)
+            } else {
+                failure(error)
+            }
+        }
+    }
 }
