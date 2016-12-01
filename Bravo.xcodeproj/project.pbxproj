@@ -32,6 +32,7 @@
 		64A3A9D01DEE7BD700E29D9D /* CommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */; };
 		64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9D11DEED19100E29D9D /* LeaderCell.swift */; };
 		64A3A9D41DEED19100E29D9D /* LeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9D21DEED19100E29D9D /* LeaderCell.xib */; };
+		64A3A9D71DF0498000E29D9D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9D61DF0498000E29D9D /* Common.swift */; };
 		64D507A31DE4238800C708BD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A21DE4238800C708BD /* Comment.swift */; };
 		64D507A51DE423A300C708BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A41DE423A300C708BD /* Post.swift */; };
 		64D507A71DE4240700C708BD /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A61DE4240700C708BD /* Skills.swift */; };
@@ -90,6 +91,7 @@
 		64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHeaderView.swift; sourceTree = "<group>"; };
 		64A3A9D11DEED19100E29D9D /* LeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderCell.swift; sourceTree = "<group>"; };
 		64A3A9D21DEED19100E29D9D /* LeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderCell.xib; sourceTree = "<group>"; };
+		64A3A9D61DF0498000E29D9D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		64D507A21DE4238800C708BD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		64D507A41DE423A300C708BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64D507A61DE4240700C708BD /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 				EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		64A3A9D51DF0496500E29D9D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				64A3A9D61DF0498000E29D9D /* Common.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		64EDF67D1DD83F900071A731 /* Views */ = {
@@ -273,6 +283,7 @@
 		EEF36DAC1DD1855C0032BCE6 /* Bravo */ = {
 			isa = PBXGroup;
 			children = (
+				64A3A9D51DF0496500E29D9D /* Util */,
 				E13696071DE9109800D51FE0 /* Assets */,
 				64EDF67D1DD83F900071A731 /* Views */,
 				64FE56C51DD7BF840099562D /* Storyboards */,
@@ -471,6 +482,7 @@
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
 				EE3121231DD939A900665F4C /* Team.swift in Sources */,
+				64A3A9D71DF0498000E29D9D /* Common.swift in Sources */,
 				644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */,
 				644126911DEBA7EA0060FBED /* TeamDetailViewController.swift in Sources */,
 				64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */,
