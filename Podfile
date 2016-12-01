@@ -9,5 +9,6 @@ target 'Bravo' do
   pod 'Parse'
   #pod 'OneSignal'
   pod 'TTTAttributedLabel'
+  pod 'DateTools'
 
 end
