@@ -43,6 +43,10 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         getLeaders()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        getLeaders()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,7 +64,16 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     */
     
     func getLeaders() {
-        
+        UserSkillPoints.getUserPoints(success: { (userSkillPoints: [PFObject]?) in
+            print ("-- got \(userSkillPoints?.count) leaders")
+            self.leaders = userSkillPoints!
+            self.filteredLeaders = self.leaders
+            print ("-- leaders data: \(self.filteredLeaders)")
+            self.tableView.reloadData()
+
+        }, failure: {(error: Error?) -> () in
+            print ("-- error getting user data: \(error?.localizedDescription)")
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +82,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leaderCell = tableView.dequeueReusableCell(withIdentifier: "LeaderCell", for: indexPath) as! LeaderCell
+        leaderCell.leaderSkillPoints = filteredLeaders[indexPath.row]
         return leaderCell
     }
     

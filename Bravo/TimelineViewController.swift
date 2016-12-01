@@ -37,9 +37,12 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
 
         getPosts()
-     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getPosts()
+    }
+
     func getPosts(){
         Post.getAllPosts(success: { (posts : [PFObject]?) in
             print("--- got \(posts?.count) posts")
