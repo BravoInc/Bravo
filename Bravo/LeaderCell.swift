@@ -19,12 +19,14 @@ class LeaderCell: UITableViewCell {
     
     var leaderSkillPoints: PFObject! {
         didSet {
-            // TODO: Add Image Views
             let leader = leaderSkillPoints["user"] as! BravoUser
             
             leaderNameLabel.text = "\(leader["firstName"]!) \(leader["lastName"]!)"
             totalPointsLabel.text = "\(leaderSkillPoints["totalPoints"]!) total points"
             skillsLabel.text = "\((leaderSkillPoints["skills"]! as! Array).joined(separator: ", "))"
+
+            // Setting leader image view
+            setImageView(imageView: leaderImageView, user: leader)
         }
     }
 

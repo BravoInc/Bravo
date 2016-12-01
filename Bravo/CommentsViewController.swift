@@ -40,11 +40,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
         
-        //let sender = post["sender"] as! BravoUser
+        let sender = post["sender"] as! BravoUser
         let recipient = post["recipient"] as! BravoUser
         
         recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
         messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
+        
+        // Setting image views
+        setImageView(imageView: senderImageView, user: sender)
+        setImageView(imageView: recipientImageView, user: recipient)
 
         getComments(post: post)
     }

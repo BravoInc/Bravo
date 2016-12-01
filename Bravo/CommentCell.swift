@@ -17,11 +17,13 @@ class CommentCell: UITableViewCell {
     
     var comment: PFObject! {
         didSet {
-            // Add Image Views
             let sender = comment["sender"] as! BravoUser
             
             senderNameLabel.text = "\(sender["firstName"]!) \(sender["lastName"]!)"
             messageLabel.text = "+\(comment["points"]!) for \(comment["message"]!)"
+            
+            // Setting sender image view
+            setImageView(imageView: senderImageView, user: sender)
         }
     }
     

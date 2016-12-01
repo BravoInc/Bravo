@@ -19,10 +19,11 @@ class UserCell: UITableViewCell {
     
     var user: PFUser! {
         didSet {
-            // Image Views
-            
             userFullNameLabel.text = "\(user["firstName"]!) \(user["lastName"]!)"
             userNameLabel.text = "@\(user["username"]!)"
+            
+            // Setting user image view
+            setImageView(imageView: profileImageView, user: user)
         }
     }
     var isChecked: Bool = false
