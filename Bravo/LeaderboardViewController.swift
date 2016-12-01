@@ -17,6 +17,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     var filteredLeaders = [PFObject]()
     var leaders = [PFObject]()
+    var skillName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,13 +77,32 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         })
     }
     
+    func getSkillLeaders() {
+        Skills.getSkillPoints(skillName: skillName, success: { (userPoints: [PFObject]?) in
+            print ("-- got \(userPoints?.count) leaders in \(self.skillName)")
+            self.filteredLeaders = userPoints!
+            print ("-- \(self.skillName) leaders data: \(self.filteredLeaders)")
+            self.tableView.reloadData()
+            
+        }, failure: {(error: Error?) -> () in
+            print ("-- error getting leader data for \(self.skillName): \(error?.localizedDescription)")
+            self.filteredLeaders = []
+            self.tableView.reloadData()
+        })
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredLeaders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leaderCell = tableView.dequeueReusableCell(withIdentifier: "LeaderCell", for: indexPath) as! LeaderCell
-        leaderCell.leaderSkillPoints = filteredLeaders[indexPath.row]
+        if skillName.characters.count == 0 {
+            leaderCell.leaderSkillPoints = filteredLeaders[indexPath.row]
+        } else {
+            filteredLeaders[indexPath.row]["skill"] = skillName
+            leaderCell.skillPoints = filteredLeaders[indexPath.row]
+        }
         return leaderCell
     }
     
@@ -108,17 +128,15 @@ extension LeaderboardViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        skillName = ""
         filteredLeaders = leaders
         tableView.reloadData()
         searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        filteredLeaders = leaders.filter { (leader : PFObject) -> Bool in
-            return (leader["name"] as! NSString ).range(of: searchBar.text!, options: NSString.CompareOptions.caseInsensitive).location != NSNotFound
-        }
-        
-        tableView.reloadData()
+        skillName = searchBar.text!
+        getSkillLeaders()
         searchBar.resignFirstResponder()
     }
 }

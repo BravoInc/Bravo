@@ -53,7 +53,33 @@ class Skills: PFObject {
             (error: Error?) -> () in
             print ("-- error querying and creating skill")
         })
-
-
+    }
+    
+    class func getSkillPoints(skillName: String, success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "Skills")
+        query.whereKey("skill", equalTo: skillName.lowercased())
+        query.limit = 1
+        
+        query.findObjectsInBackground { (skills : [PFObject]?, error : Error?) in
+            if(error == nil && skills?.count == 1){
+                print ("--skill found. Getting user data: \(skills)")
+                
+                let userRelation = skills![0].relation(forKey: "userPointsRelation")
+                let userQuery = userRelation.query()
+                userQuery.includeKey("user")
+                userQuery.findObjectsInBackground(block: { (users: [PFObject]?, error: Error?) in
+                    if error == nil {
+                        success(users)
+                    } else {
+                        print ("-- error finding users for skill: \(skillName). \(error?.localizedDescription)")
+                        failure(error)
+                    }
+                })
+                
+            } else {
+                print ("-- skill: \(skillName) not found: \(skills?.count), or error: \(error?.localizedDescription)")
+                failure(error)
+            }
+        }
     }
 }
