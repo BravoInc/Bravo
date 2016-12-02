@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var CTALabel: UILabel!
     @IBOutlet weak var CTAButton: UIButton!
     
-    var signUpOrLogin = false // false == signup, true == login
+    var signUpOrLogin = true // false == signup, true == login
     let user = BravoUser()
     
     override func viewDidLoad() {

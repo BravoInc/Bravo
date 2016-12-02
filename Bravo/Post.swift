@@ -52,6 +52,23 @@ class Post: PFObject {
             }
         }
     }
+    
+    class func getGivenPoints(user: PFUser, success: @escaping(Int?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "Post")
+        query.whereKey("sender", equalTo: user)
+        
+        query.findObjectsInBackground {(posts: [PFObject]?, error: Error?) -> Void in
+            if error == nil && posts?.count ?? 0 > 0 {
+                let pointsGiven = posts!.reduce(0, {
+                    $0 + ($1["points"]! as! Int)
+                })
+                success(pointsGiven)
+            } else {
+                print ("Error getting given points for the posts: \(error?.localizedDescription)")
+                failure(error)
+            }
+        }
+    }
 
 }
 
