@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Team Configuration View Controller-->
         <scene sceneID="ACN-Z1-r3p">
             <objects>
-                <viewController storyboardIdentifier="TeamConfigurationViewController" id="gAA-cn-G9u" customClass="TeamConfigurationViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamConfigurationViewController" automaticallyAdjustsScrollViewInsets="NO" id="gAA-cn-G9u" customClass="TeamConfigurationViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GxP-xL-E9d"/>
                         <viewControllerLayoutGuide type="bottom" id="zX3-3S-MuJ"/>
@@ -21,33 +21,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a new team or search for an existing one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-49-GOs">
-                                <rect key="frame" x="5" y="151" width="364" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3Z-Tv-eOX">
-                                <rect key="frame" x="77" y="330" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create"/>
-                                <connections>
-                                    <segue destination="Wz9-ge-OfO" kind="show" id="IPp-iq-Ao0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4A-LW-uj8">
-                                <rect key="frame" x="255" y="330" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <segue destination="D29-GB-LEk" kind="show" id="sfC-9e-IN8"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JsZ-9Z-Oyg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JsZ-9Z-Oyg" firstAttribute="leading" secondItem="C2l-A0-dZ5" secondAttribute="leading" id="W6R-np-xKy"/>
+                            <constraint firstItem="zX3-3S-MuJ" firstAttribute="top" secondItem="JsZ-9Z-Oyg" secondAttribute="bottom" id="cOq-QL-0cH"/>
+                            <constraint firstItem="JsZ-9Z-Oyg" firstAttribute="top" secondItem="GxP-xL-E9d" secondAttribute="bottom" id="ldN-Zc-qrK"/>
+                            <constraint firstAttribute="trailing" secondItem="JsZ-9Z-Oyg" secondAttribute="trailing" id="uKa-g0-vcJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s7x-dg-UrE"/>
+                    <connections>
+                        <outlet property="tableView" destination="JsZ-9Z-Oyg" id="UHz-BH-ehW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjA-Ll-8qa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,7 +157,6 @@
         <!--Reward Creation View Controller-->
         <scene sceneID="xWR-rH-1Yd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9s-IM-RTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RewardCreationViewController" id="liF-7n-wzM" customClass="RewardCreationViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="27I-k2-yaY"/>
@@ -218,6 +207,7 @@
                         <outlet property="rewardPointsTextField" destination="LIg-wL-C8t" id="B1t-mS-aDO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9s-IM-RTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4446" y="0.0"/>
         </scene>
@@ -226,7 +216,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ved-xR-Pyj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zv7-xl-PEU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zv7-xl-PEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -244,7 +234,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RewardsCreationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="USs-2m-lZJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="caM-d7-Age">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="caM-d7-Age">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -73,8 +73,10 @@ class SignUpViewController: UIViewController {
             timelineNavigationController.tabBarItem.title = "Timeline"
             //timelineNavigationController.tabBarItem.image = UIImage(named: "NoImage")
 
-            let teamNavigationController = storyBoard.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
-            let teamViewController = teamNavigationController.topViewController as! TeamViewController
+            
+            let storyBoardTC = UIStoryboard(name: "TeamCreation", bundle: nil)
+            let teamNavigationController = storyBoardTC.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+            //let teamViewController = teamNavigationController.topViewController as! TeamViewController
             teamNavigationController.tabBarItem.title = "Teams"
             //teamNavigationController.tabBarItem.image = UIImage(named: "NoImage")
 
