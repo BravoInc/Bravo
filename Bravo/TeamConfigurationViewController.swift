@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     let NUM_SECTIONS = 2
     
     let SECTION_USER_TEAMS = 0
@@ -31,7 +31,8 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.estimatedRowHeight = 60
         
         tableView.register(UINib(nibName : "TeamCell", bundle : nil), forCellReuseIdentifier: "TeamCell")
-
+        tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
+        
         getUserTeams()
         getTeams()
         // Do any additional setup after loading the view.
@@ -71,7 +72,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case SECTION_USER_TEAMS:
-            return userTeams.count
+            return userTeams.count + 1 // + 1 for Create New Team Row
         case SECTION_ALL_TEAMS:
             return allTeams.count
         default:
@@ -80,40 +81,58 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
-        
+
         switch indexPath.section {
         case SECTION_USER_TEAMS:
-            teamCell.team = userTeams[indexPath.row]
+            if (indexPath.row < userTeams.count){
+                let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
+                teamCell.team = userTeams[indexPath.row]
+                return teamCell
+            } else {
+                let addTeamCell = tableView.dequeueReusableCell(withIdentifier: "AddTeamCell", for: indexPath) as! AddTeamCell
+                return addTeamCell
+                
+            }
         case SECTION_ALL_TEAMS:
+            let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
             teamCell.team = allTeams[indexPath.row]
+            return teamCell
         default: break
         }
+        let fakeCell = UITableViewCell()
+        return fakeCell
         
-        return teamCell
-
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.section == SECTION_USER_TEAMS && indexPath.row == userTeams.count ){
+            let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+            
+            let teamCreationViewController = storyboard.instantiateViewController(withIdentifier: "TeamCreationViewController") as! TeamCreationViewController
+            self.present(teamCreationViewController, animated: true, completion: nil)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

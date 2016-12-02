@@ -59,6 +59,8 @@
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EE3121231DD939A900665F4C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121221DD939A900665F4C /* Team.swift */; };
 		EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF12C91DE2745000BCCA07 /* Reward.swift */; };
+		EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE19DE41DF1E04200703600 /* AddTeamCell.swift */; };
+		EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE19DE51DF1E04200703600 /* AddTeamCell.xib */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
 		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
@@ -123,6 +125,8 @@
 		EE3121221DD939A900665F4C /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bravo-Bridging-Header.h"; sourceTree = "<group>"; };
 		EEBF12C91DE2745000BCCA07 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		EEE19DE41DF1E04200703600 /* AddTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamCell.swift; sourceTree = "<group>"; };
+		EEE19DE51DF1E04200703600 /* AddTeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTeamCell.xib; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				64A3A9CF1DEE7BD700E29D9D /* CommentHeaderView.swift */,
 				64A3A9D11DEED19100E29D9D /* LeaderCell.swift */,
 				64A3A9D21DEED19100E29D9D /* LeaderCell.xib */,
+				EEE19DE41DF1E04200703600 /* AddTeamCell.swift */,
+				EEE19DE51DF1E04200703600 /* AddTeamCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
+				EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */,
 				64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				64A3A9CE1DEE77A100E29D9D /* CommentHeaderView.xib in Resources */,
@@ -473,6 +480,7 @@
 				6441268F1DEB8B1E0060FBED /* SelectionViewController.swift in Sources */,
 				64A3A9D01DEE7BD700E29D9D /* CommentHeaderView.swift in Sources */,
 				6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */,
+				EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */,
 				6441268D1DEAC5EB0060FBED /* PostComposeViewController.swift in Sources */,
 				6441268B1DEAB1F60060FBED /* CommentsViewController.swift in Sources */,
 				E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */,
