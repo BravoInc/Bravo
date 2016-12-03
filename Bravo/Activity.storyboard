@@ -512,6 +512,9 @@
                                         <state key="normal" title="REDEEM">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="8u9-9x-AhX" kind="show" id="nUn-l4-rvV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93026253172588835" green="0.93026253172588835" blue="0.93026253172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -640,6 +643,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Hb-Jz-Spo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="343.19999999999999" y="1967.7661169415294"/>
+        </scene>
+        <!--Redeem View Controller-->
+        <scene sceneID="gdC-KM-9qB">
+            <objects>
+                <viewController storyboardIdentifier="RedeemViewController" id="8u9-9x-AhX" customClass="RedeemViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ysM-c5-hyk"/>
+                        <viewControllerLayoutGuide type="bottom" id="kZd-bs-j2P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kze-B4-qDt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vFn-bC-iPj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vFn-bC-iPj" firstAttribute="leading" secondItem="Kze-B4-qDt" secondAttribute="leading" id="CIY-Ey-RCv"/>
+                            <constraint firstAttribute="trailing" secondItem="vFn-bC-iPj" secondAttribute="trailing" id="ao8-zN-o4h"/>
+                            <constraint firstItem="kZd-bs-j2P" firstAttribute="top" secondItem="vFn-bC-iPj" secondAttribute="bottom" id="kgj-O6-F7i"/>
+                            <constraint firstItem="vFn-bC-iPj" firstAttribute="top" secondItem="Kze-B4-qDt" secondAttribute="top" id="li3-QO-QBj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="vFn-bC-iPj" id="YTK-8X-Q7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keY-cM-ZyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101.5999999999999" y="1967.7661169415294"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H8l-DE-X64">

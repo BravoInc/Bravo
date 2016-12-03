@@ -60,5 +60,27 @@ class Reward: PFObject {
             }
         }
     }
+    
+    class func getAvailableRewards(user: PFUser, success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()) {
+        Team.getUserTeams(user: user, success: {
+            (teams: [PFObject]?) -> () in
+                let query = PFQuery(className: "Reward")
+                query.whereKey("isClaimed", equalTo: false)
+                query.whereKey("team", containedIn: teams!)
+                
+                query.findObjectsInBackground {(rewards: [PFObject]?, error: Error?) -> Void in
+                    if error == nil && rewards?.count ?? 0 > 0 {
+                        success(rewards)
+                    } else {
+                        print ("Error getting available rewards: \(error?.localizedDescription)")
+                        failure(error)
+                    }
+                }
+        }, failure: {
+            (error: Error?) -> () in
+            print ("Failed to get user teams. Skipping rewards retrieval: \(error?.localizedDescription)")
+            failure(error)
+        })
+    }
 
 }
