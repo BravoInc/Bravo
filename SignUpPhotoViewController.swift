@@ -10,9 +10,18 @@ import UIKit
 
 class SignUpPhotoViewController: UIViewController {
 
+    var signUpUser: SignUpUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         miscInit()
+        
+        guard signUpUser.password != nil else {
+            print("---!!! MISSING PASSWORD")
+            return
+        }
+        print("--- PASSWORD NOT NIL")
+
     }
     
     func miscInit(){

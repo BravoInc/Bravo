@@ -12,9 +12,17 @@ class SignUpEmailViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    var signUpUser: SignUpUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         miscInit()
+        
+        guard signUpUser.firstName != nil && signUpUser.lastName != nil else {
+            print("---!!! MISSING FIRST AND LAST NAME")
+            return
+        }
+        print("--- \(signUpUser.firstName) + \(signUpUser.lastName)")
     }
 
     func miscInit(){
@@ -35,6 +43,16 @@ class SignUpEmailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = barButton
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationNav = segue.destination as! UINavigationController
+        let destinationVC = destinationNav.topViewController as! SignUpPasswordViewController
+        destinationVC.signUpUser = self.signUpUser
+    }
+
+    @IBAction func onNextButtonPress(_ sender: Any) {
+        signUpUser.email = emailTextField.text
+    }
+    
     func backButtonPressed() {
         dismiss(animated: true, completion: nil)
     }

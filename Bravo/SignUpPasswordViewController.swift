@@ -11,10 +11,19 @@ import UIKit
 class SignUpPasswordViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var signUpUser: SignUpUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         miscInit()
+        
+        guard signUpUser.email != nil else {
+            print("---!!! MISSING EMAIL")
+            return
+        }
+        print("--- \(signUpUser.email)")
+
     }
 
     func miscInit(){
@@ -35,6 +44,16 @@ class SignUpPasswordViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = barButton
     }
     
+    @IBAction func onNextButtonPress(_ sender: Any) {
+        signUpUser.password = passwordTextField.text
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationNav = segue.destination as! UINavigationController
+        let destinationVC = destinationNav.topViewController as! SignUpPhotoViewController
+        destinationVC.signUpUser = self.signUpUser
+    }
+
     func backButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
