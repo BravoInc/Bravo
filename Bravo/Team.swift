@@ -46,12 +46,26 @@ class Team: PFObject {
         query.order(byDescending: "createdAt")
         query.includeKey("adminUser")
         query.findObjectsInBackground { (teams: [PFObject]?, error: Error?) in
-            if error == nil {
+            if error == nil && teams?.count ?? 0 > 0 {
                 success(teams)
             } else {
                 failure(error)
             }
         }
+    }
+    
+    class func getTeamRewards(team: PFObject, success: @escaping([PFObject]?) -> () ,failure: @escaping(Error?) -> ()){
+        let rewardsRelation = team.relation(forKey: "rewardRelation")
+        let query = rewardsRelation.query()
+        
+        query.findObjectsInBackground { (rewards : [PFObject]?, error : Error?) in
+            if error == nil && rewards?.count ?? 0 > 0 {
+                success(rewards)
+            } else {
+                failure(error)
+            }
+        }
+    
     }
     
     class func joinTeam(team: PFObject, success: @escaping() -> () ,failure: @escaping(Error?) -> ()){

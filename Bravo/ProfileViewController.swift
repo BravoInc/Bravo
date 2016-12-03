@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -21,7 +22,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var redeemButton: UIButton!
     
     let user = BravoUser.getLoggedInUser()
-    
+    var userSkillPoint: PFObject?
+    var didRedeem: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProfile()
@@ -29,7 +32,11 @@ class ProfileViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        loadProfile()
+        if !didRedeem {
+            loadProfile()
+        } else {
+            didRedeem = !didRedeem
+        }
     }
     
     func loadProfile() {
@@ -52,9 +59,11 @@ class ProfileViewController: UIViewController {
 
         // Set total points available
         UserSkillPoints.getUserTotalPoints(user: user, success: {
-            (points: Int?) -> () in
-            self.availablePointsLabel.text = "\(points!)"
-            self.redeemButton.isHidden = points! <= 0
+            (userSkillPoint: PFObject?) -> () in
+            let points = (userSkillPoint!["availablePoints"]! as! Int)
+            self.userSkillPoint = userSkillPoint
+            self.availablePointsLabel.text = "\(points)"
+            self.redeemButton.isHidden = points <= 0
         }, failure: {
             (error: Error?) -> () in
             self.availablePointsLabel.text = "0"
@@ -92,20 +101,28 @@ class ProfileViewController: UIViewController {
         
     }
     
+    func updatePoints(redeemedPoints: Int, userSkillPoint: PFObject) {
+        print ("delegate called")
+        self.didRedeem = true
+        let points = (userSkillPoint["availablePoints"]! as! Int)
+        self.userSkillPoint = userSkillPoint
+        self.availablePointsLabel.text = "\(points)"
+        self.redeemButton.isHidden = points <= 0
+        
+        let redeemedPoints = Int(self.redeemedPointsLabel.text!)! + redeemedPoints
+        self.redeemedPointsLabel.text = "\(redeemedPoints)"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let redeemVC = segue.destination as! RedeemViewController
+        redeemVC.availableRewardPoints = Int(self.availablePointsLabel.text!)
+        redeemVC.userSkillPoint = userSkillPoint
+        redeemVC.delegate = self
     }
-    */
-
 }

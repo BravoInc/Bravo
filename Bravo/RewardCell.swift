@@ -12,15 +12,20 @@ import Parse
 class RewardCell: UITableViewCell {
 
     @IBOutlet weak var rewardNameLabel: UILabel!
-    @IBOutlet weak var rewardPointsField: UITextField!
-    @IBOutlet weak var rewardSwitch: UISwitch!
+    @IBOutlet weak var rewardPointsLabel: UILabel!
+    @IBOutlet weak var selectionImageView: UIImageView!
     
     var reward: PFObject! {
         didSet {
-            rewardNameLabel.text = "\(reward["name"]!)"
-            rewardPointsField.text = "\(reward["points"]!)"
-            rewardSwitch.isOn = reward["isActive"]! as! Bool
+            rewardNameLabel.text = "\(reward["name"]!) - "
+            rewardPointsLabel.text = "\(reward["points"]!) points"
         }
+    }
+    
+    var isChecked: Bool = false
+    
+    func setImageViews() {
+        selectionImageView.image = UIImage(named: isChecked ? "selectedSquare" : "borderSquare")
     }
     
     override func awakeFromNib() {
@@ -33,13 +38,7 @@ class RewardCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func onSwitchChanged(_ sender: Any) {
-        reward["isActive"] = rewardSwitch.isOn
-    }
-    
-    @IBAction func textChanged(_ sender: Any) {
-        reward["points"] = Int(rewardPointsField.text!)
-    }
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
