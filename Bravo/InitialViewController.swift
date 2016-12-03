@@ -10,6 +10,9 @@ import UIKit
 import UserNotifications
 import TTTAttributedLabel
 
+let customGreen = UIColor(red:0.31, green:0.82, blue:0.76, alpha:1.0)
+let customGray = UIColor(red:0.53, green:0.53, blue:0.53, alpha:1.0)
+
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
@@ -27,10 +30,10 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
         self.disclaimer.text = disclaimerText
         
         self.disclaimer.linkAttributes = [
-            NSForegroundColorAttributeName: UIColor.white,
+            NSForegroundColorAttributeName: customGray,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
         
-        self.disclaimer.activeLinkAttributes = [NSForegroundColorAttributeName: UIColor(red:0.55, green:0.53, blue:1.00, alpha:1.0),]
+        self.disclaimer.activeLinkAttributes = [NSForegroundColorAttributeName: customGreen,]
         
         let tmpString = disclaimerText as NSString
         let range = tmpString.range(of: TOS)

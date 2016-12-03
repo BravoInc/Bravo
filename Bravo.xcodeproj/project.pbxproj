@@ -53,6 +53,7 @@
 		E136960F1DE9467800D51FE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E136960E1DE9467800D51FE0 /* logo.png */; };
 		E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */ = {isa = PBXBuildFile; fileRef = E1574DAB1DED06AC007AC27A /* backArrow128.png */; };
 		E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1574DAD1DED3457007AC27A /* NameViewController.swift */; };
+		E192BA401DF242F500BE57D2 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
@@ -117,6 +118,7 @@
 		E136960E1DE9467800D51FE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E1574DAB1DED06AC007AC27A /* backArrow128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128.png; sourceTree = "<group>"; };
 		E1574DAD1DED3457007AC27A /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		E1F463A21DECC63B00A4C605 /* SignupLogin */ = {
 			isa = PBXGroup;
 			children = (
+				E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */,
 				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
 				E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */,
 				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
@@ -490,6 +493,7 @@
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
 				64D507A71DE4240700C708BD /* Skills.swift in Sources */,
 				64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */,
+				E192BA401DF242F500BE57D2 /* SignUpEmailViewController.swift in Sources */,
 				644126881DE822FC0060FBED /* PostCell.swift in Sources */,
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
