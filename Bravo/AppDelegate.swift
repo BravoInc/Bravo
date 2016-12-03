@@ -81,6 +81,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.makeKeyAndVisible()
         }
         
+        // Print the font family names available in the app
+        /*for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }*/
+        
         return true
     }
     
