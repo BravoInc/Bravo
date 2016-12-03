@@ -119,6 +119,16 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
     }
     
 
+    @IBAction func onLogout(_ sender: Any) {
+        print ("logout pressed")
+        PFUser.logOutInBackground { (error: Error?) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let introVC = storyboard.instantiateInitialViewController() as! InitialViewController
+            self.present(introVC, animated: true, completion: nil)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let redeemVC = segue.destination as! RedeemViewController
         redeemVC.availableRewardPoints = Int(self.availablePointsLabel.text!)

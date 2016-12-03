@@ -74,6 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
         }
         
+        // Check current logged in user 
+        if PFUser.current() != nil {
+            let tabBarController = getTabBarController()
+            window?.rootViewController = tabBarController
+            window!.makeKeyAndVisible()
+        }
+        
         return true
     }
     
