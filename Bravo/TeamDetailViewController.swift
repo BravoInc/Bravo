@@ -36,7 +36,6 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         titleLabel.text =
         "Select Recipient"
         titleLabel.sizeToFit()
-        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
 
