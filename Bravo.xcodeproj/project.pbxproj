@@ -34,6 +34,7 @@
 		64A3A9D41DEED19100E29D9D /* LeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3A9D21DEED19100E29D9D /* LeaderCell.xib */; };
 		64A3A9D71DF0498000E29D9D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9D61DF0498000E29D9D /* Common.swift */; };
 		64A3A9D91DF14A0400E29D9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9D81DF14A0400E29D9D /* Constants.swift */; };
+		64A3A9DC1DF2290C00E29D9D /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A3A9DB1DF2290C00E29D9D /* RedeemViewController.swift */; };
 		64D507A31DE4238800C708BD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A21DE4238800C708BD /* Comment.swift */; };
 		64D507A51DE423A300C708BD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A41DE423A300C708BD /* Post.swift */; };
 		64D507A71DE4240700C708BD /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507A61DE4240700C708BD /* Skills.swift */; };
@@ -99,6 +100,10 @@
 		64A3A9D21DEED19100E29D9D /* LeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderCell.xib; sourceTree = "<group>"; };
 		64A3A9D61DF0498000E29D9D /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		64A3A9D81DF14A0400E29D9D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		64A3A9DB1DF2290C00E29D9D /* RedeemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
+		64A3A9DD1DF2348C00E29D9D /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AvenirLTStd-Book.otf"; path = "../../../../Downloads/Avenir Free/AvenirLTStd-Book.otf"; sourceTree = "<group>"; };
+		64A3A9DE1DF2348C00E29D9D /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AvenirLTStd-Light.otf"; path = "../../../../Downloads/Avenir Free/AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
+		64A3A9DF1DF2348C00E29D9D /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AvenirLTStd-Roman.otf"; path = "../../../../Downloads/Avenir Free/AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
 		64D507A21DE4238800C708BD /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		64D507A41DE423A300C708BD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		64D507A61DE4240700C708BD /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
@@ -181,6 +186,7 @@
 				6441268E1DEB8B1E0060FBED /* SelectionViewController.swift */,
 				644126901DEBA7EA0060FBED /* TeamDetailViewController.swift */,
 				EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */,
+				64A3A9DB1DF2290C00E29D9D /* RedeemViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -241,6 +247,9 @@
 		E13696071DE9109800D51FE0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				64A3A9DD1DF2348C00E29D9D /* AvenirLTStd-Book.otf */,
+				64A3A9DE1DF2348C00E29D9D /* AvenirLTStd-Light.otf */,
+				64A3A9DF1DF2348C00E29D9D /* AvenirLTStd-Roman.otf */,
 				E1574DAB1DED06AC007AC27A /* backArrow128.png */,
 				E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */,
 				E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */,
@@ -482,6 +491,7 @@
 				64A3A9C71DEDFCA700E29D9D /* CommentCell.swift in Sources */,
 				644126941DEBAA1F0060FBED /* UserCell.swift in Sources */,
 				64D507A31DE4238800C708BD /* Comment.swift in Sources */,
+				64A3A9DC1DF2290C00E29D9D /* RedeemViewController.swift in Sources */,
 				64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */,
 				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
 				644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */,
