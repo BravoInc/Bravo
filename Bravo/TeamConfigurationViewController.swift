@@ -105,11 +105,25 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         if(indexPath.section == SECTION_USER_TEAMS && indexPath.row == userTeams.count ){
-            let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-            
             let teamCreationViewController = storyboard.instantiateViewController(withIdentifier: "TeamCreationViewController") as! TeamCreationViewController
-            self.present(teamCreationViewController, animated: true, completion: nil)
+            //self.present(teamCreationViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(teamCreationViewController, animated: true)
+        } else {
+        
+            print("--- all good 1")
+            let teamAdditionalDetailsViewController = storyboard.instantiateViewController(withIdentifier: "TeamAdditionalDetailsViewController") as! TeamAdditionalDetailsViewController
+            print("--- all good 2")
+            
+            
+            if (indexPath.section == SECTION_USER_TEAMS) {
+                teamAdditionalDetailsViewController.team = userTeams[indexPath.row]
+            } else {
+                teamAdditionalDetailsViewController.team = allTeams[indexPath.row]
+            }
+            
+            self.navigationController?.pushViewController(teamAdditionalDetailsViewController, animated: true)
         }
     }
     

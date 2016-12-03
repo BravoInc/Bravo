@@ -54,6 +54,20 @@ class Team: PFObject {
         }
     }
     
+    class func getTeamRewards(team: PFObject, success: @escaping([PFObject]?) -> () ,failure: @escaping(Error?) -> ()){
+        let rewardsRelation = team.relation(forKey: "rewardRelation")
+        let query = rewardsRelation.query()
+        
+        query.findObjectsInBackground { (rewards : [PFObject]?, error : Error?) in
+            if error == nil && rewards?.count ?? 0 > 0 {
+                success(rewards)
+            } else {
+                failure(error)
+            }
+        }
+    
+    }
+    
     class func joinTeam(team: PFObject, success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
         let userRelation = team.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)

@@ -62,6 +62,7 @@
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EE3121231DD939A900665F4C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121221DD939A900665F4C /* Team.swift */; };
+		EE4FC8EA1DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */; };
 		EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF12C91DE2745000BCCA07 /* Reward.swift */; };
 		EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE19DE41DF1E04200703600 /* AddTeamCell.swift */; };
 		EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE19DE51DF1E04200703600 /* AddTeamCell.xib */; };
@@ -134,6 +135,7 @@
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EE3121201DD7E6AA00665F4C /* BravoUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BravoUser.swift; sourceTree = "<group>"; };
 		EE3121221DD939A900665F4C /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamAdditionalDetailsViewController.swift; sourceTree = "<group>"; };
 		EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bravo-Bridging-Header.h"; sourceTree = "<group>"; };
 		EEBF12C91DE2745000BCCA07 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		EEE19DE41DF1E04200703600 /* AddTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				644126901DEBA7EA0060FBED /* TeamDetailViewController.swift */,
 				EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */,
 				64A3A9DB1DF2290C00E29D9D /* RedeemViewController.swift */,
+				EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */,
+				EE4FC8EA1DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift in Sources */,
 				64A3A9D91DF14A0400E29D9D /* Constants.swift in Sources */,
 				E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
