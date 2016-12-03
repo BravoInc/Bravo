@@ -10,9 +10,6 @@ import UIKit
 import UserNotifications
 import TTTAttributedLabel
 
-let customGreen = UIColor(red:0.31, green:0.82, blue:0.76, alpha:1.0)
-let customGray = UIColor(red:0.53, green:0.53, blue:0.53, alpha:1.0)
-
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
@@ -21,7 +18,7 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .lightContent
+        //UIApplication.shared.statusBarStyle = .lightContent
         
         self.disclaimer.delegate = self
         

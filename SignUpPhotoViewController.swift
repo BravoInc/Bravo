@@ -22,7 +22,7 @@ class SignUpPhotoViewController: UIViewController {
         
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
-        let backImage = UIImage(named: "backArrow128.png")!
+        let backImage = UIImage(named: "backArrow128gray888.png")!
         button.setImage(backImage, for: UIControlState.normal)
         //add function for button
         button.addTarget(self, action: #selector(SignUpPhotoViewController.backButtonPressed), for: UIControlEvents.touchUpInside)

@@ -55,12 +55,13 @@
 		E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */; };
 		E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */; };
 		E136960F1DE9467800D51FE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E136960E1DE9467800D51FE0 /* logo.png */; };
-		E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */ = {isa = PBXBuildFile; fileRef = E1574DAB1DED06AC007AC27A /* backArrow128.png */; };
+		E1574DAC1DED06AC007AC27A /* backArrow128white.png in Resources */ = {isa = PBXBuildFile; fileRef = E1574DAB1DED06AC007AC27A /* backArrow128white.png */; };
 		E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1574DAD1DED3457007AC27A /* NameViewController.swift */; };
 		E192BA401DF242F500BE57D2 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */; };
 		E192BA421DF2492500BE57D2 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA411DF2492500BE57D2 /* SignUpPasswordViewController.swift */; };
 		E192BA441DF24B4400BE57D2 /* SignUpPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */; };
 		E192BA461DF24DAB00BE57D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */; };
+		E192BA481DF344D700BE57D2 /* backArrow128gray888.png in Resources */ = {isa = PBXBuildFile; fileRef = E192BA471DF344D700BE57D2 /* backArrow128gray888.png */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
@@ -128,12 +129,13 @@
 		E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		E136960E1DE9467800D51FE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		E1574DAB1DED06AC007AC27A /* backArrow128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128.png; sourceTree = "<group>"; };
+		E1574DAB1DED06AC007AC27A /* backArrow128white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128white.png; sourceTree = "<group>"; };
 		E1574DAD1DED3457007AC27A /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		E192BA411DF2492500BE57D2 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpPhotoViewController.swift; path = ../SignUpPhotoViewController.swift; sourceTree = "<group>"; };
 		E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E192BA471DF344D700BE57D2 /* backArrow128gray888.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128gray888.png; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
@@ -258,8 +260,9 @@
 				6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */,
 				6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */,
 				6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */,
-				E1574DAB1DED06AC007AC27A /* backArrow128.png */,
+				E1574DAB1DED06AC007AC27A /* backArrow128white.png */,
 				E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */,
+				E192BA471DF344D700BE57D2 /* backArrow128gray888.png */,
 				E136960B1DE9420400D51FE0 /* Montserrat-Regular.ttf */,
 				E136960E1DE9467800D51FE0 /* logo.png */,
 				E13696081DE9411D00D51FE0 /* background.png */,
@@ -409,7 +412,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1574DAC1DED06AC007AC27A /* backArrow128.png in Resources */,
+				E192BA481DF344D700BE57D2 /* backArrow128gray888.png in Resources */,
+				E1574DAC1DED06AC007AC27A /* backArrow128white.png in Resources */,
 				6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,

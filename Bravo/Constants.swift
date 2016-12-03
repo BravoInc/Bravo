@@ -14,3 +14,7 @@ let purpleColor = UIColor(red: 0.55, green: 0.53, blue: 1.0, alpha: 1.0)
 let orangeColor = UIColor(red: 0.99, green: 0.67, blue: 0.33, alpha: 1.0)
 let extraExtraLightGreyColor = UIColor(red: 0.96, green: 0.97, blue: 0.98, alpha: 1.0)
 let extraLightGreyColor = UIColor(red: 0.88, green: 0.91, blue: 0.93, alpha: 1.0)
+
+// signup/signin flow
+let customGreen = UIColor(red:0.31, green:0.82, blue:0.76, alpha:1.0)
+let customGray = UIColor(red:0.53, green:0.53, blue:0.53, alpha:1.0)
