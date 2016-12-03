@@ -15,6 +15,7 @@ class Reward: PFObject {
     class func createReward(team : PFObject, rewardName : String, rewardPoints : Int, isActive: Bool) -> PFObject {
         let reward = PFObject(className: "Reward")
         reward["name"] = rewardName
+        reward["isClaimed"] = false
         reward["points"] = rewardPoints
         reward["team"] = team
         reward["isActive"] = isActive
