@@ -31,6 +31,7 @@ class BravoUser: PFUser {
     }
     
     func logInUser(success: @escaping() -> ()){
+        
         if(inputCheck(signUpOrLogin: true) == true){
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (loggedInUser : PFUser?, error : Error?) in
                 if (error != nil){

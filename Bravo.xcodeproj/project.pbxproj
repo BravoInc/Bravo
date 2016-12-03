@@ -56,6 +56,7 @@
 		E192BA401DF242F500BE57D2 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */; };
 		E192BA421DF2492500BE57D2 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA411DF2492500BE57D2 /* SignUpPasswordViewController.swift */; };
 		E192BA441DF24B4400BE57D2 /* SignUpPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */; };
+		E192BA461DF24DAB00BE57D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
@@ -123,6 +124,7 @@
 		E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		E192BA411DF2492500BE57D2 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpPhotoViewController.swift; path = ../SignUpPhotoViewController.swift; sourceTree = "<group>"; };
+		E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */,
+				E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */,
 				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
 				E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */,
 				E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */,
@@ -502,6 +505,7 @@
 				64D507A71DE4240700C708BD /* Skills.swift in Sources */,
 				64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */,
 				E192BA401DF242F500BE57D2 /* SignUpEmailViewController.swift in Sources */,
+				E192BA461DF24DAB00BE57D2 /* LoginViewController.swift in Sources */,
 				644126881DE822FC0060FBED /* PostCell.swift in Sources */,
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
 				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
