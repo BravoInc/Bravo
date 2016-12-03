@@ -18,8 +18,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.becomeFirstResponder()
-        
+        miscInit()
     }
     
     @IBAction func onLogin(_ sender: Any) {
@@ -61,6 +60,28 @@ class LoginViewController: UIViewController {
         })
     }
     
+    func miscInit(){
+        UIApplication.shared.statusBarStyle = .lightContent
+        usernameTextField.becomeFirstResponder()
+        transparentNavBar()
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        let backImage = UIImage(named: "backArrow128gray888.png")!
+        button.setImage(backImage, for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(NameViewController.backButtonPressed), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    
+    func backButtonPressed() {
+        dismiss(animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
