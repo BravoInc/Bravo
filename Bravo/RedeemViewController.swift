@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+@objc protocol RedeemViewControllerDelegate {
+    @objc optional func updatePoints(redeemedPoints: Int, userSkillPoint: PFObject)
+}
 
 class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,6 +19,10 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var availableRewards = [PFObject]()
     var indexSelection = [Int: Bool]()
+    var selectedPoints = 0
+    var availableRewardPoints: Int!
+    var userSkillPoint: PFObject?
+    weak var delegate: RedeemViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +45,9 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         getAvailableRewards()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getAvailableRewards()
+    }
     
     func getAvailableRewards(){
         Reward.getAvailableRewards(user: BravoUser.getLoggedInUser(), success: { (rewards : [PFObject]?) in
@@ -67,15 +77,64 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         rewardCell.reward = availableRewards[indexPath.row]
         rewardCell.isChecked = indexSelection[indexPath.row]!
         rewardCell.setImageViews()
-
+        
+        if availableRewardPoints < (availableRewards[indexPath.row]["points"]! as! Int) {
+            rewardCell.isUserInteractionEnabled = false
+            rewardCell.backgroundColor = extraLightGreyColor
+        } else {
+            rewardCell.isUserInteractionEnabled = true
+            rewardCell.backgroundColor = UIColor.white
+        }
         return rewardCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         indexSelection[indexPath.row] = !indexSelection[indexPath.row]!
+        
+        if indexSelection[indexPath.row]! {
+            selectedPoints += (availableRewards[indexPath.row]["points"]! as! Int)
+        } else {
+            selectedPoints -= (availableRewards[indexPath.row]["points"]! as! Int)
+        }
+        
+        if selectedPoints == 0 || selectedPoints > availableRewardPoints {
+            navigationItem.rightBarButtonItem = nil
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Redeem", style: .plain, target: self, action: #selector(onRedeem(_:)))
+        }
+        
         tableView.reloadData()
+    }
+    
+    func onRedeem(_ sender: UIBarButtonItem) {
+        for i in 0..<availableRewards.count {
+            if indexSelection[i]! {
+                availableRewards[i]["isClaimed"] = true
+                availableRewards[i]["claimedBy"] = BravoUser.getLoggedInUser()
+            }
+        }
 
+        self.userSkillPoint!["availablePoints"] = (self.userSkillPoint!["availablePoints"] as! Int) - self.selectedPoints
+        
+        delegate?.updatePoints?(redeemedPoints: self.selectedPoints, userSkillPoint: self.userSkillPoint!)
+        
+        Reward.updateRewards(rewards: availableRewards, success: {
+            (rewards: [PFObject]?) -> () in
+            print ("-- Successfully updated rewards")
+            
+            UserSkillPoints.updateUserPoints(userSkillPoint: self.userSkillPoint!, success: { (userSkillPoint: PFObject?) in
+                print ("-- user points adjusted successfully")
+            }, failure: { (error: Error?) in
+                print (" -- error updating user points: \(error?.localizedDescription)")
+            })
+        }, failure: {
+            (error: Error?) -> () in
+            print ("-- Error updating rewards: \(error?.localizedDescription)")
+        })
+        
+        navigationController?.popViewController(animated: true)
+        
     }
     /*
     // MARK: - Navigation

@@ -52,7 +52,7 @@ class Reward: PFObject {
         query.findObjectsInBackground {(rewards: [PFObject]?, error: Error?) -> Void in
             if error == nil && rewards?.count ?? 0 > 0 {
                 let pointsRedeemed = rewards!.reduce(0, {
-                  $0 + ($1["totalPoints"]! as! Int)
+                  $0 + ($1["points"]! as! Int)
                 })
                 success(pointsRedeemed)
             } else {
@@ -84,4 +84,15 @@ class Reward: PFObject {
         })
     }
 
+    class func updateRewards(rewards: [PFObject], success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()) {
+        PFObject.saveAll(inBackground: rewards, block: { (result : Bool, error :  Error?) in
+            if (error == nil ){
+                print("--- Updated rewards successfully in background:")
+                success(rewards)
+            } else {
+                print ("-- Error updating rewards. \(error?.localizedDescription)")
+                failure(error)
+            }
+        })
+    }
 }

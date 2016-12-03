@@ -20,6 +20,7 @@ class UserSkillPoints: PFObject {
         let newUserSkillPoint = UserSkillPoints(className: "UserSkillPoints")
         newUserSkillPoint["user"] = user
         newUserSkillPoint["totalPoints"] = 0
+        newUserSkillPoint["availablePoints"] = 0
         
         let query = PFQuery(className: "UserSkillPoints")
         query.whereKey("user", equalTo: user)
@@ -29,6 +30,7 @@ class UserSkillPoints: PFObject {
             if error == nil  {
                 let userSkillPoint = (userSkillPoints?.count)! >= 1 ? userSkillPoints![0] : newUserSkillPoint
                 userSkillPoint["totalPoints"] = (userSkillPoint["totalPoints"]! as! Int) + points
+                userSkillPoint["availablePoints"] = (userSkillPoint["availablePoints"]! as! Int) + points
                 userSkillPoint.addUniqueObject(skill, forKey: "skills")
 
                 success(userSkillPoint)
@@ -82,19 +84,30 @@ class UserSkillPoints: PFObject {
         }
     }
     
-    class func getUserTotalPoints(user: PFUser, success: @escaping(Int?) -> (), failure: @escaping(Error?) -> ()){
+    class func getUserTotalPoints(user: PFUser, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()){
         let query = PFQuery(className: "UserSkillPoints")
         query.whereKey("user", equalTo: user)
         query.limit = 1
         
         query.findObjectsInBackground {(userSkillPoints: [PFObject]?, error: Error?) -> Void in
             if error == nil && userSkillPoints?.count == 1 {
-                let points = (userSkillPoints![0].value(forKey: "totalPoints")! as! Int)
-                success(points)
+                success(userSkillPoints![0])
             } else {
                 print ("Error getting skill count: \(error?.localizedDescription)")
                 failure(error)
             }
         }
+    }
+    
+    class func updateUserPoints(userSkillPoint: PFObject, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()){
+        userSkillPoint.saveInBackground(block: { (result : Bool, error : Error?) in
+            if(error == nil ){
+                print("--- Updated user skill point successfully: \(userSkillPoint) ")
+                success(userSkillPoint)
+            } else {
+                print("---!!! cannot update user skill point : \(error?.localizedDescription)")
+                failure(error)
+            }
+        })
     }
 }
