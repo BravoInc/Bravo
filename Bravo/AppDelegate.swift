@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application.registerForRemoteNotifications()
          */
         
-        
+       /*
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         // Sets shadow (line below the bar) to a blank image
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set translucent. (Default value is already true, so this can be removed if desired.)
         UINavigationBar.appearance().isTranslucent = true
  
-        
+        */
         
         // specifies the settings you want (but won't necessarily get)
         
