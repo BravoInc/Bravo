@@ -15,7 +15,6 @@ class NameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         miscInit()
-        
     }
     
     func miscInit(){

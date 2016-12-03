@@ -18,18 +18,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.becomeFirstResponder()
         
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         
         user.logInUser(success: {
             print("--- LOGIN success \(self.usernameTextField.text)")
-            
-            
             let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
             
             let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
