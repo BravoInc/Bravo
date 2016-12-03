@@ -32,6 +32,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
             "Pick Rewards"
         titleLabel.sizeToFit()
         navigationItem.titleView = titleLabel
+        self.navigationItem.setHidesBackButton(true, animated:false);
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(onSubmit(_:)))
         
         tableView.delegate = self
@@ -82,6 +83,8 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     func onSubmit(_ sender: UIBarButtonItem) {
         Reward.createRewards(rewards: defaultRewards,team : currentTeam, success: {
             print("--- Reward creation succes")
+            self.navigationController?.popToRootViewController(animated: true)
+            
         }, failure: { (error : Error?) in
             print("---!!! reward creation error : \(error?.localizedDescription)")
         })

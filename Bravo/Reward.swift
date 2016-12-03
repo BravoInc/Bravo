@@ -34,6 +34,7 @@ class Reward: PFObject {
                     team.saveInBackground(block: { (result : Bool, error : Error?) in
                         if(error == nil){
                             print("--- added relation for reward")
+                            success()
                         }
                     })
                     

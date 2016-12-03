@@ -96,7 +96,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMh-XS-sxH" id="Ewz-T1-KYJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -167,7 +167,7 @@
         <!--Rewards View Controller-->
         <scene sceneID="bWu-DM-XR6">
             <objects>
-                <viewController storyboardIdentifier="RewardsViewController" id="RIY-Hy-ds6" customClass="RewardsViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RewardsViewController" automaticallyAdjustsScrollViewInsets="NO" id="RIY-Hy-ds6" customClass="RewardsViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qhr-fE-ake"/>
                         <viewControllerLayoutGuide type="bottom" id="Egc-P7-lCU"/>
@@ -177,16 +177,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OKR-Ue-kWP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OKR-Ue-kWP" secondAttribute="trailing" id="HgQ-8z-8LF"/>
-                            <constraint firstItem="Egc-P7-lCU" firstAttribute="top" secondItem="OKR-Ue-kWP" secondAttribute="bottom" id="VuX-ah-8O1"/>
-                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="leading" secondItem="536-Xr-zZ1" secondAttribute="leading" id="dks-zR-e5P"/>
-                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="top" secondItem="536-Xr-zZ1" secondAttribute="top" id="ldc-39-fCJ"/>
+                            <constraint firstItem="Egc-P7-lCU" firstAttribute="top" secondItem="OKR-Ue-kWP" secondAttribute="bottom" id="0H4-JK-asD"/>
+                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="leading" secondItem="536-Xr-zZ1" secondAttribute="leading" id="3Tb-Pm-mZS"/>
+                            <constraint firstItem="OKR-Ue-kWP" firstAttribute="top" secondItem="qhr-fE-ake" secondAttribute="bottom" id="mgD-4m-7De"/>
+                            <constraint firstAttribute="trailing" secondItem="OKR-Ue-kWP" secondAttribute="trailing" id="we6-mP-i91"/>
                         </constraints>
                     </view>
                     <connections>
@@ -259,7 +259,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ved-xR-Pyj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zv7-xl-PEU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zv7-xl-PEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -277,7 +277,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RewardsCreationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="USs-2m-lZJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="caM-d7-Age">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="caM-d7-Age">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
