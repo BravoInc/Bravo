@@ -14,21 +14,22 @@ class BravoUser: PFUser {
     var lastName : String?
     
     func signUpUser( success: @escaping() -> ()){
-        if (inputCheck(signUpOrLogin: false) == true){
-            self["firstName"] = firstName
-            self["lastName"] = lastName
-            self.signUpInBackground { (succeeded: Bool, error: Error?) in
-                if let error = error {
-                    print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
-                } else {
-                    print("--- Parse signUpInBackground SUCCESS NEW USER \(self.username)")
-                    success()
-                }
+        self["firstName"] = firstName
+        self["lastName"] = lastName
+//        self["email"] = tmpEmail
+//        self["profileImage"] = profileImage
+        
+        self.signUpInBackground { (succeeded: Bool, error: Error?) in
+            if let error = error {
+                print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
+            } else {
+                print("--- Parse signUpInBackground SUCCESS NEW USER \(self.username)")
+                success()
             }
-        } else {
-            print("---!!! signUpUser inputCheck failed")
-        }
-    }
+            
+        } // signUpInBackground
+        
+    } // signUpUser
     
     func logInUser(success: @escaping() -> ()){
         
