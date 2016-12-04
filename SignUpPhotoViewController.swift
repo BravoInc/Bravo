@@ -42,6 +42,13 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
                 
                 let thisUser = PFUser.current()
                 
+                let defaults = UserDefaults.standard
+                if let deviceTokenString = defaults.object(forKey: "deviceTokenString") as? String {
+                    // if user permitted push notifications, save deviceTokenString to their profile
+                    thisUser?["deviceTokenString"] = deviceTokenString
+                    thisUser?.saveInBackground()
+                }
+                
                 if let photo = self.signUpUser.photo {
                     let imageData = UIImagePNGRepresentation(photo)
                     let imageFile = PFFile(name:"image.png", data:imageData!)

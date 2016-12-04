@@ -381,7 +381,7 @@
 				TargetAttributes = {
 					EEF36DA91DD1855C0032BCE6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4F29K8HK32;
+						DevelopmentTeam = 752EL73Z7Y;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -675,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = 4F29K8HK32;
+				DEVELOPMENT_TEAM = 752EL73Z7Y;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;
@@ -694,7 +694,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Bravo/Bravo.entitlements;
 				DEBUG_ACTIVITY_MODE = "";
-				DEVELOPMENT_TEAM = 4F29K8HK32;
+				DEVELOPMENT_TEAM = 752EL73Z7Y;
 				INFOPLIST_FILE = Bravo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayliew.bravocompany;

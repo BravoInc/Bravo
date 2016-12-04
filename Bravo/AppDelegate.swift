@@ -39,17 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application.registerForRemoteNotifications()
          */
         
-       /*
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        // Sets shadow (line below the bar) to a blank image
-        UINavigationBar.appearance().shadowImage = UIImage()
-        // Sets the translucent background color
-        UINavigationBar.appearance().backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        // Set translucent. (Default value is already true, so this can be removed if desired.)
-        UINavigationBar.appearance().isTranslucent = true
- 
-        */
-        
         // specifies the settings you want (but won't necessarily get)
         
         // iOS 10 support
@@ -70,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
             // iOS 7 support
-        else {
+        else{
             application.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
         }
         
@@ -101,6 +90,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // received notifcation while app is running
+    }
+    
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         //When the user accepts or declines your permissions or has already made that selection in the past, a delegate method
         
@@ -119,6 +112,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("--- deviceTokenString: \(deviceTokenString)")
         
         // 9BF809F483D187738AAA4799C7217F599107C7AB21B2314338F0ED86D8E1FFD1
+        
+        let defaults = UserDefaults.standard
+        defaults.set(deviceTokenString, forKey: "deviceTokenString")
+        defaults.synchronize()
+        
     }
  /*
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

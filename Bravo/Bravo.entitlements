@@ -7,6 +7,7 @@
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)com.bravoinc.Bravo</string>
+		<string>$(AppIdentifierPrefix)com.jayliew.bravocompany</string>
 	</array>
 </dict>
 </plist>
