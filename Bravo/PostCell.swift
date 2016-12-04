@@ -31,30 +31,14 @@ class PostCell: UITableViewCell {
     weak var delegate: PostCellDelegate?
     var commentCount = 0
     
-    let RECEIVED_TEXT = "received a reward from"
-    
     var post: PFObject! {
         didSet {
             let sender = post["sender"] as! BravoUser
             let recipient = post["recipient"] as! BravoUser
             
-            let postHeaderRecepient = "\(recipient["firstName"]!) \(recipient["lastName"]!) "
-            let postHeaderSender = " \(sender["firstName"]!) \(sender["lastName"]!)"
-            let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender
-            
-            let offsetStart = postHeaderRecepient.characters.count
-            let offsetEnd = RECEIVED_TEXT.characters.count
-            
-            let range = NSMakeRange(offsetStart, offsetEnd)
-            
-            print("--- length of text : \(postHeaderText.characters.count)")
-            print("--- start offset : \(offsetStart)")
-            print("--- end offset : \(offsetEnd)")
-            
-            recipientNameLabel.attributedText = attributedString(from: postHeaderText, nonBoldRange: range)
-            
+            postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
             messageLabel.text = "+\(post["points"]!) for \(post["message"]!) \(post["skill"]!)"
-            
+
             // Setting sender and recipient image views
             setImageView(imageView: senderImageView, user: sender)
             setImageView(imageView: recipientImageView, user: recipient)
@@ -89,7 +73,7 @@ class PostCell: UITableViewCell {
             self.updateUI()
         }
     }
-    
+
     func updateUI(){
         backgroundCardView.backgroundColor = UIColor.white
         contentView.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)

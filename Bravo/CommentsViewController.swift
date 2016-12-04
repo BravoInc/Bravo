@@ -16,6 +16,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var recipientImageView: UIImageView!
     @IBOutlet weak var senderImageView: UIImageView!
+    @IBOutlet weak var pointsLabel: UILabel!
 
     var comments = [PFObject]()
     var post: PFObject!
@@ -43,13 +44,17 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let sender = post["sender"] as! BravoUser
         let recipient = post["recipient"] as! BravoUser
         
-        recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
+        //recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
+        postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
         messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
         
         // Setting image views
         setImageView(imageView: senderImageView, user: sender)
         setImageView(imageView: recipientImageView, user: recipient)
 
+        pointsLabel.textColor = greenColor
+        pointsLabel.text = "+" + ("\(post["points"]!)")
+        
         getComments(post: post)
     }
 

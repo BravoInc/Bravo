@@ -34,6 +34,20 @@ func setImageView(imageView: UIImageView, user: PFUser) {
     })
 }
 
+func postHeaderTextCreate(recipient : BravoUser, sender : BravoUser, headerLabel : UILabel){
+    let RECEIVED_TEXT = "received a reward from"
+    let postHeaderRecepient = "\(recipient["firstName"]!) \(recipient["lastName"]!) "
+    let postHeaderSender = " \(sender["firstName"]!) \(sender["lastName"]!)"
+    let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender
+    
+    let offsetStart = postHeaderRecepient.characters.count
+    let offsetEnd = RECEIVED_TEXT.characters.count
+    
+    let range = NSMakeRange(offsetStart, offsetEnd)
+    
+    headerLabel.attributedText = attributedString(from: postHeaderText, nonBoldRange: range)
+}
+
 func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttributedString {
     let fontSize = UIFont.systemFontSize
     let attrs = [
