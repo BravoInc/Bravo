@@ -39,7 +39,8 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let titleLabel = UILabel()
         titleLabel.text = "Redeem Points"
         titleLabel.sizeToFit()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
 
         getAvailableRewards()

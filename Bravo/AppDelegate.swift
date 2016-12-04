@@ -82,10 +82,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // App-wide fonts for bar button item, tab bar, text field and text view
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Light", size: 12)!], for: .normal)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().backgroundColor = greenColor
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = greenColor
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
+
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Light", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
+        UITabBar.appearance().barTintColor = greenColor
+        
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Light", size: 16)!], for: .normal)
         UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
         UITextView.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+
         
         return true
     }
