@@ -11,7 +11,7 @@ import Parse
 import DateTools
 
 class PostCell: UITableViewCell {
-
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var recipientImageView: UIImageView!
@@ -38,10 +38,10 @@ class PostCell: UITableViewCell {
             pointsLabel.textColor = greenColor
             pointsLabel.text = "+" + ("\(post["points"]!)")
             
-            
-            let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
-            
-            timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            if (post.createdAt != nil ){
+                let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
+                timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            }
             
             self.updateUI()
         }
@@ -64,21 +64,21 @@ class PostCell: UITableViewCell {
     }
     @IBAction func onCommentTapped(_ sender: Any) {
     }
-
+    
     @IBAction func onLikeTapped(_ sender: Any) {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
