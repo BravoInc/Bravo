@@ -28,6 +28,7 @@ class Comment: PFObject {
                 print ("-- new comment created")
                 let commentRelation = post.relation(forKey: "commentRelation")
                 commentRelation.add(comment)
+                post.incrementKey("commentCount", byAmount: 1)
                 
                 post.saveInBackground(block: { (result : Bool, error : Error?) in
                     if(error == nil ){

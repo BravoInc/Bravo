@@ -71,6 +71,7 @@ class Team: PFObject {
     class func joinTeam(team: PFObject, success: @escaping() -> () ,failure: @escaping(Error?) -> ()){
         let userRelation = team.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)
+        team.incrementKey("memberCount", byAmount: 1)
         
         team.saveInBackground { (result : Bool,error :  Error?) in
             if (error == nil ){
@@ -105,6 +106,7 @@ class Team: PFObject {
         
         newTeam["name"] = teamName
         newTeam["adminUser"] = PFUser.current()
+        newTeam["memberCount"] = 1
         
         let userRelation = newTeam.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)
@@ -135,4 +137,17 @@ class Team: PFObject {
             }
         }
     }
+    
+    class func countUsers(team: PFObject, success: @escaping(Int?) -> (), failure: @escaping(Error?) -> ()) {
+        let userRelation = team.relation(forKey: "userRelation")
+        userRelation.query().countObjectsInBackground { (count:Int32, error: Error?) in
+            if error == nil {
+                print ("team has \(Int(count)) users")
+                success(Int(count))
+            } else {
+                failure(error)
+            }
+        }
+    }
+
 }

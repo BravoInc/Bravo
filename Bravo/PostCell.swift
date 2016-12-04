@@ -60,15 +60,7 @@ class PostCell: UITableViewCell {
 
             }
             
-            commentCountLabel.text = "\(commentCount)"
-            Post.countComments(post: post, success: { (count: Int?) in
-                self.commentCount = count!
-                self.commentCountLabel.text = "\(self.commentCount)"
-            }, failure: { (error: Error?) in
-                print ("failed to get comment count: \(error?.localizedDescription)")
-                self.commentCount = 0
-                self.commentCountLabel.text = "\(self.commentCount)"
-            })
+            commentCountLabel.text = "\(post["commentCount"]!)"
 
             self.updateUI()
         }

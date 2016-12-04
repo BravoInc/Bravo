@@ -12,14 +12,18 @@ import Parse
 class TeamCell: UITableViewCell {
 
     @IBOutlet weak var teamNameLabel: UILabel!
+    @IBOutlet weak var membersLabel: UILabel!
     @IBOutlet weak var adminLabel: UILabel!
     @IBOutlet weak var selectionImageView: UIView!
+    @IBOutlet weak var adminImageView: UIImageView!
     
     var team: PFObject! {
         didSet {
             teamNameLabel.text = "\(team["name"]!)"
             let adminUser = team["adminUser"] as! BravoUser
             adminLabel.text = "\(adminUser["firstName"]!) \(adminUser["lastName"]!)"
+            setImageView(imageView: adminImageView, user: adminUser)
+            membersLabel.text = "\(team["memberCount"]!) member(s)"
         }
     }
     
