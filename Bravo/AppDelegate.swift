@@ -117,6 +117,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.set(deviceTokenString, forKey: "deviceTokenString")
         defaults.synchronize()
         
+        let installation = PFInstallation.current()
+        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.saveInBackground()
+        
     }
  /*
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
