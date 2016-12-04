@@ -31,46 +31,38 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
         let bu = BravoUser()
         bu.firstName = signUpUser.firstName
         bu.lastName = signUpUser.lastName
-        //bu.profileImage = signUpUser.photo
         bu.password = signUpUser.password
         bu.username = signUpUser.username
         bu.email = signUpUser.email
         
-//        print()
-        
         bu.signUpUser {
+            
             bu.logInUser {
                 print("--- CREATE NEW ACCOUNT AND LOGIN success: \(bu.username)")
                 
-                /*
-                 NSData *imageData = UIImagePNGRepresentation(image);
-                 PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
-                 [imageFile save];
-                 
-                 PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-                 [userPhoto setObject:@"My trip to Hawaii!" forKey:@"imageName"];
-                 [userPhoto setObject:imageFile             forKey:@"imageFile"];
-                 [userPhoto save];
-                 
-                 
-                 let imageData = UIImagePNGRepresentation(image)
-                 let imageFile = PFFile(name:"image.png", data:imageData)
-                 
-                 var userPhoto = PFObject(className:"UserPhoto")
-                 userPhoto["imageName"] = "My trip to Hawaii!"
-                 userPhoto["imageFile"] = imageFile
-                 userPhoto.saveInBackground()
- */
-                if self.signUpUser.photo != nil{
-                    let imageData = UIImagePNGRepresentation(self.signUpUser.photo!)
+                let thisUser = PFUser.current()
+                
+                if let photo = self.signUpUser.photo {
+                    let imageData = UIImagePNGRepresentation(photo)
                     let imageFile = PFFile(name:"image.png", data:imageData!)
                     
-                    //bu.setObject(imageFile!, forKey: "profileImage")
-                    bu["profileImage"] = imageFile
+                    thisUser?["profileImage"] = imageFile
                     
-                }
-                bu.saveInBackground()
+                    thisUser?.saveInBackground(block: { (succeeded: Bool, error:Error?) in
+                        if(succeeded == true){
+                            print("--- new profile photo upload OK")
+                        }else{
+                            print("---!!! new profile photo upload FAIL")
+                        }
+                        
+                        if let e = error{
+                            print("---!!! new profile photo upload: \(e.localizedDescription)")
+                        }
+                    })
                 
+                }else{
+                    print("---!!! new profile photo is nil?")
+                }
                 
                 let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
                 
@@ -118,14 +110,24 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Get the image captured by the UIImagePickerController
-        //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            signUpUser.photo = image
+            print("--- OK EDITED IMAGE ")
+        } else{
+            print("---??? FAIL EDITED IMAGE ")
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                print("--- OK ORIGINAL IMAGE ")
+                signUpUser.photo = image
+            }else{
+                print("---!!! FAIL ORIGINAL IMAGE ")
+            }
+        }
         
         // Do something with the images (based on your use case)
-        //selectedPhoto.image = editedImage
-        
-        //signUpUser.photo = editedImage
+        if let userPhoto = signUpUser.photo {
+            selectedPhoto.image = userPhoto
+        }
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
