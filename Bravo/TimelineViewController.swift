@@ -13,6 +13,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
+    var postIdLikeMap = [Int : Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         Post.getAllPosts(success: { (posts : [PFObject]?) in
             print("--- got \(posts?.count) posts")
             self.posts = posts!
+            BravoUser.getUserPostLikes(success: {
+                (postLikes: [PFObject]?) in
+                for i in 0..<self.posts.count {
+                    for postLike in postLikes! {
+                        if self.posts[i].objectId! == (postLike["post"] as! PFObject).objectId! {
+                            print ("post id matched")
+                            self.postIdLikeMap[i] = true
+                            break
+                        }
+                    }
+                }
+            }, failure: {
+                (error: Error?) in
+                print ("failed to get user post likes")
+            })
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get posts : \(error?.localizedDescription)")
@@ -61,6 +77,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let postCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         postCell.delegate = self
+        postCell.likeButton.isSelected = postIdLikeMap[indexPath.row] ?? false
         postCell.post = posts[indexPath.row]
         
         return postCell

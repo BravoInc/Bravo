@@ -70,11 +70,13 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         userCell.user = filteredUsers[indexPath.row]
-        if userCell.user == PFUser.current() {
+        if userCell.user.objectId! == PFUser.current()!.objectId {
             userCell.isUserInteractionEnabled = false
             userCell.backgroundColor = extraLightGreyColor
             userCell.isChecked = false
         } else {
+            userCell.isUserInteractionEnabled = true
+            userCell.backgroundColor = UIColor.white
             userCell.isChecked = selectedIndex == indexPath.row
         }
         

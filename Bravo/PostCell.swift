@@ -22,6 +22,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var recipientNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var senderLabel: UILabel!
     @IBOutlet weak var backgroundCardView: UIView!
@@ -50,6 +51,14 @@ class PostCell: UITableViewCell {
                 timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
             }
             
+            if likeButton.isSelected {
+                likeButton.setImage(UIImage(named: "heart_red"), for: UIControlState.selected)
+
+            } else {
+                likeButton.setImage(UIImage(named: "heart"), for: UIControlState.normal)
+
+            }
+            
             self.updateUI()
         }
     }
@@ -69,20 +78,35 @@ class PostCell: UITableViewCell {
         
         
     }
+        
+    private func updateLikeCount() {
+        likeButton.isSelected = !likeButton.isSelected
+        if likeButton.isSelected {
+            likeButton.setImage(UIImage(named: "heart_red"), for: UIControlState.selected)
+        } else {
+            //tweet.retweetCount -= 1
+            likeButton.setImage(UIImage(named: "heart"), for: UIControlState.normal)
+        }
+        //retweetCountLabel.text = "\(tweet.retweetCount)"
+    }
+        
+        
     @IBAction func onCommentTapped(_ sender: Any) {
         delegate?.comment?(post: post)
     }
     
     @IBAction func onLikeTapped(_ sender: Any) {
-        Post.updateLikeCount(post: post, increment: true, success: {
+        self.updateLikeCount()
+        Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
             (post: PFObject?) -> () in
-            BravoUser.saveUserPostLikes(post: post!, isLiked: true, success: { (postLike: PFObject?) in
+            BravoUser.saveUserPostLikes(post: post!, isLiked: self.likeButton.isSelected, success: { (postLike: PFObject?) in
                 print ("--successfully updated user post like")
             }, failure: { (error: Error?) in
                 print ("-- failed to update user post like: \(error?.localizedDescription)")
             })
         }, failure: { (error: Error?) in
             print ("-- failed to update post like count: \(error?.localizedDescription)")
+            self.updateLikeCount()
         }
         )
         
