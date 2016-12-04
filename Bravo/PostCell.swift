@@ -23,11 +23,14 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var commentCountLabel: UILabel!
     
     @IBOutlet weak var backgroundCardView: UIView!
     
-    var isLikedByCurrentUser: Bool = false
     weak var delegate: PostCellDelegate?
+    var commentCount = 0
+    
     let RECEIVED_TEXT = "received a reward from"
     
     var post: PFObject! {
@@ -36,7 +39,7 @@ class PostCell: UITableViewCell {
             let recipient = post["recipient"] as! BravoUser
             
             let postHeaderRecepient = "\(recipient["firstName"]!) \(recipient["lastName"]!) "
-            let postHeaderSender = " \(sender["firstName"]!)"
+            let postHeaderSender = " \(sender["firstName"]!) \(sender["lastName"]!)"
             let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender
             
             let offsetStart = postHeaderRecepient.characters.count
@@ -58,6 +61,7 @@ class PostCell: UITableViewCell {
             
             pointsLabel.textColor = greenColor
             pointsLabel.text = "+" + ("\(post["points"]!)")
+            likeCountLabel.text = "\(post["likeCount"]!)"
             
             if (post.createdAt != nil ){
                 let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
@@ -72,6 +76,16 @@ class PostCell: UITableViewCell {
 
             }
             
+            commentCountLabel.text = "\(commentCount)"
+            Post.countComments(post: post, success: { (count: Int?) in
+                self.commentCount = count!
+                self.commentCountLabel.text = "\(self.commentCount)"
+            }, failure: { (error: Error?) in
+                print ("failed to get comment count: \(error?.localizedDescription)")
+                self.commentCount = 0
+                self.commentCountLabel.text = "\(self.commentCount)"
+            })
+
             self.updateUI()
         }
     }
@@ -91,7 +105,7 @@ class PostCell: UITableViewCell {
         
         
     }
-        
+    
     private func updateLikeCount() {
         likeButton.isSelected = !likeButton.isSelected
         if likeButton.isSelected {

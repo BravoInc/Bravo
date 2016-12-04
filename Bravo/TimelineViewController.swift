@@ -48,6 +48,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         Post.getAllPosts(success: { (posts : [PFObject]?) in
             print("--- got \(posts?.count) posts")
             self.posts = posts!
+            
             BravoUser.getUserPostLikes(success: {
                 (postLikes: [PFObject]?) in
                 for i in 0..<self.posts.count {
