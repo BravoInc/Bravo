@@ -23,19 +23,32 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     
-    @IBOutlet weak var senderLabel: UILabel!
     @IBOutlet weak var backgroundCardView: UIView!
     
     var isLikedByCurrentUser: Bool = false
     weak var delegate: PostCellDelegate?
+    let RECEIVED_TEXT = "received a reward from"
     
     var post: PFObject! {
         didSet {
             let sender = post["sender"] as! BravoUser
             let recipient = post["recipient"] as! BravoUser
             
-            recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
-            senderLabel.text = "\(sender["firstName"]!)"
+            let postHeaderRecepient = "\(recipient["firstName"]!) \(recipient["lastName"]!) "
+            let postHeaderSender = " \(sender["firstName"]!)"
+            let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender
+            
+            let offsetStart = postHeaderRecepient.characters.count
+            let offsetEnd = RECEIVED_TEXT.characters.count
+            
+            let range = NSMakeRange(offsetStart, offsetEnd)
+            
+            print("--- length of text : \(postHeaderText.characters.count)")
+            print("--- start offset : \(offsetStart)")
+            print("--- end offset : \(offsetEnd)")
+            
+            recipientNameLabel.attributedText = attributedString(from: postHeaderText, nonBoldRange: range)
+            
             messageLabel.text = "+\(post["points"]!) for \(post["message"]!) \(post["skill"]!)"
             
             // Setting sender and recipient image views
