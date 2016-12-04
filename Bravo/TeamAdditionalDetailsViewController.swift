@@ -17,11 +17,12 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     let MEMBERS_SECTION_HEADER = "Members"
     let REWARDS_SECTION_HEADER = "Rewards"
     
-    
     @IBOutlet weak var tableView: UITableView!
     var team : PFObject!
     var users = [PFUser]()
     var rewards = [PFObject]()
+    
+    var canJoinTeam = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,11 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
         
+        if canJoinTeam {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Join", style: .plain, target: self, action: #selector(joinTapped))
+        }
+        
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,6 +53,32 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         
         getUsers()
         getTeamRewards()
+    }
+    
+    func joinTapped(){
+        print("--- Join team tapped ")
+        Team.joinTeam(team: team, success: {
+            print("--- Join Team Success")
+//            let message = "Your request to join Team \(self.filteredTeams[indexPath.row]["name"]!) has been sent to the administrator.\n\nYou will be notified when the admin approves."
+//            let alert = UIAlertController(title: "Request Sent", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+//                action in switch(action.style) {
+//                case .default:
+//                    let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+//                    let teamNavController = storyboard.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+//                    self.present(teamNavController, animated: true, completion: nil)
+//                    
+//                default:
+//                    break
+//                }
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }, failure: { (error : Error?) in
+            print("---!!! Failed to join team : \(error?.localizedDescription) ")
+        })
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

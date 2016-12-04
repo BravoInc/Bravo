@@ -93,8 +93,7 @@ func transparentNavBar(){
 
 func setImageView(imageView: UIImageView, user: PFUser) {
     // Setting image view
-    imageView.layer.cornerRadius = imageView.frame.size.width / 2;
-    imageView.clipsToBounds = true
+    imageView.asCircle()
     
     imageView.image = UIImage(named: "noProfilePic")
     let image = user["profileImage"] as? PFFile
@@ -103,6 +102,21 @@ func setImageView(imageView: UIImageView, user: PFUser) {
             imageView.image = UIImage(data:imageData!)
         }
     })
+}
+
+extension UIImageView{
+    
+    func asCircle(){
+        self.layer.cornerRadius = self.frame.width / 2;
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = 0;
+        /*
+         self.backgroundColor = UIColor(red: (0/255.0), green: (0/255.0), blue: (0/255.0), alpha: 1.0)
+         self.isOpaque = true
+         self.alpha = 1.0
+         */
+    }
+    
 }
 
 func postHeaderTextCreate(recipient : BravoUser, sender : BravoUser, headerLabel : UILabel){

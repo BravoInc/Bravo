@@ -121,6 +121,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
                 teamAdditionalDetailsViewController.team = userTeams[indexPath.row]
             } else {
                 teamAdditionalDetailsViewController.team = allTeams[indexPath.row]
+                teamAdditionalDetailsViewController.canJoinTeam = true
             }
             
             self.navigationController?.pushViewController(teamAdditionalDetailsViewController, animated: true)
