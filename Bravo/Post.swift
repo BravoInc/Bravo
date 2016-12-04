@@ -20,6 +20,7 @@ class Post: PFObject {
         newPost["skill"] = skill
         newPost["points"] = points
         newPost["team"] = team
+        newPost["likeCount"] = 0
 
         return newPost
     }
@@ -65,6 +66,21 @@ class Post: PFObject {
                 success(pointsGiven)
             } else {
                 print ("Error getting given points for the posts: \(error?.localizedDescription)")
+                failure(error)
+            }
+        }
+    }
+    
+    class func updateLikeCount(post: PFObject, increment: Bool, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()) {
+        post.incrementKey("likeCount", byAmount: increment ? 1 : -1)
+   
+        
+        post.saveInBackground { (result : Bool, error : Error?) in
+            if (error == nil){
+                print ("-- post like count updated")
+                success(post)
+            } else {
+                print ("-- post like count update failed")
                 failure(error)
             }
         }

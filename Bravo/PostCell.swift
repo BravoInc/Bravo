@@ -10,6 +10,10 @@ import UIKit
 import Parse
 import DateTools
 
+@objc protocol PostCellDelegate {
+    @objc optional func comment(post: PFObject)
+}
+
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -22,6 +26,9 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var senderLabel: UILabel!
     @IBOutlet weak var backgroundCardView: UIView!
     
+    var isLikedByCurrentUser: Bool = false
+    weak var delegate: PostCellDelegate?
+    
     var post: PFObject! {
         didSet {
             let sender = post["sender"] as! BravoUser
@@ -29,7 +36,7 @@ class PostCell: UITableViewCell {
             
             recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
             senderLabel.text = "\(sender["firstName"]!)"
-            messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
+            messageLabel.text = "+\(post["points"]!) for \(post["message"]!) \(post["skill"]!)"
             
             // Setting sender and recipient image views
             setImageView(imageView: senderImageView, user: sender)
@@ -63,9 +70,22 @@ class PostCell: UITableViewCell {
         
     }
     @IBAction func onCommentTapped(_ sender: Any) {
+        delegate?.comment?(post: post)
     }
 
     @IBAction func onLikeTapped(_ sender: Any) {
+        Post.updateLikeCount(post: post, increment: true, success: {
+            (post: PFObject?) -> () in
+            BravoUser.saveUserPostLikes(post: post!, isLiked: true, success: { (postLike: PFObject?) in
+                print ("--successfully updated user post like")
+            }, failure: { (error: Error?) in
+                print ("-- failed to update user post like: \(error?.localizedDescription)")
+            })
+        }, failure: { (error: Error?) in
+            print ("-- failed to update post like count: \(error?.localizedDescription)")
+        }
+        )
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()

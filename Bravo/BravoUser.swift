@@ -83,7 +83,7 @@ class BravoUser: PFUser {
     class func getLoggedInUser() -> BravoUser{
         return PFUser.current() as! BravoUser
     }
-
+    
     class func getTeamUsers(team: PFObject, success: @escaping([PFUser]?) -> (), failure: @escaping(Error?) -> ()){
         
         let userRelation = team.relation(forKey: "userRelation")
@@ -96,5 +96,26 @@ class BravoUser: PFUser {
         }
     }
     
-
+    
+    class func saveUserPostLikes(post: PFObject, isLiked: Bool, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()) {
+        
+        
+        let postLikesRelation = PFUser.current()!.relation(forKey: "postLikesRelation")
+        
+        PostLikes.savePostLike(post: post, isLiked: isLiked, postLikesRelation: postLikesRelation, success: {(postLike: PFObject?) in
+            
+            PFUser.current()!.saveInBackground(block: { (result : Bool, error : Error?) in
+                if(error == nil ){
+                    print("--- Added post like in current user: \(PFUser.current()!) ")
+                    success(PFUser.current())
+                } else {
+                    print("---!!! cannot add post like in current user : \(error?.localizedDescription)")
+                    failure(error)
+                }
+            })
+        }, failure: {(error: Error?) in
+            print ("--failed to save post like: \(error?.localizedDescription)")
+        })
+    }
+    
 }

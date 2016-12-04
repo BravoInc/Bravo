@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate, PostCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
@@ -60,9 +60,22 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let postCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        postCell.delegate = self
         postCell.post = posts[indexPath.row]
         
         return postCell
+    }
+    
+    func comment(post: PFObject) {
+        let storyboard = UIStoryboard(name: "Activity", bundle: nil)
+        let postComposeNavControler = storyboard.instantiateViewController(withIdentifier: "PostComposeNavigationController") as! UINavigationController
+        let postComposeVC = postComposeNavControler.topViewController as! PostComposeViewController
+        postComposeVC.post = post
+        postComposeVC.isComment = true
+        postComposeVC.delegate = self
+        
+        present(postComposeNavControler, animated: true, completion: nil)
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
