@@ -21,6 +21,7 @@ class Post: PFObject {
         newPost["points"] = points
         newPost["team"] = team
         newPost["likeCount"] = 0
+        newPost["commentCount"] = 0
 
         return newPost
     }
@@ -91,6 +92,8 @@ class Post: PFObject {
         commentRelation.query().countObjectsInBackground { (count:Int32, error: Error?) in
             if error == nil {
                 print ("post has \(Int(count)) comments")
+                post["commentCount"] = Int(count)
+                post.saveInBackground()
                 success(Int(count))
             } else {
                 failure(error)

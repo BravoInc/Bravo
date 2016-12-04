@@ -29,9 +29,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         titleLabel.text =
         "Comments"
         titleLabel.sizeToFit()
-        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
+        
 
         // Initialize table view
         tableView.delegate = self
