@@ -78,15 +78,15 @@
                                     <constraint firstAttribute="height" constant="1" id="eu0-FB-Zoq"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erM-PN-b5z">
-                                <rect key="frame" x="70" y="126" width="30" height="30"/>
-                                <state key="normal" title="Like"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erM-PN-b5z">
+                                <rect key="frame" x="70" y="126" width="24" height="24"/>
+                                <state key="normal" image="heart"/>
                                 <connections>
                                     <action selector="onLikeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gyg-eX-ytP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP1-o2-ftm">
-                                <rect key="frame" x="136" y="126" width="67" height="30"/>
+                                <rect key="frame" x="130" y="126" width="67" height="30"/>
                                 <state key="normal" title="Comment"/>
                                 <connections>
                                     <action selector="onCommentTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mX2-rm-jA4"/>
@@ -146,4 +146,7 @@
             <point key="canvasLocation" x="91" y="178"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart" width="24" height="24"/>
+    </resources>
 </document>
