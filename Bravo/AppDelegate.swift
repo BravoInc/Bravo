@@ -95,6 +95,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Light", size: 16)!], for: .normal)
         UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
         UITextView.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
         
         return true
