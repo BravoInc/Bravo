@@ -36,7 +36,6 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         titleLabel.text =
         "Select Recipient"
         titleLabel.sizeToFit()
-        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
 
@@ -71,7 +70,14 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         userCell.user = filteredUsers[indexPath.row]
-        userCell.isChecked = selectedIndex == indexPath.row
+        if userCell.user == PFUser.current() {
+            userCell.isUserInteractionEnabled = false
+            userCell.backgroundColor = extraLightGreyColor
+            userCell.isChecked = false
+        } else {
+            userCell.isChecked = selectedIndex == indexPath.row
+        }
+        
         userCell.setImageViews()
         
         return userCell
