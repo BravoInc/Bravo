@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "BravoCompany": {
+      "applicationId": "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
+    },
+    "_default": {
+      "link": "BravoCompany"
+    }
+  }
+}

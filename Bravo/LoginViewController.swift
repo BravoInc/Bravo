@@ -25,8 +25,7 @@ class LoginViewController: UIViewController {
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         
-        user.logInUser(success: {
-            
+        user.logInUser(success: {            
             // if you change things here, don't forget to change things in the success callback of the new account signup
             
             print("--- LOGIN success \(self.usernameTextField.text)")

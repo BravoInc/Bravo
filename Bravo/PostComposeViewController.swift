@@ -72,6 +72,8 @@ class PostComposeViewController: UIViewController {
 
             }
             
+            sendPushNotification(recipient: self.user!, message: "You got recognized!")
+            
         }, failure: { (error : Error?) in
             print("---!!! cant create post : \(error?.localizedDescription)")
         })
