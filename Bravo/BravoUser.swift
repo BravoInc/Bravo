@@ -119,4 +119,26 @@ class BravoUser: PFUser {
         })
     }
     
+    class func getUserPostLikes(success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()) {
+        
+        
+        let postLikesRelation = PFUser.current()!.relation(forKey: "postLikesRelation")
+        
+        let query = postLikesRelation.query()
+        query.whereKey("isLiked", equalTo: true)
+        query.includeKey("post")
+        
+        query.findObjectsInBackground { (postLikes: [PFObject]?, error: Error?) in
+            if (error == nil) {
+                print ("--post Likes received: \(postLikes?.count)")
+                success(postLikes)
+            } else {
+                print ("error getting user post likes: \(error?.localizedDescription)")
+                failure(error)
+            }
+        }
+    }
+    
+    
+    
 }
