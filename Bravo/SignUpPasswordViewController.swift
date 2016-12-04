@@ -11,6 +11,7 @@ import UIKit
 class SignUpPasswordViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     
     var signUpUser: SignUpUser!
     
@@ -28,7 +29,7 @@ class SignUpPasswordViewController: UIViewController {
 
     func miscInit(){
         UIApplication.shared.statusBarStyle = .lightContent
-        passwordTextField.becomeFirstResponder()
+        usernameTextField.becomeFirstResponder()
         
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
@@ -46,6 +47,7 @@ class SignUpPasswordViewController: UIViewController {
     
     @IBAction func onNextButtonPress(_ sender: Any) {
         signUpUser.password = passwordTextField.text
+        signUpUser.username = usernameTextField.text
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

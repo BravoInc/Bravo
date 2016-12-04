@@ -62,6 +62,8 @@
 		E192BA441DF24B4400BE57D2 /* SignUpPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */; };
 		E192BA461DF24DAB00BE57D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */; };
 		E192BA481DF344D700BE57D2 /* backArrow128gray888.png in Resources */ = {isa = PBXBuildFile; fileRef = E192BA471DF344D700BE57D2 /* backArrow128gray888.png */; };
+		E192BA4A1DF3A34B00BE57D2 /* camera256.png in Resources */ = {isa = PBXBuildFile; fileRef = E192BA491DF3A34B00BE57D2 /* camera256.png */; };
+		E192BA4C1DF3AFEE00BE57D2 /* photosLibrary256.png in Resources */ = {isa = PBXBuildFile; fileRef = E192BA4B1DF3AFEE00BE57D2 /* photosLibrary256.png */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
@@ -136,6 +138,8 @@
 		E192BA431DF24B4400BE57D2 /* SignUpPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpPhotoViewController.swift; path = ../SignUpPhotoViewController.swift; sourceTree = "<group>"; };
 		E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E192BA471DF344D700BE57D2 /* backArrow128gray888.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128gray888.png; sourceTree = "<group>"; };
+		E192BA491DF3A34B00BE57D2 /* camera256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera256.png; sourceTree = "<group>"; };
+		E192BA4B1DF3AFEE00BE57D2 /* photosLibrary256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photosLibrary256.png; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
@@ -257,8 +261,10 @@
 		E13696071DE9109800D51FE0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E192BA491DF3A34B00BE57D2 /* camera256.png */,
 				6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */,
 				6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */,
+				E192BA4B1DF3AFEE00BE57D2 /* photosLibrary256.png */,
 				6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */,
 				E1574DAB1DED06AC007AC27A /* backArrow128white.png */,
 				E136960A1DE9420400D51FE0 /* Montserrat-Bold.ttf */,
@@ -413,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E192BA481DF344D700BE57D2 /* backArrow128gray888.png in Resources */,
+				E192BA4C1DF3AFEE00BE57D2 /* photosLibrary256.png in Resources */,
 				E1574DAC1DED06AC007AC27A /* backArrow128white.png in Resources */,
 				6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
@@ -426,6 +433,7 @@
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				644126951DEBAA1F0060FBED /* UserCell.xib in Resources */,
 				6452509D1DF29A7200DD1384 /* AvenirLTStd-Book.otf in Resources */,
+				E192BA4A1DF3A34B00BE57D2 /* camera256.png in Resources */,
 				644126891DE822FC0060FBED /* PostCell.xib in Resources */,
 				6452509F1DF29A7200DD1384 /* AvenirLTStd-Roman.otf in Resources */,
 				64FE56C71DD7BFA60099562D /* TeamCreation.storyboard in Resources */,
