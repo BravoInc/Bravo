@@ -17,6 +17,7 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     var filteredUsers = [PFUser]()
     var users = [PFUser]()
+    var userPointsMap = [String: Int]()
     var selectedIndex: Int = -1
 
     override func viewDidLoad() {
@@ -56,7 +57,16 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
             self.filteredUsers = users!
             self.users = users!
             
-            self.tableView.reloadData()
+            UserSkillPoints.getUserTotalPoints(users: self.users, success: { (userSkillPoints: [PFObject]?) in
+                for userPoint in userSkillPoints! {
+                    self.userPointsMap[(userPoint["user"] as! PFUser).objectId!] = (userPoint["totalPoints"]! as! Int)
+                }
+                self.tableView.reloadData()
+
+            }, failure: { (error: Error?) in
+                print ("--error getting user points \(error?.localizedDescription)")
+            })
+            
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
         })
@@ -69,14 +79,21 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
+        userCell.points = userPointsMap[filteredUsers[indexPath.row].objectId!] ?? 0
         userCell.user = filteredUsers[indexPath.row]
         if userCell.user.objectId! == PFUser.current()!.objectId {
             userCell.isUserInteractionEnabled = false
-            userCell.backgroundColor = extraLightGreyColor
+            userCell.userFullNameLabel.isEnabled = false
+            userCell.userNameLabel.isEnabled = false
+            userCell.userPointsLabel.isEnabled = false
+            userCell.profileImageView.alpha = 0.5
             userCell.isChecked = false
         } else {
             userCell.isUserInteractionEnabled = true
-            userCell.backgroundColor = UIColor.white
+            userCell.userFullNameLabel.isEnabled = true
+            userCell.userNameLabel.isEnabled = true
+            userCell.userPointsLabel.isEnabled = true
+            userCell.profileImageView.alpha = 1
             userCell.isChecked = selectedIndex == indexPath.row
         }
         

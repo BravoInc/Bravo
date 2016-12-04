@@ -15,13 +15,17 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var userFullNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    
+    @IBOutlet weak var userPointsLabel: UILabel!
     @IBOutlet weak var selectionImageView: UIImageView!
+    
+    var points = 0
     
     var user: PFUser! {
         didSet {
             userFullNameLabel.text = "\(user["firstName"]!) \(user["lastName"]!)"
             userNameLabel.text = "@\(user["username"]!)"
-            
+            userPointsLabel.text = "\(points) points"
             // Setting user image view
             setImageView(imageView: profileImageView, user: user)
         }

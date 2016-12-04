@@ -30,7 +30,7 @@ class Post: PFObject {
         
         post.saveInBackground { (result : Bool, error : Error?) in
             if (error == nil){
-                print ("-- new post created")
+                print ("-- new post created \(post["commentCount"])")
                 success(post)
             } else {
                 print ("-- post creation failed")

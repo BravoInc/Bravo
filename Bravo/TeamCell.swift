@@ -23,7 +23,10 @@ class TeamCell: UITableViewCell {
             let adminUser = team["adminUser"] as! BravoUser
             adminLabel.text = "\(adminUser["firstName"]!) \(adminUser["lastName"]!)"
             setImageView(imageView: adminImageView, user: adminUser)
-            membersLabel.text = "\(team["memberCount"]!) member(s)"
+            
+            let memberCount = team["memberCount"]! as! Int
+            let memberStr = memberCount <= 1 ? "member" : "members"
+            membersLabel.text = "\(memberCount) \(memberStr)"
         }
     }
     

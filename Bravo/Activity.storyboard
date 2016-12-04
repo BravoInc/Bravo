@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reward Activity" id="ggs-zz-G5L">
-                        <barButtonItem key="rightBarButtonItem" title="Recognize" id="seA-0R-Aqy">
+                        <barButtonItem key="rightBarButtonItem" title="+" style="done" id="seA-0R-Aqy">
                             <connections>
                                 <segue destination="oeV-GH-8gM" kind="presentation" id="9gS-Yo-xhi"/>
                             </connections>
@@ -752,6 +752,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZdG-Rj-5wn"/>
+        <segue reference="9gS-Yo-xhi"/>
     </inferredMetricsTieBreakers>
 </document>
