@@ -85,6 +85,18 @@ class Post: PFObject {
             }
         }
     }
+    
+    class func countComments(post: PFObject, success: @escaping(Int?) -> (), failure: @escaping(Error?) -> ()) {
+        let commentRelation = post.relation(forKey: "commentRelation")
+        commentRelation.query().countObjectsInBackground { (count:Int32, error: Error?) in
+            if error == nil {
+                print ("post has \(Int(count)) comments")
+                success(Int(count))
+            } else {
+                failure(error)
+            }
+        }
+    }
 
 }
 

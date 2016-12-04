@@ -73,23 +73,37 @@
                                     <action selector="onLikeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gyg-eX-ytP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP1-o2-ftm">
-                                <rect key="frame" x="130" y="127" width="67" height="30"/>
-                                <state key="normal" title="Comment"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP1-o2-ftm">
+                                <rect key="frame" x="182" y="127" width="24" height="24"/>
+                                <state key="normal" image="comment"/>
                                 <connections>
                                     <action selector="onCommentTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mX2-rm-jA4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUL-b0-3om">
+                                <rect key="frame" x="102" y="130" width="40" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpc-Tt-hrj">
+                                <rect key="frame" x="214" y="129" width="40" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.7751539059" green="0.04581194894" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lEL-pU-vaN" firstAttribute="leading" secondItem="59A-jB-Erc" secondAttribute="leading" constant="4" id="7gw-55-obS"/>
                             <constraint firstItem="85c-Eh-nKN" firstAttribute="top" secondItem="cnb-U7-xlB" secondAttribute="bottom" constant="8" id="Bbm-Qv-XsL"/>
                             <constraint firstItem="xFU-Iy-VCW" firstAttribute="centerX" secondItem="59A-jB-Erc" secondAttribute="centerX" constant="2" id="Bmk-Na-CJ9"/>
-                            <constraint firstItem="uP1-o2-ftm" firstAttribute="leading" secondItem="erM-PN-b5z" secondAttribute="trailing" constant="36" id="Ije-xa-ZBd"/>
+                            <constraint firstItem="Dpc-Tt-hrj" firstAttribute="centerY" secondItem="uP1-o2-ftm" secondAttribute="centerY" id="EaZ-oO-eIf"/>
                             <constraint firstAttribute="trailing" secondItem="cnb-U7-xlB" secondAttribute="trailing" constant="4" id="KYZ-Er-5kw"/>
+                            <constraint firstItem="uP1-o2-ftm" firstAttribute="centerY" secondItem="cUL-b0-3om" secondAttribute="centerY" id="N2h-vh-Rnl"/>
                             <constraint firstItem="cnb-U7-xlB" firstAttribute="top" secondItem="xFU-Iy-VCW" secondAttribute="bottom" constant="8" id="PLX-Tb-0KB"/>
                             <constraint firstItem="rQn-KW-PNM" firstAttribute="top" secondItem="85c-Eh-nKN" secondAttribute="top" id="QV8-SW-WM7"/>
+                            <constraint firstItem="cUL-b0-3om" firstAttribute="centerY" secondItem="erM-PN-b5z" secondAttribute="centerY" id="R2P-PU-0Vj"/>
                             <constraint firstItem="85c-Eh-nKN" firstAttribute="leading" secondItem="59A-jB-Erc" secondAttribute="leading" constant="12" id="YOs-Yo-utP"/>
                             <constraint firstItem="zK9-89-6IW" firstAttribute="leading" secondItem="yYl-HG-6t9" secondAttribute="leading" id="aUO-pO-VsJ"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lEL-pU-vaN" secondAttribute="bottom" constant="8" id="c5W-wS-Zaw"/>
@@ -101,9 +115,11 @@
                             <constraint firstItem="yYl-HG-6t9" firstAttribute="top" secondItem="rQn-KW-PNM" secondAttribute="bottom" constant="4" id="jnd-Sr-X5M"/>
                             <constraint firstItem="erM-PN-b5z" firstAttribute="leading" secondItem="zK9-89-6IW" secondAttribute="leading" id="l2t-5k-tVO"/>
                             <constraint firstItem="erM-PN-b5z" firstAttribute="top" secondItem="zK9-89-6IW" secondAttribute="bottom" constant="8" id="lOa-hg-BRg"/>
-                            <constraint firstItem="uP1-o2-ftm" firstAttribute="top" secondItem="erM-PN-b5z" secondAttribute="top" id="mkv-GT-yZX"/>
+                            <constraint firstItem="Dpc-Tt-hrj" firstAttribute="leading" secondItem="uP1-o2-ftm" secondAttribute="trailing" constant="8" id="pxq-VE-Npa"/>
                             <constraint firstItem="cnb-U7-xlB" firstAttribute="leading" secondItem="59A-jB-Erc" secondAttribute="leading" constant="4" id="qIE-JP-Olg"/>
+                            <constraint firstItem="cUL-b0-3om" firstAttribute="leading" secondItem="erM-PN-b5z" secondAttribute="trailing" constant="8" id="qQf-sl-tdN"/>
                             <constraint firstItem="xFU-Iy-VCW" firstAttribute="top" secondItem="59A-jB-Erc" secondAttribute="top" constant="8" id="rdy-e7-1Za"/>
+                            <constraint firstItem="uP1-o2-ftm" firstAttribute="leading" secondItem="cUL-b0-3om" secondAttribute="trailing" constant="40" id="sVJ-XT-8DC"/>
                             <constraint firstItem="yYl-HG-6t9" firstAttribute="leading" secondItem="85c-Eh-nKN" secondAttribute="trailing" constant="8" id="usA-Jo-ukY"/>
                             <constraint firstItem="rQn-KW-PNM" firstAttribute="leading" secondItem="85c-Eh-nKN" secondAttribute="trailing" constant="8" id="zz3-wB-RsW"/>
                         </constraints>
@@ -119,7 +135,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backgroundCardView" destination="59A-jB-Erc" id="3s0-sb-hT8"/>
+                <outlet property="commentCountLabel" destination="Dpc-Tt-hrj" id="Dri-or-eAe"/>
                 <outlet property="likeButton" destination="erM-PN-b5z" id="Foz-cO-oVv"/>
+                <outlet property="likeCountLabel" destination="cUL-b0-3om" id="rV3-xr-l88"/>
                 <outlet property="messageLabel" destination="zK9-89-6IW" id="Zt3-HH-gYE"/>
                 <outlet property="pointsLabel" destination="xFU-Iy-VCW" id="3nL-tn-fUS"/>
                 <outlet property="recipientImageView" destination="85c-Eh-nKN" id="0qt-yR-do1"/>
@@ -131,6 +149,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="comment" width="24" height="24"/>
         <image name="heart" width="24" height="24"/>
     </resources>
 </document>
