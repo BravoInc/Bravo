@@ -37,6 +37,12 @@ class PostCell: UITableViewCell {
             
             pointsLabel.textColor = greenColor
             pointsLabel.text = "+" + ("\(post["points"]!)")
+            
+            
+            let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
+            
+            timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            
             self.updateUI()
         }
     }
