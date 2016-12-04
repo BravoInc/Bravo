@@ -32,13 +32,13 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.titleView = searchBar
 
         // Set navigation bar title view
-        let titleLabel = UILabel()
+        /*let titleLabel = UILabel()
         titleLabel.text =
         "Select Recipient"
         titleLabel.sizeToFit()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
-
+        */
         
         tableView.delegate = self
         tableView.dataSource = self

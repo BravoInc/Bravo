@@ -19,14 +19,12 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Set navigation bar title view and back button
-        let titleLabel = UILabel()
+        /*let titleLabel = UILabel()
         titleLabel.text =
         "Reward Activity"
         titleLabel.sizeToFit()
-        titleLabel.textColor = UIColor(white: 1.0, alpha: 0.5)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         navigationItem.titleView = titleLabel
-
+        */
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Activity", style: .plain, target: nil, action: nil)
 
         // Initialize table view
