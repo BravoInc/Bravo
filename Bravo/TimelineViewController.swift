@@ -89,7 +89,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let postComposeVC = postComposeNavControler.topViewController as! PostComposeViewController
         postComposeVC.post = post
         postComposeVC.isComment = true
-        postComposeVC.delegate = self
+        postComposeVC.user = post["recipient"] as? PFUser
+
         
         present(postComposeNavControler, animated: true, completion: nil)
 
