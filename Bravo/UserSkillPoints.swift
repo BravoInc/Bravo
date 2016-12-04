@@ -99,6 +99,21 @@ class UserSkillPoints: PFObject {
         }
     }
     
+    class func getUserTotalPoints(users: [PFUser], success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
+        let query = PFQuery(className: "UserSkillPoints")
+        query.whereKey("user", containedIn: users)
+        query.includeKey("user")
+        
+        query.findObjectsInBackground {(userSkillPoints: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                success(userSkillPoints)
+            } else {
+                print ("Error getting skill count: \(error?.localizedDescription)")
+                failure(error)
+            }
+        }
+    }
+
     class func updateUserPoints(userSkillPoint: PFObject, success: @escaping(PFObject?) -> (), failure: @escaping(Error?) -> ()){
         userSkillPoint.saveInBackground(block: { (result : Bool, error : Error?) in
             if(error == nil ){
