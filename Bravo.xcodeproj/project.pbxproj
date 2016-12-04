@@ -25,6 +25,7 @@
 		6452509D1DF29A7200DD1384 /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */; };
 		6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */; };
 		6452509F1DF29A7200DD1384 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */; };
+		649D49571DF3AA0B00958954 /* PostLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D49561DF3AA0B00958954 /* PostLikes.swift */; };
 		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
 		649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */; };
@@ -97,6 +98,7 @@
 		6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Book.otf"; sourceTree = "<group>"; };
 		6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
 		6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
+		649D49561DF3AA0B00958954 /* PostLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLikes.swift; sourceTree = "<group>"; };
 		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		649E11311DDAAB2400B5D2FD /* MoreRewardsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreRewardsCell.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				64D507A81DE4244000C708BD /* UserPoints.swift */,
 				64D507AA1DE4245200C708BD /* SkillPoints.swift */,
 				64344D2B1DED3414006951D0 /* UserSkillPoints.swift */,
+				649D49561DF3AA0B00958954 /* PostLikes.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				64A3A9D71DF0498000E29D9D /* Common.swift in Sources */,
 				644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */,
 				644126911DEBA7EA0060FBED /* TeamDetailViewController.swift in Sources */,
+				649D49571DF3AA0B00958954 /* PostLikes.swift in Sources */,
 				64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

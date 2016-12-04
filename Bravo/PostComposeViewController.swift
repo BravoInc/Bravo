@@ -50,21 +50,27 @@ class PostComposeViewController: UIViewController {
     func saveNewPost() -> PFObject {
         let points = Int(pointsTextField.text!)!
         let newPost = Post.createPost(recipient: user!, message: messageTextView.text!, skill: skillsTextField.text!, points: points, team: team!)
-        
+        let skills = skillsTextField.text!.components(separatedBy: "#")
         
         Post.savePost(post: newPost, success: { (post : PFObject?) in
             print("-- new post \(post)")
-            UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: self.skillsTextField.text!, points: points, success: {(userSkillPoint: PFObject?) in
-                Skills.saveSkill(skillName: self.skillsTextField.text!, user: self.user!, points: points, success: { (skill: PFObject?) in
-                    print ("--new skill \(skill)")
-                }, failure: { (error: Error?) in
-                    print ("Error saving skill: \(error?.localizedDescription)")
+            for skillStr in skills {
+                let skillName = skillStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                if skillName.characters.count == 0 {
+                    continue
+                }
+                UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: skillName, points: points, success: {(userSkillPoint: PFObject?) in
+                    Skills.saveSkill(skillName: self.skillsTextField.text!, user: self.user!, points: points, success: { (skill: PFObject?) in
+                        print ("--new skill \(skill)")
+                    }, failure: { (error: Error?) in
+                        print ("Error saving skill: \(error?.localizedDescription)")
+                    })
+                }, failure: {(error: Error?) in
+                    print ("--Error adding points. Skip adding skills")
+                    
                 })
-            }, failure: {(error: Error?) in
-                print ("--Error adding points. Skip adding skills")
-                
-            })
-            
+
+            }
             
         }, failure: { (error : Error?) in
             print("---!!! cant create post : \(error?.localizedDescription)")
@@ -77,23 +83,31 @@ class PostComposeViewController: UIViewController {
     func saveNewComment() -> PFObject {
         let points = Int(pointsTextField.text!)!
         let newComment = Comment.createComment(post: post!, message: messageTextView.text!, points: points)
+        let skills = skillsTextField.text!.components(separatedBy: "#")
         
         Comment.saveComment(comment: newComment, post: post!, success: { (comment : PFObject?) in
             print("-- new comment \(comment)")
-            UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: self.skillsTextField.text!, points: points, success: {(userSkillPoint: PFObject?) in
-                Skills.saveSkill(skillName: self.skillsTextField.text!, user: self.user!, points: points, success: { (skill: PFObject?) in
-                    print ("-- updated existing skill with user points\(skill)")
-                }, failure: { (error: Error?) in
-                    print ("Error updating skill with user points: \(error?.localizedDescription)")
-                })
-            }, failure: {(error: Error?) in
-                print ("--Error adding points. Skip adding skills")
+            for skillStr in skills {
+                let skillName = skillStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                if skillName.characters.count == 0 {
+                    continue
+                }
                 
-            })
+                UserSkillPoints.saveUserSkillPoints(user: self.user!, skillName: self.skillsTextField.text!, points: points, success: {(userSkillPoint: PFObject?) in
+                    Skills.saveSkill(skillName: skillName, user: self.user!, points: points, success: { (skill: PFObject?) in
+                        print ("-- updated existing skill with user points\(skill)")
+                    }, failure: { (error: Error?) in
+                        print ("Error updating skill with user points: \(error?.localizedDescription)")
+                    })
+                }, failure: {(error: Error?) in
+                    print ("--Error adding points. Skip adding skills")
+                    
+                })
+            }
         }, failure: { (error : Error?) in
             print("---!!! cant create comment : \(error?.localizedDescription)")
         })
-
+        
         return newComment
     }
     

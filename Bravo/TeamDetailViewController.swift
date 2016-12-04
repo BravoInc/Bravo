@@ -70,7 +70,14 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         userCell.user = filteredUsers[indexPath.row]
-        userCell.isChecked = selectedIndex == indexPath.row
+        if userCell.user == PFUser.current() {
+            userCell.isUserInteractionEnabled = false
+            userCell.backgroundColor = extraLightGreyColor
+            userCell.isChecked = false
+        } else {
+            userCell.isChecked = selectedIndex == indexPath.row
+        }
+        
         userCell.setImageViews()
         
         return userCell
