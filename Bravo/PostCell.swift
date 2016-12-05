@@ -37,7 +37,7 @@ class PostCell: UITableViewCell {
             let recipient = post["recipient"] as! BravoUser
             
             postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
-            messageLabel.text = "+\(post["points"]!) for \(post["message"]!) \(post["skill"]!)"
+            messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
 
             // Setting sender and recipient image views
             setImageView(imageView: senderImageView, user: sender)

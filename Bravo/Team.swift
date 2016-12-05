@@ -40,6 +40,10 @@ class Team: PFObject {
         }
     }
     
+    class func getOtherTeams(){
+        
+    }
+    
     class func getUserTeams(user: PFObject, success: @escaping([PFObject]?) -> (), failure: @escaping(Error?) -> ()){
         let teamRelation = user.relation(forKey: "teamRelation")
         let query = teamRelation.query()
