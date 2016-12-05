@@ -52,7 +52,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
         postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
-        messageLabel.text = "+\(post["points"]!) for \(post["message"]!) #\(post["skill"]!)"
+        messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
         
         // Setting image views
         setImageView(imageView: senderImageView, user: sender)

@@ -8,19 +8,26 @@
 
 import UIKit
 import Parse
+import DateTools
 
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var senderNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var senderImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var comment: PFObject! {
         didSet {
             let sender = comment["sender"] as! BravoUser
             
             senderNameLabel.text = "\(sender["firstName"]!) \(sender["lastName"]!)"
-            messageLabel.text = "+\(comment["points"]!) for \(comment["message"]!)"
+            messageLabel.text = "\(comment["message"]!) +\(comment["points"]!)"
+            
+            if (comment.createdAt != nil ){
+                let timeSinceNow = NSDate(timeIntervalSinceNow: comment.createdAt!.timeIntervalSinceNow)
+                timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
+            }
             
             // Setting sender image view
             setImageView(imageView: senderImageView, user: sender)
