@@ -34,7 +34,6 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         //tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
         
         getUserTeams()
-        getTeams()
         // Do any additional setup after loading the view.
     }
     
@@ -50,7 +49,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     }
     
     func getTeams(){
-        Team.getAllTeams(success: { (teams : [Team]?) in
+        Team.getAllTeams(userTeams: self.userTeams, success: { (teams : [Team]?) in
             print("--- got \(teams?.count) teams")
             self.allTeams = teams!
             self.tableView.reloadData()
@@ -63,6 +62,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         Team.getUserTeams(user: BravoUser.getLoggedInUser(), success: { (userTeams : [PFObject]?) in
             print("--- got \(userTeams?.count) User teams")
             self.userTeams = userTeams!
+            self.getTeams()
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get user teams : \(error?.localizedDescription)")

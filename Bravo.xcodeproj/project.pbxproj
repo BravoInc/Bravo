@@ -46,7 +46,6 @@
 		64D507AB1DE4245200C708BD /* SkillPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D507AA1DE4245200C708BD /* SkillPoints.swift */; };
 		64DBDF3B1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */; };
 		64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */; };
-		64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */; };
 		64EDF6801DD83FBE0071A731 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF67E1DD83FBE0071A731 /* TeamCell.swift */; };
 		64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EDF67F1DD83FBE0071A731 /* TeamCell.xib */; };
 		64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EDF6821DD948F00071A731 /* RewardsViewController.swift */; };
@@ -135,7 +134,6 @@
 		64D507AA1DE4245200C708BD /* SkillPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillPoints.swift; sourceTree = "<group>"; };
 		64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamConfigurationViewController.swift; sourceTree = "<group>"; };
 		64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreationViewController.swift; sourceTree = "<group>"; };
-		64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSearchViewController.swift; sourceTree = "<group>"; };
 		64EDF67E1DD83FBE0071A731 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		64EDF67F1DD83FBE0071A731 /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		64EDF6821DD948F00071A731 /* RewardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */,
 				E19771271DF5439E0097997D /* TeamPhotoViewController.swift */,
 				64DBDF3C1DD7B8A100D1D378 /* TeamCreationViewController.swift */,
-				64DBDF3E1DD7B91800D1D378 /* TeamSearchViewController.swift */,
 				64EDF6821DD948F00071A731 /* RewardsViewController.swift */,
 				64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */,
 				6441267E1DE80E930060FBED /* TimelineViewController.swift */,
@@ -599,7 +596,6 @@
 				E192BA461DF24DAB00BE57D2 /* LoginViewController.swift in Sources */,
 				644126881DE822FC0060FBED /* PostCell.swift in Sources */,
 				EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */,
-				64DBDF3F1DD7B91800D1D378 /* TeamSearchViewController.swift in Sources */,
 				EE3121231DD939A900665F4C /* Team.swift in Sources */,
 				64A3A9D71DF0498000E29D9D /* Common.swift in Sources */,
 				644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */,

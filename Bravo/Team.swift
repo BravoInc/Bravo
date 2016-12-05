@@ -26,10 +26,16 @@ class Team: PFObject {
         }
     }
         
-    class func getAllTeams(success: @escaping([Team]?) -> (), failure: @escaping(Error?) -> ()){
+    class func getAllTeams(userTeams: [PFObject], success: @escaping([Team]?) -> (), failure: @escaping(Error?) -> ()){
+        var objectIds = [String]()
+        for userTeam in userTeams {
+            objectIds.append(userTeam.objectId!)
+        }
         let query = PFQuery(className: "Team")
         query.order(byDescending: "createdAt")
         query.includeKey("adminUser")
+        
+        query.whereKey("objectId", notContainedIn: objectIds)
         
         query.findObjectsInBackground { (teams : [PFObject]?, error : Error?) in
             if(error == nil){
