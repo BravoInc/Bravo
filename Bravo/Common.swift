@@ -105,6 +105,19 @@ func setImageView(imageView: UIImageView, user: PFUser) {
     })
 }
 
+func setTeamImageView(imageView: UIImageView, team: PFObject) {
+    // Setting image view
+    imageView.asCircle()
+    
+    imageView.image = UIImage(named: "noTeamPic")
+    let image = team["teamImage"] as? PFFile
+    image?.getDataInBackground(block: { (imageData: Data?, error: Error?) in
+        if error == nil && imageData != nil {
+            imageView.image = UIImage(data:imageData!)
+        }
+    })
+}
+
 extension UIImageView{
     
     func asCircle(){

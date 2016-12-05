@@ -13,16 +13,13 @@ class TeamCell: UITableViewCell {
 
     @IBOutlet weak var teamNameLabel: UILabel!
     @IBOutlet weak var membersLabel: UILabel!
-    @IBOutlet weak var adminLabel: UILabel!
     @IBOutlet weak var selectionImageView: UIView!
-    @IBOutlet weak var adminImageView: UIImageView!
+    @IBOutlet weak var teamImageView: UIImageView!
     
     var team: PFObject! {
         didSet {
             teamNameLabel.text = "\(team["name"]!)"
-            let adminUser = team["adminUser"] as! BravoUser
-            adminLabel.text = "\(adminUser["firstName"]!) \(adminUser["lastName"]!)"
-            setImageView(imageView: adminImageView, user: adminUser)
+            setTeamImageView(imageView: teamImageView, team: team)
             
             let memberCount = team["memberCount"]! as! Int
             let memberStr = memberCount <= 1 ? "member" : "members"
