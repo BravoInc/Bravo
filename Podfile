@@ -11,5 +11,5 @@ target 'Bravo' do
   pod 'TTTAttributedLabel'
   pod 'DateTools'
   pod 'SCLAlertView'
-
+  pod 'MBProgressHUD'
 end

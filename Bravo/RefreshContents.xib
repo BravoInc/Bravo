@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qv9-k9-4pZ">
+            <rect key="frame" x="0.0" y="0.0" width="52" height="32"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGh-uC-Hwq">
+                    <rect key="frame" x="30" y="9" width="10" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="6Xj-VQ-M5O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNn-Xn-7Li">
+                    <rect key="frame" x="20" y="9" width="10" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="VlL-mn-1QP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-39-aT9">
+                    <rect key="frame" x="10" y="9" width="10" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="Yxa-BU-CQp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoV-pM-3Dp">
+                    <rect key="frame" x="0.0" y="0.0" width="10" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="vLC-JZ-ail"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97V-uP-vvB">
+                    <rect key="frame" x="40" y="9" width="10" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="pmq-cS-4h6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.92549020049999997" green="0.94117647410000005" blue="0.94509804249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UoV-pM-3Dp" firstAttribute="leading" secondItem="qv9-k9-4pZ" secondAttribute="leading" id="5Oh-eF-Ai6"/>
+                <constraint firstItem="pNn-Xn-7Li" firstAttribute="centerY" secondItem="Fao-39-aT9" secondAttribute="centerY" id="Byr-xM-fcP"/>
+                <constraint firstItem="Fao-39-aT9" firstAttribute="centerY" secondItem="UoV-pM-3Dp" secondAttribute="centerY" id="HpJ-Ub-Ei7"/>
+                <constraint firstItem="97V-uP-vvB" firstAttribute="leading" secondItem="wGh-uC-Hwq" secondAttribute="trailing" id="PUK-xg-HTH"/>
+                <constraint firstItem="Fao-39-aT9" firstAttribute="leading" secondItem="UoV-pM-3Dp" secondAttribute="trailing" id="WQG-eT-Lni"/>
+                <constraint firstAttribute="bottom" secondItem="UoV-pM-3Dp" secondAttribute="bottom" id="cMH-Wi-tPo"/>
+                <constraint firstItem="pNn-Xn-7Li" firstAttribute="leading" secondItem="Fao-39-aT9" secondAttribute="trailing" id="fRF-rR-JJ9"/>
+                <constraint firstItem="UoV-pM-3Dp" firstAttribute="top" secondItem="qv9-k9-4pZ" secondAttribute="top" id="g2P-Pe-t55"/>
+                <constraint firstItem="97V-uP-vvB" firstAttribute="centerY" secondItem="wGh-uC-Hwq" secondAttribute="centerY" id="hpi-Vy-DOU"/>
+                <constraint firstAttribute="trailing" secondItem="97V-uP-vvB" secondAttribute="trailing" constant="2" id="kE6-5S-g6g"/>
+                <constraint firstItem="wGh-uC-Hwq" firstAttribute="leading" secondItem="pNn-Xn-7Li" secondAttribute="trailing" id="krq-Bk-vlx"/>
+                <constraint firstItem="wGh-uC-Hwq" firstAttribute="centerY" secondItem="pNn-Xn-7Li" secondAttribute="centerY" id="w4E-6G-Ita"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-164" y="98"/>
+        </view>
+    </objects>
+</document>
