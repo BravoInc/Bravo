@@ -101,8 +101,7 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
                 let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
                 rewardsVC.currentTeam = self.team
                 
-                let navController = UINavigationController(rootViewController: rewardsVC)
-                self.present(navController, animated: true, completion: nil)
+                self.show(rewardsVC, sender: self)
 
                 
                 
@@ -174,6 +173,9 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         let barButton = UIBarButtonItem(customView: button)
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = barButton
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: nil, action: nil)
+
     }
     
     func backButtonPressed() {
