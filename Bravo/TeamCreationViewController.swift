@@ -17,6 +17,19 @@ class TeamCreationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        let backImage = UIImage(named: "backArrow128white.png")!
+        button.setImage(backImage, for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(SignUpPasswordViewController.backButtonPressed), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +37,10 @@ class TeamCreationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func backButtonPressed() {
+        dismiss(animated: true, completion: nil)
+    }
+
     @IBAction func onCreateTapped(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)

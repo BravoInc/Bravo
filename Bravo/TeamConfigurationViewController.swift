@@ -31,7 +31,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.estimatedRowHeight = 60
         
         tableView.register(UINib(nibName : "TeamCell", bundle : nil), forCellReuseIdentifier: "TeamCell")
-        tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
+        //tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
         
         getUserTeams()
         getTeams()
@@ -72,7 +72,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case SECTION_USER_TEAMS:
-            return userTeams.count + 1 // + 1 for Create New Team Row
+            return userTeams.count
         case SECTION_ALL_TEAMS:
             return allTeams.count
         default:
@@ -88,11 +88,12 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
                 let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
                 teamCell.team = userTeams[indexPath.row]
                 return teamCell
-            } else {
+            } /*
+            else {
                 let addTeamCell = tableView.dequeueReusableCell(withIdentifier: "AddTeamCell", for: indexPath) as! AddTeamCell
                 return addTeamCell
                 
-            }
+            } */
         case SECTION_ALL_TEAMS:
             let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
             teamCell.team = allTeams[indexPath.row]
