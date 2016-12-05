@@ -134,13 +134,14 @@ func postHeaderTextCreate(recipient : BravoUser, sender : BravoUser, headerLabel
 }
 
 func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttributedString {
-    let fontSize = UIFont.systemFontSize
+    let fontSize = CGFloat(15.0)
     let attrs = [
-        NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-        NSForegroundColorAttributeName: UIColor.black
+        NSFontAttributeName: UIFont(name: "Avenir-Medium", size: fontSize),
+        NSForegroundColorAttributeName: customBlack
     ]
     let nonBoldAttribute = [
-        NSFontAttributeName: UIFont.systemFont(ofSize: fontSize),
+        NSFontAttributeName: UIFont(name: "Avenir-Light", size: fontSize),
+        NSForegroundColorAttributeName: customBlack
         ]
     let attrStr = NSMutableAttributedString(string: string, attributes: attrs)
     if let range = nonBoldRange {
