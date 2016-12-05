@@ -103,7 +103,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMh-XS-sxH" id="Ewz-T1-KYJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -267,29 +267,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a new reward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAB-7y-Fl2">
-                                <rect key="frame" x="101" y="97" width="158" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reward Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5q-m4-S2t">
-                                <rect key="frame" x="132" y="149" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reward Points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-wL-C8t">
-                                <rect key="frame" x="130" y="230" width="113" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BYV-Qe-XJ4">
+                                <rect key="frame" x="24" y="72" width="327" height="248"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new reward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-rS-nMD">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="37"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
+                                        <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-Ky-iVA" userLabel="EmailOuterStack">
+                                        <rect key="frame" x="0.0" y="67" width="327" height="118"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CpB-hB-TA2" userLabel="UsernameStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="50.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REWARD NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8o-pd-IAR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="15.5"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
+                                                        <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="34b-9v-PWU" userLabel="Username Input">
+                                                        <rect key="frame" x="0.0" y="20.5" width="327" height="24"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-XY-yF3" userLabel="div">
+                                                        <rect key="frame" x="0.0" y="49.5" width="327" height="1"/>
+                                                        <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="6S5-dI-n1i"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="34b-9v-PWU" firstAttribute="leading" secondItem="CpB-hB-TA2" secondAttribute="leading" id="0bn-jC-7Me"/>
+                                                    <constraint firstAttribute="trailing" secondItem="34b-9v-PWU" secondAttribute="trailing" id="Jm3-KB-HV8"/>
+                                                    <constraint firstItem="9SI-XY-yF3" firstAttribute="leading" secondItem="CpB-hB-TA2" secondAttribute="leading" id="Ppo-WK-CHd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9SI-XY-yF3" secondAttribute="trailing" id="Vqx-SW-QaC"/>
+                                                    <constraint firstItem="9SI-XY-yF3" firstAttribute="leading" secondItem="CpB-hB-TA2" secondAttribute="leading" id="X2T-7T-co4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9SI-XY-yF3" secondAttribute="trailing" id="i81-9l-nuR"/>
+                                                    <constraint firstItem="34b-9v-PWU" firstAttribute="leading" secondItem="CpB-hB-TA2" secondAttribute="leading" id="nQP-CD-Owi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="34b-9v-PWU" secondAttribute="trailing" id="qum-Nk-yFh"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Kj-XD-9pf" userLabel="EmailInnerStack">
+                                                <rect key="frame" x="0.0" y="67.5" width="327" height="50.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POINTS NEEDED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-4b-Hlm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="15.5"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="11"/>
+                                                        <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ofm-K1-9pI" userLabel="Email Input">
+                                                        <rect key="frame" x="0.0" y="20.5" width="327" height="24"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-1y-MNT" userLabel="div">
+                                                        <rect key="frame" x="0.0" y="49.5" width="327" height="1"/>
+                                                        <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="aYl-Ql-joP"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Ofm-K1-9pI" firstAttribute="leading" secondItem="8Kj-XD-9pf" secondAttribute="leading" id="6Ps-BV-qUI"/>
+                                                    <constraint firstItem="LK0-1y-MNT" firstAttribute="leading" secondItem="8Kj-XD-9pf" secondAttribute="leading" id="778-Q9-7dd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LK0-1y-MNT" secondAttribute="trailing" id="ACI-5I-aWF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ofm-K1-9pI" secondAttribute="trailing" id="BY7-xx-ziG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LK0-1y-MNT" secondAttribute="trailing" id="CNe-5y-JLf"/>
+                                                    <constraint firstItem="Ofm-K1-9pI" firstAttribute="leading" secondItem="8Kj-XD-9pf" secondAttribute="leading" id="LMU-ys-mNb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ofm-K1-9pI" secondAttribute="trailing" id="PKn-Zn-V2P"/>
+                                                    <constraint firstItem="LK0-1y-MNT" firstAttribute="leading" secondItem="8Kj-XD-9pf" secondAttribute="leading" id="iG3-Dj-deE"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8Kj-XD-9pf" secondAttribute="trailing" id="6yF-Y1-aFu"/>
+                                            <constraint firstItem="8Kj-XD-9pf" firstAttribute="leading" secondItem="mPO-Ky-iVA" secondAttribute="leading" id="THS-2n-X5a"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klw-0R-VpW">
+                                        <rect key="frame" x="0.0" y="215" width="327" height="33"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onButtonPress:" destination="liF-7n-wzM" eventType="touchUpInside" id="uY7-L0-TfP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Klw-0R-VpW" firstAttribute="width" secondItem="mPO-Ky-iVA" secondAttribute="width" id="1zb-HH-HKc"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BYV-Qe-XJ4" firstAttribute="top" secondItem="27I-k2-yaY" secondAttribute="bottom" constant="8" id="6YH-sZ-XN7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BYV-Qe-XJ4" secondAttribute="trailing" constant="8" id="IU8-8g-BgO"/>
+                            <constraint firstItem="BYV-Qe-XJ4" firstAttribute="leading" secondItem="CLj-gN-wye" secondAttribute="leadingMargin" constant="8" id="mYs-aD-O9p"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xBY-wZ-x2l">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="FHh-6d-5Dk">
@@ -297,15 +383,10 @@
                                 <action selector="onCancel:" destination="liF-7n-wzM" id="aEO-xU-6Cd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="qVu-Rg-0II">
-                            <connections>
-                                <action selector="onCreate:" destination="liF-7n-wzM" id="crI-6B-WWz"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="rewardNameTextField" destination="c5q-m4-S2t" id="X2z-d1-tuh"/>
-                        <outlet property="rewardPointsTextField" destination="LIg-wL-C8t" id="B1t-mS-aDO"/>
+                        <outlet property="rewardNameTextField" destination="34b-9v-PWU" id="rGZ-OQ-Dc3"/>
+                        <outlet property="rewardPointsTextField" destination="Ofm-K1-9pI" id="cuf-sf-jqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9s-IM-RTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,7 +398,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ved-xR-Pyj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zv7-xl-PEU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zv7-xl-PEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -335,7 +416,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RewardsCreationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="USs-2m-lZJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="caM-d7-Age">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="caM-d7-Age">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -353,7 +434,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uGp-6k-Wp7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h7W-vW-Ukg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7W-vW-Ukg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -371,7 +452,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ci-MF-UKu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7Gg-Hb-4yG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Gg-Hb-4yG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

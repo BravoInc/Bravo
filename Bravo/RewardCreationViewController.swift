@@ -15,8 +15,8 @@ import Parse
 }
 
 class RewardCreationViewController: UIViewController {
-    @IBOutlet weak var rewardPointsTextField: UITextField!
     @IBOutlet weak var rewardNameTextField: UITextField!
+    @IBOutlet weak var rewardPointsTextField: UITextField!
     
     var currentTeam : PFObject!
     weak var delegate: RewardCreationViewControllerDelegate?
@@ -32,17 +32,16 @@ class RewardCreationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onCreate(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        let newReward = Reward.createReward(team : currentTeam, rewardName : rewardNameTextField.text!, rewardPoints: Int(rewardPointsTextField.text ?? "0")! , isActive: true)
-        delegate?.rewardCreationViewController?(rewardCreationViewController: self, reward: newReward)
-    }
-
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
 
     }
     
+    @IBAction func onButtonPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        let newReward = Reward.createReward(team : currentTeam, rewardName : rewardNameTextField.text!, rewardPoints: Int(rewardPointsTextField.text ?? "0")! , isActive: true)
+        delegate?.rewardCreationViewController?(rewardCreationViewController: self, reward: newReward)
+    }
 
     /*
     // MARK: - Navigation
