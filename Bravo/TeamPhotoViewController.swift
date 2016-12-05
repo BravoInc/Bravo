@@ -12,6 +12,16 @@ import Parse
 class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedPhoto: UIImageView!
+    @IBOutlet weak var teamNameTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var camOrGalAfterTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var camOrGalAfterLeadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var camOrGalBeforeTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var camOrGalBeforeLeadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var selectedPhotoAspectRatioConstraint: NSLayoutConstraint!
     
     var teamPhoto: UIImage?
     var team: PFObject!
@@ -20,46 +30,87 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         miscInit()
         
+        nextButton.isHidden = true
+        selectedPhoto.isHidden = true
+        //selectedPhotoAspectRatioConstraint?.isActive = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if teamPhoto != nil {
+            // after selection of first photo
+            print("--- viewwillappear: team photo exists")
+            /*
+            camOrGalAfterTrailingConstraint?.isActive = true
+            camOrGalAfterLeadingConstraint?.isActive = true
+            
+            camOrGalBeforeTrailingConstraint?.isActive = false
+            camOrGalBeforeLeadingConstraint?.isActive = false
+            */
+            nextButton.isHidden = false
+            selectedPhoto.isHidden = false
+            //selectedPhotoAspectRatioConstraint?.isActive = true
+            
+        }else{
+            // before selection of first photo
+            print("--- viewwillappear: no team photo")
+            /*
+            camOrGalAfterTrailingConstraint?.isActive = false
+            camOrGalAfterLeadingConstraint?.isActive = false
+            
+            camOrGalBeforeTrailingConstraint?.isActive = true
+            camOrGalBeforeLeadingConstraint?.isActive = true
+            */
+            nextButton.isHidden = true
+            selectedPhoto.isHidden = true
+            //selectedPhotoAspectRatioConstraint?.isActive = false
+        }
+    }
+
     
     @IBAction func onSignUp(_ sender: Any) {
         
-        if teamPhoto != nil {
-
-            let imageData = UIImagePNGRepresentation(teamPhoto!)
-            let imageFile = PFFile(name:"image.png", data:imageData!)
-            
-            team["teamImage"] = imageFile
-            
-            team.saveInBackground(block: { (succeeded: Bool, error:Error?) in
-                if(succeeded == true){
-                    print("--- new team photo upload OK")
-                }else{
-                    print("---!!! new team photo upload FAIL")
-                }
+        Team.isNewTeam(teamName: teamNameTextField.text!, success: {
+            Team.createTeam(teamName: self.teamNameTextField.text!, success: { (team : PFObject) in
+                print("--- team created : \(self.teamNameTextField.text!)")
+                self.team = team
                 
-                if let e = error{
-                    print("---!!! new team photo upload: \(e.localizedDescription)")
-                }
+                
+                if self.teamPhoto != nil {
+                    
+                    let imageData = UIImagePNGRepresentation(self.teamPhoto!)
+                    let imageFile = PFFile(name:"image.png", data:imageData!)
+                    
+                    self.team["teamImage"] = imageFile
+                    
+                    self.team.saveInBackground(block: { (succeeded: Bool, error:Error?) in
+                        if(succeeded == true){
+                            print("--- new team photo upload OK")
+                        }else{
+                            print("---!!! new team photo upload FAIL")
+                        }
+                        
+                        if let e = error{
+                            print("---!!! new team photo upload: \(e.localizedDescription)")
+                        }
+                    })
+                    
+                } // photo not nil
+                
+                let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
+                rewardsVC.currentTeam = self.team
+                
+                let navController = UINavigationController(rootViewController: rewardsVC)
+                self.present(navController, animated: true, completion: nil)
+
+                
+                
             })
-
-        } // photo not nil
-        
-        
-        
-        
-        let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-        let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
-        rewardsVC.currentTeam = team
-        
-        //navigationController?.pushViewController(rewardsVC, animated: true)
-        //present(rewardsVC, animated: true)
-
-        
-        let navController = UINavigationController(rootViewController: rewardsVC)
-        //self.presentViewController(navController, animated:true, completion: nil)
-        
-        present(navController, animated: true, completion: nil)
+        }, failure: {
+            //self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
+            self.teamNameTextField.text = ""
+        })
         
     } //on next button
     
@@ -89,6 +140,7 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         
         // Do something with the images (based on your use case)
         if teamPhoto != nil {
+            selectedPhotoAspectRatioConstraint?.isActive = true
             selectedPhoto.image = teamPhoto
         }
         

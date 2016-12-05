@@ -62,7 +62,6 @@ class TeamCreationViewController: UIViewController {
             self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
             self.teamNameTextField.text = ""
             
-            
         })
     }
 

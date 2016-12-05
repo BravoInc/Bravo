@@ -46,9 +46,7 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        
-        if let _ = signUpUser.photo {
+        if signUpUser.photo != nil {
             camOrGalStackAfterTrailingConstraint?.isActive = true
             camOrGalStackAfterLeadingConstraint?.isActive = true
             
