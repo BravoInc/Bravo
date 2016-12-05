@@ -41,8 +41,7 @@ class TeamCreationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onCreateTapped(_ sender: UIButton) {
-        
+    @IBAction func onCreate(_ sender: Any) {
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         
         Team.isNewTeam(teamName: teamNameTextField.text!, success: {
@@ -54,14 +53,13 @@ class TeamCreationViewController: UIViewController {
                 
                 self.show(rewardsVC, sender: self)
             })
-
+            
         }, failure: {
             self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
             self.teamNameTextField.text = ""
             
-
+            
         })
-        
     }
 
     func showTeamErrorDialog(teamName: String) {
