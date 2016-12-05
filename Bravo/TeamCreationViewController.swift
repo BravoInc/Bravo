@@ -47,11 +47,15 @@ class TeamCreationViewController: UIViewController {
         Team.isNewTeam(teamName: teamNameTextField.text!, success: {
             Team.createTeam(teamName: self.teamNameTextField.text!, success: { (team : PFObject) in
                 print("--- team created : \(self.teamNameTextField.text!)")
-                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
                 
-                rewardsVC.currentTeam = team
+                //let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
+                //rewardsVC.currentTeam = team
+                //self.show(rewardsVC, sender: self)
                 
-                self.show(rewardsVC, sender: self)
+                let teamPhotoVC = storyboard.instantiateViewController(withIdentifier: "TeamPhotoViewController") as! TeamPhotoViewController
+                
+                teamPhotoVC.team = team
+                self.present(teamPhotoVC, animated: true)
             })
             
         }, failure: {
