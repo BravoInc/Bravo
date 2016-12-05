@@ -108,6 +108,15 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
+            
+            textLabel.font = UIFont(name: "Avenir-Medium", size: CGFloat(16.0))
+            textLabel.textAlignment = .center
+            textLabel.textColor = UIColor.white
+            headerView.tintColor = purpleColor
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

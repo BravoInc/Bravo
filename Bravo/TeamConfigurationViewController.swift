@@ -106,6 +106,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
         if(indexPath.section == SECTION_USER_TEAMS && indexPath.row == userTeams.count ){
             let teamCreationViewController = storyboard.instantiateViewController(withIdentifier: "TeamCreationViewController") as! TeamCreationViewController
@@ -133,7 +134,15 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         return 2
     }
     
-    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
+            
+            textLabel.font = UIFont(name: "Avenir-Medium", size: CGFloat(16.0))
+            textLabel.textAlignment = .center
+            textLabel.textColor = UIColor.white
+            headerView.tintColor = purpleColor
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
