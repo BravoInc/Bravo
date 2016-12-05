@@ -10,20 +10,23 @@ import UIKit
 import Parse
 
 class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate {
-
+    
+    
+    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var recipientNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var recipientImageView: UIImageView!
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
-
+    
     var comments = [PFObject]()
     var post: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Set navigation bar title view
         let titleLabel = UILabel()
         titleLabel.text =
@@ -33,7 +36,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
         
-
+        
         // Initialize table view
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,6 +44,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.estimatedRowHeight = 60
         
         tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
+        
+        tableView.register(UINib(nibName: "AddCommentCell", bundle: nil), forCellReuseIdentifier: "AddCommentCell")
         
         let sender = post["sender"] as! BravoUser
         let recipient = post["recipient"] as! BravoUser
@@ -52,13 +57,18 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Setting image views
         setImageView(imageView: senderImageView, user: sender)
         setImageView(imageView: recipientImageView, user: recipient)
-
+        
         pointsLabel.textColor = greenColor
         pointsLabel.text = "+" + ("\(post["points"]!)")
         
+        tableView.tableFooterView = UIView()
+        
+        likeCountLabel.text = "\(post["likeCount"]!)"
+        commentCountLabel.text = "\(post["commentCount"]!)"
+        
         getComments(post: post)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -73,22 +83,28 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("---!!! cant get comments : \(error?.localizedDescription)")
         })
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+        return comments.count + 1 // For Add Comment Cell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
-        commentCell.comment = comments[indexPath.row]
-
-        return commentCell
+        
+        if(indexPath.row < comments.count ){
+            let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
+            commentCell.comment = comments[indexPath.row]
+            return commentCell
+        } else {
+            let addCommentCell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell", for: indexPath) as! AddCommentCell
+            
+            return addCommentCell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     func postCompose(post: PFObject) {
         self.comments.append(post)
         tableView.reloadData()
@@ -102,15 +118,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         postComposeVC.user = post!["recipient"] as? PFUser
         postComposeVC.delegate = self
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

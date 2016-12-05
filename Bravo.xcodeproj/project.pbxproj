@@ -79,6 +79,8 @@
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EE3121231DD939A900665F4C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121221DD939A900665F4C /* Team.swift */; };
+		EE4B72D81DF5164600289F0E /* AddCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B72D61DF5164600289F0E /* AddCommentCell.swift */; };
+		EE4B72D91DF5164600289F0E /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4B72D71DF5164600289F0E /* AddCommentCell.xib */; };
 		EE4FC8EA1DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */; };
 		EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF12C91DE2745000BCCA07 /* Reward.swift */; };
 		EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE19DE41DF1E04200703600 /* AddTeamCell.swift */; };
@@ -166,6 +168,8 @@
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EE3121201DD7E6AA00665F4C /* BravoUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BravoUser.swift; sourceTree = "<group>"; };
 		EE3121221DD939A900665F4C /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		EE4B72D61DF5164600289F0E /* AddCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentCell.swift; sourceTree = "<group>"; };
+		EE4B72D71DF5164600289F0E /* AddCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCommentCell.xib; sourceTree = "<group>"; };
 		EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamAdditionalDetailsViewController.swift; sourceTree = "<group>"; };
 		EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bravo-Bridging-Header.h"; sourceTree = "<group>"; };
 		EEBF12C91DE2745000BCCA07 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				64A3A9D21DEED19100E29D9D /* LeaderCell.xib */,
 				EEE19DE41DF1E04200703600 /* AddTeamCell.swift */,
 				EEE19DE51DF1E04200703600 /* AddTeamCell.xib */,
+				EE4B72D61DF5164600289F0E /* AddCommentCell.swift */,
+				EE4B72D71DF5164600289F0E /* AddCommentCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */,
 				64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */,
 				E185EA541DF510C5006FAE29 /* check128darkGray.png in Resources */,
+				EE4B72D91DF5164600289F0E /* AddCommentCell.xib in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
 				64A3A9CE1DEE77A100E29D9D /* CommentHeaderView.xib in Resources */,
 				E185EA551DF510C5006FAE29 /* check128extraLightGray.png in Resources */,
@@ -553,6 +560,7 @@
 				644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */,
 				64DBDF3D1DD7B8A100D1D378 /* TeamCreationViewController.swift in Sources */,
 				64A3A9C71DEDFCA700E29D9D /* CommentCell.swift in Sources */,
+				EE4B72D81DF5164600289F0E /* AddCommentCell.swift in Sources */,
 				644126941DEBAA1F0060FBED /* UserCell.swift in Sources */,
 				64D507A31DE4238800C708BD /* Comment.swift in Sources */,
 				64A3A9DC1DF2290C00E29D9D /* RedeemViewController.swift in Sources */,
