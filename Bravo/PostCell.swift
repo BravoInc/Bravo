@@ -53,10 +53,10 @@ class PostCell: UITableViewCell {
             }
             
             if likeButton.isSelected {
-                likeButton.setImage(UIImage(named: "heart_red"), for: UIControlState.selected)
+                likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
 
             } else {
-                likeButton.setImage(UIImage(named: "heart"), for: UIControlState.normal)
+                likeButton.setImage(UIImage(named: "thumbsup_outline"), for: UIControlState.normal)
 
             }
             
@@ -85,13 +85,15 @@ class PostCell: UITableViewCell {
     private func updateLikeCount() {
         likeButton.isSelected = !likeButton.isSelected
         if likeButton.isSelected {
-            likeButton.setImage(UIImage(named: "heart_red"), for: UIControlState.selected)
+            likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
         } else {
-            //tweet.retweetCount -= 1
-            likeButton.setImage(UIImage(named: "heart"), for: UIControlState.normal)
+            likeButton.setImage(UIImage(named: "thumbsup_outline"), for: UIControlState.normal)
         }
-        //retweetCountLabel.text = "\(tweet.retweetCount)"
+        let incrementBy = likeButton.isSelected ? 1 : -1
+        likeCountLabel.text = "\(Int(likeCountLabel.text!)!+incrementBy)"
+
     }
+    
         
         
     @IBAction func onCommentTapped(_ sender: Any) {
