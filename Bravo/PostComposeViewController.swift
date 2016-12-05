@@ -69,10 +69,9 @@ class PostComposeViewController: UIViewController {
                     print ("--Error adding points. Skip adding skills")
                     
                 })
-
             }
             
-            sendPushNotification(recipient: self.user!, message: "You got recognized!")
+            sendPushNotification(recipient: self.user!, message: "You got recognized! \(self.messageTextView.text)")
             
         }, failure: { (error : Error?) in
             print("---!!! cant create post : \(error?.localizedDescription)")
