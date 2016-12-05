@@ -37,18 +37,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onSubmit(_:)))
 
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        //set image for button
-        let backImage = UIImage(named: "backArrow128white.png")!
-        button.setImage(backImage, for: UIControlState.normal)
-        //add function for button
-        button.addTarget(self, action: #selector(onBack), for: UIControlEvents.touchUpInside)
-        //set frame
-        button.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-        
-        let barButton = UIBarButtonItem(customView: button)
-        //assign button to navigationbar
-        self.navigationItem.leftBarButtonItem = barButton
+
 
         
         tableView.delegate = self
