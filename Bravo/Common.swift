@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import SCLAlertView
 
 func sendPushNotification(recipient: PFUser, message: String) -> Void {
     
@@ -183,4 +184,22 @@ func getTabBarController() -> UITabBarController {
     return tabBarController
 }
 
+func displayAlert(title: String, subTitle: String, duration: TimeInterval, showCloseButton: Bool) {
+    let appearance = SCLAlertView.SCLAppearance(
+        kTitleFont: UIFont(name: "Avenir-Light", size: 20)!,
+        kTextFont: UIFont(name: "Avenir-Light", size: 14)!,
+        kButtonFont: UIFont(name: "Avenir-Medium", size: 14)!,
+        showCloseButton: showCloseButton
+    )
+    
+    SCLAlertView(appearance: appearance).showTitle(
+        title, // Title of view
+        subTitle: subTitle, // String of view
+        duration: duration, // Duration to show before closing automatically, default: 0.0
+        completeText: "", // Optional button value, default: ""
+        style: .success, // Styles - see below.
+        colorStyle: 0x50D2C2,
+        colorTextButton: 0x50D2C2
+    )
+}
 

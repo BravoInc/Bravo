@@ -10,5 +10,6 @@ target 'Bravo' do
   #pod 'OneSignal'
   pod 'TTTAttributedLabel'
   pod 'DateTools'
+  pod 'SCLAlertView'
 
 end
