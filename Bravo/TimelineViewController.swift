@@ -100,6 +100,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let commentsViewController = storyboard.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsViewController
         commentsViewController.post = posts[indexPath.row]
+        commentsViewController.isPostLiked = postIdLikeMap[indexPath.row] ?? false
         show(commentsViewController, sender: self)
     }
 
