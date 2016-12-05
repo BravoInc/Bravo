@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,34 +19,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check128green.png" translatesAutoresizingMaskIntoConstraints="NO" id="TMg-5b-UMY">
+                        <rect key="frame" x="16" y="16.5" width="23" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="C5G-qN-9fJ"/>
+                            <constraint firstAttribute="width" constant="23" id="u8F-M1-kYT"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cO-AR-CeK" userLabel="Points Label">
+                        <rect key="frame" x="166" y="17" width="30" height="16"/>
+                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Reward Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="904-dh-XYi">
-                        <rect key="frame" x="16" y="16" width="108" height="24"/>
+                        <rect key="frame" x="53" y="17" width="108" height="24"/>
                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cO-AR-CeK">
-                        <rect key="frame" x="140" y="16" width="47" height="24"/>
-                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="borderCircle" translatesAutoresizingMaskIntoConstraints="NO" id="TMg-5b-UMY">
-                        <rect key="frame" x="282" y="14" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="C5G-qN-9fJ"/>
-                            <constraint firstAttribute="width" constant="30" id="u8F-M1-kYT"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="904-dh-XYi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="3PQ-iC-jv7"/>
-                    <constraint firstItem="904-dh-XYi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Xa-cB-4dH"/>
-                    <constraint firstItem="7cO-AR-CeK" firstAttribute="leading" secondItem="904-dh-XYi" secondAttribute="trailing" constant="16" id="BQR-fd-LY9"/>
-                    <constraint firstItem="7cO-AR-CeK" firstAttribute="centerY" secondItem="904-dh-XYi" secondAttribute="centerY" id="GHd-Os-fbx"/>
-                    <constraint firstAttribute="trailing" secondItem="TMg-5b-UMY" secondAttribute="trailing" constant="8" id="lCi-zt-OlL"/>
-                    <constraint firstItem="TMg-5b-UMY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qV8-01-CDU"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="904-dh-XYi" secondAttribute="bottom" constant="16" id="vR6-sG-wTI"/>
+                    <constraint firstItem="7cO-AR-CeK" firstAttribute="leading" secondItem="904-dh-XYi" secondAttribute="trailing" constant="5" id="6QZ-EX-xXH"/>
+                    <constraint firstItem="904-dh-XYi" firstAttribute="leading" secondItem="TMg-5b-UMY" secondAttribute="trailing" constant="14" id="BBZ-vY-H2x"/>
+                    <constraint firstItem="TMg-5b-UMY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="G0P-FI-ym4"/>
+                    <constraint firstItem="7cO-AR-CeK" firstAttribute="top" secondItem="904-dh-XYi" secondAttribute="top" id="Syb-la-6RW"/>
+                    <constraint firstItem="904-dh-XYi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="d5J-mr-ZJv"/>
+                    <constraint firstItem="TMg-5b-UMY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="nq5-eV-sej"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -57,6 +57,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="borderCircle" width="80" height="81"/>
+        <image name="check128green.png" width="128" height="128"/>
     </resources>
 </document>

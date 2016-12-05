@@ -17,15 +17,17 @@ class RewardCell: UITableViewCell {
     
     var reward: PFObject! {
         didSet {
-            rewardNameLabel.text = "\(reward["name"]!) - "
-            rewardPointsLabel.text = "\(reward["points"]!) points"
+            rewardNameLabel.text = "\(reward["name"]!)"
+            rewardPointsLabel.text = "\(reward["points"]!) pts"
         }
     }
     
     var isChecked: Bool = false
+
     
     func setImageViews() {
-        selectionImageView.image = UIImage(named: isChecked ? "selectedSquare" : "borderSquare")
+        selectionImageView.image = UIImage(named: isChecked ? "check128green" : "check128lightGray")
+        selectionImageView.alpha = isChecked ? 1.0 : 0.3
     }
     
     override func awakeFromNib() {
@@ -36,6 +38,14 @@ class RewardCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        if(isChecked == true){
+            selectionImageView.alpha = 1.0
+            selectionImageView.image = UIImage(named: "check128green")
+        }else{
+            selectionImageView.image = UIImage(named: "check128lightGray")
+            selectionImageView.alpha = 0.3
+        }
+        
         // Configure the view for the selected state
     }
 
