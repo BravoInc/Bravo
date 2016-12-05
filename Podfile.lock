@@ -3,19 +3,22 @@ PODS:
   - DateTools (1.7.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - SCLAlertView (0.7.0)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - DateTools
   - Parse
+  - SCLAlertView
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 09e5d20d87dbfb879df50c92c35c8ce3aeb8db37
+PODFILE CHECKSUM: c3a860a3553abdff286ab6eac0a95e15069bf5ce
 
 COCOAPODS: 1.1.1
