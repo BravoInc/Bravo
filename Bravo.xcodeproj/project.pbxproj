@@ -76,6 +76,8 @@
 		E198EE121DF4F5C6001B4833 /* rightArrow128LightGrayAAB8C2.png in Resources */ = {isa = PBXBuildFile; fileRef = E198EE0F1DF4F5C6001B4833 /* rightArrow128LightGrayAAB8C2.png */; };
 		E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */; };
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
+		E1C2AE0F1DF5392300635DD2 /* add128green.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C2AE0E1DF5392300635DD2 /* add128green.png */; };
+		E1C2AE111DF53A1500635DD2 /* fatAdd128green.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C2AE101DF53A1500635DD2 /* fatAdd128green.png */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
 		EE3121231DD939A900665F4C /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121221DD939A900665F4C /* Team.swift */; };
@@ -164,6 +166,8 @@
 		E198EE0F1DF4F5C6001B4833 /* rightArrow128LightGrayAAB8C2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow128LightGrayAAB8C2.png; sourceTree = "<group>"; };
 		E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		E1C2AE0E1DF5392300635DD2 /* add128green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add128green.png; sourceTree = "<group>"; };
+		E1C2AE101DF53A1500635DD2 /* fatAdd128green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatAdd128green.png; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
 		EE3121201DD7E6AA00665F4C /* BravoUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BravoUser.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				E198EE0E1DF4F5C6001B4833 /* rightArrow128White.png */,
 				E198EE0F1DF4F5C6001B4833 /* rightArrow128LightGrayAAB8C2.png */,
 				E192BA491DF3A34B00BE57D2 /* camera256.png */,
+				E1C2AE0E1DF5392300635DD2 /* add128green.png */,
+				E1C2AE101DF53A1500635DD2 /* fatAdd128green.png */,
 				6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */,
 				E185EA4E1DF510C5006FAE29 /* check128darkGray.png */,
 				E185EA4F1DF510C5006FAE29 /* check128extraLightGray.png */,
@@ -462,6 +468,7 @@
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
 				EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */,
 				64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */,
+				E1C2AE111DF53A1500635DD2 /* fatAdd128green.png in Resources */,
 				E185EA541DF510C5006FAE29 /* check128darkGray.png in Resources */,
 				EE4B72D91DF5164600289F0E /* AddCommentCell.xib in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
@@ -473,6 +480,7 @@
 				E198EE101DF4F5C6001B4833 /* rightArrow128green.png in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
 				644126951DEBAA1F0060FBED /* UserCell.xib in Resources */,
+				E1C2AE0F1DF5392300635DD2 /* add128green.png in Resources */,
 				E198EE111DF4F5C6001B4833 /* rightArrow128White.png in Resources */,
 				6452509D1DF29A7200DD1384 /* AvenirLTStd-Book.otf in Resources */,
 				E192BA4A1DF3A34B00BE57D2 /* camera256.png in Resources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,20 +15,20 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Your Own Rewards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-1B-muC">
-                        <rect key="frame" x="16" y="8" width="180" height="27.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Custom Reward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-1B-muC">
+                        <rect key="frame" x="16" y="8" width="156.5" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rewardsPlus" translatesAutoresizingMaskIntoConstraints="NO" id="BgL-g0-NNi">
-                        <rect key="frame" x="272" y="1" width="40" height="40"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fatAdd128green.png" translatesAutoresizingMaskIntoConstraints="NO" id="BgL-g0-NNi">
+                        <rect key="frame" x="287" y="8.5" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="hR4-L0-tGA"/>
-                            <constraint firstAttribute="height" constant="40" id="vHe-kG-mwJ"/>
+                            <constraint firstAttribute="height" constant="25" id="IjU-Rf-XtD"/>
+                            <constraint firstAttribute="width" constant="25" id="qae-mh-aWA"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -43,6 +43,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="rewardsPlus" width="128" height="128"/>
+        <image name="fatAdd128green.png" width="128" height="128"/>
     </resources>
 </document>

@@ -27,13 +27,15 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
             defaultRewards.append(newReward)
         }
         // Set navigation bar title view
-        let titleLabel = UILabel()
-        titleLabel.text =
-            "Pick Rewards"
-        titleLabel.sizeToFit()
-        navigationItem.titleView = titleLabel
-        self.navigationItem.setHidesBackButton(true, animated:false);
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain, target: self, action: #selector(onSubmit(_:)))
+        
+        //let titleLabel = UILabel()
+        //titleLabel.text = "Pick Rewards"
+        //titleLabel.sizeToFit()
+        //navigationItem.titleView = titleLabel
+        
+        //self.navigationItem.setHidesBackButton(true, animated:false);
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onSubmit(_:)))
         
         tableView.delegate = self
         tableView.dataSource = self
