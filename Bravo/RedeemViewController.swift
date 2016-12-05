@@ -81,10 +81,12 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if availableRewardPoints < (availableRewards[indexPath.row]["points"]! as! Int) {
             rewardCell.isUserInteractionEnabled = false
-            rewardCell.backgroundColor = extraLightGreyColor
+            rewardCell.rewardNameLabel.isEnabled = false
+            rewardCell.rewardPointsLabel.isEnabled = false
         } else {
             rewardCell.isUserInteractionEnabled = true
-            rewardCell.backgroundColor = UIColor.white
+            rewardCell.rewardNameLabel.isEnabled = true
+            rewardCell.rewardPointsLabel.isEnabled = true
         }
         return rewardCell
     }
