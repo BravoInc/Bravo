@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,13 @@
                             <constraint firstAttribute="trailing" secondItem="JsZ-9Z-Oyg" secondAttribute="trailing" id="uKa-g0-vcJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Teams" id="s7x-dg-UrE"/>
+                    <navigationItem key="navigationItem" title="Teams" id="s7x-dg-UrE">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="xxn-h9-JwS">
+                            <connections>
+                                <segue destination="uGp-6k-Wp7" kind="show" id="ImH-J3-XM4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="JsZ-9Z-Oyg" id="UHz-BH-ehW"/>
                     </connections>
@@ -96,7 +102,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMh-XS-sxH" id="Ewz-T1-KYJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -156,13 +162,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KhA-yj-Wja"/>
                     <connections>
                         <outlet property="teamNameTextField" destination="owP-X5-qDO" id="D1J-bj-1xv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFV-AP-7J9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="0.0"/>
+            <point key="canvasLocation" x="2567" y="0.0"/>
         </scene>
         <!--Rewards View Controller-->
         <scene sceneID="bWu-DM-XR6">
@@ -195,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ko-WO-kUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661.5999999999999" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="3864.8000000000002" y="-0.44977511244377816"/>
         </scene>
         <!--Reward Creation View Controller-->
         <scene sceneID="xWR-rH-1Yd">
@@ -252,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9s-IM-RTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4446" y="0.0"/>
+            <point key="canvasLocation" x="5384.8000000000002" y="-0.44977511244377816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mh4-1p-IYd">
@@ -288,7 +295,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40e-A1-Pdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3554" y="0.0"/>
+            <point key="canvasLocation" x="4492" y="-0.44977511244377816"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="53F-5M-V5M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uGp-6k-Wp7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h7W-vW-Ukg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wz9-ge-OfO" kind="relationship" relationship="rootViewController" id="wLg-Br-PvD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EM5-fu-EUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863" y="0.0"/>
         </scene>
     </scenes>
 </document>
