@@ -14,6 +14,14 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
     var signUpUser: SignUpUser!
     
     @IBOutlet weak var selectedPhoto: UIImageView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var camOrGalStack: UIStackView!
+    
+    @IBOutlet weak var camOrGalStackBeforeLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var camOrGalStackBeforeTrailingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var camOrGalStackAfterTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var camOrGalStackAfterLeadingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +32,42 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         print("--- PASSWORD NOT NIL")
+
+        // before selection of first photo
+        /*
+        camOrGalStackAfterTrailingConstraint.isActive = false
+        camOrGalStackAfterLeadingConstraint.isActive = false
         
+        camOrGalStackBeforeTrailingConstraint.isActive = true
+        camOrGalStackBeforeLeadingConstraint.isActive = true
+        */
+        nextButton.isHidden = true
+        selectedPhoto.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        if let _ = signUpUser.photo {
+            camOrGalStackAfterTrailingConstraint?.isActive = true
+            camOrGalStackAfterLeadingConstraint?.isActive = true
+            
+            camOrGalStackBeforeTrailingConstraint?.isActive = false
+            camOrGalStackBeforeLeadingConstraint?.isActive = false
+            
+            nextButton.isHidden = false
+            selectedPhoto.isHidden = false
+        }else{
+            // before selection of first photo
+            camOrGalStackAfterTrailingConstraint?.isActive = false
+            camOrGalStackAfterLeadingConstraint?.isActive = false
+            
+            camOrGalStackBeforeTrailingConstraint?.isActive = true
+            camOrGalStackBeforeLeadingConstraint?.isActive = true
+            
+            nextButton.isHidden = true
+            selectedPhoto.isHidden = true
+        }
     }
     
     @IBAction func onSignUp(_ sender: Any) {
@@ -134,6 +177,17 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
         // Do something with the images (based on your use case)
         if let userPhoto = signUpUser.photo {
             selectedPhoto.image = userPhoto
+            /*
+            selectedPhoto.isHidden = false
+            nextButton.isHidden = false
+            
+            camOrGalStackAfterTrailingConstraint.isActive = true
+            camOrGalStackAfterLeadingConstraint.isActive = true
+            
+            camOrGalStackBeforeTrailingConstraint.isActive = false
+            camOrGalStackBeforeLeadingConstraint.isActive = false
+ */
+
         }
         
         // Dismiss UIImagePickerController to go back to your original view controller
