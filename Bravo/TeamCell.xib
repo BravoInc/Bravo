@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,68 +11,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCell" rowHeight="98" id="KGk-i7-Jjw" customClass="TeamCell" customModule="Bravo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCell" rowHeight="65" id="KGk-i7-Jjw" customClass="TeamCell" customModule="Bravo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-0V-cdj">
-                        <rect key="frame" x="16" y="8" width="81" height="26.5"/>
-                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="10 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5C-HV-Dib">
-                        <rect key="frame" x="232" y="12" width="72" height="18"/>
-                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Admin Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZD-qZ-8yP">
-                        <rect key="frame" x="64" y="53.5" width="78" height="18"/>
-                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow128LightGrayAAB8C2.png" translatesAutoresizingMaskIntoConstraints="NO" id="26o-6c-HOn">
-                        <rect key="frame" x="293" y="33.5" width="15" height="30"/>
+                        <rect key="frame" x="293" y="25" width="15" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="UmP-3O-x7D"/>
+                            <constraint firstAttribute="height" constant="15" id="UmP-3O-x7D"/>
                             <constraint firstAttribute="width" constant="15" id="j5W-7k-4Km"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1l-pP-MvW">
-                        <rect key="frame" x="16" y="42.5" width="40" height="40"/>
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="JDo-Yq-rYL"/>
                             <constraint firstAttribute="height" constant="40" id="WuD-d8-IdY"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-0V-cdj">
+                        <rect key="frame" x="56" y="8" width="81" height="20.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="10 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5C-HV-Dib">
+                        <rect key="frame" x="56" y="32.5" width="73" height="18"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JZr-0V-cdj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4yW-Gk-CuV"/>
-                    <constraint firstAttribute="trailing" secondItem="E5C-HV-Dib" secondAttribute="trailing" constant="16" id="60X-aJ-XcI"/>
-                    <constraint firstItem="2ZD-qZ-8yP" firstAttribute="leading" secondItem="f1l-pP-MvW" secondAttribute="trailing" constant="8" id="8ih-T2-TpK"/>
-                    <constraint firstItem="E5C-HV-Dib" firstAttribute="centerY" secondItem="JZr-0V-cdj" secondAttribute="centerY" id="Lr6-sJ-x4o"/>
-                    <constraint firstAttribute="bottom" secondItem="f1l-pP-MvW" secondAttribute="bottom" constant="15" id="V9F-Yp-nxj"/>
-                    <constraint firstItem="f1l-pP-MvW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Ve2-lb-eiF"/>
+                    <constraint firstItem="JZr-0V-cdj" firstAttribute="leading" secondItem="f1l-pP-MvW" secondAttribute="trailing" constant="8" id="9IG-j0-LiK"/>
+                    <constraint firstItem="E5C-HV-Dib" firstAttribute="top" secondItem="JZr-0V-cdj" secondAttribute="bottom" constant="4" id="DBT-K8-L1R"/>
+                    <constraint firstItem="f1l-pP-MvW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="LdF-hg-PWh"/>
+                    <constraint firstItem="JZr-0V-cdj" firstAttribute="top" secondItem="f1l-pP-MvW" secondAttribute="top" id="PKc-Cq-mFm"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="E5C-HV-Dib" secondAttribute="bottom" constant="8" id="Raf-Do-vxz"/>
+                    <constraint firstItem="f1l-pP-MvW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ve2-lb-eiF"/>
                     <constraint firstAttribute="trailing" secondItem="26o-6c-HOn" secondAttribute="trailing" constant="12" id="ckU-UJ-nJS"/>
-                    <constraint firstItem="JZr-0V-cdj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kZc-XT-iIQ"/>
-                    <constraint firstItem="2ZD-qZ-8yP" firstAttribute="centerY" secondItem="f1l-pP-MvW" secondAttribute="centerY" id="qCP-z8-vKk"/>
-                    <constraint firstItem="f1l-pP-MvW" firstAttribute="top" secondItem="JZr-0V-cdj" secondAttribute="bottom" constant="8" id="sW7-pK-qnm"/>
                     <constraint firstItem="26o-6c-HOn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ug0-Rb-SBv"/>
+                    <constraint firstItem="E5C-HV-Dib" firstAttribute="leading" secondItem="JZr-0V-cdj" secondAttribute="leading" id="upO-Fq-JcM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="adminImageView" destination="f1l-pP-MvW" id="g3Z-8I-9fl"/>
-                <outlet property="adminLabel" destination="2ZD-qZ-8yP" id="hNQ-KC-U7P"/>
                 <outlet property="membersLabel" destination="E5C-HV-Dib" id="DUi-V8-Upf"/>
                 <outlet property="selectionImageView" destination="H2p-sc-9uM" id="AKI-2V-2BQ"/>
+                <outlet property="teamImageView" destination="f1l-pP-MvW" id="cBZ-eC-mY7"/>
                 <outlet property="teamNameLabel" destination="JZr-0V-cdj" id="ATl-Wu-a2X"/>
             </connections>
-            <point key="canvasLocation" x="80" y="155"/>
+            <point key="canvasLocation" x="80" y="138.5"/>
         </tableViewCell>
     </objects>
     <resources>
