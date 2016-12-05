@@ -8,9 +8,15 @@
 
 import UIKit
 
+@objc protocol AddCommentCellDelegate {
+    @objc optional func comment()
+}
+
 class AddCommentCell: UITableViewCell {
 
     @IBOutlet weak var addCommentButton: UIButton!
+    weak var delegate: AddCommentCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,7 +29,7 @@ class AddCommentCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func commentTapped(_ sender: Any) {
-        print("--- Comment Tapped")
+        delegate?.comment?()
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate {
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate, AddCommentCellDelegate {
     
     
     @IBOutlet weak var commentCountLabel: UILabel!
@@ -21,8 +21,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
     var comments = [PFObject]()
     var post: PFObject!
+    var isPostLiked: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,14 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.tableFooterView = UIView()
         
         likeCountLabel.text = "\(post["likeCount"]!)"
+        likeButton.isSelected = isPostLiked
+        if likeButton.isSelected {
+            likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
+            
+        } else {
+            likeButton.setImage(UIImage(named: "thumbsup_outline"), for: UIControlState.normal)
+            
+        }
         commentCountLabel.text = "\(post["commentCount"]!)"
         
         getComments(post: post)
@@ -96,7 +106,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             return commentCell
         } else {
             let addCommentCell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell", for: indexPath) as! AddCommentCell
-            
+            addCommentCell.delegate = self
             return addCommentCell
         }
     }
@@ -108,6 +118,46 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     func postCompose(post: PFObject) {
         self.comments.append(post)
         tableView.reloadData()
+    }
+    
+    func comment() {
+        let storyboard = UIStoryboard(name: "Activity", bundle: nil)
+        let postComposeNavControler = storyboard.instantiateViewController(withIdentifier: "PostComposeNavigationController") as! UINavigationController
+        let postComposeVC = postComposeNavControler.topViewController as! PostComposeViewController
+        postComposeVC.post = post
+        postComposeVC.isComment = true
+        postComposeVC.user = post["recipient"] as? PFUser
+        postComposeVC.delegate = self
+        
+        present(postComposeNavControler, animated: true, completion: nil)
+    }
+    
+    private func updateLikeCount() {
+        likeButton.isSelected = !likeButton.isSelected
+        if likeButton.isSelected {
+            likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
+        } else {
+            likeButton.setImage(UIImage(named: "thumbsup_outline"), for: UIControlState.normal)
+        }
+        let incrementBy = likeButton.isSelected ? 1 : -1
+        likeCountLabel.text = "\(Int(likeCountLabel.text!)!+incrementBy)"
+    }
+
+    @IBAction func onLikeButton(_ sender: Any) {
+        self.updateLikeCount()
+        Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
+            (post: PFObject?) -> () in
+            BravoUser.saveUserPostLikes(post: post!, isLiked: self.likeButton.isSelected, success: { (postLike: PFObject?) in
+                print ("--successfully updated user post like")
+            }, failure: { (error: Error?) in
+                print ("-- failed to update user post like: \(error?.localizedDescription)")
+            })
+        }, failure: { (error: Error?) in
+            print ("-- failed to update post like count: \(error?.localizedDescription)")
+            self.updateLikeCount()
+        }
+        )
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
