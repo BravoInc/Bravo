@@ -14,20 +14,20 @@ class RewardCell: UITableViewCell {
     @IBOutlet weak var rewardNameLabel: UILabel!
     @IBOutlet weak var rewardPointsLabel: UILabel!
     @IBOutlet weak var selectionImageView: UIImageView!
+    var isChecked: Bool = false
+    
+    @IBOutlet weak var selectionImageWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var rewardNameLeading: NSLayoutConstraint!
     
     var reward: PFObject! {
         didSet {
             rewardNameLabel.text = "\(reward["name"]!)"
             rewardPointsLabel.text = "\(reward["points"]!) pts"
-        }
-    }
-    
-    var isChecked: Bool = false
+            selectionImageView.image = UIImage(named: isChecked ? "check128green" : "check128lightGray")
+            selectionImageView.alpha = isChecked ? 1.0 : 0.3
 
-    
-    func setImageViews() {
-        selectionImageView.image = UIImage(named: isChecked ? "check128green" : "check128lightGray")
-        selectionImageView.alpha = isChecked ? 1.0 : 0.3
+        }
     }
     
     override func awakeFromNib() {

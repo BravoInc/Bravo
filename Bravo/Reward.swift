@@ -67,6 +67,7 @@ class Reward: PFObject {
         Team.getUserTeams(user: user, success: {
             (teams: [PFObject]?) -> () in
                 let query = PFQuery(className: "Reward")
+                query.whereKey("isActive", equalTo: true)
                 query.whereKey("isClaimed", equalTo: false)
                 query.whereKey("team", containedIn: teams!)
                 

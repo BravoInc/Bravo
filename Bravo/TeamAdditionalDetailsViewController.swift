@@ -119,6 +119,9 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         } else {
             let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
             rewardCell.reward = rewards[indexPath.row]
+            rewardCell.selectionImageWidth.constant = 0
+            rewardCell.rewardNameLeading.constant = 0
+            rewardCell.isUserInteractionEnabled = false
             return rewardCell
         }
     }
