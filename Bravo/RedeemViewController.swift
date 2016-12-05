@@ -75,9 +75,8 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
-        rewardCell.reward = availableRewards[indexPath.row]
         rewardCell.isChecked = indexSelection[indexPath.row]!
-        rewardCell.setImageViews()
+        rewardCell.reward = availableRewards[indexPath.row]
         
         if availableRewardPoints < (availableRewards[indexPath.row]["points"]! as! Int) {
             rewardCell.isUserInteractionEnabled = false

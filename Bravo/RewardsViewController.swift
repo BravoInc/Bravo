@@ -54,6 +54,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row < defaultRewards.count) {
             let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell") as! RewardCell
+            rewardCell.isChecked = defaultRewards[indexPath.row]["isActive"]! as! Bool
             rewardCell.reward = defaultRewards[indexPath.row]
             
             return rewardCell
@@ -67,17 +68,19 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         
         if (indexPath.row < defaultRewards.count) {
-            return
+            defaultRewards[indexPath.row]["isActive"] = !(defaultRewards[indexPath.row]["isActive"]! as! Bool)
+            tableView.reloadData()
+        } else {
+            let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+            
+            let rewardCreationNavController = storyboard.instantiateViewController(withIdentifier: "RewardsCreationNavigationController") as! UINavigationController
+            
+            let rewardVC = storyboard.instantiateViewController(withIdentifier: "RewardCreationViewController") as! RewardCreationViewController
+            rewardVC.currentTeam = self.currentTeam
+            rewardVC.delegate = self
+            rewardCreationNavController.setViewControllers([rewardVC], animated: true)
+            self.present(rewardCreationNavController, animated: true, completion: nil)
         }
-        let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-        
-        let rewardCreationNavController = storyboard.instantiateViewController(withIdentifier: "RewardsCreationNavigationController") as! UINavigationController
-        
-        let rewardVC = storyboard.instantiateViewController(withIdentifier: "RewardCreationViewController") as! RewardCreationViewController
-        rewardVC.currentTeam = self.currentTeam
-        rewardVC.delegate = self
-        rewardCreationNavController.setViewControllers([rewardVC], animated: true)
-        self.present(rewardCreationNavController, animated: true, completion: nil)
     }
     
     func onSubmit(_ sender: UIBarButtonItem) {

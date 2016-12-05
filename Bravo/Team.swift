@@ -61,6 +61,7 @@ class Team: PFObject {
     class func getTeamRewards(team: PFObject, success: @escaping([PFObject]?) -> () ,failure: @escaping(Error?) -> ()){
         let rewardsRelation = team.relation(forKey: "rewardRelation")
         let query = rewardsRelation.query()
+        query.whereKey("isActive", equalTo: true)
         
         query.findObjectsInBackground { (rewards : [PFObject]?, error : Error?) in
             if error == nil && rewards?.count ?? 0 > 0 {
