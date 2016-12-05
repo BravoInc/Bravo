@@ -25,6 +25,7 @@
 		6452509D1DF29A7200DD1384 /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */; };
 		6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */; };
 		6452509F1DF29A7200DD1384 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */; };
+		648A56931DF5FFFD00EF29D3 /* RefreshContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */; };
 		649D49571DF3AA0B00958954 /* PostLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D49561DF3AA0B00958954 /* PostLikes.swift */; };
 		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
@@ -113,6 +114,7 @@
 		6452509A1DF29A7200DD1384 /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Book.otf"; sourceTree = "<group>"; };
 		6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
 		6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
+		648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshContents.xib; sourceTree = "<group>"; };
 		649D49561DF3AA0B00958954 /* PostLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLikes.swift; sourceTree = "<group>"; };
 		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		64EDF67D1DD83F900071A731 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */,
 				64EDF67E1DD83FBE0071A731 /* TeamCell.swift */,
 				64EDF67F1DD83FBE0071A731 /* TeamCell.xib */,
 				649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */,
@@ -479,6 +482,7 @@
 				64EDF6811DD83FBE0071A731 /* TeamCell.xib in Resources */,
 				E198EE101DF4F5C6001B4833 /* rightArrow128green.png in Resources */,
 				EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */,
+				648A56931DF5FFFD00EF29D3 /* RefreshContents.xib in Resources */,
 				644126951DEBAA1F0060FBED /* UserCell.xib in Resources */,
 				E1C2AE0F1DF5392300635DD2 /* add128green.png in Resources */,
 				E198EE111DF4F5C6001B4833 /* rightArrow128White.png in Resources */,
