@@ -100,7 +100,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let postCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         postCell.delegate = self
-        let postId = posts[indexPath.row].objectId!
+        let postId = posts[indexPath.row].objectId ?? ""
         postCell.isLiked = postIdLikeMap[postId] ?? false
         postCell.post = posts[indexPath.row]
         
