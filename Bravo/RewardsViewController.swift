@@ -9,12 +9,18 @@
 import UIKit
 import Parse
 
+
+@objc protocol RewardsViewControllerDelegate {
+    @objc optional func saveRewards(rewards: [PFObject])
+}
+
 class RewardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RewardCreationViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var defaultRewards = [PFObject]()
     var currentTeam : PFObject!
+    weak var delegate: RewardsViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +95,14 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func onSubmit(_ sender: UIBarButtonItem) {
+        let totalRewards = defaultRewards.count - 1
+        for i in (0...totalRewards).reversed() {
+            if !(defaultRewards[i]["isActive"]! as! Bool) {
+                defaultRewards.remove(at: i)
+            }
+        }
+        delegate?.saveRewards?(rewards: defaultRewards)
         self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
-        Reward.createRewards(rewards: defaultRewards,team : currentTeam, success: {
-            print("--- Reward creation succes")
-            
-        }, failure: { (error : Error?) in
-            print("---!!! reward creation error : \(error?.localizedDescription)")
-        })
     }
 
     func onBack(_ sender: UIButton) {

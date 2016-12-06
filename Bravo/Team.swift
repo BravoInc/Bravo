@@ -70,7 +70,7 @@ class Team: PFObject {
         query.whereKey("isActive", equalTo: true)
         
         query.findObjectsInBackground { (rewards : [PFObject]?, error : Error?) in
-            if error == nil && rewards?.count ?? 0 > 0 {
+            if error == nil {
                 success(rewards)
             } else {
                 failure(error)
@@ -111,40 +111,46 @@ class Team: PFObject {
         }
     }
     
-    
-    class func createTeam(teamName : String, success: @escaping(PFObject) -> () ){
+    class func createTeam(teamName: String, teamPic: UIImage?) -> PFObject {
         let newTeam = Team(className: "Team")
-        
         newTeam["name"] = teamName
         newTeam["adminUser"] = PFUser.current()
         newTeam["memberCount"] = 1
         
-        let userRelation = newTeam.relation(forKey: "userRelation")
+        if let teamPic = teamPic {
+            let imageData = UIImagePNGRepresentation(teamPic)
+            let imageFile = PFFile(name:"image.png", data:imageData!)
+            
+            newTeam["teamImage"] = imageFile
+
+        }
+
+        return newTeam
+
+    }
+    
+    class func saveTeam(team: PFObject, success: @escaping(PFObject) -> (), failure: @escaping(Error?) -> ()){
+        
+        let userRelation = team.relation(forKey: "userRelation")
         userRelation.add(PFUser.current()!)
         
-        
-        newTeam.saveInBackground { (result : Bool, error : Error?) in
+        team.saveInBackground { (result : Bool, error : Error?) in
             if (error == nil){
-                let query = PFQuery(className: "Team")
-                query.whereKey("name", equalTo: teamName)
-                query.limit = 1
-                query.findObjectsInBackground {(teams: [PFObject]?, error: Error?) -> Void in
-                    if error == nil && teams?.count == 1 {
-                        
-                        let currentUser = PFUser.current()
-                        let teamRelation = currentUser?.relation(forKey: "teamRelation")
-                        teamRelation?.add((teams?[0])!)
-                        
-                        currentUser?.saveInBackground(block: { (result : Bool, error : Error?) in
-                            if(error == nil ){
-                                print("--- Saved team in current user ")
-                            } else {
-                                print("---!!! cannot save team in current user : \(error?.localizedDescription)")
-                            }
-                        })
-                        success((teams?[0])!)
+                let currentUser = PFUser.current()
+                let teamRelation = currentUser?.relation(forKey: "teamRelation")
+                teamRelation?.add(team)
+                
+                currentUser?.saveInBackground(block: { (result : Bool, error : Error?) in
+                    if(error == nil ){
+                        print("--- Saved team in current user ")
+                    } else {
+                        print("---!!! cannot save team in current user : \(error?.localizedDescription)")
                     }
-                }
+                })
+                success(team)
+            } else {
+                print ("-- couldnt create a new team. \(error?.localizedDescription)")
+                failure(error)
             }
         }
     }
