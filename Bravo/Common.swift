@@ -49,7 +49,7 @@ func afterSuccessLogin() -> UITabBarController{
     let tabBarController = UITabBarController()
     tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
     //tabBarController.selectedViewController = teamNavigationController
-    
+        
     return tabBarController
     
 } // after success login
@@ -240,6 +240,17 @@ func getTabBarController() -> UITabBarController {
     
     configureAppearanceProxies()
     
+    let tabBarImages = [#imageLiteral(resourceName: "timeline"), #imageLiteral(resourceName: "teams"), #imageLiteral(resourceName: "leaderboard"), #imageLiteral(resourceName: "profile")]
+    if let items = tabBarController.tabBar.items {
+        
+        for i in 0..<items.count {
+            let tabBarItem = items[i]
+            let tabBarImage = tabBarImages[i]
+            tabBarItem.image = tabBarImage.withRenderingMode(.alwaysOriginal)
+            tabBarItem.selectedImage = tabBarImage
+        }
+    }
+    
     return tabBarController
 }
 
@@ -274,6 +285,7 @@ func configureAppearanceProxies() {
     UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
     UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : purpleColor], for: .selected)
     UITabBar.appearance().barTintColor = greenColor
+    UITabBar.appearance().tintColor = purpleColor
     
     UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 16)!], for: .normal)
     UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
