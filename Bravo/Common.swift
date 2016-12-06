@@ -38,44 +38,7 @@ func afterSuccessLogin() -> UITabBarController{
         user?.saveInBackground()
     }
     
-    let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
-    let timelineViewController = timelineNavigationController.topViewController as! TimelineViewController
-    timelineNavigationController.tabBarItem.title = "Timeline"
-    //timelineNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-    
-    
-    let storyBoardTC = UIStoryboard(name: "TeamCreation", bundle: nil)
-    let teamNavigationController = storyBoardTC.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
-    //let teamViewController = teamNavigationController.topViewController as! TeamViewController
-    teamNavigationController.tabBarItem.title = "Teams"
-    //teamNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-    
-    let leaderboardNavigationController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardNavigationController") as! UINavigationController
-    let leaderboardViewController = leaderboardNavigationController.topViewController as! LeaderboardViewController
-    leaderboardNavigationController.tabBarItem.title = "Leaderboard"
-    //leaderboardNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-    
-    let profileNavigationController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
-    let profileViewController = profileNavigationController.topViewController as! ProfileViewController
-    profileNavigationController.tabBarItem.title = "Profile"
-    //profileNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-    
-    let tabBarController = UITabBarController()
-    tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
-    //tabBarController.selectedViewController = teamNavigationController
-    
-    
-    // set red as selected background color
-    let numberOfItems = CGFloat(tabBarController.tabBar.items!.count)
-    let tabBarItemSize = CGSize(width: tabBarController.tabBar.frame.width / numberOfItems, height: tabBarController.tabBar.frame.height)
-    tabBarController.tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor.red, size: tabBarItemSize).resizableImage(withCapInsets: UIEdgeInsets.zero)
-    
-    // remove default border
-    tabBarController.tabBar.frame.size.width = tabBarController.tabBar.frame.width + 4
-    tabBarController.tabBar.frame.origin.x = -2
-    
-    
-    return tabBarController
+    return getTabBarController()
     
 } // after success login
 
@@ -265,6 +228,18 @@ func getTabBarController() -> UITabBarController {
     
     configureAppearanceProxies()
     
+    
+    
+    // set red as selected background color
+    let numberOfItems = CGFloat(tabBarController.tabBar.items!.count)
+    let tabBarItemSize = CGSize(width: tabBarController.tabBar.frame.width / numberOfItems, height: tabBarController.tabBar.frame.height)
+    tabBarController.tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: purpleColor, size: tabBarItemSize).resizableImage(withCapInsets: UIEdgeInsets.zero)
+    
+    // remove default border
+    tabBarController.tabBar.frame.size.width = tabBarController.tabBar.frame.width + 4
+    tabBarController.tabBar.frame.origin.x = -2
+
+    
     let tabBarImages = [#imageLiteral(resourceName: "timeline"), #imageLiteral(resourceName: "teams"), #imageLiteral(resourceName: "leaderboard"), #imageLiteral(resourceName: "profile")]
     if let items = tabBarController.tabBar.items {
         
@@ -272,7 +247,7 @@ func getTabBarController() -> UITabBarController {
             let tabBarItem = items[i]
             let tabBarImage = tabBarImages[i]
             tabBarItem.image = tabBarImage.withRenderingMode(.alwaysOriginal)
-            tabBarItem.selectedImage = tabBarImage
+            //tabBarItem.selectedImage = tabBarImage
         }
     }
     
@@ -309,9 +284,9 @@ func configureAppearanceProxies() {
     
     
     UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
-    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : purpleColor], for: .selected)
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .selected)
     UITabBar.appearance().barTintColor = greenColor
-    UITabBar.appearance().tintColor = purpleColor
+    UITabBar.appearance().tintColor = UIColor.white
     
     UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 16)!], for: .normal)
     UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
