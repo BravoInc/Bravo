@@ -206,7 +206,6 @@ func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttribut
     if let range = nonBoldRange {
         attrStr.setAttributes(nonBoldAttribute, range: range)
     }
-    print("--- attrStr : \(attrStr)")
     return attrStr
 }
 
