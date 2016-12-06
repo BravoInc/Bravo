@@ -89,9 +89,9 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func onSubmit(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
         Reward.createRewards(rewards: defaultRewards,team : currentTeam, success: {
             print("--- Reward creation succes")
-            self.navigationController?.popToRootViewController(animated: true)
             
         }, failure: { (error : Error?) in
             print("---!!! reward creation error : \(error?.localizedDescription)")
