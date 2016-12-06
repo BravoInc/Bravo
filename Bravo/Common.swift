@@ -10,6 +10,20 @@ import Foundation
 import Parse
 import SCLAlertView
 
+extension UIImage {
+    
+    class func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect: CGRect = CGRect(x: 0, y: 0, width:size.width, height:size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+}
+
 func afterSuccessLogin() -> UITabBarController{
     // if you change things here, don't forget to change things in the success callback of the new account signup
     
@@ -49,7 +63,18 @@ func afterSuccessLogin() -> UITabBarController{
     let tabBarController = UITabBarController()
     tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
     //tabBarController.selectedViewController = teamNavigationController
-        
+    
+    
+    // set red as selected background color
+    let numberOfItems = CGFloat(tabBarController.tabBar.items!.count)
+    let tabBarItemSize = CGSize(width: tabBarController.tabBar.frame.width / numberOfItems, height: tabBarController.tabBar.frame.height)
+    tabBarController.tabBar.selectionIndicatorImage = UIImage.imageWithColor(color: UIColor.red, size: tabBarItemSize).resizableImage(withCapInsets: UIEdgeInsets.zero)
+    
+    // remove default border
+    tabBarController.tabBar.frame.size.width = tabBarController.tabBar.frame.width + 4
+    tabBarController.tabBar.frame.origin.x = -2
+    
+    
     return tabBarController
     
 } // after success login
