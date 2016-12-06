@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -420,6 +420,34 @@
             </objects>
             <point key="canvasLocation" x="1309.5999999999999" y="-855.02248875562225"/>
         </scene>
+        <!--Team View Controller-->
+        <scene sceneID="83S-HR-tu2">
+            <objects>
+                <viewController storyboardIdentifier="TeamViewController" id="nhn-S8-V88" customClass="TeamViewController" customModule="Bravo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J8W-lX-Fxg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ytC-4P-KxG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e29-gz-6vE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl3-4l-RVq">
+                                <rect key="frame" x="162" y="323" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dsi-dr-Mnr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyI-y7-wX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341.60000000000002" y="572.56371814092961"/>
+        </scene>
         <!--Team Detail View Controller-->
         <scene sceneID="d2p-og-F6s">
             <objects>
@@ -451,7 +479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mo5-LX-Tvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="594"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="572.56371814092961"/>
         </scene>
         <!--Leaderboard View Controller-->
         <scene sceneID="YlW-WG-kXu">
@@ -687,7 +715,6 @@
                         <outlet property="redeemButton" destination="dbb-c2-9WV" id="ua9-cq-rIH"/>
                         <outlet property="redeemedLabel" destination="6Bd-at-bvw" id="04n-em-Zcu"/>
                         <outlet property="redeemedPointsLabel" destination="J4o-gy-egQ" id="JzU-Ec-M59"/>
-                        <outlet property="scrollView" destination="iXs-Q1-6RW" id="3ql-64-3mc"/>
                         <outlet property="userImageView" destination="c22-47-a58" id="Guf-jb-yLP"/>
                         <outlet property="userNameLabel" destination="9BR-U7-FeI" id="q5l-C9-jIw"/>
                     </connections>
@@ -747,6 +774,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sb4-Bx-n6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-596" y="-105.69715142428787"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="33A-Ua-peg">
+            <objects>
+                <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A0E-nW-L4G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vXr-tW-5vt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nhn-S8-V88" kind="relationship" relationship="rootViewController" id="DZl-br-4ZJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu5-bO-Ax2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-596" y="573"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zko-Uu-C3r">

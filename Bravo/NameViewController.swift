@@ -162,7 +162,7 @@ class NameViewController: UIViewController {
         // transparentNavBar()
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
-        let backImage = UIImage(named: "backArrow128gray888.png")!
+        let backImage = UIImage(named: "backArrow128white.png")!
         button.setImage(backImage, for: UIControlState.normal)
         //add function for button
         button.addTarget(self, action: #selector(NameViewController.backButtonPressed), for: UIControlEvents.touchUpInside)
