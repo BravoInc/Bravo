@@ -101,9 +101,12 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
                 defaultRewards.remove(at: i)
             }
         }
-        delegate?.saveRewards?(rewards: defaultRewards)
         displayMessage(title: "Bravo!", subTitle: "You have successfully set up a new team!", duration: 3.0, showCloseButton: false, messageStyle: .success)
-        self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+            self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
+            self.delegate?.saveRewards?(rewards: self.defaultRewards)
+
+        }
     }
 
     func onBack(_ sender: UIButton) {

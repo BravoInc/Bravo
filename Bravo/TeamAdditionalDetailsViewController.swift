@@ -83,7 +83,9 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
 //                }
 //            }))
 //            self.present(alert, animated: true, completion: nil)
-            self.navigationController?.popToRootViewController(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
             
         }, failure: { (error : Error?) in
             print("---!!! Failed to join team : \(error?.localizedDescription) ")
