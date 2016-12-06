@@ -94,7 +94,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         }
         Team.getUserTeams(user: BravoUser.getLoggedInUser(), success: { (userTeams : [PFObject]?) in
             print("--- got \(userTeams?.count) User teams")
-            self.userTeams = userTeams!
+            self.userTeams = userTeams ?? self.userTeams
             self.getTeams(refreshControl: refreshControl)
             self.tableView.reloadData()
         }, failure: { (error : Error?) in

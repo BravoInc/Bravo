@@ -20,12 +20,12 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     @IBOutlet weak var givenPointsLabel: UILabel!
     @IBOutlet weak var givenLabel: UILabel!
     @IBOutlet weak var redeemButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let user = BravoUser.getLoggedInUser()
     var userSkillPoint: PFObject?
     var didRedeem: Bool = false
-
-    @IBOutlet weak var scrollView: UIScrollView!
+    
     // Progress control
     let progressControl = ProgressControls()
     var isRefresh = false
