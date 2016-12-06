@@ -9,7 +9,9 @@
 import UIKit
 import Parse
 
-class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TeamPhotoViewControllerDelegate {
+import DZNEmptyDataSet
+
+class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TeamPhotoViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     let NUM_SECTIONS = 2
     
@@ -31,6 +33,11 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         
+        // for DZNEmpty
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
+        
         tableView.register(UINib(nibName : "TeamCell", bundle : nil), forCellReuseIdentifier: "TeamCell")
         //tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
         
@@ -41,9 +48,18 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case SECTION_USER_TEAMS:
-            return USER_TEAMS_HEADER_TEXT
+            if(userTeams.count == 0 ){
+                return ""
+            }else{
+                return USER_TEAMS_HEADER_TEXT
+            }
         case SECTION_ALL_TEAMS:
-            return ALL_TEAMS_HEADER_TEXT
+            if(allTeams.count == 0){
+                return ""
+            }else{
+                return ALL_TEAMS_HEADER_TEXT
+            }
+            
         default:
             return ""
         }
@@ -82,7 +98,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         switch indexPath.section {
         case SECTION_USER_TEAMS:
             if (indexPath.row < userTeams.count){
@@ -90,11 +106,11 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
                 teamCell.team = userTeams[indexPath.row]
                 return teamCell
             } /*
-            else {
-                let addTeamCell = tableView.dequeueReusableCell(withIdentifier: "AddTeamCell", for: indexPath) as! AddTeamCell
-                return addTeamCell
-                
-            } */
+             else {
+             let addTeamCell = tableView.dequeueReusableCell(withIdentifier: "AddTeamCell", for: indexPath) as! AddTeamCell
+             return addTeamCell
+             
+             } */
         case SECTION_ALL_TEAMS:
             let teamCell = tableView.dequeueReusableCell(withIdentifier: "TeamCell", for: indexPath) as! TeamCell
             teamCell.team = allTeams[indexPath.row]
@@ -157,10 +173,49 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.reloadData()
     }
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let teamPhotoNav = segue.destination as! UINavigationController
         let teamPhotoVC = teamPhotoNav.topViewController as! TeamPhotoViewController
         teamPhotoVC.delegate = self
-     }
+    }
     
-}
+    
+    /*
+     // for empty data set: pick one
+     
+     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+     let str = "Welcome"
+     let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)]
+     return NSAttributedString(string: str, attributes: attrs)
+     }
+     
+     func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+     return UIImage(named: "taylor-swift")
+     }
+     
+     func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControlState) -> NSAttributedString? {
+     let str = "Add Grokkleglob"
+     let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.callout)]
+     return NSAttributedString(string: str, attributes: attrs)
+     }
+     
+
+     func emptyDataSet(_ scrollView: UIScrollView, didTap button: UIButton) {
+     let ac = UIAlertController(title: "Button tapped!", message: nil, preferredStyle: .alert)
+     ac.addAction(UIAlertAction(title: "Hurray", style: .default))
+     present(ac, animated: true)
+     }
+
+     */
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Tap 'Create' to start your own team"
+        let attrs = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    
+} // last close curly
+
+
+  
