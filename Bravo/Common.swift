@@ -239,6 +239,8 @@ func getTabBarController() -> UITabBarController {
     tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
     //tabBarController.selectedViewController = teamNavigationController
     
+    configureAppearanceProxies()
+    
     return tabBarController
 }
 
@@ -259,5 +261,25 @@ func displayAlert(title: String, subTitle: String, duration: TimeInterval, showC
         colorStyle: 0x50D2C2,
         colorTextButton: 0x50D2C2
     )
+}
+
+func configureAppearanceProxies() {
+    // App-wide fonts for bar button item, tab bar, text field and text view
+    UINavigationBar.appearance().tintColor = UIColor.white
+    UINavigationBar.appearance().backgroundColor = greenColor
+    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().barTintColor = greenColor
+    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
+    
+    
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : purpleColor], for: .selected)
+    UITabBar.appearance().barTintColor = greenColor
+    
+    UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 16)!], for: .normal)
+    UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+    UITextView.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+    
+    UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 }
 
