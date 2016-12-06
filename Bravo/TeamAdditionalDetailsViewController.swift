@@ -67,6 +67,8 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         print("--- Join team tapped ")
         Team.joinTeam(team: team, success: {
             print("--- Join Team Success")
+            displayMessage(title: "Bravo!", subTitle: "You are now a member of \(self.team["name"]!)!", duration: 3.0, showCloseButton: false, messageStyle: .success)
+
 //            let message = "Your request to join Team \(self.filteredTeams[indexPath.row]["name"]!) has been sent to the administrator.\n\nYou will be notified when the admin approves."
 //            let alert = UIAlertController(title: "Request Sent", message: message, preferredStyle: UIAlertControllerStyle.alert)
 //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {

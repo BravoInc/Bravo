@@ -102,6 +102,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         delegate?.saveRewards?(rewards: defaultRewards)
+        displayMessage(title: "Bravo!", subTitle: "You have successfully set up a new team!", duration: 3.0, showCloseButton: false, messageStyle: .success)
         self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
     }
 

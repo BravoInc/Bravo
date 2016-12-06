@@ -88,7 +88,8 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             self.show(rewardsVC, sender: self)
         }, failure: {
             //self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
-            self.teamNameTextField.text = ""
+            displayMessage(title: "Error!", subTitle: "\(self.teamNameTextField.text!) already exists. Please choose a different name.", duration: 3.0, showCloseButton: false, messageStyle: .error)
+
         })
         
     } //on next button
