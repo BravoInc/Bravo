@@ -254,7 +254,7 @@ func getTabBarController() -> UITabBarController {
     return tabBarController
 }
 
-func displayAlert(title: String, subTitle: String, duration: TimeInterval, showCloseButton: Bool) {
+func displayMessage(title: String, subTitle: String, duration: TimeInterval, showCloseButton: Bool, messageStyle: SCLAlertViewStyle) {
     let appearance = SCLAlertView.SCLAppearance(
         kTitleFont: UIFont(name: "Avenir-Light", size: 20)!,
         kTextFont: UIFont(name: "Avenir-Light", size: 14)!,
@@ -262,14 +262,15 @@ func displayAlert(title: String, subTitle: String, duration: TimeInterval, showC
         showCloseButton: showCloseButton
     )
     
+    let colorStyle: UInt = messageStyle == .success ? 0x50D2C2 : 0xFCAB53
     SCLAlertView(appearance: appearance).showTitle(
         title, // Title of view
         subTitle: subTitle, // String of view
         duration: duration, // Duration to show before closing automatically, default: 0.0
         completeText: "", // Optional button value, default: ""
-        style: .success, // Styles - see below.
-        colorStyle: 0x50D2C2,
-        colorTextButton: 0x50D2C2
+        style: messageStyle, // Styles - see below.
+        colorStyle: colorStyle,
+        colorTextButton: colorStyle
     )
 }
 
