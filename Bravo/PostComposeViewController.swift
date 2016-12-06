@@ -14,12 +14,18 @@ import Parse
     @objc optional func postCompose(post: PFObject)
 }
 
-class PostComposeViewController: UIViewController {
+class PostComposeViewController: UIViewController, UITextViewDelegate{
     var team: PFObject?
     var user: PFUser?
     var post: PFObject?
     var isComment: Bool!
+    let placeholder = "What do you want to say?"
     
+
+    let borderColor = UIColor(red: (136/255.0), green: (136/255.0), blue: (136/255.0), alpha: 1.0)
+    let twitterBlack = UIColor(red: (20/255.0), green: (23/255.0), blue: (26/255.0), alpha: 1.0)
+
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var recipientTextField: UITextField!
     @IBOutlet weak var pointsTextField: UITextField!
     @IBOutlet weak var skillsTextField: UITextField!
@@ -39,6 +45,25 @@ class PostComposeViewController: UIViewController {
             skillsTextField.isEnabled = false
             skillsTextField.backgroundColor = UIColor.lightGray
         }
+        scrollView.keyboardDismissMode = .onDrag
+        recipientTextField.inputView = UIView() // So that keyboard doesnt pop up
+        setupTextView()
+    }
+    
+    func setupTextView(){
+        messageTextView.delegate = self
+        messageTextView.autocapitalizationType = UITextAutocapitalizationType.sentences
+        messageTextView.layer.borderColor = borderColor.cgColor
+        messageTextView.layer.borderWidth = 1.0
+        messageTextView.layer.cornerRadius = 3.0
+        setPlaceholder()
+    }
+    
+    func setPlaceholder(){
+        let startPosition : UITextPosition = messageTextView.beginningOfDocument
+        messageTextView.text = placeholder
+        messageTextView.textColor =  placeholderText
+        messageTextView.selectedTextRange = messageTextView.textRange(from: startPosition, to: startPosition)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +71,37 @@ class PostComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // Combine the textView text and the replacement text to
+        // create the updated text string
+        let currentText =  textView.text as NSString
+        let updatedText = currentText.replacingCharacters(in: range, with: text)
+        
+        // If updated text view will be empty, add the placeholder
+        // and set the cursor to the beginning of the text view
+        if updatedText.isEmpty {
+            //isPlaceHolderShown = true
+            textView.text = placeholder
+            textView.textColor = placeholderText
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            //setButtonDisabled()
+            //characterCountLabel.text = "\(characterLimit)"
+            return false
+        }
+            
+            // Else if the text view's placeholder is showing and the
+            // length of the replacement string is greater than 0, clear
+            // the text view and set its color to dar gray to prepare for
+            // the user's entry
+        else if textView.textColor == placeholderText && !text.isEmpty {
+            //isPlaceHolderShown = false
+            textView.text = nil
+            textView.textColor = twitterBlack
+            //setButtonEnabled()
+        }
+        return true
+        
+    }
 
     func saveNewPost() -> PFObject {
         let points = Int(pointsTextField.text!)!
@@ -122,6 +178,7 @@ class PostComposeViewController: UIViewController {
     
 
     @IBAction func cancelPost(_ sender: Any) {
+        view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
     
