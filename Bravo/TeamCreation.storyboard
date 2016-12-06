@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gAA-cn-G9u">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMD-XC-MgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="699"/>
+            <point key="canvasLocation" x="134" y="824"/>
         </scene>
         <!--Select Rewards-->
         <scene sceneID="bWu-DM-XR6">
@@ -129,7 +129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ko-WO-kUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5ZM-cy-Nkj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3470" y="754"/>
+            <point key="canvasLocation" x="2948" y="824"/>
         </scene>
         <!--Reward Creation View Controller-->
         <scene sceneID="xWR-rH-1Yd">
@@ -274,7 +274,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TeamNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ved-xR-Pyj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zv7-xl-PEU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zv7-xl-PEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -464,14 +464,14 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2666" y="754"/>
+            <point key="canvasLocation" x="2009" y="824"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IXh-Qb-VGa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wZc-w9-HsP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TRO-43-x3M">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TRO-43-x3M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -482,7 +482,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOQ-xH-yGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="755"/>
+            <point key="canvasLocation" x="1073" y="824"/>
         </scene>
     </scenes>
     <resources>

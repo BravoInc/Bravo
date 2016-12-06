@@ -24,6 +24,10 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var userSkillPoint: PFObject?
     weak var delegate: RedeemViewControllerDelegate?
     
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,14 +47,21 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
 
-        getAvailableRewards()
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getAvailableRewards), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getAvailableRewards(refreshControl: progressControl.refreshControl)
     }
+
     
-    override func viewDidAppear(_ animated: Bool) {
-        getAvailableRewards()
-    }
-    
-    func getAvailableRewards(){
+    func getAvailableRewards(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         Reward.getAvailableRewards(user: BravoUser.getLoggedInUser(), success: { (rewards : [PFObject]?) in
             print("--- got \(rewards?.count) rewards")
             self.availableRewards = rewards!
@@ -58,15 +69,25 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.indexSelection[i] = false
             }
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
         }, failure: { (error : Error?) in
             print("---!!! cant get rewards : \(error?.localizedDescription)")
             self.availableRewards = [PFObject]()
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
         })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

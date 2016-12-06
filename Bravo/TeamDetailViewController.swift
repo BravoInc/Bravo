@@ -20,6 +20,10 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     var userPointsMap = [String: Int]()
     var selectedIndex: Int = -1
 
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,11 +51,21 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
         tableView.estimatedRowHeight = 60
         tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         
-        getUsers()
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getUsers), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getUsers(refreshControl: progressControl.refreshControl)
 
     }
 
-    func getUsers(){
+    func getUsers(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         BravoUser.getTeamUsers(team: currentTeam, success: { (users : [PFUser]?) in
             print("--- got \(users?.count) users")
             self.filteredUsers = users!
@@ -62,16 +76,28 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
                     self.userPointsMap[(userPoint["user"] as! PFUser).objectId!] = (userPoint["totalPoints"]! as! Int)
                 }
                 self.tableView.reloadData()
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
 
             }, failure: { (error: Error?) in
                 print ("--error getting user points \(error?.localizedDescription)")
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
+
             })
             
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
         })
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredUsers.count
     }

@@ -16,7 +16,11 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var filteredTeams = [PFObject]()
     var teams = [PFObject]()
-       
+    
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,20 +47,38 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         
         tableView.register(UINib(nibName: "TeamCell", bundle: nil), forCellReuseIdentifier: "TeamCell")
         
-        getTeams()
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getTeams), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getTeams(refreshControl: progressControl.refreshControl)
     }
 
-    func getTeams(){
+    func getTeams(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         Team.getUserTeams(user: BravoUser.getLoggedInUser(), success: { (teams : [PFObject]?) in
             print("--- got \(teams?.count) teams")
             self.filteredTeams = teams!
             self.teams = teams!
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         }, failure: { (error : Error?) in
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
             print("---!!! cant get teams : \(error?.localizedDescription)")
         })
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTeams.count
     }

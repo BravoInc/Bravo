@@ -11,7 +11,6 @@
 		64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64344D2B1DED3414006951D0 /* UserSkillPoints.swift */; };
 		6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6441267C1DE80D7D0060FBED /* Activity.storyboard */; };
 		6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6441267E1DE80E930060FBED /* TimelineViewController.swift */; };
-		644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126801DE80F0F0060FBED /* TeamViewController.swift */; };
 		644126831DE80F4F0060FBED /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126821DE80F4F0060FBED /* LeaderboardViewController.swift */; };
 		644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126841DE80F7B0060FBED /* ProfileViewController.swift */; };
 		644126881DE822FC0060FBED /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644126861DE822FB0060FBED /* PostCell.swift */; };
@@ -26,6 +25,7 @@
 		6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */; };
 		6452509F1DF29A7200DD1384 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */; };
 		648A56931DF5FFFD00EF29D3 /* RefreshContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */; };
+		648A56951DF6A41D00EF29D3 /* ProgressControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648A56941DF6A41D00EF29D3 /* ProgressControls.swift */; };
 		649D49571DF3AA0B00958954 /* PostLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D49561DF3AA0B00958954 /* PostLikes.swift */; };
 		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
@@ -89,7 +89,6 @@
 		EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE19DE41DF1E04200703600 /* AddTeamCell.swift */; };
 		EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE19DE51DF1E04200703600 /* AddTeamCell.xib */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
-		EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */; };
 		EEF36DB31DD1855C0032BCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB11DD1855C0032BCE6 /* Main.storyboard */; };
 		EEF36DB51DD1855C0032BCE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB41DD1855C0032BCE6 /* Assets.xcassets */; };
 		EEF36DB81DD1855C0032BCE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF36DB61DD1855C0032BCE6 /* LaunchScreen.storyboard */; };
@@ -100,7 +99,6 @@
 		64344D2B1DED3414006951D0 /* UserSkillPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSkillPoints.swift; sourceTree = "<group>"; };
 		6441267C1DE80D7D0060FBED /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		6441267E1DE80E930060FBED /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		644126801DE80F0F0060FBED /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		644126821DE80F4F0060FBED /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		644126841DE80F7B0060FBED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		644126861DE822FB0060FBED /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -115,6 +113,7 @@
 		6452509B1DF29A7200DD1384 /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
 		6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
 		648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshContents.xib; sourceTree = "<group>"; };
+		648A56941DF6A41D00EF29D3 /* ProgressControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControls.swift; sourceTree = "<group>"; };
 		649D49561DF3AA0B00958954 /* PostLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLikes.swift; sourceTree = "<group>"; };
 		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
@@ -183,7 +182,6 @@
 		EEE19DE51DF1E04200703600 /* AddTeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTeamCell.xib; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EEF36DB21DD1855C0032BCE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEF36DB41DD1855C0032BCE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEF36DB71DD1855C0032BCE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,13 +212,11 @@
 			isa = PBXGroup;
 			children = (
 				E1F463A21DECC63B00A4C605 /* SignupLogin */,
-				EEF36DAF1DD1855C0032BCE6 /* ViewController.swift */,
 				64DBDF3A1DD7B7CD00D1D378 /* TeamConfigurationViewController.swift */,
 				E19771271DF5439E0097997D /* TeamPhotoViewController.swift */,
 				64EDF6821DD948F00071A731 /* RewardsViewController.swift */,
 				64EDF6841DD9497C0071A731 /* RewardCreationViewController.swift */,
 				6441267E1DE80E930060FBED /* TimelineViewController.swift */,
-				644126801DE80F0F0060FBED /* TeamViewController.swift */,
 				644126821DE80F4F0060FBED /* LeaderboardViewController.swift */,
 				644126841DE80F7B0060FBED /* ProfileViewController.swift */,
 				6441268A1DEAB1F60060FBED /* CommentsViewController.swift */,
@@ -239,6 +235,7 @@
 			children = (
 				64A3A9D61DF0498000E29D9D /* Common.swift */,
 				64A3A9D81DF14A0400E29D9D /* Constants.swift */,
+				648A56941DF6A41D00EF29D3 /* ProgressControls.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -579,7 +576,6 @@
 				64A3A9DC1DF2290C00E29D9D /* RedeemViewController.swift in Sources */,
 				64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */,
 				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
-				644126811DE80F0F0060FBED /* TeamViewController.swift in Sources */,
 				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
 				64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */,
 				6441268F1DEB8B1E0060FBED /* SelectionViewController.swift in Sources */,
@@ -587,12 +583,12 @@
 				6441267F1DE80E930060FBED /* TimelineViewController.swift in Sources */,
 				EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */,
 				6441268D1DEAC5EB0060FBED /* PostComposeViewController.swift in Sources */,
+				648A56951DF6A41D00EF29D3 /* ProgressControls.swift in Sources */,
 				6441268B1DEAB1F60060FBED /* CommentsViewController.swift in Sources */,
 				E192BA421DF2492500BE57D2 /* SignUpPasswordViewController.swift in Sources */,
 				E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */,
 				64D507A91DE4244000C708BD /* UserPoints.swift in Sources */,
 				64EDF6851DD9497C0071A731 /* RewardCreationViewController.swift in Sources */,
-				EEF36DB01DD1855C0032BCE6 /* ViewController.swift in Sources */,
 				EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */,
 				64D507A71DE4240700C708BD /* Skills.swift in Sources */,
 				64A3A9D31DEED19100E29D9D /* LeaderCell.swift in Sources */,
