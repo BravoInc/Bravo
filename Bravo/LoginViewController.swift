@@ -22,11 +22,17 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         miscInit()
+        
+        //let fbLoginButton = FBSDKLoginButton.init()
+        
+        //fbLoginButton.center = self.view.center
+        // Optional: Place the button in the center of your view.
+        
     }
     
     //Cannot convert value of type '[String]?.Type' (aka 'Optional<Array<String>>.Type') to expected argument type '[String]?'
     
-    @IBAction func onFBButton(_ sender: Any) {
+    @IBAction func onFBTap(_ sender: Any) {
         
         PFFacebookUtils.logInInBackground(withReadPermissions: ["public_profile", "email", "user_friends"],
                                           block: {
@@ -138,9 +144,8 @@ class LoginViewController: UIViewController {
         } //block
         )
         
-        
-        
-    } // on tap button
+
+    } // fb button tap
     
     func afterSuccessLogin(){
         // if you change things here, don't forget to change things in the success callback of the new account signup

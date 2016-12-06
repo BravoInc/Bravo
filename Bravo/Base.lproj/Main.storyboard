@@ -25,10 +25,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qsO-d4-Cav" userLabel="Outer Stack">
-                                <rect key="frame" x="28" y="45" width="319" height="370"/>
+                                <rect key="frame" x="28" y="45" width="319" height="369.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-2g-swe" userLabel="LogoBackground">
-                                        <rect key="frame" x="90" y="0.0" width="140" height="140"/>
+                                        <rect key="frame" x="89.5" y="0.0" width="140" height="140"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-4c-vpF" userLabel="logo">
                                                 <rect key="frame" x="20" y="20" width="100" height="100"/>
@@ -48,13 +48,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Bravo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5C-Fo-6vh">
-                                        <rect key="frame" x="52" y="180" width="216" height="35"/>
+                                        <rect key="frame" x="51.5" y="180" width="216" height="34.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-Jx-w5p">
-                                        <rect key="frame" x="17" y="255" width="285" height="115"/>
+                                        <rect key="frame" x="17" y="254.5" width="285" height="115"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi8-IK-llY">
                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="33"/>
@@ -909,14 +909,14 @@
                                     <constraint firstItem="mRI-61-Oz3" firstAttribute="leading" secondItem="dUf-v4-2xH" secondAttribute="leading" id="TMa-ka-P0A"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvm-VZ-ziH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvm-VZ-ziH" userLabel="Log in Label">
                                 <rect key="frame" x="24" y="72" width="75.5" height="37"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8b-Jr-YfB">
-                                <rect key="frame" x="24" y="285" width="327" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8b-Jr-YfB" userLabel="Log in Button">
+                                <rect key="frame" x="24.5" y="285" width="327" height="33"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <state key="normal" title="Log in">
@@ -926,24 +926,26 @@
                                     <action selector="onLogin:" destination="D8K-pf-1mW" eventType="touchUpInside" id="Q4E-q7-O1x"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aT-Tf-thO">
-                                <rect key="frame" x="154" y="418" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Facebook"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fblogin.png" translatesAutoresizingMaskIntoConstraints="NO" id="bZm-pz-fHm">
+                                <rect key="frame" x="24" y="388" width="327" height="85"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="onFBButton:" destination="D8K-pf-1mW" eventType="touchUpInside" id="iE3-fv-kwY"/>
+                                    <outletCollection property="gestureRecognizers" destination="FjU-wp-r6o" appends="YES" id="Ldv-Qv-A4D"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dUf-v4-2xH" firstAttribute="top" secondItem="Pvm-VZ-ziH" secondAttribute="bottom" constant="30" id="6aa-UZ-dOg"/>
+                            <constraint firstItem="bZm-pz-fHm" firstAttribute="centerX" secondItem="8fI-N4-Cho" secondAttribute="centerX" id="6vh-t0-uh3"/>
                             <constraint firstItem="dUf-v4-2xH" firstAttribute="leading" secondItem="8fI-N4-Cho" secondAttribute="leadingMargin" constant="8" id="DEv-KT-cyz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dUf-v4-2xH" secondAttribute="trailing" constant="8" id="JTT-Zt-fv8"/>
                             <constraint firstItem="j8b-Jr-YfB" firstAttribute="top" secondItem="dUf-v4-2xH" secondAttribute="bottom" constant="28" id="KbY-6x-cHT"/>
+                            <constraint firstItem="bZm-pz-fHm" firstAttribute="width" secondItem="dUf-v4-2xH" secondAttribute="width" id="OEJ-yh-TRK"/>
                             <constraint firstItem="Pvm-VZ-ziH" firstAttribute="leading" secondItem="8fI-N4-Cho" secondAttribute="leadingMargin" constant="8" id="VFZ-xi-4DG"/>
                             <constraint firstItem="j8b-Jr-YfB" firstAttribute="width" secondItem="dUf-v4-2xH" secondAttribute="width" id="Yqk-le-ZQv"/>
                             <constraint firstItem="j8b-Jr-YfB" firstAttribute="centerX" secondItem="8fI-N4-Cho" secondAttribute="centerX" id="cGy-ok-DzE"/>
+                            <constraint firstItem="bZm-pz-fHm" firstAttribute="top" secondItem="j8b-Jr-YfB" secondAttribute="bottom" constant="70" id="iXA-Ia-gDm"/>
                             <constraint firstItem="Pvm-VZ-ziH" firstAttribute="top" secondItem="Wam-qB-ofv" secondAttribute="bottom" constant="8" id="prL-vK-cuJ"/>
                         </constraints>
                     </view>
@@ -954,8 +956,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj8-fR-32f" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FjU-wp-r6o" userLabel="FBTap">
+                    <connections>
+                        <action selector="onFBTap:" destination="D8K-pf-1mW" id="djV-6a-qnU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2313" y="216"/>
+            <point key="canvasLocation" x="2312.8000000000002" y="215.44227886056973"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hR2-wt-8nF">
@@ -978,6 +985,7 @@
     </scenes>
     <resources>
         <image name="camera256.png" width="256" height="256"/>
+        <image name="fblogin.png" width="560" height="85"/>
         <image name="logo.png" width="256" height="256"/>
         <image name="photosLibrary256.png" width="256" height="256"/>
     </resources>
