@@ -129,7 +129,12 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
                 })
             }
             
-            sendPushNotification(recipient: self.user!, message: "You got recognized! \(self.messageTextView.text)")
+            if let pushMessage = self.messageTextView.text {
+                sendPushNotification(recipient: self.user!, message: "You got recognized! \(pushMessage)")
+            }else{
+                sendPushNotification(recipient: self.user!, message: "You got recognized! ")
+            }
+
             
         }, failure: { (error : Error?) in
             print("---!!! cant create post : \(error?.localizedDescription)")
