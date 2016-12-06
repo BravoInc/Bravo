@@ -36,6 +36,9 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         //self.navigationItem.setHidesBackButton(true, animated:false);
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onSubmit(_:)))
+
+
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -86,15 +89,19 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func onSubmit(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
         Reward.createRewards(rewards: defaultRewards,team : currentTeam, success: {
             print("--- Reward creation succes")
-            self.navigationController?.popToRootViewController(animated: true)
             
         }, failure: { (error : Error?) in
             print("---!!! reward creation error : \(error?.localizedDescription)")
         })
     }
 
+    func onBack(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func rewardCreationViewController(rewardCreationViewController: RewardCreationViewController, reward: PFObject) {
         defaultRewards.append(reward)
         tableView.reloadData()

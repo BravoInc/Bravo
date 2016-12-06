@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate, PostCellDelegate, UIScrollViewDelegate {
 
@@ -20,9 +21,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var compass_background : UIImageView!
     var compass_spinner : UIImageView!
     
+    // Refresh Control stuff
     var isRefreshIconsOverlap = false
     var isRefreshAnimating = false
     var refreshControl: UIRefreshControl!
+    
+    // MBProgressHUD stuff
+    var labelsArray = [UILabel]()
+    var isLoadAnimating = false
+    
+    var currentColorIndex = 0
+    var currentLabelIndex = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +62,99 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         getPosts()
     }
 
+    func loadCustomView() -> UIView {
+        let loadContents = Bundle.main.loadNibNamed("RefreshContents", owner: self, options: nil)
+        let customView = loadContents![0] as! UIView
+        customView.backgroundColor = UIColor.clear
+        
+        // Load labels array
+        for i in 0..<customView.subviews.count {
+            labelsArray.append(customView.viewWithTag(i + 1) as! UILabel)
+        }
+        
+        return customView
+    }
+    
+    func animateLoadStep1(hud: MBProgressHUD) {
+        isLoadAnimating = true
+        
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            self.labelsArray[self.currentLabelIndex].transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
+            self.labelsArray[self.currentLabelIndex].textColor = self.getNextColor()
+            
+        }, completion: { (finished) -> Void in
+            
+            UIView.animate(withDuration: 0.05, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                self.labelsArray[self.currentLabelIndex % self.labelsArray.count].transform = CGAffineTransform.identity
+                self.labelsArray[self.currentLabelIndex % self.labelsArray.count].textColor = UIColor.black
+                
+            }, completion: { (finished) -> Void in
+                self.currentLabelIndex += 1
+                
+                if self.currentLabelIndex < self.labelsArray.count {
+                    self.animateLoadStep1(hud: hud)
+                }
+                else {
+                    self.animateLoadStep2(hud: hud)
+                }
+            })
+        })
+    }
+    
+    func animateLoadStep2(hud: MBProgressHUD) {
+        UIView.animate(withDuration: 0.35, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            self.labelsArray[0].transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.labelsArray[1].transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.labelsArray[2].transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.labelsArray[3].transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.labelsArray[4].transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }, completion: { (finished) -> Void in
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                self.labelsArray[0].transform = CGAffineTransform.identity
+                self.labelsArray[1].transform = CGAffineTransform.identity
+                self.labelsArray[2].transform = CGAffineTransform.identity
+                self.labelsArray[3].transform = CGAffineTransform.identity
+                self.labelsArray[4].transform = CGAffineTransform.identity
+                
+            }, completion: { (finished) -> Void in
+                if hud.alpha == 0 {
+                    // Hide operation
+                    self.isLoadAnimating = false
+                    self.currentLabelIndex = 0
+                    for i in 0..<self.labelsArray.count {
+                        self.labelsArray[i].textColor = UIColor.black
+                        self.labelsArray[i].transform = CGAffineTransform.identity
+                    }
+                }
+                else {
+                    self.currentLabelIndex = 0
+                    self.animateLoadStep1(hud: hud)
+                }
+            })
+        })
+    }
+    
+    func getNextColor() -> UIColor {
+        var colorsArray = [purpleColor, greenColor, orangeColor, UIColor.magenta, UIColor.yellow]
+        
+        if currentColorIndex == colorsArray.count {
+            currentColorIndex = 0
+        }
+        
+        let returnColor = colorsArray[currentColorIndex]
+        currentColorIndex += 1
+        
+        return returnColor
+    }
+    
     func getPosts(){
+        // Show Progress HUD before fetching posts
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .customView
+        hud.customView = loadCustomView()
+        hud.minSize = CGSize(width: (hud.customView?.frame.size.width)! * 2, height: (hud.customView?.frame.size.height)!)
+        animateLoadStep1(hud: hud)
+        
         Post.getAllPosts(success: { (posts : [PFObject]?) in
             print("--- got \(posts?.count) posts")
             self.posts = posts!
@@ -72,8 +174,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 (error: Error?) in
                 print ("failed to get user post likes")
             })
+            hud.hide(animated: true)
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
+            hud.hide(animated: true)
             print("---!!! cant get posts : \(error?.localizedDescription)")
         })
     }

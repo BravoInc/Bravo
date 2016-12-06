@@ -12,5 +12,6 @@ target 'Bravo' do
   pod 'DateTools'
   pod 'SCLAlertView'
   pod 'ParseFacebookUtilsV4'
+  pod 'MBProgressHUD'
 
 end

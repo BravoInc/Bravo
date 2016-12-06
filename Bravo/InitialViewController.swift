@@ -10,6 +10,8 @@ import UIKit
 import UserNotifications
 import TTTAttributedLabel
 
+import Parse
+
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
@@ -17,7 +19,8 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+
         //UIApplication.shared.statusBarStyle = .lightContent
         
         self.disclaimer.delegate = self

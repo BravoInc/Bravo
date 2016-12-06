@@ -130,6 +130,7 @@ class LoginViewController: UIViewController {
                                                     }
                                                 }) // graphRequest
                                                 
+                                                self.afterSuccessLogin()
                                                 
                                             } else {
                                                 print("Uh oh. The user cancelled the Facebook login.")
@@ -141,44 +142,56 @@ class LoginViewController: UIViewController {
         
     } // on tap button
     
+    func afterSuccessLogin(){
+        // if you change things here, don't forget to change things in the success callback of the new account signup
+        
+        print("--- LOGIN success \(self.usernameTextField.text)")
+        let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
+        
+        let defaults = UserDefaults.standard
+        if let deviceTokenString = defaults.object(forKey: "deviceTokenString") as? String {
+            // if user permitted push notifications, save deviceTokenString to their profile
+            let user = PFUser.current()
+            user?["deviceTokenString"] = deviceTokenString
+            user?.saveInBackground()
+        }
+        
+        let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
+        let timelineViewController = timelineNavigationController.topViewController as! TimelineViewController
+        timelineNavigationController.tabBarItem.title = "Timeline"
+        //timelineNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+        
+        
+        let storyBoardTC = UIStoryboard(name: "TeamCreation", bundle: nil)
+        let teamNavigationController = storyBoardTC.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+        //let teamViewController = teamNavigationController.topViewController as! TeamViewController
+        teamNavigationController.tabBarItem.title = "Teams"
+        //teamNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+        
+        let leaderboardNavigationController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardNavigationController") as! UINavigationController
+        let leaderboardViewController = leaderboardNavigationController.topViewController as! LeaderboardViewController
+        leaderboardNavigationController.tabBarItem.title = "Leaderboard"
+        //leaderboardNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+        
+        let profileNavigationController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+        let profileViewController = profileNavigationController.topViewController as! ProfileViewController
+        profileNavigationController.tabBarItem.title = "Profile"
+        //profileNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
+        //tabBarController.selectedViewController = teamNavigationController
+        
+        self.present(tabBarController, animated: true, completion: nil)
+
+    } // after success login
+    
     @IBAction func onLogin(_ sender: Any) {
         user.username = usernameTextField.text
         user.password = passwordTextField.text
         
         user.logInUser(success: {
-            // if you change things here, don't forget to change things in the success callback of the new account signup
-            
-            print("--- LOGIN success \(self.usernameTextField.text)")
-            let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
-            
-            let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
-            let timelineViewController = timelineNavigationController.topViewController as! TimelineViewController
-            timelineNavigationController.tabBarItem.title = "Timeline"
-            //timelineNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-            
-            
-            let storyBoardTC = UIStoryboard(name: "TeamCreation", bundle: nil)
-            let teamNavigationController = storyBoardTC.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
-            //let teamViewController = teamNavigationController.topViewController as! TeamViewController
-            teamNavigationController.tabBarItem.title = "Teams"
-            //teamNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-            
-            let leaderboardNavigationController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardNavigationController") as! UINavigationController
-            let leaderboardViewController = leaderboardNavigationController.topViewController as! LeaderboardViewController
-            leaderboardNavigationController.tabBarItem.title = "Leaderboard"
-            //leaderboardNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-            
-            let profileNavigationController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
-            let profileViewController = profileNavigationController.topViewController as! ProfileViewController
-            profileNavigationController.tabBarItem.title = "Profile"
-            //profileNavigationController.tabBarItem.image = UIImage(named: "NoImage")
-            
-            let tabBarController = UITabBarController()
-            tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
-            //tabBarController.selectedViewController = teamNavigationController
-            
-            self.present(tabBarController, animated: true, completion: nil)
-            
+                self.afterSuccessLogin()
         })
     }
     
