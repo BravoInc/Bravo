@@ -159,7 +159,7 @@ class LoginViewController: UIViewController {
     func miscInit(){
         UIApplication.shared.statusBarStyle = .lightContent
         usernameTextField.becomeFirstResponder()
-        transparentNavBar()
+        // transparentNavBar()
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
         let backImage = UIImage(named: "backArrow128gray888.png")!
