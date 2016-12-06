@@ -11,5 +11,6 @@ target 'Bravo' do
   pod 'TTTAttributedLabel'
   pod 'DateTools'
   pod 'SCLAlertView'
+  pod 'ParseFacebookUtilsV4'
 
 end

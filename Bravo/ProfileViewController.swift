@@ -52,7 +52,9 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
         redeemButton.isHidden = true
 
         // Set name
-        userNameLabel.text = "\(user["firstName"]!) \(user["lastName"]!)"
+        if user["firstName"] != nil && user["lastName"] != nil {
+            userNameLabel.text = "\(user["firstName"]!) \(user["lastName"]!)"
+        }
 
         // Set image view
         setImageView(imageView: userImageView, user: user)
