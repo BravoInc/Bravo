@@ -19,6 +19,10 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     var leaders = [PFObject]()
     var skillName: String = ""
 
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,11 +45,12 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.register(UINib(nibName: "LeaderCell", bundle: nil), forCellReuseIdentifier: "LeaderCell")
         
-        getLeaders()
-    }
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getLeaders), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
 
-    override func viewWillAppear(_ animated: Bool) {
-        getLeaders()
+        getLeaders(refreshControl: progressControl.refreshControl)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,31 +69,51 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     }
     */
     
-    func getLeaders() {
+    func getLeaders(refreshControl: UIRefreshControl) {
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         UserSkillPoints.getUserPoints(success: { (userSkillPoints: [PFObject]?) in
             print ("-- got \(userSkillPoints?.count) leaders")
             self.leaders = userSkillPoints!
             self.filteredLeaders = self.leaders
             print ("-- leaders data: \(self.filteredLeaders)")
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
 
         }, failure: {(error: Error?) -> () in
             print ("-- error getting user data: \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
     }
     
     func getSkillLeaders() {
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
         Skills.getSkillPoints(skillName: skillName, success: { (userPoints: [PFObject]?) in
             print ("-- got \(userPoints?.count) leaders in \(self.skillName)")
             self.filteredLeaders = userPoints!
             print ("-- \(self.skillName) leaders data: \(self.filteredLeaders)")
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
             
         }, failure: {(error: Error?) -> () in
             print ("-- error getting leader data for \(self.skillName): \(error?.localizedDescription)")
             self.filteredLeaders = []
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,6 +161,7 @@ extension LeaderboardViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         skillName = searchBar.text!
+        isRefresh = false
         getSkillLeaders()
         searchBar.resignFirstResponder()
     }

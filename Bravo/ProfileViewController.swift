@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
+class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -25,21 +25,30 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
     var userSkillPoint: PFObject?
     var didRedeem: Bool = false
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadProfile()
+        
+        scrollView.delegate = self
+        
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(loadProfile), for: UIControlEvents.valueChanged)
+        scrollView.insertSubview(progressControl.refreshControl, at: 0)
+
+        loadProfile(refreshControl: progressControl.refreshControl)
         // Do any additional setup after loading the view.
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        if !didRedeem {
-            loadProfile()
-        } else {
-            didRedeem = !didRedeem
-        }
-    }
     
-    func loadProfile() {
+    func loadProfile(refreshControl: UIRefreshControl) {
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         // Set label background colors
         availableLabel.backgroundColor = greenColor
         redeemedLabel.backgroundColor = purpleColor
@@ -92,13 +101,19 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
                 (points: Int?) -> () in
                 givenPoints += points!
                 self.givenPointsLabel.text = "\(givenPoints)"
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
             }, failure: {
                 (error: Error?) -> () in
                 self.givenPointsLabel.text = "\(givenPoints)"
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
             })
         }, failure: {
             (error: Error?) -> () in
             self.givenPointsLabel.text = "\(givenPoints)"
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
         
     }
@@ -130,6 +145,9 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate {
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: scrollView.frame.size.width)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let redeemVC = segue.destination as! RedeemViewController

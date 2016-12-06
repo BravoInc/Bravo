@@ -26,6 +26,10 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     var userTeams = [PFObject]()
     var tempRewards = [PFObject]()
     
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -41,8 +45,12 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.register(UINib(nibName : "TeamCell", bundle : nil), forCellReuseIdentifier: "TeamCell")
         //tableView.register(UINib(nibName : "AddTeamCell", bundle : nil), forCellReuseIdentifier: "AddTeamCell")
         
-        getUserTeams()
-        // Do any additional setup after loading the view.
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getUserTeams), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getUserTeams(refreshControl: progressControl.refreshControl)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -65,25 +73,39 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         }
     }
     
-    func getTeams(){
+    func getTeams(refreshControl: UIRefreshControl){
         Team.getAllTeams(userTeams: self.userTeams, success: { (teams : [Team]?) in
             print("--- got \(teams?.count) teams")
             self.allTeams = teams!
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         }, failure: { (error : Error?) in
             print("---!!! cant get All teams : \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
     }
     
-    func getUserTeams(){
+    func getUserTeams(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
         Team.getUserTeams(user: BravoUser.getLoggedInUser(), success: { (userTeams : [PFObject]?) in
             print("--- got \(userTeams?.count) User teams")
             self.userTeams = userTeams!
-            self.getTeams()
+            self.getTeams(refreshControl: refreshControl)
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get user teams : \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

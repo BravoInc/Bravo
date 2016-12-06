@@ -26,6 +26,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var post: PFObject!
     var isPostLiked: Bool!
     
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,10 +60,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
         messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
         
-        // Setting image views
-        setImageView(imageView: senderImageView, user: sender)
-        setImageView(imageView: recipientImageView, user: recipient)
-        
         pointsLabel.textColor = greenColor
         pointsLabel.text = "+" + ("\(post["points"]!)")
         
@@ -76,7 +76,18 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         commentCountLabel.text = "\(post["commentCount"]!)"
         
-        getComments(post: post)
+        
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getComments), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getComments(refreshControl: progressControl.refreshControl)
+        
+        // Setting image views
+        setImageView(imageView: senderImageView, user: sender)
+        setImageView(imageView: recipientImageView, user: recipient)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,14 +95,26 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    func getComments(post: PFObject){
+    func getComments(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
         Comment.getComments(post: post, success: { (comments : [PFObject]?) in
             print("--- got \(comments?.count) comments")
             self.comments = comments!
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         }, failure: { (error : Error?) in
             print("---!!! cant get comments : \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
         })
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

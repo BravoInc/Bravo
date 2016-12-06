@@ -24,6 +24,10 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     
     var canJoinTeam = false
     
+    // Progress control
+    let progressControl = ProgressControls()
+    var isRefresh = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +55,12 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         tableView.register(UINib(nibName: "RewardCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
         
-        getUsers()
-        getTeamRewards()
+        // When activated, invoke our refresh function
+        progressControl.setupRefreshControl()
+        progressControl.refreshControl.addTarget(self, action: #selector(getUsers), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(progressControl.refreshControl, at: 0)
+
+        getUsers(refreshControl: progressControl.refreshControl)
     }
     
     func joinTapped(){
@@ -79,6 +87,9 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             print("---!!! Failed to join team : \(error?.localizedDescription) ")
         })
 
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,13 +146,22 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         }
     }
     
-    func getUsers(){
+    func getUsers(refreshControl: UIRefreshControl){
+        // Show Progress HUD before fetching posts
+        if !isRefresh {
+            progressControl.showProgressHud(owner: self, view: self.view)
+        }
+
         BravoUser.getTeamUsers(team: team, success: { (users : [PFUser]?) in
             print("--- got \(users?.count) users")
             self.users = users ?? self.users
+            self.getTeamRewards()
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
         })
     }
     
@@ -150,8 +170,14 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             print("--- got \(rewards?.count) rewards")
             self.rewards = rewards ?? self.rewards
             self.tableView.reloadData()
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
         }, failure: { (error : Error?) in
             print("---!!! failed to get rewards")
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.isRefresh = true
+
             
         })
     }
