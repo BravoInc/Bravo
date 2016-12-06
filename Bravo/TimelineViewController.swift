@@ -10,11 +10,11 @@ import UIKit
 import Parse
 import MBProgressHUD
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate, PostCellDelegate {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PostComposeViewControllerDelegate, PostCellDelegate, CommentsViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var posts = [PFObject]()
-    var postIdLikeMap = [Int : Bool]()
+    var postIdLikeMap = [String : Bool]()
     
     // Progress control
     let progressControl = ProgressControls()
@@ -63,19 +63,24 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                     for postLike in postLikes! {
                         if self.posts[i].objectId! == (postLike["post"] as! PFObject).objectId! {
                             print ("post id matched")
-                            self.postIdLikeMap[i] = true
+                            print ("\(posts?[i]["message"]) - \(posts?[i]["likeCount"]) \((postLike["post"] as! PFObject)["isLiked"])")
+                            self.postIdLikeMap[self.posts[i].objectId!] = (postLike["isLiked"]! as! Bool)
                             break
                         }
                     }
                 }
+                self.tableView.reloadData()
+                
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
+
             }, failure: {
                 (error: Error?) in
                 print ("failed to get user post likes")
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.isRefresh = true
+
             })
-            self.tableView.reloadData()
-            
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
-            self.isRefresh = true
 
         }, failure: { (error : Error?) in
             self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
@@ -95,7 +100,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let postCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         postCell.delegate = self
-        postCell.likeButton.isSelected = postIdLikeMap[indexPath.row] ?? false
+        let postId = posts[indexPath.row].objectId ?? ""
+        postCell.isLiked = postIdLikeMap[postId] ?? false
         postCell.post = posts[indexPath.row]
         
         return postCell
@@ -114,12 +120,22 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
+    func like(post: PFObject, isLiked: Bool) {
+        postIdLikeMap[post.objectId!] = isLiked
+    }
+
+    func postLiked(post: PFObject, isLiked: Bool) {
+        postIdLikeMap[post.objectId!] = isLiked
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at:indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let commentsViewController = storyboard.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsViewController
         commentsViewController.post = posts[indexPath.row]
-        commentsViewController.isPostLiked = postIdLikeMap[indexPath.row] ?? false
+        commentsViewController.isPostLiked = postIdLikeMap[posts[indexPath.row].objectId!] ?? false
+        commentsViewController.delegate = self
         
         show(commentsViewController, sender: self)
     }

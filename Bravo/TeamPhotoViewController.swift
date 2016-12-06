@@ -13,7 +13,7 @@ import Parse
     @objc optional func addTeam(team: PFObject, rewards: [PFObject])
 }
 
-class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, RewardsViewControllerDelegate {
+class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, RewardsViewControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var selectedPhoto: UIImageView!
     @IBOutlet weak var teamNameTextField: UITextField!
@@ -36,10 +36,12 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         miscInit()
         
-        
+        teamNameTextField.delegate = self
         nextButton.isHidden = true
         selectedPhoto.isHidden = true
         //selectedPhotoAspectRatioConstraint?.isActive = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,6 +176,19 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: nil, action: nil)
 
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    func tap(gesture: UITapGestureRecognizer) {
+        teamNameTextField.resignFirstResponder()
     }
     
     func backButtonPressed() {

@@ -23,7 +23,7 @@ class PostLikes: PFObject {
             if error == nil  {
                 let postLike = (postLikes?.count ?? 0 ) >= 1 ? postLikes![0] : newPostLike
                 postLike["isLiked"] = isLiked
-
+                print ("Existing postlike found. ")
                 
                 success(postLike)
             } else {
