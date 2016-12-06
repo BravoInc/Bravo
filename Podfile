@@ -14,5 +14,6 @@ target 'Bravo' do
   pod 'ParseFacebookUtilsV4'
   pod 'MBProgressHUD'
   pod 'DZNEmptyDataSet'
+  pod 'FaveButton'
 
 end

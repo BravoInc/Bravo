@@ -7,6 +7,7 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - DateTools (1.7.0)
   - DZNEmptyDataSet (1.8.1)
+  - FaveButton (2.0.2)
   - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.18.0):
@@ -26,6 +27,7 @@ PODS:
 DEPENDENCIES:
   - DateTools
   - DZNEmptyDataSet
+  - FaveButton
   - MBProgressHUD
   - Parse
   - ParseFacebookUtilsV4
@@ -36,6 +38,7 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FaveButton: e26f7964669b4befda7d92a6779be7b2a70ab161
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 56cf9ce6ee4627953965884eb30f1fd366e2a3fd
+PODFILE CHECKSUM: 8442ece6223cb37db784e3d395d12e70627860fa
 
 COCOAPODS: 1.1.1
