@@ -36,6 +36,7 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         miscInit()
         
+        
         nextButton.isHidden = true
         selectedPhoto.isHidden = true
         //selectedPhotoAspectRatioConstraint?.isActive = false
@@ -155,7 +156,7 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     func miscInit(){
         UIApplication.shared.statusBarStyle = .lightContent
         
-        //emailTextField.becomeFirstResponder()
+        teamNameTextField.becomeFirstResponder()
         
         let button: UIButton = UIButton(type: UIButtonType.custom)
         //set image for button
