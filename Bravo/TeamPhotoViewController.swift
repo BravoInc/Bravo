@@ -9,7 +9,11 @@
 import UIKit
 import Parse
 
-class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+@objc protocol TeamPhotoViewControllerDelegate {
+    @objc optional func addTeam(team: PFObject, rewards: [PFObject])
+}
+
+class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, RewardsViewControllerDelegate {
     
     @IBOutlet weak var selectedPhoto: UIImageView!
     @IBOutlet weak var teamNameTextField: UITextField!
@@ -25,6 +29,8 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     
     var teamPhoto: UIImage?
     var team: PFObject!
+    
+    weak var delegate: TeamPhotoViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,47 +77,37 @@ class TeamPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func onSignUp(_ sender: Any) {
         
         Team.isNewTeam(teamName: teamNameTextField.text!, success: {
-            Team.createTeam(teamName: self.teamNameTextField.text!, success: { (team : PFObject) in
-                print("--- team created : \(self.teamNameTextField.text!)")
-                self.team = team
-                
-                
-                if self.teamPhoto != nil {
-                    
-                    let imageData = UIImagePNGRepresentation(self.teamPhoto!)
-                    let imageFile = PFFile(name:"image.png", data:imageData!)
-                    
-                    self.team["teamImage"] = imageFile
-                    
-                    self.team.saveInBackground(block: { (succeeded: Bool, error:Error?) in
-                        if(succeeded == true){
-                            print("--- new team photo upload OK")
-                        }else{
-                            print("---!!! new team photo upload FAIL")
-                        }
-                        
-                        if let e = error{
-                            print("---!!! new team photo upload: \(e.localizedDescription)")
-                        }
-                    })
-                    
-                } // photo not nil
-                
-                let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
-                rewardsVC.currentTeam = self.team
-                
-                self.show(rewardsVC, sender: self)
+            self.team = Team.createTeam(teamName: self.teamNameTextField.text!, teamPic: self.teamPhoto)
 
-                
-                
-            })
+            let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+            let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
+            rewardsVC.currentTeam = self.team
+            rewardsVC.delegate = self
+            
+            self.show(rewardsVC, sender: self)
         }, failure: {
             //self.showTeamErrorDialog(teamName: self.teamNameTextField.text!)
             self.teamNameTextField.text = ""
         })
         
     } //on next button
+    
+    func saveRewards(rewards: [PFObject]) {
+        delegate?.addTeam?(team: self.team, rewards: rewards)
+        Team.saveTeam(team: self.team, success: {
+            (team: PFObject) -> () in
+            Reward.saveRewards(rewards: rewards, team : self.team, success: {
+                print("--- Reward creation success")
+                
+            }, failure: { (error : Error?) in
+                print("---!!! reward creation error : \(error?.localizedDescription)")
+            })
+ 
+        }, failure: {
+            (error: Error?) -> () in
+            print ("-- error creating a team \(error?.localizedDescription)")
+        })
+    }
     
     @IBAction func onPhotosTap(_ sender: Any) {
         let vc = UIImagePickerController()

@@ -138,7 +138,7 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     func getUsers(){
         BravoUser.getTeamUsers(team: team, success: { (users : [PFUser]?) in
             print("--- got \(users?.count) users")
-            self.users = users!
+            self.users = users ?? self.users
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
@@ -148,10 +148,11 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     func getTeamRewards(){
         Team.getTeamRewards(team: team, success: { (rewards : [PFObject]?) in
             print("--- got \(rewards?.count) rewards")
-            self.rewards = rewards!
+            self.rewards = rewards ?? self.rewards
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! failed to get rewards")
+            
         })
     }
     
