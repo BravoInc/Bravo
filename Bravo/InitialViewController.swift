@@ -10,6 +10,9 @@ import UIKit
 import UserNotifications
 import TTTAttributedLabel
 
+import Parse
+import FBSDKCoreKit
+
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
     @IBOutlet weak var disclaimer: TTTAttributedLabel!
@@ -17,6 +20,10 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        if (FBSDKAccessToken.current() != nil){
+            print("--- initial VC: FB ACCESS TOKEN EXISTS")
+        }
         
         //UIApplication.shared.statusBarStyle = .lightContent
         

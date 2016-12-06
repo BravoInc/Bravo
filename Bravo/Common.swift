@@ -10,6 +10,51 @@ import Foundation
 import Parse
 import SCLAlertView
 
+func afterSuccessLogin() -> UITabBarController{
+    // if you change things here, don't forget to change things in the success callback of the new account signup
+    
+    print("--- LOGIN success")
+    let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
+    
+    let defaults = UserDefaults.standard
+    if let deviceTokenString = defaults.object(forKey: "deviceTokenString") as? String {
+        // if user permitted push notifications, save deviceTokenString to their profile
+        let user = PFUser.current()
+        user?["deviceTokenString"] = deviceTokenString
+        user?.saveInBackground()
+    }
+    
+    let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
+    let timelineViewController = timelineNavigationController.topViewController as! TimelineViewController
+    timelineNavigationController.tabBarItem.title = "Timeline"
+    //timelineNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+    
+    
+    let storyBoardTC = UIStoryboard(name: "TeamCreation", bundle: nil)
+    let teamNavigationController = storyBoardTC.instantiateViewController(withIdentifier: "TeamNavigationController") as! UINavigationController
+    //let teamViewController = teamNavigationController.topViewController as! TeamViewController
+    teamNavigationController.tabBarItem.title = "Teams"
+    //teamNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+    
+    let leaderboardNavigationController = storyBoard.instantiateViewController(withIdentifier: "LeaderboardNavigationController") as! UINavigationController
+    let leaderboardViewController = leaderboardNavigationController.topViewController as! LeaderboardViewController
+    leaderboardNavigationController.tabBarItem.title = "Leaderboard"
+    //leaderboardNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+    
+    let profileNavigationController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationController") as! UINavigationController
+    let profileViewController = profileNavigationController.topViewController as! ProfileViewController
+    profileNavigationController.tabBarItem.title = "Profile"
+    //profileNavigationController.tabBarItem.image = UIImage(named: "NoImage")
+    
+    let tabBarController = UITabBarController()
+    tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
+    //tabBarController.selectedViewController = teamNavigationController
+    
+    return tabBarController
+    
+} // after success login
+
+
 func sendPushNotification(recipient: PFUser, message: String) -> Void {
     
     guard recipient["deviceTokenString"] != nil && message != "" else {
@@ -194,6 +239,8 @@ func getTabBarController() -> UITabBarController {
     tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
     //tabBarController.selectedViewController = teamNavigationController
     
+    configureAppearanceProxies()
+    
     return tabBarController
 }
 
@@ -214,5 +261,25 @@ func displayAlert(title: String, subTitle: String, duration: TimeInterval, showC
         colorStyle: 0x50D2C2,
         colorTextButton: 0x50D2C2
     )
+}
+
+func configureAppearanceProxies() {
+    // App-wide fonts for bar button item, tab bar, text field and text view
+    UINavigationBar.appearance().tintColor = UIColor.white
+    UINavigationBar.appearance().backgroundColor = greenColor
+    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().barTintColor = greenColor
+    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
+    
+    
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : purpleColor], for: .selected)
+    UITabBar.appearance().barTintColor = greenColor
+    
+    UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 16)!], for: .normal)
+    UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+    UITextView.appearance().font = UIFont(name: "Avenir-Light", size: 14)
+    
+    UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 }
 

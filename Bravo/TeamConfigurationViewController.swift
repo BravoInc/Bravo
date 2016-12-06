@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TeamPhotoViewControllerDelegate {
     
     let NUM_SECTIONS = 2
     
@@ -22,6 +22,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var tableView: UITableView!
     var allTeams = [PFObject]()
     var userTeams = [PFObject]()
+    var tempRewards = [PFObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,26 +109,23 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
-        if(indexPath.section == SECTION_USER_TEAMS && indexPath.row == userTeams.count ){
-            let teamCreationViewController = storyboard.instantiateViewController(withIdentifier: "TeamCreationViewController") as! TeamCreationViewController
-            //self.present(teamCreationViewController, animated: true, completion: nil)
-            self.navigationController?.pushViewController(teamCreationViewController, animated: true)
-        } else {
         
-            print("--- all good 1")
-            let teamAdditionalDetailsViewController = storyboard.instantiateViewController(withIdentifier: "TeamAdditionalDetailsViewController") as! TeamAdditionalDetailsViewController
-            print("--- all good 2")
-            
-            
-            if (indexPath.section == SECTION_USER_TEAMS) {
-                teamAdditionalDetailsViewController.team = userTeams[indexPath.row]
-            } else {
-                teamAdditionalDetailsViewController.team = allTeams[indexPath.row]
-                teamAdditionalDetailsViewController.canJoinTeam = true
-            }
-            
-            self.navigationController?.pushViewController(teamAdditionalDetailsViewController, animated: true)
+        print("--- all good 1")
+        let teamAdditionalDetailsViewController = storyboard.instantiateViewController(withIdentifier: "TeamAdditionalDetailsViewController") as! TeamAdditionalDetailsViewController
+        print("--- all good 2")
+        
+        
+        if (indexPath.section == SECTION_USER_TEAMS) {
+            teamAdditionalDetailsViewController.team = userTeams[indexPath.row]
+            teamAdditionalDetailsViewController.users = [PFUser.current()!]
+            teamAdditionalDetailsViewController.rewards = tempRewards
+        } else {
+            teamAdditionalDetailsViewController.team = allTeams[indexPath.row]
+            teamAdditionalDetailsViewController.canJoinTeam = true
         }
+        
+        self.navigationController?.pushViewController(teamAdditionalDetailsViewController, animated: true)
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -149,15 +147,20 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToTeamConfig(segue: UIStoryboardSegue) {
+        print ("unwind successfull")
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    func addTeam(team: PFObject, rewards: [PFObject]) {
+        userTeams.insert(team, at: 0)
+        tempRewards = rewards
+        tableView.reloadData()
+    }
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        let teamPhotoNav = segue.destination as! UINavigationController
+        let teamPhotoVC = teamPhotoNav.topViewController as! TeamPhotoViewController
+        teamPhotoVC.delegate = self
      }
-     */
     
 }

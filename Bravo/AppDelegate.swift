@@ -11,6 +11,9 @@ import Parse
 //import OneSignal
 import UserNotifications
 
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -18,11 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let ParseAppID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
     let ParseClientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
     
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        return handled
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Initialize Parse.
         Parse.setApplicationId(ParseAppID, clientKey: ParseClientKey)
+        
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //Add this line. Replace '5eb5a37e-b458-11e3-ac11-000c2940e62c' with your OneSignal App ID.
         //OneSignal.initWithLaunchOptions(launchOptions, appId: "5eb5a37e-b458-11e3-ac11-000c2940e62c")
@@ -67,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PFUser.current() != nil {
             let tabBarController = getTabBarController()
             window?.rootViewController = tabBarController
-            window!.makeKeyAndVisible()
+//            window!.makeKeyAndVisible()
         }
         
         // Print the font family names available in the app
@@ -81,23 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }*/
         
         
-        // App-wide fonts for bar button item, tab bar, text field and text view
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().backgroundColor = greenColor
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = greenColor
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18)!, NSForegroundColorAttributeName : UIColor.white]
-
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : UIColor.white], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12)!, NSForegroundColorAttributeName : purpleColor], for: .selected)
-        UITabBar.appearance().barTintColor = greenColor
-        
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 16)!], for: .normal)
-        UITextField.appearance().font = UIFont(name: "Avenir-Light", size: 14)
-        UITextView.appearance().font = UIFont(name: "Avenir-Light", size: 14)
-        
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
         
         return true
