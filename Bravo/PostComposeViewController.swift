@@ -39,11 +39,13 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
             let recipient = post!["recipient"] as! BravoUser
             recipientTextField.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
             recipientTextField.isEnabled = false
-            recipientTextField.backgroundColor = UIColor.lightGray
+            //recipientTextField.backgroundColor = UIColor.lightGray
+            recipientTextField.textColor = twitterBlack
             
             skillsTextField.text = "\(post!["skill"]!)"
             skillsTextField.isEnabled = false
-            skillsTextField.backgroundColor = UIColor.lightGray
+            //skillsTextField.backgroundColor = UIColor.lightGray
+            skillsTextField.textColor = twitterBlack
         }
         scrollView.keyboardDismissMode = .onDrag
         recipientTextField.inputView = UIView() // So that keyboard doesnt pop up

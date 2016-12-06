@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uh5-n0-NGg" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks2-ki-fIo">
                                                 <rect key="frame" x="16" y="16" width="85" height="28"/>
@@ -90,37 +90,37 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2W-1C-OPE">
-                                                <rect key="frame" x="16" y="88" width="56" height="28"/>
+                                                <rect key="frame" x="16" y="162" width="56" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                                 <color key="textColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="How many points?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUt-n5-Irc">
-                                                <rect key="frame" x="16" y="124" width="343" height="20"/>
+                                                <rect key="frame" x="16" y="198" width="343" height="20"/>
                                                 <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siw-1T-18j">
-                                                <rect key="frame" x="16" y="160" width="45" height="28"/>
+                                                <rect key="frame" x="16" y="89" width="45" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                                 <color key="textColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Skill to recognize for?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xnd-FX-FiF">
-                                                <rect key="frame" x="16" y="196" width="343" height="20"/>
+                                                <rect key="frame" x="16" y="125" width="343" height="20"/>
                                                 <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzR-1A-9Ms">
-                                                <rect key="frame" x="16" y="232" width="81" height="28"/>
+                                                <rect key="frame" x="16" y="235" width="81" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                                 <color key="textColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GR6-Oo-Z8B">
-                                                <rect key="frame" x="16" y="268" width="343" height="140"/>
+                                                <rect key="frame" x="16" y="271" width="343" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="fts-NA-aIL"/>
                                                 </constraints>
@@ -129,14 +129,14 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbV-G7-YI7">
-                                                <rect key="frame" x="16" y="144" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="218" width="343" height="1"/>
                                                 <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="UMe-us-0j5"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScF-uu-jD5">
-                                                <rect key="frame" x="16" y="216" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="145" width="343" height="1"/>
                                                 <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Ryy-d1-a29"/>
@@ -148,20 +148,20 @@
                                             <constraint firstItem="P2W-1C-OPE" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="3nC-HS-wgE"/>
                                             <constraint firstAttribute="trailing" secondItem="Xnd-FX-FiF" secondAttribute="trailing" constant="16" id="43c-LV-wMI"/>
                                             <constraint firstAttribute="trailing" secondItem="GR6-Oo-Z8B" secondAttribute="trailing" constant="16" id="6l1-0q-gI9"/>
+                                            <constraint firstItem="jzR-1A-9Ms" firstAttribute="top" secondItem="qbV-G7-YI7" secondAttribute="bottom" constant="16" id="9nh-Hi-yUM"/>
                                             <constraint firstItem="VaW-Yo-xrv" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="AlR-yp-gsg"/>
                                             <constraint firstAttribute="bottom" secondItem="GR6-Oo-Z8B" secondAttribute="bottom" constant="200" id="BJs-Rg-k8c"/>
                                             <constraint firstItem="dgS-h0-1dq" firstAttribute="trailing" secondItem="VaW-Yo-xrv" secondAttribute="trailing" id="BYS-4k-8qE"/>
                                             <constraint firstItem="ScF-uu-jD5" firstAttribute="trailing" secondItem="Xnd-FX-FiF" secondAttribute="trailing" id="DMo-SS-0kw"/>
                                             <constraint firstItem="GR6-Oo-Z8B" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="GPC-33-q6f"/>
-                                            <constraint firstItem="Siw-1T-18j" firstAttribute="top" secondItem="qbV-G7-YI7" secondAttribute="bottom" constant="15" id="LWD-fJ-qZw"/>
+                                            <constraint firstItem="P2W-1C-OPE" firstAttribute="top" secondItem="ScF-uu-jD5" secondAttribute="bottom" constant="16" id="LWW-4j-gjn"/>
                                             <constraint firstItem="Xnd-FX-FiF" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="Lzu-UM-GY4"/>
                                             <constraint firstItem="Siw-1T-18j" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="NGz-bW-jeX"/>
-                                            <constraint firstItem="P2W-1C-OPE" firstAttribute="top" secondItem="dgS-h0-1dq" secondAttribute="bottom" constant="15" id="NOc-gG-K8N"/>
                                             <constraint firstAttribute="trailing" secondItem="eUt-n5-Irc" secondAttribute="trailing" constant="16" id="S4Z-A1-xgP"/>
-                                            <constraint firstItem="jzR-1A-9Ms" firstAttribute="top" secondItem="ScF-uu-jD5" secondAttribute="bottom" constant="15" id="Uv1-wX-Z8U"/>
                                             <constraint firstItem="jzR-1A-9Ms" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="WvF-Af-Eo3"/>
                                             <constraint firstItem="eUt-n5-Irc" firstAttribute="top" secondItem="P2W-1C-OPE" secondAttribute="bottom" constant="8" id="XEC-XM-FT9"/>
                                             <constraint firstItem="dgS-h0-1dq" firstAttribute="leading" secondItem="VaW-Yo-xrv" secondAttribute="leading" id="bkY-0e-M1Y"/>
+                                            <constraint firstItem="Siw-1T-18j" firstAttribute="top" secondItem="dgS-h0-1dq" secondAttribute="bottom" constant="16" id="cZH-co-E88"/>
                                             <constraint firstAttribute="trailing" secondItem="VaW-Yo-xrv" secondAttribute="trailing" constant="16" id="cwg-Gf-0cB"/>
                                             <constraint firstItem="Xnd-FX-FiF" firstAttribute="top" secondItem="Siw-1T-18j" secondAttribute="bottom" constant="8" id="dUj-Y9-SBB"/>
                                             <constraint firstItem="eUt-n5-Irc" firstAttribute="leading" secondItem="uh5-n0-NGg" secondAttribute="leading" constant="16" id="df4-nd-1pg"/>
@@ -762,7 +762,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TimelineNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gwc-IN-DNC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dhz-Xy-nGF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dhz-Xy-nGF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -798,7 +798,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LeaderboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A2P-1q-drZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwh-SR-0QN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uwh-SR-0QN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -816,7 +816,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nZs-7Y-aS2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsN-Q2-oyl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xsN-Q2-oyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -834,7 +834,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PostComposeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="oeV-GH-8gM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBZ-1r-Xsb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UBZ-1r-Xsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -852,7 +852,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SelectionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rET-Cq-Wvz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suV-hY-t4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="suV-hY-t4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
