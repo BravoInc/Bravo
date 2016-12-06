@@ -56,7 +56,7 @@ class Team: PFObject {
         query.order(byDescending: "createdAt")
         query.includeKey("adminUser")
         query.findObjectsInBackground { (teams: [PFObject]?, error: Error?) in
-            if error == nil && teams?.count ?? 0 > 0 {
+            if error == nil {
                 success(teams)
             } else {
                 failure(error)

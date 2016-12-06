@@ -63,7 +63,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
 
         Team.getUserTeams(user: BravoUser.getLoggedInUser(), success: { (teams : [PFObject]?) in
             print("--- got \(teams?.count) teams")
-            self.filteredTeams = teams!
+            self.filteredTeams = teams ?? self.filteredTeams
             self.teams = teams!
             self.tableView.reloadData()
             self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)

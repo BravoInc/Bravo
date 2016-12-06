@@ -687,6 +687,7 @@
                         <outlet property="redeemButton" destination="dbb-c2-9WV" id="ua9-cq-rIH"/>
                         <outlet property="redeemedLabel" destination="6Bd-at-bvw" id="04n-em-Zcu"/>
                         <outlet property="redeemedPointsLabel" destination="J4o-gy-egQ" id="JzU-Ec-M59"/>
+                        <outlet property="scrollView" destination="iXs-Q1-6RW" id="wZl-aI-KYg"/>
                         <outlet property="userImageView" destination="c22-47-a58" id="Guf-jb-yLP"/>
                         <outlet property="userNameLabel" destination="9BR-U7-FeI" id="q5l-C9-jIw"/>
                     </connections>
@@ -752,7 +753,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LeaderboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A2P-1q-drZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwh-SR-0QN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uwh-SR-0QN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -806,7 +807,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SelectionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rET-Cq-Wvz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suV-hY-t4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="suV-hY-t4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
