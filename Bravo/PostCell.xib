@@ -66,16 +66,30 @@
                                     <constraint firstAttribute="height" constant="1" id="eu0-FB-Zoq"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erM-PN-b5z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erM-PN-b5z" customClass="FaveButton" customModule="FaveButton">
                                 <rect key="frame" x="70" y="185" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="8ff-Ut-m1m"/>
                                     <constraint firstAttribute="width" constant="24" id="Ih0-u1-Kyz"/>
                                 </constraints>
-                                <state key="normal" image="thumbsup_filled"/>
-                                <connections>
-                                    <action selector="onLikeTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gyg-eX-ytP"/>
-                                </connections>
+                                <state key="normal" image="thumbsup_outline">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" red="0.54901960780000003" green="0.53333333329999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dotFirstColor">
+                                        <color key="value" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dotSecondColor">
+                                        <color key="value" red="0.54901960780000003" green="0.53333333329999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uP1-o2-ftm">
                                 <rect key="frame" x="159" y="185" width="24" height="24"/>
@@ -158,6 +172,6 @@
     </objects>
     <resources>
         <image name="comment" width="240" height="240"/>
-        <image name="thumbsup_filled" width="64" height="64"/>
+        <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
 </document>
