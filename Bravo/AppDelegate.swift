@@ -18,8 +18,14 @@ import ParseFacebookUtilsV4
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let ParseAppID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
-    let ParseClientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
+    //Keys for dev app
+    //let ParseAppID = "CTLT83tmRhI9WG8ryn5faymg4eanXhsDiNhm18dj"
+    //let ParseClientKey = "OWOvOsMyzRnfa5E9Swv2adzYiMbwj9vYQlSEY46I"
+    
+    //Keys for demo app
+    let ParseAppID = "32JHVD95oXffMcefSB4VxAVDtrU6H92j35aH679h"
+    let ParseClientKey = "gQeZDDWXZk4fLPe1wdvjplI8HMqp9a4YfP5n4ahH"
+    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
