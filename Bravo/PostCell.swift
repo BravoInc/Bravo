@@ -47,7 +47,17 @@ class PostCell: UITableViewCell {
             setImageView(imageView: recipientImageView, user: recipient)
             
             pointsLabel.textColor = greenColor
-            pointsLabel.text = "+" + ("\(post["points"]!)")
+            
+            let totalPoints = post["points"]! as! Int
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            
+            if let totalPointsString = numberFormatter.string(from: NSNumber(value: totalPoints))! as? String {
+                pointsLabel.text = "+" + ("\(totalPointsString)")
+            }else{
+                pointsLabel.text = "+" + ("\(post["points"]!)")
+            }
+            
             likeCountLabel.text = "\(post["likeCount"]!)"
             
             if (post.createdAt != nil ){
