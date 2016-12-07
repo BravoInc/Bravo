@@ -44,6 +44,7 @@ class Post: PFObject {
         query.order(byDescending: "createdAt")
         query.includeKey("sender")
         query.includeKey("recipient")
+        query.includeKey("team")
         
         
         query.findObjectsInBackground { (posts : [PFObject]?, error : Error?) in

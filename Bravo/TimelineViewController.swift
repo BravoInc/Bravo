@@ -103,6 +103,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let postId = posts[indexPath.row].objectId ?? ""
         postCell.isLiked = postIdLikeMap[postId] ?? false
         print ("\(postCell.isLiked)")
+        let currPost = posts[indexPath.row]
+        let team = currPost["team"] as! PFObject
+        
+        postCell.team = team
         postCell.post = posts[indexPath.row]
         
         return postCell
@@ -134,8 +138,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at:indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let commentsViewController = storyboard.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsViewController
+        
+        let currPost = posts[indexPath.row]
+        let team = currPost["team"] as! PFObject
+        
         commentsViewController.post = posts[indexPath.row]
         commentsViewController.isPostLiked = postIdLikeMap[posts[indexPath.row].objectId!] ?? false
+        commentsViewController.team = team
         commentsViewController.delegate = self
         
         show(commentsViewController, sender: self)

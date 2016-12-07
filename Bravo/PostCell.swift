@@ -32,13 +32,14 @@ class PostCell: UITableViewCell {
     weak var delegate: PostCellDelegate?
     var commentCount = 0
     var isLiked: Bool!
+    var team : PFObject!
     
     var post: PFObject! {
         didSet {
             let sender = post["sender"] as! BravoUser
             let recipient = post["recipient"] as! BravoUser
             
-            postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
+            postHeaderTextCreate(recipient: recipient, sender: sender, team : team,headerLabel: recipientNameLabel)
             messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
 
             // Setting sender and recipient image views

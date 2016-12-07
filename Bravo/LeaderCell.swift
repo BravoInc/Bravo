@@ -20,9 +20,26 @@ class LeaderCell: UITableViewCell {
     var leaderSkillPoints: PFObject! {
         didSet {
             let leader = leaderSkillPoints["user"] as! BravoUser
+
+            let totalPoints = leaderSkillPoints["totalPoints"]! as! Int
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            
+            if let totalPointsString = numberFormatter.string(from: NSNumber(value: totalPoints))! as? String {
+                
+                if(totalPointsString == "1"){
+                    totalPointsLabel.text = "1 TOTAL POINT"
+                }else{
+                    totalPointsLabel.text = "\(totalPointsString) TOTAL POINTS"
+                }
+                
+                
+            }else{
+                totalPointsLabel.text = "0 TOTAL POINTS"
+            }
             
             leaderNameLabel.text = "\(leader["firstName"]!) \(leader["lastName"]!)"
-            totalPointsLabel.text = "\(leaderSkillPoints["totalPoints"]!) total points"
+            
             skillsLabel.text = "\((leaderSkillPoints["skills"]! as! Array).joined(separator: ", "))"
 
             // Setting leader image view
