@@ -131,12 +131,17 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func onRedeem(_ sender: UIBarButtonItem) {
+        var numRewards = 0
         for i in 0..<availableRewards.count {
             if indexSelection[i]! {
+                numRewards += 1
                 availableRewards[i]["isClaimed"] = true
                 availableRewards[i]["claimedBy"] = BravoUser.getLoggedInUser()
             }
         }
+
+        let rewardsStr = numRewards == 1 ? "reward" : "rewards"
+        displayMessage(title: "Bravo!", subTitle: "You have successfully redeemed \(numRewards) \(rewardsStr)!", duration: 3.0, showCloseButton: false, messageStyle: .success)
 
         self.userSkillPoint!["availablePoints"] = (self.userSkillPoint!["availablePoints"] as! Int) - self.selectedPoints
         
@@ -156,7 +161,10 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print ("-- Error updating rewards: \(error?.localizedDescription)")
         })
         
-        navigationController?.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+            self.navigationController?.popViewController(animated: true)
+        }
+
         
     }
     
