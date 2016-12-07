@@ -30,6 +30,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var comments = [PFObject]()
     var post: PFObject!
     var isPostLiked: Bool!
+    var team: PFObject!
     weak var delegate: CommentsViewControllerDelegate?
     
     // Progress control
@@ -62,7 +63,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let recipient = post["recipient"] as! BravoUser
         
         //recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
-        postHeaderTextCreate(recipient: recipient, sender: sender, headerLabel: recipientNameLabel)
+        postHeaderTextCreate(recipient: recipient, sender: sender, team : team,headerLabel: recipientNameLabel)
         messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
         
         pointsLabel.textColor = greenColor

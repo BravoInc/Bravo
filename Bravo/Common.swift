@@ -166,21 +166,27 @@ extension UIImageView{
     
 }
 
-func postHeaderTextCreate(recipient : BravoUser, sender : BravoUser, headerLabel : UILabel){
+func postHeaderTextCreate(recipient : BravoUser, sender : BravoUser, team : PFObject ,headerLabel : UILabel){
     let RECEIVED_TEXT = "received a reward from"
+    let IN_TEXT = "in"
     let postHeaderRecepient = "\(recipient["firstName"]!) \(recipient["lastName"]!) "
-    let postHeaderSender = " \(sender["firstName"]!) \(sender["lastName"]!)"
-    let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender
+    let postHeaderSender = " \(sender["firstName"]!) \(sender["lastName"]!) "
+    let postTeamName = " \(team["name"]!)"
+    let postHeaderText = postHeaderRecepient + RECEIVED_TEXT + postHeaderSender + IN_TEXT + postTeamName
     
     let offsetStart = postHeaderRecepient.characters.count
     let offsetEnd = RECEIVED_TEXT.characters.count
     
-    let range = NSMakeRange(offsetStart, offsetEnd)
+    let offsetStart2 = postHeaderRecepient.characters.count + RECEIVED_TEXT.characters.count + postHeaderSender.characters.count
+    let offsetEnd2 = IN_TEXT.characters.count
     
-    headerLabel.attributedText = attributedString(from: postHeaderText, nonBoldRange: range)
+    let range = NSMakeRange(offsetStart, offsetEnd)
+    let range2 = NSMakeRange(offsetStart2, offsetEnd2)
+    
+    headerLabel.attributedText = attributedString(from: postHeaderText, nonBoldRange: range, nonBoldRange2: range2)
 }
 
-func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttributedString {
+func attributedString(from string: String, nonBoldRange: NSRange?, nonBoldRange2: NSRange? ) -> NSAttributedString {
     let fontSize = CGFloat(15.0)
     let attrs = [
         NSFontAttributeName: UIFont(name: "Avenir-Medium", size: fontSize),
@@ -192,6 +198,9 @@ func attributedString(from string: String, nonBoldRange: NSRange?) -> NSAttribut
         ]
     let attrStr = NSMutableAttributedString(string: string, attributes: attrs)
     if let range = nonBoldRange {
+        attrStr.setAttributes(nonBoldAttribute, range: range)
+    }
+    if let range = nonBoldRange2 {
         attrStr.setAttributes(nonBoldAttribute, range: range)
     }
     return attrStr
