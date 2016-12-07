@@ -9,14 +9,13 @@
 import UIKit
 import Parse
 import DateTools
-import FaveButton
 
 @objc protocol PostCellDelegate {
     @objc optional func comment(post: PFObject)
     @objc optional func like(post: PFObject, isLiked: Bool)
 }
 
-class PostCell: UITableViewCell, FaveButtonDelegate {
+class PostCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var senderImageView: UIImageView!
@@ -24,7 +23,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     @IBOutlet weak var recipientNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var likeButton: FaveButton!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var commentCountLabel: UILabel!
     
@@ -54,7 +53,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
                 let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
                 timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
             }
-            
+            print ("isLiked in cell: \(isLiked)")
             likeButton.isSelected = isLiked
             if likeButton.isSelected {
                 likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
@@ -106,6 +105,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     
     @IBAction func onLikeTapped(_ sender: Any) {
         self.updateLikeCount()
+        delegate?.like?(post: post, isLiked: self.likeButton.isSelected)
         Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
             (post: PFObject?) -> () in
             BravoUser.saveUserPostLikes(post: post!, isLiked: self.likeButton.isSelected, success: { (postLike: PFObject?) in
@@ -121,27 +121,9 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
         
     }
     
-    func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
-        self.likeButton.isSelected = !selected
-        self.updateLikeCount()
-        delegate?.like?(post: post, isLiked: self.likeButton.isSelected)
-        Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
-            (post: PFObject?) -> () in
-            BravoUser.saveUserPostLikes(post: post!, isLiked: selected, success: { (postLike: PFObject?) in
-                print ("--successfully updated user post like")
-            }, failure: { (error: Error?) in
-                print ("-- failed to update user post like: \(error?.localizedDescription)")
-            })
-        }, failure: { (error: Error?) in
-            print ("-- failed to update post like count: \(error?.localizedDescription)")
-            self.updateLikeCount()
-        }
-        )        
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        likeButton.delegate = self
     }
     
     override func layoutSubviews() {

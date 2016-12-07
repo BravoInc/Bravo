@@ -8,13 +8,12 @@
 
 import UIKit
 import Parse
-import FaveButton
 
 @objc protocol CommentsViewControllerDelegate {
     @objc optional func postLiked(post: PFObject, isLiked: Bool)
 }
 
-class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate, AddCommentCellDelegate, FaveButtonDelegate {
+class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate, AddCommentCellDelegate {
     
     
     @IBOutlet weak var commentCountLabel: UILabel!
@@ -26,7 +25,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     
-    @IBOutlet weak var likeButton: FaveButton!
+    @IBOutlet weak var likeButton: UIButton!
     
     var comments = [PFObject]()
     var post: PFObject!
@@ -49,7 +48,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         titleLabel.font = UIFont(name: "Avenir-Medium", size: 18)
         navigationItem.titleView = titleLabel
         
-        likeButton.delegate = self
         // Initialize table view
         tableView.delegate = self
         tableView.dataSource = self
@@ -175,6 +173,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBAction func onLikeButton(_ sender: Any) {
         self.updateLikeCount()
+        delegate?.postLiked?(post: post, isLiked: self.likeButton.isSelected)
         Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
             (post: PFObject?) -> () in
             BravoUser.saveUserPostLikes(post: post!, isLiked: self.likeButton.isSelected, success: { (postLike: PFObject?) in
@@ -187,26 +186,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             self.updateLikeCount()
         }
         )
+    }
 
-    }
-    
-    func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
-        self.likeButton.isSelected = !selected
-        self.updateLikeCount()
-        delegate?.postLiked?(post: post, isLiked: self.likeButton.isSelected)
-        Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
-            (post: PFObject?) -> () in
-            BravoUser.saveUserPostLikes(post: self.post, isLiked: selected, success: { (postLike: PFObject?) in
-                print ("--successfully updated user post like")
-            }, failure: { (error: Error?) in
-                print ("-- failed to update user post like: \(error?.localizedDescription)")
-            })
-        }, failure: { (error: Error?) in
-            print ("-- failed to update post like count: \(error?.localizedDescription)")
-            self.updateLikeCount()
-        }
-        )
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
