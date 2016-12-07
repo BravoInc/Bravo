@@ -50,6 +50,8 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
+        
+        tableView.tableFooterView = UIView()
 
         tableView.register(UINib(nibName: "RewardCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
         tableView.register(UINib(nibName: "MoreRewardsCell", bundle: nil), forCellReuseIdentifier: "MoreRewardsCell")
