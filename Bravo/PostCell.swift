@@ -54,7 +54,6 @@ class PostCell: UITableViewCell {
                 let timeSinceNow = NSDate(timeIntervalSinceNow: post.createdAt!.timeIntervalSinceNow)
                 timeLabel.text = timeSinceNow.shortTimeAgoSinceNow()
             }
-            print ("isLiked in cell: \(isLiked)")
             likeButton.isSelected = isLiked
             if likeButton.isSelected {
                 likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)

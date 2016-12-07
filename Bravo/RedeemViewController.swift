@@ -159,6 +159,10 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.popViewController(animated: true)
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformFlip, andDuration: 1)
+    }
     /*
     // MARK: - Navigation
 

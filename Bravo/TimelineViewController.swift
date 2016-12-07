@@ -102,8 +102,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         postCell.delegate = self
         let postId = posts[indexPath.row].objectId ?? ""
         postCell.isLiked = postIdLikeMap[postId] ?? false
-        print ("\(postCell.isLiked)")
         let currPost = posts[indexPath.row]
+        print ("\(currPost["team"] as? PFObject) \(currPost["message"])")
         let team = currPost["team"] as! PFObject
         
         postCell.team = team
@@ -150,6 +150,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         show(commentsViewController, sender: self)
     }
 
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformFlip, andDuration: 0.5)
+    }
+    
     func postCompose(post: PFObject) {
         self.posts.insert(post, at: 0)
         tableView.reloadData()
