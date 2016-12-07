@@ -112,6 +112,7 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
                     print("---!!! new profile photo is nil?")
                 }
                 
+                /*
                 let storyBoard = UIStoryboard(name: "Activity", bundle: nil)
                 
                 let timelineNavigationController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigationController") as! UINavigationController
@@ -141,6 +142,8 @@ class SignUpPhotoViewController: UIViewController, UIImagePickerControllerDelega
                 //tabBarController.selectedViewController = teamNavigationController
                 
                 self.present(tabBarController, animated: true, completion: nil)
+ */
+                self.present(getTabBarController(), animated: true, completion: nil)
                 
                 
             }

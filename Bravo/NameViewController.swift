@@ -72,13 +72,19 @@ class NameViewController: UIViewController {
                                                         
                                                         let imageData: [String: AnyObject] = picture["data"] as! [String : AnyObject]
                                                         
-                                                        
                                                         if let x = userData["first_name"] as? String {
                                                             user["firstName"] = x
+                                                            user["username"] = x
                                                         }
                                                         
                                                         if let x = userData["last_name"] as? String {
                                                             user["lastName"] = x
+                                                            
+                                                            if user["username"] != nil {
+                                                                user["username"] = "\(user["username"])x"
+                                                            }else{
+                                                                user["username"] = x
+                                                            }
                                                         }
                                                         
                                                         if let x = userData["email"] as? String {
