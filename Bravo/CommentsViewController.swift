@@ -25,6 +25,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     
+    @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     
     var comments = [PFObject]()
@@ -37,7 +38,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     // Progress control
     let progressControl = ProgressControls()
     var isRefresh = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,7 +95,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         progressControl.setupRefreshControl()
         progressControl.refreshControl.addTarget(self, action: #selector(getComments), for: UIControlEvents.valueChanged)
         tableView.insertSubview(progressControl.refreshControl, at: 0)
-
+        
         getComments(refreshControl: progressControl.refreshControl)
         
     }
@@ -113,7 +114,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     func spinWithOptions(options : UIViewAnimationOptions){
         UIView.animate(withDuration: 0.5, delay: 0, options: options, animations: {
             if(self.senderImageView != nil ){
-            self.senderImageView.transform = CGAffineTransform(rotationAngle: CGFloat(235))
+                self.senderImageView.transform = CGAffineTransform(rotationAngle: CGFloat(235))
             } else {
                 print("---!!! imageview nil")
             }
@@ -138,7 +139,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.senderImageView.transform = scaleAndRotate
         self.recipientImageView.transform = scaleAndRotate
         
-        self.pointsLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        self.pointsLabel.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        self.arrowImageView.alpha = 0
     }
     
     func animateStuff(){
@@ -148,20 +150,28 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         UIView.animate(withDuration: 1.0, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             self.senderImageView.transform = scaleAndRotate
         }) { (completion : Bool) in
-            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.arrowImageView.alpha = 1
+            }, completion: { (finished : Bool) in
+                if (finished){
+                    
+                    UIView.animate(withDuration: 1.0, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                        self.recipientImageView.transform = scaleAndRotate
+                    }, completion: { (finished : Bool) in
+                        if (finished){
+                            UIView.animate(withDuration: 0.5, animations: {
+                                self.arrowImageView.alpha = 0
+                            })
+                            self.animatePoints()
+                        }
+                    })
+                }
+            })
         }
-        
-        UIView.animate(withDuration: 1.0, delay: 0.75, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-            self.recipientImageView.transform = scaleAndRotate
-        }, completion: { (finished : Bool) in
-            if (finished){
-                self.animatePoints()
-            }
-        })
     }
     
     func animatePoints(){
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             self.pointsLabel.transform = .identity
         }, completion: nil)
     }
@@ -242,7 +252,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let incrementBy = likeButton.isSelected ? 1 : -1
         likeCountLabel.text = "\(Int(likeCountLabel.text!)!+incrementBy)"
     }
-
+    
     @IBAction func onLikeButton(_ sender: Any) {
         self.updateLikeCount()
         delegate?.postLiked?(post: post, isLiked: self.likeButton.isSelected)
@@ -259,7 +269,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         )
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
