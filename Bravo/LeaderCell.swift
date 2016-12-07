@@ -26,7 +26,14 @@ class LeaderCell: UITableViewCell {
             numberFormatter.numberStyle = NumberFormatter.Style.decimal
             
             if let totalPointsString = numberFormatter.string(from: NSNumber(value: totalPoints))! as? String {
-                totalPointsLabel.text = "\(totalPointsString) TOTAL POINTS"
+                
+                if(totalPointsString == "1"){
+                    totalPointsLabel.text = "1 TOTAL POINT"
+                }else{
+                    totalPointsLabel.text = "\(totalPointsString) TOTAL POINTS"
+                }
+                
+                
             }else{
                 totalPointsLabel.text = "0 TOTAL POINTS"
             }
