@@ -26,6 +26,7 @@
 		6452509F1DF29A7200DD1384 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */; };
 		648A56931DF5FFFD00EF29D3 /* RefreshContents.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */; };
 		648A56951DF6A41D00EF29D3 /* ProgressControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648A56941DF6A41D00EF29D3 /* ProgressControls.swift */; };
+		648A56971DF7BEF900EF29D3 /* CellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648A56961DF7BEF900EF29D3 /* CellAnimator.swift */; };
 		649D49571DF3AA0B00958954 /* PostLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D49561DF3AA0B00958954 /* PostLikes.swift */; };
 		649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */; };
 		649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */; };
@@ -115,6 +116,7 @@
 		6452509C1DF29A7200DD1384 /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
 		648A56921DF5FFFD00EF29D3 /* RefreshContents.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshContents.xib; sourceTree = "<group>"; };
 		648A56941DF6A41D00EF29D3 /* ProgressControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControls.swift; sourceTree = "<group>"; };
+		648A56961DF7BEF900EF29D3 /* CellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnimator.swift; sourceTree = "<group>"; };
 		649D49561DF3AA0B00958954 /* PostLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLikes.swift; sourceTree = "<group>"; };
 		649E112B1DDAAA8C00B5D2FD /* RewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		649E112C1DDAAA8C00B5D2FD /* RewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				64A3A9D61DF0498000E29D9D /* Common.swift */,
 				64A3A9D81DF14A0400E29D9D /* Constants.swift */,
 				648A56941DF6A41D00EF29D3 /* ProgressControls.swift */,
+				648A56961DF7BEF900EF29D3 /* CellAnimator.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
+				648A56971DF7BEF900EF29D3 /* CellAnimator.swift in Sources */,
 				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,
 				64D507AB1DE4245200C708BD /* SkillPoints.swift in Sources */,
 				E19771281DF5439E0097997D /* TeamPhotoViewController.swift in Sources */,
