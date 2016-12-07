@@ -278,7 +278,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10 for help with #iOS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hk-tA-Qt7">
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="+10 for help with #iOS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hk-tA-Qt7">
                                             <rect key="frame" x="16" y="65" width="343" height="18"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                             <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -735,7 +735,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TimelineNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gwc-IN-DNC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dhz-Xy-nGF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dhz-Xy-nGF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -753,7 +753,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LeaderboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A2P-1q-drZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uwh-SR-0QN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwh-SR-0QN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -771,7 +771,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nZs-7Y-aS2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xsN-Q2-oyl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsN-Q2-oyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -789,7 +789,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PostComposeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="oeV-GH-8gM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UBZ-1r-Xsb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBZ-1r-Xsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -807,7 +807,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SelectionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rET-Cq-Wvz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="suV-hY-t4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suV-hY-t4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
