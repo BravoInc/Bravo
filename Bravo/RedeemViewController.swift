@@ -69,13 +69,13 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.indexSelection[i] = false
             }
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         }, failure: { (error : Error?) in
             print("---!!! cant get rewards : \(error?.localizedDescription)")
             self.availableRewards = [PFObject]()
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         })

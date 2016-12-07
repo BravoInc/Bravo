@@ -32,6 +32,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var isPostLiked: Bool!
     var team: PFObject!
     weak var delegate: CommentsViewControllerDelegate?
+    var isSenderAnimating = false
     
     // Progress control
     let progressControl = ProgressControls()
@@ -39,6 +40,15 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let sender = post["sender"] as! BravoUser
+        let recipient = post["recipient"] as! BravoUser
+        
+        // Setting image views
+        setImageView(imageView: senderImageView, user: sender)
+        setImageView(imageView: recipientImageView, user: recipient)
+        
+        setupForAnimation()
         
         // Set navigation bar title view
         let titleLabel = UILabel()
@@ -59,8 +69,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.register(UINib(nibName: "AddCommentCell", bundle: nil), forCellReuseIdentifier: "AddCommentCell")
         
-        let sender = post["sender"] as! BravoUser
-        let recipient = post["recipient"] as! BravoUser
+
         
         //recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
         postHeaderTextCreate(recipient: recipient, sender: sender, team : team,headerLabel: recipientNameLabel)
@@ -90,10 +99,73 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         getComments(refreshControl: progressControl.refreshControl)
         
-        // Setting image views
-        setImageView(imageView: senderImageView, user: sender)
-        setImageView(imageView: recipientImageView, user: recipient)
-
+    }
+    
+    func startSpin(){
+        if(!isSenderAnimating){
+            isSenderAnimating = true
+            spinWithOptions(options: UIViewAnimationOptions.curveEaseIn)
+        }
+    }
+    
+    func stopSpin(){
+        isSenderAnimating = false
+    }
+    
+    func spinWithOptions(options : UIViewAnimationOptions){
+        UIView.animate(withDuration: 0.5, delay: 0, options: options, animations: {
+            if(self.senderImageView != nil ){
+            self.senderImageView.transform = CGAffineTransform(rotationAngle: CGFloat(235))
+            } else {
+                print("---!!! imageview nil")
+            }
+        }, completion: { (finished : Bool) in
+            if (finished){
+                if (self.isSenderAnimating){
+                    print("--- still animating")
+                    self.spinWithOptions(options: UIViewAnimationOptions.curveLinear)
+                }
+                else if options != UIViewAnimationOptions.curveEaseOut {
+                    self.spinWithOptions(options: UIViewAnimationOptions.curveEaseOut)
+                }
+            }
+        })
+    }
+    
+    func setupForAnimation(){
+        // Make images tiny
+        let rotate = CGAffineTransform(rotationAngle: CGFloat(-360))
+        let scaleAndRotate = rotate.scaledBy(x: 0.1, y: 0.1)
+        
+        self.senderImageView.transform = scaleAndRotate
+        self.recipientImageView.transform = scaleAndRotate
+        
+        self.pointsLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+    }
+    
+    func animateStuff(){
+        let rotate = CGAffineTransform(rotationAngle: CGFloat(M_PI)*8)
+        let scaleAndRotate = rotate.scaledBy(x: 1, y: 1)
+        
+        UIView.animate(withDuration: 1.0, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.senderImageView.transform = scaleAndRotate
+        }) { (completion : Bool) in
+            
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0.75, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.recipientImageView.transform = scaleAndRotate
+        }, completion: { (finished : Bool) in
+            if (finished){
+                self.animatePoints()
+            }
+        })
+    }
+    
+    func animatePoints(){
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.pointsLabel.transform = .identity
+        }, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,11 +182,12 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("--- got \(comments?.count) comments")
             self.comments = comments!
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
+            self.animateStuff()
             self.isRefresh = true
         }, failure: { (error : Error?) in
             print("---!!! cant get comments : \(error?.localizedDescription)")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         })
     }
