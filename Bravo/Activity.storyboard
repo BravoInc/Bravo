@@ -324,7 +324,7 @@
                                                 <constraint firstAttribute="width" constant="24" id="7n6-gN-SLs"/>
                                                 <constraint firstAttribute="height" constant="24" id="OQZ-yf-Zza"/>
                                             </constraints>
-                                            <state key="normal" image="comment">
+                                            <state key="normal" image="commentBubble.png">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -826,7 +826,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="comment" width="240" height="240"/>
+        <image name="commentBubble.png" width="128" height="128"/>
         <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>

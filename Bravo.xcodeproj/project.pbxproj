@@ -78,6 +78,7 @@
 		E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */; };
 		E1C2AE0F1DF5392300635DD2 /* add128green.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C2AE0E1DF5392300635DD2 /* add128green.png */; };
 		E1C2AE111DF53A1500635DD2 /* fatAdd128green.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C2AE101DF53A1500635DD2 /* fatAdd128green.png */; };
+		E1E18D731DF7C57B00FB68DE /* commentBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E18D721DF7C57B00FB68DE /* commentBubble.png */; };
 		E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */; };
 		E1E6DB551DF676D3003AA189 /* fblogin.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E6DB541DF676D3003AA189 /* fblogin.png */; };
 		EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3121201DD7E6AA00665F4C /* BravoUser.swift */; };
@@ -168,6 +169,7 @@
 		E1AE75A51DD7D2E20060FE6D /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		E1C2AE0E1DF5392300635DD2 /* add128green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add128green.png; sourceTree = "<group>"; };
 		E1C2AE101DF53A1500635DD2 /* fatAdd128green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatAdd128green.png; sourceTree = "<group>"; };
+		E1E18D721DF7C57B00FB68DE /* commentBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = commentBubble.png; sourceTree = "<group>"; };
 		E1E462AC1DEBAB46003A0BCF /* TOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOSViewController.swift; sourceTree = "<group>"; };
 		E1E6DB541DF676D3003AA189 /* fblogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fblogin.png; sourceTree = "<group>"; };
 		EE2D5B441DD7AC9500622176 /* Bravo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bravo.entitlements; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		E13696071DE9109800D51FE0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E1E18D721DF7C57B00FB68DE /* commentBubble.png */,
 				E1E6DB541DF676D3003AA189 /* fblogin.png */,
 				E198EE0D1DF4F5C6001B4833 /* rightArrow128green.png */,
 				E198EE0E1DF4F5C6001B4833 /* rightArrow128White.png */,
@@ -463,6 +466,7 @@
 				E192BA481DF344D700BE57D2 /* backArrow128gray888.png in Resources */,
 				E192BA4C1DF3AFEE00BE57D2 /* photosLibrary256.png in Resources */,
 				E1574DAC1DED06AC007AC27A /* backArrow128white.png in Resources */,
+				E1E18D731DF7C57B00FB68DE /* commentBubble.png in Resources */,
 				6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,

@@ -86,7 +86,7 @@
                                     <constraint firstAttribute="height" constant="24" id="3Nj-Es-kVO"/>
                                     <constraint firstAttribute="width" constant="24" id="GjM-8r-RLT"/>
                                 </constraints>
-                                <state key="normal" image="comment"/>
+                                <state key="normal" image="commentBubble.png"/>
                                 <connections>
                                     <action selector="onCommentTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mX2-rm-jA4"/>
                                 </connections>
@@ -160,7 +160,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="comment" width="240" height="240"/>
+        <image name="commentBubble.png" width="128" height="128"/>
         <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
 </document>
