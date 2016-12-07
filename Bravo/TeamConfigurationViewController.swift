@@ -38,8 +38,8 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         tableView.estimatedRowHeight = 60
         
         // for DZNEmpty
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+        //tableView.emptyDataSetSource = self
+        //tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         
         tableView.register(UINib(nibName : "TeamCell", bundle : nil), forCellReuseIdentifier: "TeamCell")
