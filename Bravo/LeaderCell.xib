@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIy-hQ-JfU">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIy-hQ-JfU">
                         <rect key="frame" x="16" y="8" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="aYA-Ea-hHR"/>
@@ -26,21 +26,21 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDO-Bh-l2R">
-                        <rect key="frame" x="74" y="8" width="139" height="16"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="74" y="8" width="168.5" height="23.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                        <color key="textColor" red="0.078431372549019607" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill 1, Skill 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smH-bu-KBM">
-                        <rect key="frame" x="74" y="54" width="68" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="74" y="54.5" width="59" height="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.72156862745098038" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 total points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-nm-7Ma">
-                        <rect key="frame" x="74" y="32" width="82" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-nm-7Ma">
+                        <rect key="frame" x="74" y="34.5" width="76" height="14"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="10"/>
+                        <color key="textColor" red="0.396078431372549" green="0.46666666666666667" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -53,9 +53,9 @@
                     <constraint firstItem="LDO-Bh-l2R" firstAttribute="top" secondItem="bIy-hQ-JfU" secondAttribute="top" id="M7v-bg-NAA"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LDO-Bh-l2R" secondAttribute="trailing" constant="8" id="MSt-3r-4nN"/>
                     <constraint firstItem="8dP-nm-7Ma" firstAttribute="leading" secondItem="LDO-Bh-l2R" secondAttribute="leading" id="Z2T-4T-Ub1"/>
-                    <constraint firstItem="smH-bu-KBM" firstAttribute="top" secondItem="8dP-nm-7Ma" secondAttribute="bottom" constant="8" id="e2C-DO-zEA"/>
+                    <constraint firstItem="smH-bu-KBM" firstAttribute="top" secondItem="8dP-nm-7Ma" secondAttribute="bottom" constant="6" id="e2C-DO-zEA"/>
                     <constraint firstItem="smH-bu-KBM" firstAttribute="leading" secondItem="LDO-Bh-l2R" secondAttribute="leading" id="fVt-dU-txE"/>
-                    <constraint firstItem="8dP-nm-7Ma" firstAttribute="top" secondItem="LDO-Bh-l2R" secondAttribute="bottom" constant="8" id="hGR-YJ-Rtq"/>
+                    <constraint firstItem="8dP-nm-7Ma" firstAttribute="top" secondItem="LDO-Bh-l2R" secondAttribute="bottom" constant="3" id="hGR-YJ-Rtq"/>
                     <constraint firstItem="bIy-hQ-JfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zOP-b1-lcH"/>
                 </constraints>
             </tableViewCellContentView>
