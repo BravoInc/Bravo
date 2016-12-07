@@ -324,7 +324,7 @@
                                                 <constraint firstAttribute="width" constant="24" id="7n6-gN-SLs"/>
                                                 <constraint firstAttribute="height" constant="24" id="OQZ-yf-Zza"/>
                                             </constraints>
-                                            <state key="normal" image="comment">
+                                            <state key="normal" image="commentBubble">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -749,7 +749,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TimelineNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gwc-IN-DNC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dhz-Xy-nGF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dhz-Xy-nGF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -767,7 +767,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LeaderboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="A2P-1q-drZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uwh-SR-0QN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwh-SR-0QN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -785,7 +785,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nZs-7Y-aS2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xsN-Q2-oyl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsN-Q2-oyl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -803,7 +803,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PostComposeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="oeV-GH-8gM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="UBZ-1r-Xsb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBZ-1r-Xsb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -821,7 +821,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SelectionNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="rET-Cq-Wvz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="suV-hY-t4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="suV-hY-t4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -836,7 +836,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="comment" width="240" height="240"/>
+        <image name="commentBubble" width="128" height="128"/>
         <image name="left-arrow" width="287" height="203"/>
         <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
