@@ -102,6 +102,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         postCell.delegate = self
         let postId = posts[indexPath.row].objectId ?? ""
         postCell.isLiked = postIdLikeMap[postId] ?? false
+        print ("\(postCell.isLiked)")
         postCell.post = posts[indexPath.row]
         
         return postCell
