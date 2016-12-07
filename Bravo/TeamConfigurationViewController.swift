@@ -11,7 +11,7 @@ import Parse
 
 import DZNEmptyDataSet
 
-class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TeamPhotoViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class TeamConfigurationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TeamPhotoViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, TeamAdditionalDetailsViewControllerDelegate {
     
     let NUM_SECTIONS = 2
     
@@ -151,6 +151,7 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
         print("--- all good 1")
         let teamAdditionalDetailsViewController = storyboard.instantiateViewController(withIdentifier: "TeamAdditionalDetailsViewController") as! TeamAdditionalDetailsViewController
         print("--- all good 2")
+        teamAdditionalDetailsViewController.delegate = self
         
         
         if (indexPath.section == SECTION_USER_TEAMS) {
@@ -195,6 +196,24 @@ class TeamConfigurationViewController: UIViewController, UITableViewDataSource, 
     func addTeam(team: PFObject, rewards: [PFObject]) {
         userTeams.insert(team, at: 0)
         tempRewards = rewards
+        tableView.reloadData()
+    }
+    
+    func joinTeam(team: PFObject) {
+        userTeams.insert(team, at: 0)
+        var index: Int = -1
+
+        for i in 0..<allTeams.count {
+            if ((allTeams[i]["name"]! as! String) == (team["name"] as! String)) {
+                index = i
+                break
+            }
+        }
+        
+        if index != -1 {
+            allTeams.remove(at: index)
+        }
+        
         tableView.reloadData()
     }
     
