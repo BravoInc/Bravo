@@ -21,6 +21,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     var isComment: Bool!
     let placeholder = "What do you want to say?"
     
+    var didEdit = false
 
     let borderColor = UIColor(red: (136/255.0), green: (136/255.0), blue: (136/255.0), alpha: 1.0)
     let twitterBlack = UIColor(red: (20/255.0), green: (23/255.0), blue: (26/255.0), alpha: 1.0)
@@ -30,12 +31,13 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var pointsTextField: UITextField!
     @IBOutlet weak var skillsTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var createBarButton: UIBarButtonItem!
     
     weak var delegate: PostComposeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createBarButton.isEnabled = false
         if isComment == true {
             let recipient = post!["recipient"] as! BravoUser
             recipientTextField.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
@@ -55,6 +57,9 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         textView.text = ""
+        
+        didEdit = true
+        createBarButton.isEnabled = true
         return true
     }
     
@@ -190,6 +195,8 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func createPost(_ sender: Any) {
+        guard didEdit == true else { return }
+        
         let newPost = isComment == true ? saveNewComment() : saveNewPost()
         delegate?.postCompose?(post: newPost)
         dismiss(animated: true, completion: nil)

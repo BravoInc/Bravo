@@ -207,6 +207,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createBarButton" destination="5lL-gv-icf" id="4zO-QI-Zha"/>
                         <outlet property="messageTextView" destination="GR6-Oo-Z8B" id="0eC-od-Zac"/>
                         <outlet property="pointsTextField" destination="eUt-n5-Irc" id="qKd-2G-fwo"/>
                         <outlet property="recipientTextField" destination="VaW-Yo-xrv" id="YY0-he-zGI"/>
