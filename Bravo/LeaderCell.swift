@@ -55,6 +55,7 @@ class LeaderCell: UITableViewCell {
             leaderNameLabel.text = "\(leader["firstName"]!) \(leader["lastName"]!)"
             totalPointsLabel.text = "\(skillPoints["points"]!) total points"
             skillsLabel.text = "\(skillPoints["skill"]!)"
+            setImageView(imageView: leaderImageView, user: leader)
         }
     }
 
