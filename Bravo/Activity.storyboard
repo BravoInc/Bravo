@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reward Activity" id="ggs-zz-G5L">
-                        <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="seA-0R-Aqy">
+                        <barButtonItem key="rightBarButtonItem" title="+" style="done" id="seA-0R-Aqy">
                             <connections>
                                 <segue destination="oeV-GH-8gM" kind="presentation" id="9gS-Yo-xhi"/>
                             </connections>
@@ -275,7 +275,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LcU-Sm-gjw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="lVM-U8-iBh">
+                                <view key="tableHeaderView" contentMode="scaleAspectFill" id="lVM-U8-iBh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -324,7 +324,7 @@
                                                 <constraint firstAttribute="width" constant="24" id="7n6-gN-SLs"/>
                                                 <constraint firstAttribute="height" constant="24" id="OQZ-yf-Zza"/>
                                             </constraints>
-                                            <state key="normal" image="commentBubble.png">
+                                            <state key="normal" image="comment">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
@@ -363,12 +363,20 @@
                                                 <constraint firstAttribute="height" constant="1" id="5JZ-7d-jEz"/>
                                             </constraints>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="gfZ-3F-gN8">
+                                            <rect key="frame" x="158" y="125" width="59" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="e66-9E-Ild"/>
+                                                <constraint firstAttribute="width" constant="59" id="g6L-P8-fJC"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="TPh-82-uOH" secondAttribute="trailing" constant="16" id="09M-1i-Zng"/>
                                         <constraint firstItem="eoE-UK-ERW" firstAttribute="top" secondItem="TPh-82-uOH" secondAttribute="bottom" constant="16" id="0uS-J1-I5b"/>
                                         <constraint firstAttribute="trailing" secondItem="0Hk-tA-Qt7" secondAttribute="trailing" constant="16" id="2yW-Vf-YxZ"/>
+                                        <constraint firstItem="gfZ-3F-gN8" firstAttribute="centerY" secondItem="UoF-4G-cPr" secondAttribute="centerY" id="AuG-jH-fcr"/>
                                         <constraint firstItem="DoE-Lk-det" firstAttribute="leading" secondItem="lVM-U8-iBh" secondAttribute="leading" id="EzS-Ex-aYn"/>
                                         <constraint firstItem="zf2-uM-pus" firstAttribute="leading" secondItem="lVM-U8-iBh" secondAttribute="leading" constant="16" id="ISF-IM-tT9"/>
                                         <constraint firstItem="TPh-82-uOH" firstAttribute="top" secondItem="iyI-QR-K18" secondAttribute="bottom" constant="16" id="KGC-Ri-ARO"/>
@@ -387,6 +395,7 @@
                                         <constraint firstItem="UoF-4G-cPr" firstAttribute="top" secondItem="0Hk-tA-Qt7" secondAttribute="bottom" constant="16" id="mtM-H7-8bx"/>
                                         <constraint firstItem="llU-1o-SNM" firstAttribute="top" secondItem="TPh-82-uOH" secondAttribute="bottom" constant="16" id="ndT-KQ-UlF"/>
                                         <constraint firstItem="0Hk-tA-Qt7" firstAttribute="top" secondItem="zf2-uM-pus" secondAttribute="bottom" constant="8" id="nsg-fs-ilp"/>
+                                        <constraint firstItem="gfZ-3F-gN8" firstAttribute="centerX" secondItem="lVM-U8-iBh" secondAttribute="centerX" id="oHx-Bp-Mu4"/>
                                         <constraint firstItem="SFO-6a-Hhc" firstAttribute="bottom" secondItem="eoE-UK-ERW" secondAttribute="bottom" id="otn-5e-54C"/>
                                         <constraint firstItem="UoF-4G-cPr" firstAttribute="centerX" secondItem="lVM-U8-iBh" secondAttribute="centerX" constant="-90" id="qPh-y4-RRj"/>
                                         <constraint firstItem="SFO-6a-Hhc" firstAttribute="leading" secondItem="eoE-UK-ERW" secondAttribute="trailing" constant="8" id="vPp-K8-Itk"/>
@@ -406,6 +415,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrowImageView" destination="gfZ-3F-gN8" id="4ev-Zs-ezG"/>
                         <outlet property="commentCountLabel" destination="SFO-6a-Hhc" id="jDR-vb-hoC"/>
                         <outlet property="likeButton" destination="llU-1o-SNM" id="aYU-HD-iyw"/>
                         <outlet property="likeCountLabel" destination="508-Uq-SJQ" id="yOj-bp-8af"/>
@@ -826,10 +836,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="commentBubble.png" width="128" height="128"/>
+        <image name="comment" width="240" height="240"/>
+        <image name="left-arrow" width="287" height="203"/>
         <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9gS-Yo-xhi"/>
+        <segue reference="ZdG-Rj-5wn"/>
     </inferredMetricsTieBreakers>
 </document>
