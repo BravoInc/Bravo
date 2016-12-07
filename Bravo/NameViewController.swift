@@ -81,7 +81,7 @@ class NameViewController: UIViewController {
                                                             user["lastName"] = x
                                                             
                                                             if user["username"] != nil {
-                                                                user["username"] = "\(user["username"])x"
+                                                                user["username"] = "\(user["username"]!)\(x)"
                                                             }else{
                                                                 user["username"] = x
                                                             }

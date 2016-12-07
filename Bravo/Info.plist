@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To pick a profile photo</string>
+	<string>For your profile photo</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To take a profile photo</string>
 	<key>UIAppFonts</key>
@@ -61,35 +61,25 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb575403942654386</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>575403942654386</string>
-    <key>FacebookDisplayName</key>
-    <string>Bravo Company</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>For your profile photo</string>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb576086742586106</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>576086742586106</string>
+	<key>FacebookDisplayName</key>
+	<string>Bravo Company - Demo</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>
