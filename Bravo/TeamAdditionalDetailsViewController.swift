@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+@objc protocol TeamAdditionalDetailsViewControllerDelegate {
+    @objc optional func joinTeam(team: PFObject)
+}
+
 class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let SECTION_MEMBERS = 0
@@ -21,12 +25,15 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     var team : PFObject!
     var users = [PFUser]()
     var rewards = [PFObject]()
+    var userPointsMap = [String: Int]()
     
     var canJoinTeam = false
     
     // Progress control
     let progressControl = ProgressControls()
     var isRefresh = false
+    weak var delegate: TeamAdditionalDetailsViewControllerDelegate?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +90,7 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
 //                }
 //            }))
 //            self.present(alert, animated: true, completion: nil)
+            self.delegate?.joinTeam?(team: self.team)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
                 self.navigationController?.popToRootViewController(animated: true)
             }
@@ -137,6 +145,7 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         
         if(indexPath.section == SECTION_MEMBERS){
             let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
+            userCell.points = userPointsMap[users[indexPath.row].objectId!] ?? 0
             userCell.user = users[indexPath.row]
             userCell.setImageViews()
             return userCell
@@ -173,9 +182,20 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         Team.getTeamRewards(team: team, success: { (rewards : [PFObject]?) in
             print("--- got \(rewards?.count) rewards")
             self.rewards = rewards ?? self.rewards
-            self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
-            self.isRefresh = true
+            UserSkillPoints.getUserTotalPoints(users: self.users, success: { (userSkillPoints: [PFObject]?) in
+                for userPoint in userSkillPoints! {
+                    self.userPointsMap[(userPoint["user"] as! PFUser).objectId!] = (userPoint["totalPoints"]! as! Int)
+                }
+                self.tableView.reloadData()
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
+                self.isRefresh = true
+                
+            }, failure: { (error: Error?) in
+                print ("--error getting user points \(error?.localizedDescription)")
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
+                self.isRefresh = true
+                
+            })
 
         }, failure: { (error : Error?) in
             print("---!!! failed to get rewards")
