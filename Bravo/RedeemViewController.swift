@@ -127,7 +127,7 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Redeem", style: .plain, target: self, action: #selector(onRedeem(_:)))
         }
         
-        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     func onRedeem(_ sender: UIBarButtonItem) {
