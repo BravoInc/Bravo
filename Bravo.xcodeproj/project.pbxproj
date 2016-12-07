@@ -88,6 +88,8 @@
 		EE4B72D91DF5164600289F0E /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4B72D71DF5164600289F0E /* AddCommentCell.xib */; };
 		EE4FC8EA1DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */; };
 		EEBF12CA1DE2745000BCCA07 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBF12C91DE2745000BCCA07 /* Reward.swift */; };
+		EED1CEA01DF8A87100EA8B45 /* CommentHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED1CE9E1DF8A87100EA8B45 /* CommentHeaderCell.swift */; };
+		EED1CEA11DF8A87100EA8B45 /* CommentHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED1CE9F1DF8A87100EA8B45 /* CommentHeaderCell.xib */; };
 		EEE19DE61DF1E04200703600 /* AddTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE19DE41DF1E04200703600 /* AddTeamCell.swift */; };
 		EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEE19DE51DF1E04200703600 /* AddTeamCell.xib */; };
 		EEF36DAE1DD1855C0032BCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF36DAD1DD1855C0032BCE6 /* AppDelegate.swift */; };
@@ -182,6 +184,8 @@
 		EE4FC8E91DF23A3A0087D139 /* TeamAdditionalDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamAdditionalDetailsViewController.swift; sourceTree = "<group>"; };
 		EEB7E01A1DF0058F00C3DCA0 /* Bravo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bravo-Bridging-Header.h"; sourceTree = "<group>"; };
 		EEBF12C91DE2745000BCCA07 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		EED1CE9E1DF8A87100EA8B45 /* CommentHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentHeaderCell.swift; sourceTree = "<group>"; };
+		EED1CE9F1DF8A87100EA8B45 /* CommentHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentHeaderCell.xib; sourceTree = "<group>"; };
 		EEE19DE41DF1E04200703600 /* AddTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeamCell.swift; sourceTree = "<group>"; };
 		EEE19DE51DF1E04200703600 /* AddTeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTeamCell.xib; sourceTree = "<group>"; };
 		EEF36DAA1DD1855C0032BCE6 /* Bravo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bravo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +273,8 @@
 				EEE19DE51DF1E04200703600 /* AddTeamCell.xib */,
 				EE4B72D61DF5164600289F0E /* AddCommentCell.swift */,
 				EE4B72D71DF5164600289F0E /* AddCommentCell.xib */,
+				EED1CE9E1DF8A87100EA8B45 /* CommentHeaderCell.swift */,
+				EED1CE9F1DF8A87100EA8B45 /* CommentHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				644126951DEBAA1F0060FBED /* UserCell.xib in Resources */,
 				E1C2AE0F1DF5392300635DD2 /* add128green.png in Resources */,
 				E198EE111DF4F5C6001B4833 /* rightArrow128White.png in Resources */,
+				EED1CEA11DF8A87100EA8B45 /* CommentHeaderCell.xib in Resources */,
 				6452509D1DF29A7200DD1384 /* AvenirLTStd-Book.otf in Resources */,
 				E192BA4A1DF3A34B00BE57D2 /* camera256.png in Resources */,
 				644126891DE822FC0060FBED /* PostCell.xib in Resources */,
@@ -570,6 +577,7 @@
 				E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
+				EED1CEA01DF8A87100EA8B45 /* CommentHeaderCell.swift in Sources */,
 				648A56971DF7BEF900EF29D3 /* CellAnimator.swift in Sources */,
 				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,
 				64D507AB1DE4245200C708BD /* SkillPoints.swift in Sources */,
