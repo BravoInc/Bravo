@@ -135,6 +135,32 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //1. Setup the CATransform3D structure
+        
+        let num = Float(90.0*M_PI)/Float(180.0)
+        var rotation: CATransform3D = CATransform3DMakeRotation(CGFloat(num), 0.0, 0.7, 0.4)
+        let num2 = Float(1.0)/Float(-600.0)
+        rotation.m34 = CGFloat(num2)
+        
+        
+        //2. Define the initial state (Before the animation)
+        cell.layer.shadowColor = customBlack.cgColor
+        cell.layer.shadowOffset = CGSize(width: 10, height: 10)
+        cell.alpha = 0
+        
+        cell.layer.transform = rotation
+        cell.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+        
+        
+        //3. Define the final state (After the animation) and commit the animation
+        UIView.beginAnimations("rotation", context: nil)
+        UIView.setAnimationDuration(0.8)
+        cell.layer.transform = CATransform3DIdentity;
+        cell.alpha = 1;
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        UIView.commitAnimations()
+    }
 }
 
 // SearchBar methods
