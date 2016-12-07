@@ -15,17 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Custom Reward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-1B-muC">
-                        <rect key="frame" x="16" y="8" width="156.5" height="27.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="16" y="16" width="165" height="11.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fatAdd128green.png" translatesAutoresizingMaskIntoConstraints="NO" id="BgL-g0-NNi">
-                        <rect key="frame" x="287" y="8.5" width="25" height="25"/>
+                        <rect key="frame" x="287" y="9.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="IjU-Rf-XtD"/>
                             <constraint firstAttribute="width" constant="25" id="qae-mh-aWA"/>
@@ -35,8 +35,8 @@
                 <constraints>
                     <constraint firstItem="LVB-1B-muC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="C7O-Md-azf"/>
                     <constraint firstItem="BgL-g0-NNi" firstAttribute="centerY" secondItem="LVB-1B-muC" secondAttribute="centerY" id="CSV-nh-uLR"/>
-                    <constraint firstItem="LVB-1B-muC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="a5j-z1-3ah"/>
-                    <constraint firstAttribute="bottom" secondItem="LVB-1B-muC" secondAttribute="bottom" constant="8" id="hna-hW-Fb4"/>
+                    <constraint firstItem="LVB-1B-muC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="a5j-z1-3ah"/>
+                    <constraint firstAttribute="bottom" secondItem="LVB-1B-muC" secondAttribute="bottom" constant="16" id="hna-hW-Fb4"/>
                     <constraint firstAttribute="trailing" secondItem="BgL-g0-NNi" secondAttribute="trailing" constant="8" id="sxT-of-6rh"/>
                 </constraints>
             </tableViewCellContentView>

@@ -35,6 +35,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isComment == true {
             let recipient = post!["recipient"] as! BravoUser
             recipientTextField.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
@@ -50,6 +51,11 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
         scrollView.keyboardDismissMode = .onDrag
         recipientTextField.inputView = UIView() // So that keyboard doesnt pop up
         setupTextView()
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        textView.text = ""
+        return true
     }
     
     func setupTextView(){

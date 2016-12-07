@@ -69,8 +69,6 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.register(UINib(nibName: "AddCommentCell", bundle: nil), forCellReuseIdentifier: "AddCommentCell")
         
-
-        
         //recipientNameLabel.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
         postHeaderTextCreate(recipient: recipient, sender: sender, team : team,headerLabel: recipientNameLabel)
         messageLabel.text = "\(post["message"]!) \(post["skill"]!)"
