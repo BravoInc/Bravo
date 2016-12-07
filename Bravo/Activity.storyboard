@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -681,11 +681,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="availableLabel" destination="TgQ-gg-uZI" id="Qj2-0w-YlE"/>
+                        <outlet property="availablePointView" destination="DTE-ag-xUu" id="Tmd-gG-Ul6"/>
                         <outlet property="availablePointsLabel" destination="Q66-qk-tzk" id="bRY-NW-Dr3"/>
                         <outlet property="givenLabel" destination="ga3-hO-l1H" id="Reh-7Y-dxW"/>
+                        <outlet property="givenPointView" destination="b4B-Vt-c8j" id="L43-sk-emt"/>
                         <outlet property="givenPointsLabel" destination="x8T-CP-hIx" id="H7f-c8-CxA"/>
                         <outlet property="redeemButton" destination="dbb-c2-9WV" id="ua9-cq-rIH"/>
                         <outlet property="redeemedLabel" destination="6Bd-at-bvw" id="04n-em-Zcu"/>
+                        <outlet property="redeemedPointView" destination="XTI-Nw-Uhe" id="3IE-mM-58Z"/>
                         <outlet property="redeemedPointsLabel" destination="J4o-gy-egQ" id="JzU-Ec-M59"/>
                         <outlet property="scrollView" destination="iXs-Q1-6RW" id="wZl-aI-KYg"/>
                         <outlet property="userImageView" destination="c22-47-a58" id="Guf-jb-yLP"/>

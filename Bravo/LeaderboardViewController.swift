@@ -81,12 +81,12 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
             self.filteredLeaders = self.leaders
             print ("-- leaders data: \(self.filteredLeaders)")
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         }, failure: {(error: Error?) -> () in
             print ("-- error getting user data: \(error?.localizedDescription)")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         })
     }
@@ -100,14 +100,14 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
             self.filteredLeaders = userPoints!
             print ("-- \(self.skillName) leaders data: \(self.filteredLeaders)")
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
             
         }, failure: {(error: Error?) -> () in
             print ("-- error getting leader data for \(self.skillName): \(error?.localizedDescription)")
             self.filteredLeaders = []
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         })
     }

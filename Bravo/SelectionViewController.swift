@@ -66,10 +66,10 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
             self.filteredTeams = teams ?? self.filteredTeams
             self.teams = teams!
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         }, failure: { (error : Error?) in
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
             print("---!!! cant get teams : \(error?.localizedDescription)")
         })

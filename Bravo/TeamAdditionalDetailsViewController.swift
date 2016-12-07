@@ -163,7 +163,7 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         })
@@ -174,12 +174,12 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             print("--- got \(rewards?.count) rewards")
             self.rewards = rewards ?? self.rewards
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         }, failure: { (error : Error?) in
             print("---!!! failed to get rewards")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
             

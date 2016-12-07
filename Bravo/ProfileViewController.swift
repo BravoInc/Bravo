@@ -21,6 +21,11 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     @IBOutlet weak var givenLabel: UILabel!
     @IBOutlet weak var redeemButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var availablePointView: UIView!
+    @IBOutlet weak var redeemedPointView: UIView!
+    
+    @IBOutlet weak var givenPointView: UIView!
+    
     
     let user = BravoUser.getLoggedInUser()
     var userSkillPoint: PFObject?
@@ -68,6 +73,9 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
         // Set image view
         setImageView(imageView: userImageView, user: user)
 
+        // style views
+        styleViews()
+        
         // Set total points available
         UserSkillPoints.getUserTotalPoints(user: user, success: {
             (userSkillPoint: PFObject?) -> () in
@@ -101,21 +109,50 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
                 (points: Int?) -> () in
                 givenPoints += points!
                 self.givenPointsLabel.text = "\(givenPoints)"
-                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
             }, failure: {
                 (error: Error?) -> () in
                 self.givenPointsLabel.text = "\(givenPoints)"
-                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
             })
         }, failure: {
             (error: Error?) -> () in
             self.givenPointsLabel.text = "\(givenPoints)"
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         })
         
+    }
+    
+    func styleViews() {
+        for viewToStyle in [availablePointView!, redeemedPointView!, givenPointView!] {
+            
+            viewToStyle.layer.cornerRadius = 5.0
+            viewToStyle.layer.masksToBounds = true
+            viewToStyle.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+            viewToStyle.layer.shadowOffset = CGSize(width: 0, height: 0)
+            viewToStyle.layer.shadowOpacity = 0.8
+            viewToStyle.alpha = 0.0
+            UIView.animate(withDuration: 1.0, delay: 1.0,
+                           options: .curveEaseInOut,
+                           animations: {
+                            viewToStyle.alpha = 1.0
+            },
+                           completion: nil)
+            
+            
+        }
+        
+        redeemButton.layer.cornerRadius = 5.0
+        redeemButton.layer.masksToBounds = false
+        redeemButton.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        redeemButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        redeemButton.layer.shadowOpacity = 0.8
+    
+
+
     }
     
     func updatePoints(redeemedPoints: Int, userSkillPoint: PFObject) {
@@ -150,6 +187,13 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.redeemButton.alpha = 0.0
+        UIView.animate(withDuration: 1.0, delay: 1.0,
+                                   options: .curveEaseInOut,
+                                   animations: {
+                                    self.redeemButton.alpha = 1.0
+        },
+        completion: nil)
         let redeemVC = segue.destination as! RedeemViewController
         redeemVC.availableRewardPoints = Int(self.availablePointsLabel.text!)
         redeemVC.userSkillPoint = userSkillPoint
