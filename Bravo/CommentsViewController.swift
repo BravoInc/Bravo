@@ -109,11 +109,11 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("--- got \(comments?.count) comments")
             self.comments = comments!
             self.tableView.reloadData()
-            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         }, failure: { (error : Error?) in
             print("---!!! cant get comments : \(error?.localizedDescription)")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
         })
     }

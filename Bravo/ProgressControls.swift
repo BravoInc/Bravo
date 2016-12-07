@@ -28,6 +28,7 @@ class ProgressControls {
     
     var currentColorIndex = 0
     var currentLabelIndex = 0
+    var tempUIView: UIView!
 
     func loadCustomView(owner: Any?) -> UIView {
         let loadContents = Bundle.main.loadNibNamed("RefreshContents", owner: owner, options: nil)
@@ -115,6 +116,11 @@ class ProgressControls {
     }
 
     func showProgressHud(owner: Any?, view: UIView) {
+        tempUIView = UIView.init(frame: view.bounds)
+        tempUIView.backgroundColor = greenColor
+        tempUIView.alpha = 0.5
+        view.addSubview(tempUIView)
+        //view.alpha = 0.5
         hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.mode = .customView
         hud.customView = loadCustomView(owner: owner)
@@ -122,8 +128,10 @@ class ProgressControls {
         animateLoadStep1(hud: hud)
     }
     
-    func hideControls(delayInSeconds: TimeInterval, isRefresh: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
+    func hideControls(delayInSeconds: TimeInterval, isRefresh: Bool, view: UIView) {
+        //view.alpha = 1
+        tempUIView.removeFromSuperview()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0) {
             if !isRefresh {
                self.hud.hide(animated: true)
             }

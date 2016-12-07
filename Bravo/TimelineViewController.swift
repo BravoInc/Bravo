@@ -71,19 +71,19 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 self.tableView.reloadData()
                 
-                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
 
             }, failure: {
                 (error: Error?) in
                 print ("failed to get user post likes")
-                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
 
             })
 
         }, failure: { (error : Error?) in
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             print("---!!! cant get posts : \(error?.localizedDescription)")
             self.isRefresh = true
         })

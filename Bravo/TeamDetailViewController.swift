@@ -76,19 +76,19 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
                     self.userPointsMap[(userPoint["user"] as! PFUser).objectId!] = (userPoint["totalPoints"]! as! Int)
                 }
                 self.tableView.reloadData()
-                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
 
             }, failure: { (error: Error?) in
                 print ("--error getting user points \(error?.localizedDescription)")
-                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+                self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
                 self.isRefresh = true
 
             })
             
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
-            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh)
+            self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         })
