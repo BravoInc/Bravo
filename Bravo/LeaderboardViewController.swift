@@ -43,6 +43,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         
+        tableView.tableFooterView = UIView()
+        
         tableView.register(UINib(nibName: "LeaderCell", bundle: nil), forCellReuseIdentifier: "LeaderCell")
         
         // When activated, invoke our refresh function
