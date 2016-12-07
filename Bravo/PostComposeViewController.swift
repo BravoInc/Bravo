@@ -145,7 +145,13 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     }
 
     func saveNewComment() -> PFObject {
-        let points = Int(pointsTextField.text!)!
+        
+        var points = 0
+        
+        if (pointsTextField.text != nil && pointsTextField.text != ""){
+            points = Int(pointsTextField.text!)!
+        }
+        
         let newComment = Comment.createComment(post: post!, message: messageTextView.text!, points: points)
         let skills = skillsTextField.text!.components(separatedBy: "#")
         print ("spliting by hashtags \(skills)")
