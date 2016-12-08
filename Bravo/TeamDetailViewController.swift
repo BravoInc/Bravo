@@ -130,9 +130,14 @@ class TeamDetailViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let oldIndex = selectedIndex
         selectedIndex = indexPath.row
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onDone(_:)))
-        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .none)
+        if oldIndex >= 0 {
+            let oldIndexPath = IndexPath(row: oldIndex, section: indexPath.section)
+            tableView.reloadRows(at: [oldIndexPath], with: .none)
+        }
         
     }
     
