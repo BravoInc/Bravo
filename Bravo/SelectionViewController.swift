@@ -44,6 +44,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
+        tableView.tableFooterView = UIView()
         
         tableView.register(UINib(nibName: "TeamCell", bundle: nil), forCellReuseIdentifier: "TeamCell")
         
