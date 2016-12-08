@@ -108,6 +108,10 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         return 2
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case SECTION_MEMBERS:
