@@ -143,7 +143,7 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let rewardsStr = numRewards == 1 ? "reward" : "rewards"
         displayMessage(title: "Bravo!", subTitle: "You have successfully redeemed \(numRewards) \(rewardsStr)!", duration: 3.0, showCloseButton: false, messageStyle: .success)
 
-        self.userSkillPoint!["availablePoints"] = (self.userSkillPoint!["availablePoints"] as! Int) - self.selectedPoints
+        self.userSkillPoint!.incrementKey("availablePoints", byAmount: NSNumber(value: -self.selectedPoints))
         
         delegate?.updatePoints?(redeemedPoints: self.selectedPoints, userSkillPoint: self.userSkillPoint!)
         
