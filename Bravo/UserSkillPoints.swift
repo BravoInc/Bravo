@@ -29,8 +29,8 @@ class UserSkillPoints: PFObject {
         query.findObjectsInBackground {(userSkillPoints: [PFObject]?, error: Error?) -> Void in
             if error == nil  {
                 let userSkillPoint = (userSkillPoints?.count)! >= 1 ? userSkillPoints![0] : newUserSkillPoint
-                userSkillPoint["totalPoints"] = (userSkillPoint["totalPoints"]! as! Int) + points
-                userSkillPoint["availablePoints"] = (userSkillPoint["availablePoints"]! as! Int) + points
+                userSkillPoint.incrementKey("totalPoints", byAmount: NSNumber(value: points))
+                userSkillPoint.incrementKey("availablePoints", byAmount: NSNumber(value: points))
                 userSkillPoint.addUniqueObject(skill, forKey: "skills")
 
                 success(userSkillPoint)

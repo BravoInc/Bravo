@@ -22,7 +22,7 @@ class UserPoints: PFObject {
         query.findObjectsInBackground {(userPoints: [PFObject]?, error: Error?) -> Void in
             if error == nil  {
                 let userPoint = (userPoints?.count ?? 0) >= 1 ? userPoints![0] : newUserPoint
-                userPoint["points"] = (userPoint["points"]! as! Int) + points
+                userPoint.incrementKey("points", byAmount: NSNumber(value: points))
                 
                 success(userPoint)
             } else {

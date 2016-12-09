@@ -24,8 +24,8 @@ class SkillPoints: PFObject {
         query.findObjectsInBackground {(skillPoints: [PFObject]?, error: Error?) -> Void in
             if error == nil  {
                 let skillPoint = (skillPoints?.count ?? 0 ) >= 1 ? skillPoints![0] : newSkillPoint
-                skillPoint["points"] = (skillPoint["points"]! as! Int) + points
                 
+                skillPoint.incrementKey("points", byAmount: NSNumber(value: points))
                 success(skillPoint)
             } else {
                 print ("Error getting skillPoint count: \(error?.localizedDescription)")
