@@ -197,6 +197,20 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     
     @IBAction func createPost(_ sender: Any) {
         guard didEdit == true else { return }
+        if recipientTextField.text!.characters.count == 0 {
+            displayMessage(title: "Post Creation Error", subTitle: "Please select a recipient.", duration: 3.0, showCloseButton: true, messageStyle: .error)
+            return
+        }
+        
+        let startIndex = skillsTextField.text!.startIndex
+        if skillsTextField.text!.characters.count == 0 || skillsTextField.text![startIndex] != "#" {
+            displayMessage(title: "Post Creation Error", subTitle: "Please add a #skill to recognize for e.g #ios.", duration: 3.0, showCloseButton: true, messageStyle: .error)
+            return
+        }
+        
+        if pointsTextField.text! == "" {
+            pointsTextField.text = "0"
+        }
         
         let newPost = isComment == true ? saveNewComment() : saveNewPost()
         delegate?.postCompose?(post: newPost, isComment: isComment, postIndex: postIndex)
