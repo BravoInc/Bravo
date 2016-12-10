@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -146,6 +146,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backgroundCardView" destination="59A-jB-Erc" id="3s0-sb-hT8"/>
+                <outlet property="commentButton" destination="uP1-o2-ftm" id="sUN-F0-ZER"/>
                 <outlet property="commentCountLabel" destination="Dpc-Tt-hrj" id="Dri-or-eAe"/>
                 <outlet property="likeButton" destination="erM-PN-b5z" id="Foz-cO-oVv"/>
                 <outlet property="likeCountLabel" destination="cUL-b0-3om" id="rV3-xr-l88"/>

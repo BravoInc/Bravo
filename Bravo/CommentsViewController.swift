@@ -10,7 +10,8 @@ import UIKit
 import Parse
 
 @objc protocol CommentsViewControllerDelegate {
-    @objc optional func postLiked(post: PFObject, isLiked: Bool)
+    @objc optional func postLiked(post: PFObject, isLiked: Bool, postIndex: Int)
+    @objc optional func postCommentedOn(post: PFObject, postIndex: Int)
 }
 
 class CommentsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostComposeViewControllerDelegate, AddCommentCellDelegate {
@@ -32,6 +33,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     var post: PFObject!
     var isPostLiked: Bool!
     var team: PFObject!
+    var postIndex: Int!
     weak var delegate: CommentsViewControllerDelegate?
     var isSenderAnimating = false
     
@@ -225,8 +227,10 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func postCompose(post: PFObject) {
+    func postCompose(post: PFObject, isComment: Bool, postIndex: Int) {
         self.comments.append(post)
+        commentCountLabel.text = "\(Int(commentCountLabel.text!)!+1)"
+        delegate?.postCommentedOn?(post: self.post, postIndex: postIndex)
         tableView.reloadData()
     }
     
@@ -237,8 +241,8 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         postComposeVC.post = post
         postComposeVC.isComment = true
         postComposeVC.user = post["recipient"] as? PFUser
+        postComposeVC.postIndex = postIndex
         postComposeVC.delegate = self
-        
         present(postComposeNavControler, animated: true, completion: nil)
     }
     
@@ -255,7 +259,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func onLikeButton(_ sender: Any) {
         self.updateLikeCount()
-        delegate?.postLiked?(post: post, isLiked: self.likeButton.isSelected)
+        delegate?.postLiked?(post: post, isLiked: self.likeButton.isSelected, postIndex: postIndex)
         Post.updateLikeCount(post: post, increment: likeButton.isSelected, success: {
             (post: PFObject?) -> () in
             BravoUser.saveUserPostLikes(post: post!, isLiked: self.likeButton.isSelected, success: { (postLike: PFObject?) in
@@ -276,7 +280,9 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         postComposeVC.isComment = true
         postComposeVC.post = post
         postComposeVC.user = post!["recipient"] as? PFUser
+        postComposeVC.postIndex = postIndex
         postComposeVC.delegate = self
+        
     }
     
     /*
