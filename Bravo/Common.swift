@@ -235,7 +235,7 @@ func getTabBarController() -> UITabBarController {
     tabBarController.viewControllers = [timelineNavigationController, teamNavigationController, leaderboardNavigationController, profileNavigationController]
     //tabBarController.selectedViewController = teamNavigationController
     
-    configureAppearanceProxies()
+    
     
     
     
@@ -268,7 +268,7 @@ func displayMessage(title: String, subTitle: String, duration: TimeInterval, sho
         kTitleFont: UIFont(name: "Avenir-Light", size: 20)!,
         kTextFont: UIFont(name: "Avenir-Light", size: 14)!,
         kButtonFont: UIFont(name: "Avenir-Medium", size: 14)!,
-        showCloseButton: showCloseButton
+        showCloseButton: true
     )
     
     let colorStyle: UInt = messageStyle == .success ? 0x50D2C2 : 0xFCAB53
@@ -276,10 +276,10 @@ func displayMessage(title: String, subTitle: String, duration: TimeInterval, sho
         title, // Title of view
         subTitle: subTitle, // String of view
         duration: duration, // Duration to show before closing automatically, default: 0.0
-        completeText: "", // Optional button value, default: ""
+        completeText: "OK", // Optional button value, default: ""
         style: messageStyle, // Styles - see below.
         colorStyle: colorStyle,
-        colorTextButton: colorStyle
+        colorTextButton: 0xFFFFFF
     )
 }
 

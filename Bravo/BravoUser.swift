@@ -37,11 +37,13 @@ class BravoUser: PFUser {
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (loggedInUser : PFUser?, error : Error?) in
                 if (error != nil){
                     print("---!!! logInUser failed")
+                    displayMessage(title: "Login Error", subTitle: "Your username or password is incorrect", duration: 3.0, showCloseButton: true, messageStyle: .error)
                 } else {
                     success()
                 }
             })
         } else {
+            displayMessage(title: "Login Error", subTitle: "Please enter username and password", duration: 3.0, showCloseButton: true, messageStyle: .error)
             print("---!!! logInUser inputCheck failed")
         }
     }
