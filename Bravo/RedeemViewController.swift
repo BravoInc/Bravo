@@ -127,7 +127,8 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Redeem", style: .plain, target: self, action: #selector(onRedeem(_:)))
         }
         
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        //tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     func onRedeem(_ sender: UIBarButtonItem) {
@@ -168,9 +169,9 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformFlip, andDuration: 1)
-    }
+    }*/
     /*
     // MARK: - Navigation
 

@@ -162,9 +162,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         show(commentsViewController, sender: self)
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformFlip, andDuration: 0.5)
-    }
+    }*/
     
     func postCompose(post: PFObject, isComment: Bool, postIndex: Int) {
         if isComment {
@@ -174,8 +174,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             postCell.commentCountLabel.text = "\(Int(postCell.commentCountLabel.text!)!+1)"
         } else {
             self.posts.insert(post, at: 0)
-            let indexPath = IndexPath(row: 0, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
+            tableView.reloadData()
         }
     }
 
@@ -189,6 +188,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
         postComposeVC.isComment = false
+        postComposeVC.postIndex = 0
         postComposeVC.delegate = self
     }
     
