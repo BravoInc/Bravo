@@ -15,7 +15,6 @@ import FBSDKCoreKit
 
 class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
 
-    @IBOutlet weak var disclaimer: TTTAttributedLabel!
     @IBOutlet weak var initialOuterStack: UIStackView!
     
     override func viewDidLoad() {
@@ -26,24 +25,6 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
         }
         
         //UIApplication.shared.statusBarStyle = .lightContent
-        
-        self.disclaimer.delegate = self
-        
-        let TOS = "Terms Of Service"
-        let disclaimerText = "By signing up, I agree to Bravo's \(TOS)"
-        self.disclaimer.text = disclaimerText
-        
-        self.disclaimer.linkAttributes = [
-            NSForegroundColorAttributeName: customGray,
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-        
-        self.disclaimer.activeLinkAttributes = [NSForegroundColorAttributeName: customGreen,]
-        
-        let tmpString = disclaimerText as NSString
-        let range = tmpString.range(of: TOS)
-        let url = URL(string: "http://www.jayliew.com")
-        
-        self.disclaimer.addLink(to: url!, with: (range as NSRange))
         
         UNUserNotificationCenter.current().getNotificationSettings(){ (setttings) in
             switch setttings.soundSetting{

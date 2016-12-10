@@ -21,10 +21,13 @@ class BravoUser: PFUser {
         
         self.signUpInBackground { (succeeded: Bool, error: Error?) in
             if let error = error {
-                print("---!!! Parse signUpInBackground: \(error.localizedDescription)")
+                displayMessage(title: "SignUp Error", subTitle: error.localizedDescription, duration: 3.0, showCloseButton: true, messageStyle: .error)
             } else {
-                print("--- Parse signUpInBackground SUCCESS NEW USER \(self.username)")
-                success()
+                displayMessage(title: "Bravo!", subTitle: "You have successfully signed up!", duration: 3.0, showCloseButton: false, messageStyle: .success)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+                    success()
+                }
+
             }
             
         } // signUpInBackground
