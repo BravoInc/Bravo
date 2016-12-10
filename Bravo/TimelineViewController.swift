@@ -107,18 +107,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let team = currPost["team"] as! PFObject
         
         postCell.team = team
+        postCell.commentButton.tag = indexPath.row
         postCell.post = posts[indexPath.row]
         
         return postCell
     }
     
-    func comment(post: PFObject) {
+    func comment(post: PFObject, postIndex: Int) {
         let storyboard = UIStoryboard(name: "Activity", bundle: nil)
         let postComposeNavControler = storyboard.instantiateViewController(withIdentifier: "PostComposeNavigationController") as! UINavigationController
         let postComposeVC = postComposeNavControler.topViewController as! PostComposeViewController
         postComposeVC.post = post
         postComposeVC.isComment = true
+        postComposeVC.postIndex = postIndex
         postComposeVC.user = post["recipient"] as? PFUser
+        postComposeVC.delegate = self
 
         
         present(postComposeNavControler, animated: true, completion: nil)
@@ -129,9 +132,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         postIdLikeMap[post.objectId!] = isLiked
     }
 
-    func postLiked(post: PFObject, isLiked: Bool) {
+    func postLiked(post: PFObject, isLiked: Bool, postIndex: Int) {
         postIdLikeMap[post.objectId!] = isLiked
-        tableView.reloadData()
+        let indexPath = IndexPath(row: postIndex, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
+    func postCommentedOn(post: PFObject, postIndex: Int) {
+        let indexPath = IndexPath(row: postIndex, section: 0)
+
+        let postCell = tableView.cellForRow(at: indexPath) as! PostCell
+        postCell.commentCountLabel.text = "\(Int(postCell.commentCountLabel.text!)!+1)"
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -146,6 +157,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         commentsViewController.isPostLiked = postIdLikeMap[posts[indexPath.row].objectId!] ?? false
         commentsViewController.team = team
         commentsViewController.delegate = self
+        commentsViewController.postIndex = indexPath.row
         
         show(commentsViewController, sender: self)
     }
@@ -154,9 +166,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformFlip, andDuration: 0.5)
     }
     
-    func postCompose(post: PFObject) {
-        self.posts.insert(post, at: 0)
-        tableView.reloadData()
+    func postCompose(post: PFObject, isComment: Bool, postIndex: Int) {
+        if isComment {
+            let indexPath = IndexPath(row: postIndex, section: 0)
+            
+            let postCell = tableView.cellForRow(at: indexPath) as! PostCell
+            postCell.commentCountLabel.text = "\(Int(postCell.commentCountLabel.text!)!+1)"
+        } else {
+            self.posts.insert(post, at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
     }
 
     

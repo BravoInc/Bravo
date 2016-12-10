@@ -11,7 +11,7 @@ import Parse
 
 
 @objc protocol PostComposeViewControllerDelegate {
-    @objc optional func postCompose(post: PFObject)
+    @objc optional func postCompose(post: PFObject, isComment: Bool, postIndex: Int)
 }
 
 class PostComposeViewController: UIViewController, UITextViewDelegate{
@@ -22,6 +22,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     let placeholder = "What do you want to say?"
     
     var didEdit = false
+    var postIndex: Int!
 
     let borderColor = UIColor(red: (136/255.0), green: (136/255.0), blue: (136/255.0), alpha: 1.0)
     let twitterBlack = UIColor(red: (20/255.0), green: (23/255.0), blue: (26/255.0), alpha: 1.0)
@@ -198,7 +199,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
         guard didEdit == true else { return }
         
         let newPost = isComment == true ? saveNewComment() : saveNewPost()
-        delegate?.postCompose?(post: newPost)
+        delegate?.postCompose?(post: newPost, isComment: isComment, postIndex: postIndex)
         dismiss(animated: true, completion: nil)
     }
     

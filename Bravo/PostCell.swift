@@ -11,7 +11,7 @@ import Parse
 import DateTools
 
 @objc protocol PostCellDelegate {
-    @objc optional func comment(post: PFObject)
+    @objc optional func comment(post: PFObject, postIndex: Int)
     @objc optional func like(post: PFObject, isLiked: Bool)
 }
 
@@ -27,6 +27,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var commentCountLabel: UILabel!
     
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var backgroundCardView: UIView!
     
     weak var delegate: PostCellDelegate?
@@ -110,7 +111,7 @@ class PostCell: UITableViewCell {
         
         
     @IBAction func onCommentTapped(_ sender: Any) {
-        delegate?.comment?(post: post)
+        delegate?.comment?(post: post, postIndex: commentButton.tag)
     }
     
     @IBAction func onLikeTapped(_ sender: Any) {
