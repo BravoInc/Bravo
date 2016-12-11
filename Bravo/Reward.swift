@@ -72,6 +72,7 @@ class Reward: PFObject {
                 query.whereKey("isActive", equalTo: true)
                 query.whereKey("isClaimed", equalTo: false)
                 query.whereKey("team", containedIn: teams!)
+                query.includeKey("team")
                 
                 query.findObjectsInBackground {(rewards: [PFObject]?, error: Error?) -> Void in
                     if error == nil && rewards?.count ?? 0 > 0 {

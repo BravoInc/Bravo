@@ -17,8 +17,10 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     
-    var availableRewards = [PFObject]()
-    var indexSelection = [Int: Bool]()
+    var availableTeams = [Int: String]()
+    var teamSections = [String: Int]()
+    var availableRewards = [Int: [PFObject]]()
+    var indexSelection = [Int: [Int: Bool]]()
     var selectedPoints = 0
     var availableRewardPoints: Int!
     var userSkillPoint: PFObject?
@@ -64,17 +66,31 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         Reward.getAvailableRewards(user: BravoUser.getLoggedInUser(), success: { (rewards : [PFObject]?) in
             print("--- got \(rewards?.count) rewards")
-            self.availableRewards = rewards!
-            for i in 0..<self.availableRewards.count {
-                self.indexSelection[i] = false
+            
+            var section = 0
+            for reward in rewards! {
+                let team = "\((reward["team"] as! PFObject)["name"]!)"
+                if self.teamSections[team] == nil {
+                    self.teamSections[team] = section
+                    self.availableTeams[section] = team
+                    self.availableRewards[section] = [PFObject]()
+                    self.indexSelection[section] = [Int: Bool]()
+                    section += 1
+                }
+                let teamSection = self.teamSections[team]!
+                self.availableRewards[teamSection]!.append(reward)
+                let rowIndex = self.availableRewards[teamSection]!.count - 1
+                self.indexSelection[teamSection]![rowIndex] = false
+                
             }
+            
             self.tableView.reloadData()
             self.progressControl.hideControls(delayInSeconds: 1.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
         }, failure: { (error : Error?) in
             print("---!!! cant get rewards : \(error?.localizedDescription)")
-            self.availableRewards = [PFObject]()
+            self.availableRewards = [Int: [PFObject]]()
             self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
             self.isRefresh = true
 
@@ -90,16 +106,34 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         progressControl.checkScrollView(tableViewSize: self.tableView.frame.size.width)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return teamSections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return availableRewards.count
+        return availableRewards[section]!.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return availableTeams[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
+            
+            textLabel.font = UIFont(name: "Avenir-Medium", size: CGFloat(16.0))
+            textLabel.textAlignment = .center
+            textLabel.textColor = UIColor.white
+            headerView.tintColor = purpleColor
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
-        rewardCell.isChecked = indexSelection[indexPath.row]!
-        rewardCell.reward = availableRewards[indexPath.row]
+        rewardCell.isChecked = indexSelection[indexPath.section]![indexPath.row]!
+        rewardCell.reward = availableRewards[indexPath.section]![indexPath.row]
         
-        if availableRewardPoints < (availableRewards[indexPath.row]["points"]! as! Int) {
+        if availableRewardPoints < (rewardCell.reward["points"]! as! Int) {
             rewardCell.isUserInteractionEnabled = false
             rewardCell.rewardNameLabel.isEnabled = false
             rewardCell.rewardPointsLabel.isEnabled = false
@@ -113,12 +147,13 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        indexSelection[indexPath.row] = !indexSelection[indexPath.row]!
+        let currIndexValue = indexSelection[indexPath.section]![indexPath.row]!
+        indexSelection[indexPath.section]![indexPath.row] = !currIndexValue
         
-        if indexSelection[indexPath.row]! {
-            selectedPoints += (availableRewards[indexPath.row]["points"]! as! Int)
+        if indexSelection[indexPath.section]![indexPath.row]! {
+            selectedPoints += (availableRewards[indexPath.section]![indexPath.row]["points"]! as! Int)
         } else {
-            selectedPoints -= (availableRewards[indexPath.row]["points"]! as! Int)
+            selectedPoints -= (availableRewards[indexPath.section]![indexPath.row]["points"]! as! Int)
         }
         
         if selectedPoints == 0 || selectedPoints > availableRewardPoints {
@@ -133,12 +168,18 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func onRedeem(_ sender: UIBarButtonItem) {
         var numRewards = 0
+        var redeemRewards = [PFObject]()
+        
         for i in 0..<availableRewards.count {
-            if indexSelection[i]! {
-                numRewards += 1
-                availableRewards[i]["isClaimed"] = true
-                availableRewards[i]["claimedBy"] = BravoUser.getLoggedInUser()
+            for j in 0..<availableRewards[i]!.count {
+                if indexSelection[i]![j]! {
+                    numRewards += 1
+                    availableRewards[i]![j]["isClaimed"] = true
+                    availableRewards[i]![j]["claimedBy"] = BravoUser.getLoggedInUser()
+                    redeemRewards.append(availableRewards[i]![j])
+                }
             }
+ 
         }
 
         let rewardsStr = numRewards == 1 ? "reward" : "rewards"
@@ -148,7 +189,7 @@ class RedeemViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         delegate?.updatePoints?(redeemedPoints: self.selectedPoints, userSkillPoint: self.userSkillPoint!)
         
-        Reward.updateRewards(rewards: availableRewards, success: {
+        Reward.updateRewards(rewards: redeemRewards, success: {
             (rewards: [PFObject]?) -> () in
             print ("-- Successfully updated rewards")
             
