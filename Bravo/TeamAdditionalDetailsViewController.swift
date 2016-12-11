@@ -153,6 +153,13 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             userCell.points = userPointsMap[users[indexPath.row].objectId!] ?? 0
             userCell.user = users[indexPath.row]
             userCell.setImageViews()
+            if (team["adminUser"] as! PFObject).objectId! == userCell.user.objectId! {
+                userCell.selectionImageView.image = #imageLiteral(resourceName: "adminPic").withRenderingMode(.alwaysTemplate)
+                userCell.selectionImageView.tintColor = purpleColor
+            } else {
+                userCell.selectionImageView.image = nil
+            }
+            
             return userCell
         } else {
             let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
