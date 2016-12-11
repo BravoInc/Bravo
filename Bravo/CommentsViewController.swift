@@ -215,6 +215,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         if(indexPath.row < comments.count ){
             let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
             commentCell.comment = comments[indexPath.row]
+            commentCell.isUserInteractionEnabled = false
             return commentCell
         } else {
             let addCommentCell = tableView.dequeueReusableCell(withIdentifier: "AddCommentCell", for: indexPath) as! AddCommentCell
