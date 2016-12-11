@@ -50,6 +50,11 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
             skillsTextField.isEnabled = false
             //skillsTextField.backgroundColor = UIColor.lightGray
             skillsTextField.textColor = twitterBlack
+            
+            if recipient.objectId! == BravoUser.getLoggedInUser().objectId! {
+                pointsTextField.text = "0"
+                pointsTextField.isEnabled = false
+            }
         }
         scrollView.keyboardDismissMode = .onDrag
         recipientTextField.inputView = UIView() // So that keyboard doesnt pop up

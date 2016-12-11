@@ -22,7 +22,13 @@ class CommentCell: UITableViewCell {
             let sender = comment["sender"] as! BravoUser
             
             senderNameLabel.text = "\(sender["firstName"]!) \(sender["lastName"]!)"
-            messageLabel.text = "\(comment["message"]!) +\(comment["points"]!)"
+            let commentPoints = (comment["points"]! as! Int)
+            if commentPoints == 0 {
+                 messageLabel.text = "\(comment["message"]!)"
+            } else {
+                messageLabel.text = "\(comment["message"]!) +\(comment["points"]!)"
+            }
+            
             
             if (comment.createdAt != nil ){
                 let timeSinceNow = NSDate(timeIntervalSinceNow: comment.createdAt!.timeIntervalSinceNow)
