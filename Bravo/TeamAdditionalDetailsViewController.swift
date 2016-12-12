@@ -116,7 +116,11 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         
         switch indexPath.section {
         case SECTION_MEMBERS:
-            return
+            let storyboard = UIStoryboard(name: "Activity", bundle: nil)
+            let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            profileVC.user = users[indexPath.row]
+            self.show(profileVC, sender: self)
+            
         case SECTION_REWARDS:
             if indexPath.row == rewards.count {
                 let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)

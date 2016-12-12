@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     @IBOutlet weak var givenPointView: UIView!
     
     
-    let user = BravoUser.getLoggedInUser()
+    var user: PFUser = BravoUser.getLoggedInUser()
     var userSkillPoint: PFObject?
     var didRedeem: Bool = false
     
@@ -40,6 +40,9 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
         
         scrollView.delegate = self
         
+        if self.user.objectId! != BravoUser.getLoggedInUser().objectId! {
+            self.navigationItem.rightBarButtonItem = nil
+        }
         // When activated, invoke our refresh function
         progressControl.setupRefreshControl()
         progressControl.refreshControl.addTarget(self, action: #selector(loadProfile), for: UIControlEvents.valueChanged)
@@ -82,7 +85,10 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
             let points = (userSkillPoint!["availablePoints"]! as! Int)
             self.userSkillPoint = userSkillPoint
             self.availablePointsLabel.text = "\(points)"
-            self.redeemButton.isHidden = points <= 0
+            if self.user.objectId! == BravoUser.getLoggedInUser().objectId! {
+                self.redeemButton.isHidden = points <= 0
+            }
+            
         }, failure: {
             (error: Error?) -> () in
             self.availablePointsLabel.text = "0"
