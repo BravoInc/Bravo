@@ -21,6 +21,7 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
     var defaultRewards = [PFObject]()
     var currentTeam : PFObject!
     weak var delegate: RewardsViewControllerDelegate?
+    var teamExists = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +104,19 @@ class RewardsViewController: UIViewController, UITableViewDataSource, UITableVie
                 defaultRewards.remove(at: i)
             }
         }
-        displayMessage(title: "Bravo!", subTitle: "You have successfully set up a new team!", duration: 3.0, showCloseButton: false, messageStyle: .success)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
-            self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
+        
+        if teamExists {
             self.delegate?.saveRewards?(rewards: self.defaultRewards)
-
+            self.navigationController?.popViewController(animated: true)
+       } else {
+            displayMessage(title: "Bravo!", subTitle: "You have successfully set up a new team!", duration: 3.0, showCloseButton: false, messageStyle: .success)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+                self.performSegue(withIdentifier: "unwindToTeamConfig", sender: self)
+                self.delegate?.saveRewards?(rewards: self.defaultRewards)
+                
+            }
         }
+
     }
 
     func onBack(_ sender: UIButton) {

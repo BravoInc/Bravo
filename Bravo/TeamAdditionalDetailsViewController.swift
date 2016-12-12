@@ -13,7 +13,7 @@ import Parse
     @objc optional func joinTeam(team: PFObject)
 }
 
-class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RewardsViewControllerDelegate {
     
     let SECTION_MEMBERS = 0
     let SECTION_REWARDS = 1
@@ -62,6 +62,8 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
         tableView.register(UINib(nibName: "RewardCell", bundle: nil), forCellReuseIdentifier: "RewardCell")
+        tableView.register(UINib(nibName: "MoreRewardsCell", bundle: nil), forCellReuseIdentifier: "MoreRewardsCell")
+
         
         // When activated, invoke our refresh function
         progressControl.setupRefreshControl()
@@ -111,6 +113,23 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.section {
+        case SECTION_MEMBERS:
+            return
+        case SECTION_REWARDS:
+            if indexPath.row == rewards.count {
+                let storyboard = UIStoryboard(name: "TeamCreation", bundle: nil)
+                let rewardsVC = storyboard.instantiateViewController(withIdentifier: "RewardsViewController") as! RewardsViewController
+                rewardsVC.currentTeam = self.team
+                rewardsVC.teamExists = true
+                rewardsVC.delegate = self
+                
+                self.show(rewardsVC, sender: self)
+            }
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,7 +137,11 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
         case SECTION_MEMBERS:
             return users.count
         case SECTION_REWARDS:
-            return rewards.count
+            if (team["adminUser"] as! PFObject).objectId! == BravoUser.getLoggedInUser().objectId! {
+                return rewards.count + 1
+            } else {
+                return rewards.count
+            }
         default:
             break
         }
@@ -162,12 +185,20 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             
             return userCell
         } else {
-            let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
-            rewardCell.reward = rewards[indexPath.row]
-            rewardCell.selectionImageWidth.constant = 0
-            rewardCell.rewardNameLeading.constant = 0
-            rewardCell.isUserInteractionEnabled = false
-            return rewardCell
+            
+            if (indexPath.row < rewards.count) {
+                let rewardCell = tableView.dequeueReusableCell(withIdentifier: "RewardCell", for: indexPath) as! RewardCell
+                rewardCell.reward = rewards[indexPath.row]
+                rewardCell.selectionImageWidth.constant = 0
+                rewardCell.rewardNameLeading.constant = 0
+                rewardCell.isUserInteractionEnabled = false
+                return rewardCell
+            } else {
+                let moreRewardsCell = tableView.dequeueReusableCell(withIdentifier: "MoreRewardsCell", for: indexPath) as! MoreRewardsCell
+                return moreRewardsCell
+
+            }
+
         }
     }
     
@@ -221,6 +252,19 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
     /*func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         CellAnimator.animateCell(cell: cell, withTransform: CellAnimator.TransformTilt, andDuration: 1)
     }*/
+    
+    
+    func saveRewards(rewards: [PFObject]) {
+        self.rewards.append(contentsOf: rewards)
+        let indexSet: IndexSet = [SECTION_REWARDS]
+        tableView.reloadSections(indexSet, with: .none)
+        Reward.saveRewards(rewards: rewards, team : self.team, success: {
+            print("--- Reward creation success")
+            
+        }, failure: { (error : Error?) in
+            print("---!!! reward creation error : \(error?.localizedDescription)")
+        })
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
