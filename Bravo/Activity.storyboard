@@ -42,6 +42,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeButton" destination="seA-0R-Aqy" id="NIB-kf-BKE"/>
                         <outlet property="tableView" destination="dBL-u3-XP9" id="8Ww-C7-iTj"/>
                     </connections>
                 </viewController>
@@ -841,6 +842,6 @@
         <image name="thumbsup_outline" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZdG-Rj-5wn"/>
+        <segue reference="9gS-Yo-xhi"/>
     </inferredMetricsTieBreakers>
 </document>

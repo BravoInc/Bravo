@@ -16,6 +16,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var posts = [PFObject]()
     var postIdLikeMap = [String : Bool]()
     
+    @IBOutlet weak var composeButton: UIBarButtonItem!
     // Progress control
     let progressControl = ProgressControls()
     var isRefresh = false
@@ -31,7 +32,19 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         navigationItem.titleView = titleLabel
         */
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Activity", style: .plain, target: nil, action: nil)
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        let rightImage = UIImage(named: "plusCompose")!
+        button.setImage(rightImage, for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(onCompose), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem?.customView = button
 
+        
         // Initialize table view
         tableView.delegate = self
         tableView.dataSource = self
@@ -184,6 +197,16 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func onCompose() {
+        let storyboard = UIStoryboard(name: "Activity", bundle: nil)
+        let postComposeNavControler = storyboard.instantiateViewController(withIdentifier: "PostComposeNavigationController") as! UINavigationController
+        let postComposeVC = postComposeNavControler.topViewController as! PostComposeViewController
+        postComposeVC.isComment = false
+        postComposeVC.postIndex = 0
+        postComposeVC.delegate = self
+        present(postComposeNavControler, animated: true, completion: nil)
+
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
         let postComposeVC = navigationController.topViewController as! PostComposeViewController
