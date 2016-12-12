@@ -21,15 +21,18 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     @IBOutlet weak var givenLabel: UILabel!
     @IBOutlet weak var redeemButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var availablePointView: UIView!
     @IBOutlet weak var redeemedPointView: UIView!
     
+    @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var givenPointView: UIView!
     
     
     var user: PFUser = BravoUser.getLoggedInUser()
     var userSkillPoint: PFObject?
     var didRedeem: Bool = false
+    var skills: String = ""
     
     // Progress control
     let progressControl = ProgressControls()
@@ -37,7 +40,6 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         scrollView.delegate = self
         
         if self.user.objectId! != BravoUser.getLoggedInUser().objectId! {
@@ -52,13 +54,14 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
         // Do any additional setup after loading the view.
     }
     
+
+    
     func loadProfile(refreshControl: UIRefreshControl) {
         if !isRefresh {
             progressControl.showProgressHud(owner: self, view: self.view)
         }
 
         // Set label background colors
-        availableLabel.backgroundColor = greenColor
         redeemedLabel.backgroundColor = purpleColor
         givenLabel.backgroundColor = orangeColor
         
@@ -66,7 +69,7 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
         redeemButton.backgroundColor = greenColor
 
         // Hide Redeem button initially
-        redeemButton.isHidden = true
+        redeemButton.isEnabled = false
 
         // Set name
         if user["firstName"] != nil && user["lastName"] != nil {
@@ -86,8 +89,11 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
             self.userSkillPoint = userSkillPoint
             self.availablePointsLabel.text = "\(points)"
             if self.user.objectId! == BravoUser.getLoggedInUser().objectId! {
-                self.redeemButton.isHidden = points <= 0
+                self.redeemButton.isEnabled = points > 0
             }
+            self.skills = "\((userSkillPoint!["skills"]! as! Array).joined(separator: ", "))"
+            self.skillsLabel.text = self.skills
+
             
         }, failure: {
             (error: Error?) -> () in
@@ -133,7 +139,7 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
     }
     
     func styleViews() {
-        for viewToStyle in [availablePointView!, redeemedPointView!, givenPointView!] {
+        for viewToStyle in [availablePointView!, redeemedPointView!, givenPointView!, skillsLabel] {
             
             viewToStyle.layer.cornerRadius = 5.0
             viewToStyle.layer.masksToBounds = true
@@ -151,12 +157,15 @@ class ProfileViewController: UIViewController, RedeemViewControllerDelegate, UIS
             
         }
         
-        redeemButton.layer.cornerRadius = 5.0
+        if self.user.objectId! == BravoUser.getLoggedInUser().objectId! {
+
+        //redeemButton.layer.cornerRadius = 5.0
         redeemButton.layer.masksToBounds = false
         redeemButton.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
         redeemButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         redeemButton.layer.shadowOpacity = 0.8
-    
+        //redeemButton.layer.shadowRadius = 10.0
+        }
 
 
     }
