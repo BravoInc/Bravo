@@ -216,7 +216,6 @@ class TeamAdditionalDetailsViewController: UIViewController, UITableViewDataSour
             print("--- got \(users?.count) users")
             self.users = users ?? self.users
             self.getTeamRewards()
-            self.tableView.reloadData()
         }, failure: { (error : Error?) in
             print("---!!! cant get users : \(error?.localizedDescription)")
             self.progressControl.hideControls(delayInSeconds: 0.0, isRefresh: self.isRefresh, view: self.view)
