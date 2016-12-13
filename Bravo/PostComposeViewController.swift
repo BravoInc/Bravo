@@ -21,7 +21,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     var isComment: Bool!
     let placeholder = "What do you want to say?"
     
-    var didEdit = false
+    //var didEdit = false
     var postIndex: Int!
 
     let borderColor = UIColor(red: (136/255.0), green: (136/255.0), blue: (136/255.0), alpha: 1.0)
@@ -38,7 +38,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createBarButton.isEnabled = false
+        //createBarButton.isEnabled = false
         if isComment == true {
             let recipient = post!["recipient"] as! BravoUser
             recipientTextField.text = "\(recipient["firstName"]!) \(recipient["lastName"]!)"
@@ -61,13 +61,14 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
         setupTextView()
     }
     
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    /*func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         textView.text = ""
         
-        didEdit = true
+        //didEdit = true
         createBarButton.isEnabled = true
         return true
     }
+ */
     
     func setupTextView(){
         messageTextView.delegate = self
@@ -198,7 +199,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func createPost(_ sender: Any) {
-        guard didEdit == true else { return }
+        //guard didEdit == true else { return }
         if recipientTextField.text!.characters.count == 0 {
             displayMessage(title: "Post Creation Error", subTitle: "Please select a recipient.", duration: 3.0, showCloseButton: true, messageStyle: .error)
             return
@@ -218,6 +219,10 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
             displayMessage(title: "Post Creation Error", subTitle: "Please add some points.", duration: 3.0, showCloseButton: true, messageStyle: .error)
             return
 
+        }
+        
+        if messageTextView.text! == placeholder{
+            messageTextView.text = ""
         }
         
         let newPost = isComment == true ? saveNewComment() : saveNewPost()

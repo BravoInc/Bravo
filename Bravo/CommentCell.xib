@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,6 +54,7 @@
                 <constraints>
                     <constraint firstItem="agv-75-B77" firstAttribute="leading" secondItem="C8E-Nx-3ko" secondAttribute="trailing" constant="4" id="0B9-tq-GKi"/>
                     <constraint firstItem="C8E-Nx-3ko" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4vo-bR-OvM"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Biz-mD-qbT" secondAttribute="bottom" constant="8" id="5hN-Kq-rKV"/>
                     <constraint firstItem="Biz-mD-qbT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7Fo-mq-5lH"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="j2t-nF-p4y" secondAttribute="trailing" constant="8" id="7ks-wi-nOJ"/>
                     <constraint firstItem="jDL-ic-zNt" firstAttribute="leading" secondItem="Biz-mD-qbT" secondAttribute="trailing" constant="8" id="ErF-3N-xit"/>
