@@ -59,15 +59,6 @@
 		E136960F1DE9467800D51FE0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E136960E1DE9467800D51FE0 /* logo.png */; };
 		E1574DAC1DED06AC007AC27A /* backArrow128white.png in Resources */ = {isa = PBXBuildFile; fileRef = E1574DAB1DED06AC007AC27A /* backArrow128white.png */; };
 		E1574DAE1DED3457007AC27A /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1574DAD1DED3457007AC27A /* NameViewController.swift */; };
-		E16AEF681DFFB5C1005A587E /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16AEF671DFFB5C1005A587E /* BWWalkthroughPageViewController.swift */; };
-		E16AEF6A1DFFB5E2005A587E /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16AEF691DFFB5E2005A587E /* BWWalkthroughViewController.swift */; };
-		E16AEF6F1DFFBB8D005A587E /* collectPoints.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF6B1DFFBB8D005A587E /* collectPoints.png */; };
-		E16AEF701DFFBB8D005A587E /* gifts.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF6C1DFFBB8D005A587E /* gifts.png */; };
-		E16AEF711DFFBB8D005A587E /* goodWork.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF6D1DFFBB8D005A587E /* goodWork.png */; };
-		E16AEF721DFFBB8D005A587E /* recognized.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF6E1DFFBB8D005A587E /* recognized.png */; };
-		E16AEF741DFFCA62005A587E /* CustomWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16AEF731DFFCA62005A587E /* CustomWalkthroughViewController.swift */; };
-		E16AEF7F1DFFD2DE005A587E /* leftChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF7D1DFFD2DE005A587E /* leftChevron.png */; };
-		E16AEF801DFFD2DE005A587E /* rightChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = E16AEF7E1DFFD2DE005A587E /* rightChevron.png */; };
 		E185EA541DF510C5006FAE29 /* check128darkGray.png in Resources */ = {isa = PBXBuildFile; fileRef = E185EA4E1DF510C5006FAE29 /* check128darkGray.png */; };
 		E185EA551DF510C5006FAE29 /* check128extraLightGray.png in Resources */ = {isa = PBXBuildFile; fileRef = E185EA4F1DF510C5006FAE29 /* check128extraLightGray.png */; };
 		E185EA561DF510C5006FAE29 /* check128gray888.png in Resources */ = {isa = PBXBuildFile; fileRef = E185EA501DF510C5006FAE29 /* check128gray888.png */; };
@@ -161,15 +152,6 @@
 		E136960E1DE9467800D51FE0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E1574DAB1DED06AC007AC27A /* backArrow128white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow128white.png; sourceTree = "<group>"; };
 		E1574DAD1DED3457007AC27A /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
-		E16AEF671DFFB5C1005A587E /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughPageViewController.swift; sourceTree = "<group>"; };
-		E16AEF691DFFB5E2005A587E /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughViewController.swift; sourceTree = "<group>"; };
-		E16AEF6B1DFFBB8D005A587E /* collectPoints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collectPoints.png; sourceTree = "<group>"; };
-		E16AEF6C1DFFBB8D005A587E /* gifts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifts.png; sourceTree = "<group>"; };
-		E16AEF6D1DFFBB8D005A587E /* goodWork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goodWork.png; sourceTree = "<group>"; };
-		E16AEF6E1DFFBB8D005A587E /* recognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recognized.png; sourceTree = "<group>"; };
-		E16AEF731DFFCA62005A587E /* CustomWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWalkthroughViewController.swift; sourceTree = "<group>"; };
-		E16AEF7D1DFFD2DE005A587E /* leftChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftChevron.png; sourceTree = "<group>"; };
-		E16AEF7E1DFFD2DE005A587E /* rightChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightChevron.png; sourceTree = "<group>"; };
 		E185EA4E1DF510C5006FAE29 /* check128darkGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check128darkGray.png; sourceTree = "<group>"; };
 		E185EA4F1DF510C5006FAE29 /* check128extraLightGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check128extraLightGray.png; sourceTree = "<group>"; };
 		E185EA501DF510C5006FAE29 /* check128gray888.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check128gray888.png; sourceTree = "<group>"; };
@@ -316,16 +298,10 @@
 		E13696071DE9109800D51FE0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				E16AEF6B1DFFBB8D005A587E /* collectPoints.png */,
-				E16AEF6C1DFFBB8D005A587E /* gifts.png */,
-				E16AEF6D1DFFBB8D005A587E /* goodWork.png */,
-				E16AEF6E1DFFBB8D005A587E /* recognized.png */,
 				E1E6DB541DF676D3003AA189 /* fblogin.png */,
 				E198EE0D1DF4F5C6001B4833 /* rightArrow128green.png */,
 				E1E18D741DF7C9CC00FB68DE /* commentBubble.png */,
 				E198EE0E1DF4F5C6001B4833 /* rightArrow128White.png */,
-				E16AEF7D1DFFD2DE005A587E /* leftChevron.png */,
-				E16AEF7E1DFFD2DE005A587E /* rightChevron.png */,
 				E198EE0F1DF4F5C6001B4833 /* rightArrow128LightGrayAAB8C2.png */,
 				E192BA491DF3A34B00BE57D2 /* camera256.png */,
 				E1C2AE0E1DF5392300635DD2 /* add128green.png */,
@@ -350,20 +326,9 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		E16AEF661DFFB5B6005A587E /* Walkthrough */ = {
-			isa = PBXGroup;
-			children = (
-				E16AEF671DFFB5C1005A587E /* BWWalkthroughPageViewController.swift */,
-				E16AEF731DFFCA62005A587E /* CustomWalkthroughViewController.swift */,
-				E16AEF691DFFB5E2005A587E /* BWWalkthroughViewController.swift */,
-			);
-			name = Walkthrough;
-			sourceTree = "<group>";
-		};
 		E1F463A21DECC63B00A4C605 /* SignupLogin */ = {
 			isa = PBXGroup;
 			children = (
-				E16AEF661DFFB5B6005A587E /* Walkthrough */,
 				E192BA3F1DF242F500BE57D2 /* SignUpEmailViewController.swift */,
 				E192BA451DF24DAB00BE57D2 /* LoginViewController.swift */,
 				E1AE75A31DD7C7120060FE6D /* SignUpViewController.swift */,
@@ -510,17 +475,13 @@
 				E1E18D751DF7C9CC00FB68DE /* commentBubble.png in Resources */,
 				6452509E1DF29A7200DD1384 /* AvenirLTStd-Light.otf in Resources */,
 				E136960C1DE9420400D51FE0 /* Montserrat-Bold.ttf in Resources */,
-				E16AEF6F1DFFBB8D005A587E /* collectPoints.png in Resources */,
 				E136960D1DE9420400D51FE0 /* Montserrat-Regular.ttf in Resources */,
 				EEE19DE71DF1E04200703600 /* AddTeamCell.xib in Resources */,
 				64A3A9C81DEDFCA700E29D9D /* CommentCell.xib in Resources */,
 				E1C2AE111DF53A1500635DD2 /* fatAdd128green.png in Resources */,
 				E185EA541DF510C5006FAE29 /* check128darkGray.png in Resources */,
 				EE4B72D91DF5164600289F0E /* AddCommentCell.xib in Resources */,
-				E16AEF701DFFBB8D005A587E /* gifts.png in Resources */,
 				649E112E1DDAAA8C00B5D2FD /* RewardCell.xib in Resources */,
-				E16AEF7F1DFFD2DE005A587E /* leftChevron.png in Resources */,
-				E16AEF711DFFBB8D005A587E /* goodWork.png in Resources */,
 				64A3A9CE1DEE77A100E29D9D /* CommentHeaderView.xib in Resources */,
 				E185EA551DF510C5006FAE29 /* check128extraLightGray.png in Resources */,
 				E185EA571DF510C5006FAE29 /* check128lightGray.png in Resources */,
@@ -546,10 +507,8 @@
 				E136960F1DE9467800D51FE0 /* logo.png in Resources */,
 				649E11341DDAAB2400B5D2FD /* MoreRewardsCell.xib in Resources */,
 				E13696091DE9411D00D51FE0 /* background.png in Resources */,
-				E16AEF801DFFD2DE005A587E /* rightChevron.png in Resources */,
 				E1E6DB551DF676D3003AA189 /* fblogin.png in Resources */,
 				6441267D1DE80D7D0060FBED /* Activity.storyboard in Resources */,
-				E16AEF721DFFBB8D005A587E /* recognized.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,14 +573,12 @@
 				E1E462AD1DEBAB46003A0BCF /* TOSViewController.swift in Sources */,
 				E1AE75A41DD7C7120060FE6D /* SignUpViewController.swift in Sources */,
 				E1AE75A61DD7D2E20060FE6D /* InitialViewController.swift in Sources */,
-				E16AEF741DFFCA62005A587E /* CustomWalkthroughViewController.swift in Sources */,
 				648A56971DF7BEF900EF29D3 /* CellAnimator.swift in Sources */,
 				649E11331DDAAB2400B5D2FD /* MoreRewardsCell.swift in Sources */,
 				64D507AB1DE4245200C708BD /* SkillPoints.swift in Sources */,
 				E19771281DF5439E0097997D /* TeamPhotoViewController.swift in Sources */,
 				E192BA441DF24B4400BE57D2 /* SignUpPhotoViewController.swift in Sources */,
 				64D507A51DE423A300C708BD /* Post.swift in Sources */,
-				E16AEF6A1DFFB5E2005A587E /* BWWalkthroughViewController.swift in Sources */,
 				644126851DE80F7B0060FBED /* ProfileViewController.swift in Sources */,
 				64A3A9C71DEDFCA700E29D9D /* CommentCell.swift in Sources */,
 				64EA857F1DFE3E8400558FFF /* CircularLoaderView.swift in Sources */,
@@ -631,7 +588,6 @@
 				64A3A9DC1DF2290C00E29D9D /* RedeemViewController.swift in Sources */,
 				64344D2C1DED3414006951D0 /* UserSkillPoints.swift in Sources */,
 				649E112D1DDAAA8C00B5D2FD /* RewardCell.swift in Sources */,
-				E16AEF681DFFB5C1005A587E /* BWWalkthroughPageViewController.swift in Sources */,
 				EE3121211DD7E6AA00665F4C /* BravoUser.swift in Sources */,
 				64EDF6831DD948F00071A731 /* RewardsViewController.swift in Sources */,
 				6441268F1DEB8B1E0060FBED /* SelectionViewController.swift in Sources */,

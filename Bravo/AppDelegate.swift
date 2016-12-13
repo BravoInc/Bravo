@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let ParseAppID = "32JHVD95oXffMcefSB4VxAVDtrU6H92j35aH679h"
     let ParseClientKey = "gQeZDDWXZk4fLPe1wdvjplI8HMqp9a4YfP5n4ahH"
     
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         return handled
@@ -42,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         configureAppearanceProxies()
-        
         //Add this line. Replace '5eb5a37e-b458-11e3-ac11-000c2940e62c' with your OneSignal App ID.
         //OneSignal.initWithLaunchOptions(launchOptions, appId: "5eb5a37e-b458-11e3-ac11-000c2940e62c")
         
@@ -89,19 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            window!.makeKeyAndVisible()
         }
         
-        let defaults = UserDefaults.standard
-        if let hasSeenWalkthrough = defaults.bool(forKey: "hasSeenWalkthrough") as? Bool{
-            if(!hasSeenWalkthrough){
-                print("--- walkthrough: NOT SEEN. Showing now")
-                showWalkThrough()
-            }else{
-                print("--- walkthrough: ALREADY SEEN")
-            }
-        }else{
-            print("--- walkthrough: NOT SEEN. Showing now")
-            showWalkThrough()
-        }
-        
         // Print the font family names available in the app
         /*for family: String in UIFont.familyNames
         {
@@ -113,26 +100,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }*/
         
         
+        
+
+        
         return true
-    }
-    
-    func showWalkThrough(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let walkthrough = storyboard.instantiateViewController(withIdentifier: "BWWalkthroughViewController") as! BWWalkthroughViewController
-        
-        let page1 = storyboard.instantiateViewController(withIdentifier: "walkthrough1")
-        let page2 = storyboard.instantiateViewController(withIdentifier: "walkthrough2")
-        let page3 = storyboard.instantiateViewController(withIdentifier: "walkthrough3")
-        let page4 = storyboard.instantiateViewController(withIdentifier: "walkthrough4")
-        
-        walkthrough.delegate = walkthrough
-        walkthrough.addViewController(vc: page1)
-        walkthrough.addViewController(vc: page2)
-        walkthrough.addViewController(vc: page3)
-        walkthrough.addViewController(vc: page4)
-        
-        self.window?.rootViewController = walkthrough
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
