@@ -71,14 +71,24 @@ import UIKit
     
     public func walkthroughCloseButtonPressed() {
         // delegate
-        self.dismiss(animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
+        present(vc, animated: true, completion: nil)
+        
+        //self.dismiss(animated: true, completion: nil)
+        
     }
     
     func walkthroughPageDidChange(_ pageNumber: Int) {
         // delegate
+        
         if (self.numberOfPages - 1) == pageNumber{
             self.closeButton?.isHidden = false
-        }else{
+        }
+//        else if (pageNumber == ){
+//        }
+        else{
             self.closeButton?.isHidden = true
         }
     }
@@ -270,17 +280,23 @@ import UIKit
         
         // Hide/Show navigation buttons
         
-        if currentPage == controllers.count - 1{
-            nextButton?.isHidden = true
-        }else{
+        if currentPage == 0 { // first page
+            prevButton?.isHidden = true
             nextButton?.isHidden = false
+            closeButton?.setTitle("Skip", for: UIControlState.normal)
+            
+        }else if currentPage == (controllers.count - 1){ // last page
+            prevButton?.isHidden = false
+            closeButton?.setTitle("Begin", for: UIControlState.normal)
+            nextButton?.isHidden = true
+            
+        }else{ // all other pages
+            nextButton?.isHidden = false
+            prevButton?.isHidden = false
+            closeButton?.setTitle("Skip", for: UIControlState.normal)
         }
         
-        if currentPage == 0{
-            prevButton?.isHidden = true
-        }else{
-            prevButton?.isHidden = false
-        }
+        
     }
     
     // MARK: - Scrollview Delegate -
