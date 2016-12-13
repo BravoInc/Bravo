@@ -149,19 +149,19 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
         let rotate = CGAffineTransform(rotationAngle: CGFloat(M_PI)*8)
         let scaleAndRotate = rotate.scaledBy(x: 1, y: 1)
         
-        UIView.animate(withDuration: 1.0, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             self.senderImageView.transform = scaleAndRotate
         }) { (completion : Bool) in
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.25, animations: {
                 self.arrowImageView.alpha = 1
             }, completion: { (finished : Bool) in
                 if (finished){
                     
-                    UIView.animate(withDuration: 1.0, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                    UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                         self.recipientImageView.transform = scaleAndRotate
                     }, completion: { (finished : Bool) in
                         if (finished){
-                            UIView.animate(withDuration: 0.5, animations: {
+                            UIView.animate(withDuration: 0.25, animations: {
                                 self.arrowImageView.alpha = 0
                             })
                             self.animatePoints()
@@ -173,7 +173,7 @@ class CommentsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func animatePoints(){
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 3, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             self.pointsLabel.transform = .identity
         }, completion: nil)
     }
