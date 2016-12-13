@@ -33,6 +33,7 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var skillsTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var createBarButton: UIBarButtonItem!
+    var errorMessage = ""
     
     weak var delegate: PostComposeViewControllerDelegate?
     
@@ -54,6 +55,9 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
             if recipient.objectId! == BravoUser.getLoggedInUser().objectId! {
                 pointsTextField.text = "0"
                 pointsTextField.isEnabled = false
+                errorMessage = "Please add a message."
+            } else {
+                errorMessage = "Please add points or a message."
             }
         }
         scrollView.keyboardDismissMode = .onDrag
@@ -225,6 +229,12 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
             messageTextView.text = ""
         }
         
+        
+        if isComment && Int(pointsTextField.text!)! == 0  && messageTextView.text! == "" {
+            displayMessage(title: "Post Creation Error", subTitle: errorMessage, duration: 3.0, showCloseButton: true, messageStyle: .error)
+            return
+        }
+
         let newPost = isComment == true ? saveNewComment() : saveNewPost()
         delegate?.postCompose?(post: newPost, isComment: isComment, postIndex: postIndex)
         dismiss(animated: true, completion: nil)
