@@ -30,7 +30,7 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.45882352941176469" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW6-d4-hNE" userLabel="topDiv">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sW6-d4-hNE" userLabel="topDiv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="67"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -61,7 +61,7 @@
                             <point key="value" x="0.5" y="0.5"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="0.5" y="0.5"/>
+                            <point key="value" x="0.29999999999999999" y="0.29999999999999999"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </viewController>
@@ -88,7 +88,7 @@
                                     <constraint firstAttribute="height" constant="180" id="kC2-3z-Xq1"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pi-1B-7gS" userLabel="topDiv">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pi-1B-7gS" userLabel="topDiv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="67"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -120,10 +120,10 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Curve"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="1" y="0.0"/>
+                            <point key="value" x="0.20000000000000001" y="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="1" y="0.0"/>
+                            <point key="value" x="0.29999999999999999" y="0.0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </viewController>
@@ -156,7 +156,7 @@
                                 <color key="textColor" red="0.40000000000000002" green="0.45882352939999999" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCO-P4-jke" userLabel="topDiv">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCO-P4-jke" userLabel="topDiv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="67"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -177,10 +177,10 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Curve"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="0.0" y="0.69999999999999996"/>
+                            <point key="value" x="0.0" y="0.20000000000000001"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="0.69999999999999996" y="0.0"/>
+                            <point key="value" x="0.20000000000000001" y="0.20000000000000001"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </viewController>
@@ -551,7 +551,7 @@
                                     <action selector="closeWithSender:" destination="m9A-Qc-NHq" eventType="touchUpInside" id="82D-Av-fhm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-i4-LFn">
+                            <button opaque="NO" alpha="0.25" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-i4-LFn">
                                 <rect key="frame" x="339" y="304" width="20" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wbN-i4-LFn" secondAttribute="height" multiplier="1:3" id="MUa-lh-n1L"/>
@@ -562,7 +562,7 @@
                                     <action selector="nextPage" destination="m9A-Qc-NHq" eventType="touchUpInside" id="7i5-Vl-ST7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znx-Z8-nmZ">
+                            <button opaque="NO" alpha="0.25" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znx-Z8-nmZ">
                                 <rect key="frame" x="16" y="303" width="20" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="3VH-cG-x3u"/>
@@ -1229,7 +1229,7 @@
                                     <constraint firstAttribute="width" constant="180" id="rwZ-SJ-oMw"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tz-Rk-oPS" userLabel="topDiv">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tz-Rk-oPS" userLabel="topDiv">
                                 <rect key="frame" x="0.0" y="20" width="375" height="67"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
