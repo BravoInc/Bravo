@@ -287,7 +287,7 @@ import UIKit
             
         }else if currentPage == (controllers.count - 1){ // last page
             prevButton?.isHidden = false
-            closeButton?.isHidden = true
+            closeButton?.isHidden = false
             closeButton?.setTitle("Begin", for: UIControlState.normal)
             nextButton?.isHidden = true
             

@@ -201,10 +201,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qsO-d4-Cav" userLabel="Outer Stack">
-                                <rect key="frame" x="28" y="167.5" width="319" height="333.5"/>
+                                <rect key="frame" x="28" y="168" width="319" height="333"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-2g-swe" userLabel="LogoBackground">
-                                        <rect key="frame" x="89.5" y="0.0" width="140" height="140"/>
+                                        <rect key="frame" x="90" y="0.0" width="140" height="140"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenlogo" translatesAutoresizingMaskIntoConstraints="NO" id="0wV-4c-vpF" userLabel="logo">
                                                 <rect key="frame" x="20" y="20" width="100" height="100"/>
@@ -224,13 +224,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome to Bravo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5C-Fo-6vh">
-                                        <rect key="frame" x="51.5" y="180" width="216" height="30.5"/>
+                                        <rect key="frame" x="52" y="180" width="216" height="30"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-Jx-w5p">
-                                        <rect key="frame" x="17" y="250.5" width="285" height="83"/>
+                                        <rect key="frame" x="17" y="250" width="285" height="83"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi8-IK-llY">
                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="33"/>
@@ -586,12 +586,12 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9vd-i1-m2a">
-                                <rect key="frame" x="168" y="510" width="39" height="37"/>
+                                <rect key="frame" x="168" y="546.5" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.66666666669999997" green="0.72156862749999995" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSZ-bI-iLB" userLabel="bottomDiv">
-                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="583.5" width="375" height="83.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -603,7 +603,7 @@
                             <constraint firstItem="vj5-10-EoJ" firstAttribute="top" secondItem="LSZ-bI-iLB" secondAttribute="bottom" id="Mlr-tf-EEi"/>
                             <constraint firstItem="SOJ-9q-zhj" firstAttribute="top" secondItem="vfN-oA-NGD" secondAttribute="bottom" constant="3" id="N3A-1E-h7d"/>
                             <constraint firstItem="LSZ-bI-iLB" firstAttribute="leading" secondItem="Iu4-3c-S1e" secondAttribute="leading" id="Trg-rr-4wU"/>
-                            <constraint firstItem="LSZ-bI-iLB" firstAttribute="height" secondItem="Iu4-3c-S1e" secondAttribute="height" multiplier="0.18" id="ag9-m6-75A"/>
+                            <constraint firstItem="LSZ-bI-iLB" firstAttribute="height" secondItem="Iu4-3c-S1e" secondAttribute="height" multiplier="0.125" id="ag9-m6-75A"/>
                             <constraint firstItem="znx-Z8-nmZ" firstAttribute="centerY" secondItem="Iu4-3c-S1e" secondAttribute="centerY" id="cxe-bo-LfK"/>
                             <constraint firstItem="9vd-i1-m2a" firstAttribute="centerX" secondItem="Iu4-3c-S1e" secondAttribute="centerX" id="pMd-lg-9ZY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wbN-i4-LFn" secondAttribute="trailing" id="qzN-2w-GkJ"/>
@@ -627,7 +627,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oCS-YV-RHj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6II-L6-pQd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6II-L6-pQd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -739,7 +739,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9hn-xG-Eod" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z8a-bn-psR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z8a-bn-psR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -887,7 +887,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21I-yD-TLY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="m60-bx-V0W">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m60-bx-V0W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1034,7 +1034,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b2W-2O-gam" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bjk-3A-qH3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bjk-3A-qH3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1209,7 +1209,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0tp-sj-DKi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ajE-uA-aq9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ajE-uA-aq9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1263,7 +1263,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onBeginButtonTap:" destination="uPq-zS-RyW" eventType="touchUpInside" id="2Rq-z0-LSD"/>
-                                    <action selector="onNextButtonPress:" destination="8Zl-aj-iL3" eventType="touchUpInside" id="ged-KO-NrZ"/>
                                 </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-ST-af1" userLabel="bottomDiv">
@@ -1301,6 +1300,9 @@
                             <point key="value" x="1" y="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="beginButton" destination="ab9-vf-xlQ" id="yiM-ZZ-Wza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZP-LO-Aax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

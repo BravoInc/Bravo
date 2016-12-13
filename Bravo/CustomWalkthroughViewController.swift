@@ -12,16 +12,25 @@ class MyCustomPageViewController: BWWalkthroughPageViewController {
     
     //@IBOutlet var backgroundView: UIImageView!
     
+    @IBOutlet weak var beginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.zPosition = -1000
         view.layer.isDoubleSided = false
+        
+        // disable for time being until bugfix
+        beginButton.isEnabled = false
+        beginButton.isHidden = true
     }
     
     @IBAction func onBeginButtonTap(_ sender: Any) {
+        /*
+        // some weird issue with this
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
         present(vc, animated: true, completion: nil)
+ */
     }
     
     override func viewWillAppear(_ animated: Bool) {
