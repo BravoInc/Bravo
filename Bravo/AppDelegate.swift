@@ -92,9 +92,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         if let hasSeenWalkthrough = defaults.bool(forKey: "hasSeenWalkthrough") as? Bool{
             if(!hasSeenWalkthrough){
+                print("--- walkthrough: NOT SEEN. Showing now")
                 showWalkThrough()
+            }else{
+                print("--- walkthrough: ALREADY SEEN")
             }
         }else{
+            print("--- walkthrough: NOT SEEN. Showing now")
             showWalkThrough()
         }
         

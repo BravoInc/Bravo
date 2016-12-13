@@ -37,6 +37,13 @@ class InitialViewController: UIViewController, TTTAttributedLabelDelegate {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "hasSeenWalkthrough")
+        print("--- marking that user has seen walkthrough intro in defaults")
+        defaults.synchronize()        
+    }
 
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         print("--- tapped on TOS link")
