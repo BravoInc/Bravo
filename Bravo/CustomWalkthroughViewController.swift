@@ -18,6 +18,12 @@ class MyCustomPageViewController: BWWalkthroughPageViewController {
         view.layer.isDoubleSided = false
     }
     
+    @IBAction func onBeginButtonTap(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
+        present(vc, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         //self.backgroundView.layer.masksToBounds = false
     }
