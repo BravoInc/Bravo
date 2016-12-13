@@ -163,11 +163,8 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
 
     func saveNewComment() -> PFObject {
         
-        var points = 0
+        let points = Int(pointsTextField.text!)!
         
-        if (pointsTextField.text != nil && pointsTextField.text != ""){
-            points = Int(pointsTextField.text!)!
-        }
         
         let newComment = Comment.createComment(post: post!, message: messageTextView.text!, points: points)
         let skills = skillsTextField.text!.components(separatedBy: "#")
@@ -215,6 +212,12 @@ class PostComposeViewController: UIViewController, UITextViewDelegate{
         
         if pointsTextField.text! == "" {
             pointsTextField.text = "0"
+        }
+        
+        if !isComment && Int(pointsTextField.text!)! == 0 {
+            displayMessage(title: "Post Creation Error", subTitle: "Please add some points.", duration: 3.0, showCloseButton: true, messageStyle: .error)
+            return
+
         }
         
         let newPost = isComment == true ? saveNewComment() : saveNewPost()
