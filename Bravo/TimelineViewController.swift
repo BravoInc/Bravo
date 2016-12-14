@@ -146,9 +146,27 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func postLiked(post: PFObject, isLiked: Bool, postIndex: Int) {
-        postIdLikeMap[post.objectId!] = isLiked
         let indexPath = IndexPath(row: postIndex, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .none)
+        
+        let postCell = tableView.cellForRow(at: indexPath) as! PostCell
+        postCell.isLiked = isLiked
+
+        if isLiked {
+            postCell.likeCountLabel.text = "\(Int(postCell.likeCountLabel.text!)!+1)"
+        } else {
+            postCell.likeCountLabel.text = "\(Int(postCell.likeCountLabel.text!)!-1)"
+        }
+        
+        postCell.likeButton.isSelected = isLiked
+        if isLiked {
+            postCell.likeButton.setImage(UIImage(named: "thumbsup_filled"), for: UIControlState.selected)
+            
+        } else {
+            postCell.likeButton.setImage(UIImage(named: "thumbsup_outline"), for: UIControlState.normal)
+            
+        }
+
+        
     }
     
     func postCommentedOn(post: PFObject, postIndex: Int) {
