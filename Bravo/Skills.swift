@@ -67,6 +67,7 @@ class Skills: PFObject {
                 let userRelation = skills![0].relation(forKey: "userPointsRelation")
                 let userQuery = userRelation.query()
                 userQuery.includeKey("user")
+                userQuery.order(byDescending: "points")
                 userQuery.findObjectsInBackground(block: { (users: [PFObject]?, error: Error?) in
                     if error == nil {
                         success(users)
