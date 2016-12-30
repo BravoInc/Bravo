@@ -26,7 +26,7 @@ Here's a walkthrough of the app:
 
 ## Product Demo : 
 
-[![Bravo Snippet](http://imgur.com/a/34Fey)](https://youtu.be/xFm9p_K3eZc "Bravo Product Demo")
+[![Bravo Snippet](//imgur.com/a/34Fey)](https://youtu.be/xFm9p_K3eZc "Bravo Product Demo")
 
 ## License
 
