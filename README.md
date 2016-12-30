@@ -24,6 +24,10 @@ Here's a walkthrough of the app:
 
 ![Video Walkthrough](demo.gif)
 
+## Product Demo : 
+
+[![Bravo Product Demo](http://imgur.com/a/34Fey)](https://youtu.be/xFm9p_K3eZc "Bravo Product Demo")
+
 ## License
 
     Copyright 2016 Bravo
