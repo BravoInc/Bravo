@@ -2,6 +2,17 @@
 
 This is a real time employee recognition and feedback app to encourage employee productivity and collaboration through micro bonuses. Employees give and receive timely and meaningful praise and recognition -- increasing motivation, productivity, and retention. Organization/Team Admins can create rewards like an extra day off, free lunch etc. Employees can redeem the points they earn for these rewards. Employees can send bonuses to peers with 4 simple required fields: number of points, recipient, a reason and a category. This app also has a leaderboard to promote healthy competition among employees. 
 
+## Video Walkthrough
+
+Here's a walkthrough of the app:
+
+![Video Walkthrough](demo.gif)
+
+## Product Demo : 
+
+[![Bravo Snippet](thumbnail.png)](https://youtu.be/xFm9p_K3eZc "Bravo Product Demo")
+
+## User Stories : 
 
 User Stories: 
 - [x] Users can sign up with email/username and password
@@ -17,16 +28,6 @@ User Stories:
 - [x] Users can sign up with facebook
 - [x] Rewards Leaderboard
 
-
-## Video Walkthrough
-
-Here's a walkthrough of the app:
-
-![Video Walkthrough](demo.gif)
-
-## Product Demo : 
-
-[![Bravo Snippet](thumbnail.png)](https://youtu.be/xFm9p_K3eZc "Bravo Product Demo")
 
 ## License
 
