@@ -6,7 +6,7 @@ This is a real time employee recognition and feedback app to encourage employee 
 
 Here's a walkthrough of the app:
 
-![Video Walkthrough](walkthrough.mp4)
+![Video Walkthrough](bravo-gif.gif)
 
 ## Product Demo : 
 
